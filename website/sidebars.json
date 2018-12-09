@@ -1,10 +1,30 @@
 {
   "docs": {
-    "Docusaurus": ["doc1"],
-    "First Category": ["doc2"],
+    "Javascript": [
+      "javascript/promises-and-async-await",
+      "javascript/using-local-storage",
+      "javascript/firebase",
+      "javascript/language-basics",
+      "javascript/js-array-functions",
+      "javascript/es-6-cheatsheet",
+      "javascript/eslint-setup",
+      "javascript/data-structures",
+      "javascript/naming-conventions"
+    ],
+    "JS Libs": [
+      "javascript/lodash-library",
+      "javascript/axios",
+      "javascript/ramda",
+      "javascript/momentjs"
+    ],
     "Second Category": ["doc3"]
   },
-  "docs-other": {
-    "First Category": ["doc4", "doc5"]
+  "projects": {
+    "eTVTracker": ["projects/tmdb-api-reference", "projects/electron-tv-tracker"],
+    "CarTracker": [],
+    "Quotable":[]
+  },
+  "components": {
+    "Utility": ["_components/component-mypromptalert", "doc5"]
   }
 }
