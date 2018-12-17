@@ -6,10 +6,12 @@
       "javascript/firebase",
       "javascript/language-basics",
       "javascript/js-array-functions",
+      "javascript/keyboard-mouse-input",
       "javascript/es-6-cheatsheet",
       "javascript/eslint-setup",
       "javascript/data-structures",
-      "javascript/naming-conventions"
+      "javascript/naming-conventions",
+      "javascript/javascript-resources"
     ],
     "JS Libs": [
       "javascript/lodash-library",
@@ -17,7 +19,19 @@
       "javascript/ramda",
       "javascript/momentjs"
     ],
-    "Second Category": ["doc3"]
+    "React": [
+      "react/react-basics",
+      "react/react-with-classes",
+      "react/reach-router",
+      "react/react-router",
+      "react/react-components"
+    ],
+    "Electron": [
+      "electron/electron-react-boiler",
+      "electron/electron-basics",
+      "electron/electron-packaging",
+      "electron/electron-tooling"
+    ]
   },
   "projects": {
     "eTVTracker": ["projects/tmdb-api-reference", "projects/electron-tv-tracker"],
