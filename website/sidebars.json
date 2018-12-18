@@ -21,6 +21,7 @@
     ],
     "React": [
       "react/react-basics",
+      "react/react-hooks",
       "react/react-with-classes",
       "react/reach-router",
       "react/react-router",
