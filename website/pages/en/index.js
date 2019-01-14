@@ -64,9 +64,9 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
+            <Button href={docUrl('javascript/promises-and-async-await')}>My Code Docs</Button>
             <Button href={docUrl('electron/electron-react-boiler.html')}>Electron</Button>
-            <Button href={docUrl('doc2.html')}>Example Link 2</Button>
+            <Button href={docUrl('_componeents/component-mypromptalert')}>Components</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -105,10 +105,13 @@ class Index extends React.Component {
       <Block id="try">
         {[
           {
-            content: 'Talk about trying this out',
-            image: `${baseUrl}img/docusaurus.svg`,
+            content: 'As I started my journey into JavaScript, I realized not only would \
+            I not remember everything, but things were changing every day.  To help me keep \
+            my sanity, I started documenting all I could.  While these are not "Polished" \
+            documents, they are a quick reference that I use to point me in the right direction.',
+            image: `${baseUrl}img/js-image.png`,
             imageAlign: 'left',
-            title: 'Try it Out',
+            title: 'The World of JavaScript',
           },
         ]}
       </Block>
@@ -193,12 +196,13 @@ class Index extends React.Component {
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
-          <Features />
+          {/* <Features />
           <FeatureCallout />
           <LearnHow />
           <TryOut />
           <Description />
-          <Showcase />
+          <Showcase /> */}
+          <TryOut />
         </div>
       </div>
     );
