@@ -28,6 +28,9 @@
       "react/react-router",
       "react/react-components"
     ],
+    "HTMLCSS": [
+      "html-css/tailwindcss"
+    ],
     "Electron": [
       "electron/electron-react-boiler",
       "electron/electron-basics",
