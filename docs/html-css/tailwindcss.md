@@ -56,14 +56,14 @@ This will allow you to customize colors, sizing, fonts, etc.  Don't need anythin
 $ npx tailwind init tailwind.config.js
 ```
 
-Execute the above in the root directory of your project.
+Execute the above in the `src` directory of your project.
 
 ### Create Package.json script
 
 This script will be used to build the actual tailwind.css file.  You could set it to build every time you ran, but I think that is excessive, so I choose to just run when changes have been made to Tailwind config or something else has created a need to rebuild
 
 ```json
-"tailwind:css": "tailwind build src/tailwind.src.css -c tailwind.config.js -o src/tailwind.css"
+"tailwind:css": "tailwind build src/tailwind.src.css -c src/tailwind.config.js -o src/tailwind.css"
 ```
 
 Remember that your script is being run in the root of your project, so all directories in above script are relative to that.
@@ -96,6 +96,23 @@ There is a babel macro that will let you use the tailwind classes in styled comp
 ```bash
 $ yarn add tailwind.macro@next --dev
 ```
+
+### babel-plugin-macros.config.js
+
+You must also create a **babel-plugin-macros.config.js** file in the root of your project:
+
+```js
+// babel-plugin-macros.config.js
+module.exports = {
+  tailwind: {
+    styled: 'styled-components/macro',
+    config: './src/tailwind.config.js',
+    format: 'auto'
+  }
+}
+```
+
+> Note that the tailwind.config.js must reside in the src directory.  
 
 ## Styled Components Usage
 

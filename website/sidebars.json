@@ -11,7 +11,8 @@
       "javascript/eslint-setup",
       "javascript/data-structures",
       "javascript/naming-conventions",
-      "javascript/javascript-resources"
+      "javascript/javascript-resources",
+      "javascript/javascript-snippets"
     ],
     "JS Libs": [
       "javascript/lodash-library",
@@ -39,6 +40,7 @@
   },
   "projects": {
     "eTVTracker": ["projects/tmdb-api-reference", "projects/electron-tv-tracker"],
+    "TMDB API": ["projects/tmdb-wrapper-api"],
     "CarTracker": [],
     "Quotable":[]
   },
