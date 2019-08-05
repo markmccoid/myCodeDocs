@@ -1,5 +1,5 @@
 ---
-id: ramda
+id: lib_ramda
 title: Ramda
 sidebar_label: Ramda
 ---

@@ -14,45 +14,93 @@ The basics are you first use create-react-app to create your application. Then y
 
 ```
 $ npx create-react-app appname
-$ yarn add electron electron-builder concurrently wait-on --dev
+$ yarn add electron electron-builder concurrently wait-on electron-devtools-installer --dev
 $ yarn add electron-is-dev
 ```
 
 **Concurrently** is used in *package.json* scripts to run multiple commands in one script.  [wait-on](https://www.npmjs.com/package/wait-on) is used when running the *electron-dev* script in *package.json*.
 
+**electron-devtools-installer** is used to get the React and Redux(if you are using redux) developer tools installed.  You will see reference to these in the *electron.js* script below.
+
+## electron.js file
+
 Now we have a react app, but we want it to run in Electron.  To do this we need to add **electron.js** to the **public** directory.  This is so that during build time, it will get moved to the build directory.
 
 ```javascript
-const electron = require('electron');
+const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const {
+  default: installExtension,
+  REACT_DEVELOPER_TOOLS,
+  REDUX_DEVTOOLS
+} = require("electron-devtools-installer");
 
-const path = require('path');
-const url = require('url');
-const isDev = require('electron-is-dev');
+const path = require("path");
+const isDev = require("electron-is-dev");
 
 let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 900, height: 680});
-  mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
-  mainWindow.on('closed', () => mainWindow = null);
+  mainWindow = new BrowserWindow({
+    width: 900,
+    height: 680,
+    show: false,
+    icon: path.join(__dirname, "../assets/icons/png/64x64.png"),
+    webPreferences: {
+      nodeIntegration: true, // needed if going to access file system
+      backgroundThrottling: false
+    },
+    title: "Title of your App" // Make sure to delete title tag in index.html if it exists
+  });
+  mainWindow.loadURL(
+    isDev
+      ? "http://localhost:3000"
+      : `file://${path.join(__dirname, "../build/index.html")}`
+  );
+  mainWindow.on("closed", () => (mainWindow = null));
+  // If in development mode, then load the dev tools
+  if (isDev) {
+    installDevTools();
+  }
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.show();
+    isDev && mainWindow.openDevTools();
+  });
 }
 
-app.on('ready', createWindow);
+app.on("ready", createWindow);
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
     app.quit();
   }
 });
 
-app.on('activate', () => {
+app.on("activate", () => {
   if (mainWindow === null) {
     createWindow();
   }
 });
 
+//---------- INSTALL DEV TOOLS ---------------------//
+const installDevTools = () => {
+  installExtension(REACT_DEVELOPER_TOOLS)
+    .then(name => {
+      console.log(`Added Extension: ${name}`);
+    })
+    .catch(err => {
+      console.log("An error occurred: ", err);
+    });
+
+  installExtension(REDUX_DEVTOOLS)
+    .then(name => {
+      console.log(`Added Extension: ${name}`);
+    })
+    .catch(err => {
+      console.log("An error occurred: ", err);
+    });
+};
 ```
 
 You can see that we are using the **electron-is-dev** module to determine if we are in dev mode or build mode.
@@ -101,6 +149,42 @@ You should now be able to run the *electron-dev* script.
 ```
 $ yarn run electron-dev
 ```
+
+## Icon Creation
+
+Best way to get all the sizes of the icon you will need is to use the [electron-icon-maker](https://github.com/jaretburkett/electron-icon-maker) npm module.
+
+```bash
+$ npm install -g electron-icon-maker
+```
+
+This can be a global install.  Don't need it on your project.
+
+Create a directory in the root of your folder called ***assets*** to hold the output.
+
+Check out docs, but basically get an PNG file, preferably at 1024x1024 resolution and run:
+
+```bash
+$ electron-icon-maker --input=youriconname.png --output=./assets
+```
+
+You will reference your icon files in the *electron.js* file when you create a new **BrowserWindow** instance.  It will be the *icon* property passed to this function.
+
+```javascript
+mainWindow = new BrowserWindow({
+ width: 900,
+ height: 680,
+ show: false,
+ icon: path.join(__dirname, "../assets/icons/png/64x64.png"),
+ webPreferences: {
+   nodeIntegration: true, // needed if going to access file system
+   backgroundThrottling: false
+ },
+ title: "Title of your App" // Make sure to delete title tag in index.html if it exists
+});
+```
+
+
 
 ## React Router Setup
 
@@ -206,16 +290,67 @@ However, I want my main react components in a component directory.  I will refac
 
 ![](https://dl.dropbox.com/s/kiiqotgtypqmjm3/electron-refactor-structure.png?dl=0)
 
+## Redux Setup
+
+Get more in-depth information on [**My Redux Pattern**](../redux/my-redux-pattern)
+
+To get Redux setup, you will need to install the following:
+
+```bash
+$ yarn add redux react-redux redux-thunk --dev
+```
+
+### Create the Redux store
+
+I like to keep the store creation function in a folder called store, under the src directory called *configureStore.js*:
+
+`.\src\store\configureStore.js`
+
+The configureStore.js file will have a default export of your store that you can then pass into the react-redux  Provider component.
+
+```javascript
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+
+const initialState = { name: "test" };
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "TEST":
+      return state;
+    default:
+      return state;
+  }
+};
+
+export default function configureStore() {
+  let composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  return createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+}
+```
+
+The above is a very simple starting point for your redux store.  You will want to do a couple of things as your refine your store:
+
+1. Create separate files for your reducers and actions
+2. Since your state will most likely be more complex, you will want to have separate reducers for each piece of state, thus requiring you to use *combineReducers*
+
+You can find more information on how we setup the Redux Devtools extension at [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension#usage).
+
+
+
 ## Emotion JS or Styled-Components Setup with create-react-app v2
 
 To use **EmotionJS** or **styled-components** with create-react-app v2, you simply need to use the babel-macros.
 
 ### styled-component Babel Macro usage
 
-[Styled-Component Docs](https://www.styled-components.com/docs/tooling#babel-macro)
+Here is what I have found.  Styled-Components just works with create-react-app v2.  Documentation said to import from `styled-components/macro` but I haven't need to do that.  Just `yarn add styled-components --dev` and you are good to go.  
+
+> Note: I haven't used much other than the standard `styled` function, so other functions may not work.
+>
+> See Styled Components docs for more details [Styled-Component Docs](https://www.styled-components.com/docs/tooling#babel-macro)
 
 ```javascript
-import styled from 'styled-components/macro'
+import styled from 'styled-components/macro' //I don't use the /macro
 
 const Thing = styled.div`
   color: red;
@@ -237,7 +372,7 @@ import styled from '@emotion/styled.macro'
 
 ## Emotion JS Setup and Decorator Support
 
-> With create-react-app v2, you can use babel-macros so you DON'T have to use react-app-rewired.  
+> With create-react-app v2, you can use babel-macros so you **DON'T** have to use react-app-rewired.  
 >
 > This works for styled-components as well as emotion.
 

@@ -1,5 +1,5 @@
 ---
-id: axios
+id: lib_axios
 title: Axios
 sidebar_label: Axios
 ---

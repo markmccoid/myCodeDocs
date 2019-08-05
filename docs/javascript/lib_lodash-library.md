@@ -1,5 +1,5 @@
 ---
-id: lodash-library
+id: lib_lodash-library
 title: Lodash Library
 sidebar_label: Lodash Library
 ---

@@ -12,13 +12,15 @@
       "javascript/data-structures",
       "javascript/naming-conventions",
       "javascript/javascript-resources",
-      "javascript/javascript-snippets"
+      "javascript/javascript-snippets",
+      "javascript/npm-module-creation"
     ],
     "JS Libs": [
-      "javascript/lodash-library",
-      "javascript/axios",
-      "javascript/ramda",
-      "javascript/momentjs"
+      "javascript/lib_lodash-library",
+      "javascript/lib_axios",
+      "javascript/lib_ramda",
+      "javascript/lib_momentjs",
+      "javascript/lib_redux-forms"
     ],
     "React": [
       "react/react-basics",
@@ -28,9 +30,12 @@
       "react/react-router",
       "react/react-components"
     ],
-    "HTMLCSS": [
-      "html-css/tailwindcss"
+    "Redux": [
+      "redux/react-redux",
+      "redux/my-redux-pattern",
+      "redux/react-redux-compliment"
     ],
+    "HTMLCSS": ["html-css/tailwindcss"],
     "Electron": [
       "electron/electron-react-boiler",
       "electron/electron-basics",
@@ -39,10 +44,13 @@
     ]
   },
   "projects": {
-    "eTVTracker": ["projects/tmdb-api-reference", "projects/electron-tv-tracker"],
+    "eTVTracker": [
+      "projects/tmdb-api-reference",
+      "projects/electron-tv-tracker"
+    ],
     "TMDB API": ["projects/tmdb-wrapper-api"],
     "CarTracker": [],
-    "Quotable":[]
+    "Quotable": []
   },
   "components": {
     "Utility": ["_components/component-mypromptalert", "doc5"]

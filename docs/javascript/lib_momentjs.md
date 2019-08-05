@@ -1,5 +1,5 @@
 ---
-id: momentjs
+id: lib_momentjs
 title: Moment JS
 sidebar_label: Moment JS
 ---
