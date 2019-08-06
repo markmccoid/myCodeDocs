@@ -190,13 +190,13 @@ mainWindow = new BrowserWindow({
 
 Now we need to add routing to our boilerplate application.
 
-I'm using React Router 4.
+I'm using React Router 5.
 
 ```
 $ yarn add react-router-dom
 ```
 
-I choose to use the MemoryRouter as I believe there would be issues with BrowserRouter and read some things about HashRouter being deprecated.  Also read some stuff about issues with MemoryRouter when trying to route to a page outside of the react app, but will deal with if encountered.
+I choose to use the **MemoryRouter** as I believe there would be issues with **BrowserRouter** and read some things about **HashRouter** being deprecated.  Also read some stuff about issues with **MemoryRouter** when trying to route to a page outside of the react app, but will deal with if encountered.
 
 Here is a simple example implementation.
 
@@ -236,7 +236,7 @@ export default App;
 
 ```
 
-You can load MemoryRouter with initial routes using the "initialEntries" array.  Think this is only useful to force you to your main path as all routes do not need to be in this initial array.
+You can load **MemoryRouter** with initial routes using the "initialEntries" array.  Think this is only useful to force you to your main path as all routes do not need to be in this initial array.
 
 Note that all components rendered via the Route component will get a bunch of route props.  One of particular use is the **history** prop.  It has functions like **push**, **goBack**, **replace**, etc.
 
@@ -281,6 +281,58 @@ export const Contact = (props) => {
 ```
 
 In the **Contact** component, I'm playing around with Redirect, just to get a feel for it.  Useless in this context, but good to know how it works.  Believe it can be used in Auth stuff.
+
+### NavLink Styling
+
+The NavLink component provided by React Router is described as:
+
+> A special version of the [`Link`](https://reacttraining.com/react-router/Link.md) Component that will add styling attributes to the rendered element when it matches the current URL.
+
+It achieves this styling by allowing you to pass, as a prop, either *activeClassName* or *activeStyle*.  When one of the NavLink components is active, it will apply said class/style.
+
+However, if you are using Styled Components you will need to go about it differently.  What I did was pass the location property for each **NavLink**, which will be your applications current location and then compared it to the **to** prop that is passed.
+
+`color: ${props => (props.loc === props.to ? "red" : "blue")};`
+
+However, not sure how it will work if you have sub routes or route params.
+
+```javascript
+...
+const MyNavLink = styled(NavLink)`
+  color: ${props => (props.loc === props.to ? "red" : "blue")};
+`;
+
+const Header = withRouter(props => {
+  console.log("HeaderProps", props);
+  return (
+    <div>
+      <ul>
+        <li>
+          <MyNavLink loc={props.location.pathname} to="/vareditor">
+            Variable Editor
+          </MyNavLink>
+        </li>
+        <li>
+          <MyNavLink loc={props.location.pathname} to="/groupeditor">
+            Group Editor
+          </MyNavLink>
+        </li>
+        <li>
+          <MyNavLink loc={props.location.pathname} to="/settings">
+            Settings
+          </MyNavLink>
+        </li>
+      </ul>
+    </div>
+  );
+});
+```
+
+
+
+-----
+
+
 
 Here is an image of the file structure thus far.
 
