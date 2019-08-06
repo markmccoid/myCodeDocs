@@ -294,7 +294,17 @@ However, if you are using Styled Components you will need to go about it differe
 
 `color: ${props => (props.loc === props.to ? "red" : "blue")};`
 
-However, not sure how it will work if you have sub routes or route params.
+However, not sure how it will work if you have sub routes or route params.  If you do need this maybe need to change the above to use a regular expression.
+
+```javascript
+let locProp = "/vareditor/test"
+let toProp = "/vareditor"
+
+let pattern = new RegExp(toProp + '.')
+console.log(pattern.test(locProp))
+```
+
+
 
 ```javascript
 ...
