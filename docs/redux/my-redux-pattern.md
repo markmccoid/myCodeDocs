@@ -6,6 +6,8 @@ sidebar_label: My Redux Pattern
 
 
 
+## Folder Structure
+
 There are a number of ways to set up your folder structure for redux, with the most basic simply being a folder for ActionTypes, Actions, Reducers and Selectors.
 
 However, as your data model gets more complex these files get crowded.  I initially tried creating a separate filename for each node in my data model under the Actions, Reducers, etc folders, but you find yourself hopping around a lot.
@@ -21,6 +23,8 @@ Below is a screenshot of what my folder structure looks like:
 ![](https://cl.ly/3w0P103W3f1F/Image%202018-02-23%20at%203.09.12%20PM.png)
 
 You can see most *redux*  functionality is in the **store** folder.  
+
+## configureStore.js 
 
 At the root we have the *configureStore.js* file.  This will do our initial setup. 
 
@@ -67,6 +71,40 @@ Each of the folders under **store** holds all redux activity for a node in the d
 So the **tvShows** folder exports the reducer for the **TV:** node.
 
 Let's go through each file in the sub folders.
+
+Here is another way to setup the *configureStore()* function.  This returns a function that will be imported AND executed to setup the store.
+
+```javascript
+import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import thunk from "redux-thunk";
+
+import variableEditorReducer from "./variableEditor/reducer";
+import appStateReducer from "./appState/reducer";
+
+export default function configureStore() {
+  // combine reducers
+  const reducer = combineReducers({
+    appState: appStateReducer,
+    variableEditor: variableEditorReducer
+  });
+  // Middleware to only be used in development
+  const devMiddleware =
+    process.env.NODE_ENV !== "production"
+      ? [require("redux-immutable-state-invariant").default()]
+      : null;
+
+  // If you don't need to use redux dev tools
+  //return createStore(rootReducer, applyMiddleware(thunk));
+  let composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  return createStore(
+    reducer,
+    composeEnhancers(applyMiddleware(...devMiddleware, thunk))
+  );
+}
+
+```
+
+
 
 ## Actions.js
 

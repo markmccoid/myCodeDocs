@@ -35,7 +35,7 @@
       "redux/my-redux-pattern",
       "redux/react-redux-compliment"
     ],
-    "HTMLCSS": ["html-css/tailwindcss"],
+    "HTMLCSS": ["html-css/html-css-snippets", "html-css/tailwindcss"],
     "Electron": [
       "electron/electron-react-boiler",
       "electron/electron-basics",

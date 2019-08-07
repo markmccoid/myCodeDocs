@@ -292,9 +292,13 @@ It achieves this styling by allowing you to pass, as a prop, either *activeClass
 
 However, if you are using Styled Components you will need to go about it differently.  What I did was pass the location property for each **NavLink**, which will be your applications current location and then compared it to the **to** prop that is passed.
 
-`color: ${props => (props.loc === props.to ? "red" : "blue")};`
+`color: ${props => (props.loc === props.to ? "red" : "blue")};` 
 
-However, not sure how it will work if you have sub routes or route params.  If you do need this maybe need to change the above to use a regular expression.
+OR if you want to have the link "active" when any endpoint on the path is active, then use:
+
+`color: ${props => (props.loc.includes(props.to) ? "red" : "blue")}`
+
+OR you could use a regular expression if you needed something more complex, but the includes() function above is much more readable.
 
 ```javascript
 let locProp = "/vareditor/test"
@@ -359,7 +363,7 @@ Get more in-depth information on [**My Redux Pattern**](../redux/my-redux-patter
 To get Redux setup, you will need to install the following:
 
 ```bash
-$ yarn add redux react-redux redux-thunk --dev
+$ yarn add redux react-redux redux-thunk redux-immutable-state-invariant --dev
 ```
 
 ### Create the Redux store
@@ -378,17 +382,30 @@ const initialState = { name: "test" };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case "TEST":
-      return state;
+      return { ...state, name: "Not Testing" };
     default:
       return state;
   }
 };
 
 export default function configureStore() {
+  // Middleware to only be used in development
+  const devMiddleware =
+    process.env.NODE_ENV !== "production"
+      ? [require("redux-immutable-state-invariant").default()]
+      : null;
+
+  // If you don't need to use redux dev tools
+  //return createStore(rootReducer, applyMiddleware(thunk));
   let composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  return createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+  return createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(...devMiddleware, thunk))
+  );
 }
 ```
+
+> The [redux-immutable-state-invariant](https://github.com/leoasis/redux-immutable-state-invariant) package is just used for development to catch any mutations.
 
 The above is a very simple starting point for your redux store.  You will want to do a couple of things as your refine your store:
 
@@ -396,6 +413,10 @@ The above is a very simple starting point for your redux store.  You will want t
 2. Since your state will most likely be more complex, you will want to have separate reducers for each piece of state, thus requiring you to use *combineReducers*
 
 You can find more information on how we setup the Redux Devtools extension at [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension#usage).
+
+If you don't want to muddle with the above, the [React Redux Starter Kit](https://github.com/reduxjs/redux-starter-kit) has some great additions and even if you don't use it, it has great suggestions for moving forward with your redux project.  See the [React Redux Start Kit Documentation Site](https://redux-starter-kit.js.org/introduction/quick-start).
+
+[immer](https://github.com/immerjs/immer) looks very interesting for helping with reducer complexity when dealing with state changes and mutability.
 
 
 
