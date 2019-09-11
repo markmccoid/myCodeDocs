@@ -184,7 +184,154 @@ mainWindow = new BrowserWindow({
 });
 ```
 
+## Basic Menu Setup
 
+Electron will show a default menu if you don't do anything, but it is good to at least setup a simple File/Exit menu and a Developer menu that will show during development.
+
+You can set this up directly in `electron.js` or preferably create a separate `menu.js` file and import it into the `electron.js`
+
+Here is a basic template with a File menu and Developer menu when in Dev mode.
+
+**menu.js**
+
+```javascript
+const { app, Menu } = require("electron");
+const isDev = require("electron-is-dev");
+const isWindows = process.platform === "win32";
+
+module.exports = {
+  setMainMenu
+};
+
+function setMainMenu(mainWindow) {
+  const template = [
+    {
+      label: "File",
+      submenu: [
+        {
+          label: isWindows ? "Exit" : `Quit ${app.getName()}`,
+          accelerator: isWindows ? "Alt+F4" : "CmdOrCtrl+Q",
+          click() {
+            app.quit();
+          }
+        }
+      ]
+    }
+  ];
+  // - Push Developer menu on if in Dev Mode
+  if (isDev) {
+    template.push({
+      label: "Developer",
+      submenu: [
+        {
+          label: "Toggle Dev Tools",
+          accelerator: "CommandOrControl+Alt+I",
+          click(item, focusedWindow) {
+            focusedWindow.toggleDevTools();
+          }
+        }
+      ]
+    });
+  }
+
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+}
+```
+
+To actually get this to show, you will need to add the following to your `electron.js` file.
+
+**electron.js**
+
+```javascript
+...
+const { setMainMenu } = require("./menu");
+...
+function createWindow() {
+  mainWindow = ...
+  ...
+  setMainMenu()
+}
+```
+
+### Opening a Route via a Menu
+
+If you are using React Router and you want to navigate to a new route via a menu, you will need to use the `webContents` API from the Main process and the `ipcRenderer` from the Renderer process.
+
+This example will add a "Settings" menu under File.  Based on the example above, you just need to add the new menu item to the template:
+
+```javascript
+  const template = [
+    {
+      label: "File",
+      submenu: [
+        {
+          label: "Settings",
+          click() {
+            mainWindow.webContents.send("route-settings");
+          }
+        },
+        {
+          label: isWindows ? "Exit" : `Quit ${app.getName()}`,
+          accelerator: isWindows ? "Alt+F4" : "CmdOrCtrl+Q",
+          click() {
+            app.quit();
+          }
+        }
+      ]
+    }
+  ];
+```
+
+### Send a Message to webContents (Main Process)
+
+Notice that the "Settings" menu option has a click function that simply sends a message to the mainWindow's webContents. 
+
+`mainWindow.webContents.send("route-settings");`
+
+The other thing that would need to change is the **setMainMenu** function signature.  You will need to pass in the *mainWindow* variable so that we can access it's webContents.
+
+But this is just the first part.  This will send a message to our mainWindow and now in that mainWindow (most likely a React application :-)), you will need to set up a listener for this message and act on it when received.
+
+### Listen for Message (Renderer Process)
+
+When figuring this out, I placed my listener in my `Main.js` file.  Could probably be elsewhere.
+
+Anyway, whichever file you end up using, you will need to import the `ipcRenderer` from **electron**.
+
+This can be tricky in the Renderer process, see [Accessing Electron Remote From Renderer Process](#accessing-electron-remote-from-renderer-process)
+
+In your Main.js you just do this:
+
+```javascript
+...
+import electron from "../electronExports";
+
+...
+
+function Main(props) {
+  console.log("in Main", props);
+  useEffect(() => {
+    electron.ipcRenderer.on("route-settings", (event, message) => {
+      console.log("route settings sent");
+      props.history.push("/settings");
+    });
+  }, []);
+
+  return (
+    <AppWrapper>
+      <Route exact path="/" component={SelectApplicationQVW} />
+      <Route path="/:selectedQVW" component={EditorContainer} />
+    </AppWrapper>
+  );
+};
+
+export default Main;
+```
+
+Notice we put the `electron.ipcRenderer...` stuff in a useEffect function.  We only need it to run once when the application starts to set up the listener.
+
+There is probably a cleanup function for the ipcRenderer.on listener, but haven't found it yet.
 
 ## React Router Setup
 
@@ -195,6 +342,8 @@ I'm using React Router 5.
 ```
 $ yarn add react-router-dom
 ```
+
+### Memory Router vs Browser Router vs Hash Router
 
 I choose to use the **MemoryRouter** as I believe there would be issues with **BrowserRouter** and read some things about **HashRouter** being deprecated.  Also read some stuff about issues with **MemoryRouter** when trying to route to a page outside of the react app, but will deal with if encountered.
 
@@ -412,6 +561,10 @@ The above is a very simple starting point for your redux store.  You will want t
 1. Create separate files for your reducers and actions
 2. Since your state will most likely be more complex, you will want to have separate reducers for each piece of state, thus requiring you to use *combineReducers*
 
+> Note: when using the combineReduces function, make sure to declare an initial state in each of the reducers.  When redux starts off, it sends an action to each reducer with an *undefined* payload, thus each reducer must have an initial state and not return undefined.
+
+
+
 You can find more information on how we setup the Redux Devtools extension at [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension#usage).
 
 If you don't want to muddle with the above, the [React Redux Starter Kit](https://github.com/reduxjs/redux-starter-kit) has some great additions and even if you don't use it, it has great suggestions for moving forward with your redux project.  See the [React Redux Start Kit Documentation Site](https://redux-starter-kit.js.org/introduction/quick-start).
@@ -519,6 +672,43 @@ module.exports = function override(config, env) {
 The above is what overrides the CRA config via react-app-rewired.
 
 This could change in future versions of CRA.  Hence the console.log statement.  Use it to see the config exported and change so that it uses the babelrc file.
+
+## Accessing Electron Remote From Renderer Process
+
+When you are in your main application code (Renderer Process), there are times when you need to use functions from the electron package.  You can't use `import from 'electron'` but instead must use 
+
+```javascript
+const { remote, ipcRenderer } = window.require("electron");
+```
+
+This will throw errors in a js file that is using imports.  Don't know why, but here is how I worked around it.
+
+Created an `electronExport.js` file in the root of the **components** directory.
+
+**electronExport.js**
+
+```javascript
+const electron = window.require("electron");
+
+export default electron;
+```
+
+That's it!
+
+Now, I can import it and pull whatever I need from it:
+
+```javascript
+import electron from "../electronExports";
+
+...
+
+electron.ipcRenderer.on("route-settings", (event, message) => {
+  console.log("route settings sent");
+  props.history.push("/settings");
+});
+```
+
+
 
 ## Building Your App
 
