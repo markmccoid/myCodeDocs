@@ -26,7 +26,7 @@ $ yarn add electron-is-dev
 
 Now we have a react app, but we want it to run in Electron.  To do this we need to add **electron.js** to the **public** directory.  This is so that during build time, it will get moved to the build directory.
 
-```javascript
+```javascript {20-22}
 const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -170,7 +170,7 @@ $ electron-icon-maker --input=youriconname.png --output=./assets
 
 You will reference your icon files in the *electron.js* file when you create a new **BrowserWindow** instance.  It will be the *icon* property passed to this function.
 
-```javascript
+```js {1-2}
 mainWindow = new BrowserWindow({
  width: 900,
  height: 680,

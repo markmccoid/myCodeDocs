@@ -24,7 +24,7 @@ Below is a screenshot of what my folder structure looks like:
 
 You can see most *redux*  functionality is in the **store** folder.  
 
-## configureStore.js 
+## configureStore.js
 
 At the root we have the *configureStore.js* file.  This will do our initial setup. 
 
@@ -250,6 +250,8 @@ switch(action.type) {
 Selectors.js will contain all of the functions we need to slice and dice the data for this node.
 
 All of these are also named exports.
+
+For details
 
 ## index.js
 

@@ -58,6 +58,8 @@ On line 11, we are creating a variable "createStoreWithMiddleware" which is sett
 
 Then in the Provider component, we create the store and pass is to the store prop.
 
+For more detail see [My Redux Pattern Docs](./my-redux-pattern#configurestorejs).
+
 ## connect() funtion
 
 The connect() function allows you to inject your redux state into the components props object as we'll as map your action creators so that they are automatically send to the dispatch function.
@@ -123,6 +125,107 @@ To do this, you simply pass the action creator functions that you want to "bind"
 ```javascript
 	export default connect(null, {fetchPosts: fetchPosts})(PostsIndex);
 ```
+
+## HOOKS
+
+[Redux Hooks Docs](https://react-redux.js.org/next/api/hooks)
+
+Hooks for the most part (in my initial impression) replace the need for `connect()`, `mapStateToProps` and `mapDispatchToProps`
+
+The two main hooks are `useSelector` and `useDispatch`
+
+### useDispatch
+
+**useDispatch** will return the dispatch function for you to use when dispatching actions.  Nothing new here, it used to be injected with the `connect` function, but since we won't be using `connect`, we will need to use this hook to get the `dispatch` functino.
+
+### useSelector
+
+**useSelector** - takes a selector function which accepts a state parameter, which is the whole state in your redux store.
+
+```js
+let pieceOfState = useSelector(state => state.pieceOfState)
+```
+
+If you need props in your selector, simply use closure
+
+```js
+let { itemId } = props;
+let pieceOfState = useSelector(state => state.pieceOfState[itemId])
+```
+
+### Reselect for memoization of Selectors
+
+The redux docs are a good place to start as they describe how to use Reselect with the `useSelector` function. [Redux Memoization Docs](https://react-redux.js.org/next/api/hooks#using-memoizing-selectors).
+
+The main function that I have used from Reselect is the `createSelector` function.  It is a little confusing and there are some gotchas you need to watch for.
+
+But first, how does it work?
+
+The `createSelector` function takes in two parameters, an array of selectors and a function the will process the output from those selectors.
+
+```js
+import _ from "lodash";
+import { createSelector } from "reselect";
+
+//------------- Standard Selectors ----------------------------//
+export const selectAllShows = state => state.shows;
+
+// ----------- ReSelect Selectors ---------------------------//
+export const selectShowsFromGroup = createSelector(
+  [selectAllShows, (_, selectedGroup) => selectedGroup],
+  (shows, selectedGroup) => {
+    return shows.filter(show => show.id === selectedGroup)
+    );
+  }
+);
+
+// Calling Component
+
+import { useSelector } from "react-redux";
+import { selectShowsFromGroup } from './selectors'
+function Shows = (props) => {
+  let { group } = props;
+  let showsFromGroup = useSelector(state => selectShowsFromGroup(state, group))
+  
+}
+```
+
+In the above example, the standard selector **selectAllShows** could be used directly in a `useSelector` call and would return  an array of the shows stored in the state.
+
+We will use ReSelect to return only shows from a passed group.
+
+This is where it gets a little tricky.  You need to understand that the *selectors* passed in the first argument (array) each will be called and passed the stores state and (if you need ask for it), any second parameter passed when calling the **selectShowsFromGroup** selector.
+
+Since we don't need that second parameter in the **selectAllShows** selector, we don't worry about it in that selectors signature.  However, we do need it in the selector that the `createSelector` function is going to return.  So, we pass a second selector, in the form of an inline function that just pulls off that second parameter and returns it.
+
+Now ReSelect passes to the second parameter of the `createSelector` all of the return values from the selectors in the first parameter.
+
+In this case, it will return ***shows*** and ***selectedGroup***. 
+
+> If you want to do the above from a single selector, meaning not sending in the second selector function to extract the props, you would need to make a modification in the selector you pass to createSelector and have it return an object with all the stuff you need.
+>
+> ```js
+> //------------- Standard Selectors ----------------------------//
+> export const selectAllShows = (state, props) => ({ 
+>   shows: state.shows, group: props
+> });
+> 
+> export const selectShowsFromGroup = createSelector(
+>   [selectAllShows],
+>   ({shows, selectedGroup}) => {
+>     return shows.filter(show => show.id === selectedGroup)
+>     );
+>   }
+> );
+> ```
+>
+> The calling of `selectShowsFromGroup` will stay the same, but the base selector **selectAllShows** must change.  You will also no longer need that second selector function to get the props.
+>
+> Lastly, the function you pass as the second parameter to `createSelector` will now be accepting a single value, which is our object we created and return from **selectAllShows**.  In the above example, I'm just destructuring it.
+
+
+
+
 
 ## Redux Helper Modules - i.e. Redux Middleware
 
