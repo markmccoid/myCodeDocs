@@ -106,3 +106,135 @@ const Grid = styled.div`
 `;
 ```
 
+## Hooks with Context
+
+If you have some state that you will need to be sharing with via context, this seemed like a great way to "package" the state, state setters and context all together.
+
+Main ideas for this came from [article by Kent Dodds](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
+
+The idea is that we have a single file that exports the following:
+
+- **StateProvider** - This is the context provider and will be the default export from the file.
+- **use...State** - This is the hook that will return the state values to you.  This keeps your files consuming the context from having to use the *useContext* hook and also they will not have to import the context
+- **use...StateSetters** - This is the hook that returns the state setters.
+
+I stored this file in a folder called **context** with the thought that if you have multiple sets of data that will be shared at different levels of the application, we will have different contexts.
+
+This example is for storing information on viewing/editing a Qlikview Variable, hence all of the naming have Variable in them.
+
+The first piece of the file creates our needed Contexts, one to hold the **State**, the other to hold the **Setters**.
+
+Then we build the function that will return our Context Provider.
+
+Note that all our state is created inside this provider function. 
+
+```javascript
+// variableStateContext.js
+
+import React, { useState, useContext } from "react";
+
+const VariableStateContext = React.createContext();
+const VariableSettersContext = React.createContext();
+
+/**======================================================
+ * Provider function
+ * This function is also where all the state is created
+ */
+function VariableStateProvider({ children }) {
+  let [viewingId, setViewingIdMain] = useState();
+  let [isEditing, setIsEditing] = useState(false);
+  let [isDirty, setIsDirty] = useState(false);
+  // When setting the viewing ID need to take into account state
+  // of being edited
+  let setViewingId = newViewingId => {
+    if (newViewingId) {
+      setIsEditing(false);
+    }
+    setViewingIdMain(newViewingId);
+  };
+
+  return (
+    <VariableStateContext.Provider value={{ viewingId, isEditing, isDirty }}>
+      <VariableSettersContext.Provider
+        value={{ setViewingId, setIsEditing, setIsDirty }}
+      >
+        {children}
+      </VariableSettersContext.Provider>
+    </VariableStateContext.Provider>
+  );
+}
+
+export const useVariableState = () => { ... }
+export const useVariableStateSetters = () => { ... }
+
+export default VariableStateProvider;
+```
+
+Now that we have the provider, we will build out our hooks that will get the context for us.
+
+```js
+/**======================================================
+ * Variable State
+ *
+ * useVariableState()
+ *  Returns and object with the Variable state
+ *   { viewingId, isEditing, isDirty }
+ *
+ * Just a helper hook so that the user doesn't
+ * need to import the VariableStateContext and useContext
+ */
+export const useVariableState = () => {
+  const context = useContext(VariableStateContext);
+  if (context === undefined) {
+    throw new Error(
+      "useVariableState must be used within a VariableStateProvider"
+    );
+  }
+  return context;
+};
+
+/**======================================================
+ * Variable State Setters
+ *
+ * useVariableStateSetting()
+ *  Return an object with the setter functions
+ *   { setViewingId, setIsEditing, setIsDirty }
+ *
+ *
+ */
+export const variableStateContext = () => {
+  const context = useContext(VariableSettersContext);
+  if (context === undefined) {
+    throw new Error(
+      "useVariableStateSetters must be used within a VariableStateProvider"
+    );
+  }
+  return context;
+};
+```
+
+Straight forward, read Kent's article for the details.  
+
+Lastly, to implement, you will need to first place the provider around the components that need access to the state.
+
+```jsx
+import VariableStateProvider from '../context/variableStateContext';
+...
+<VariableStateProvider>
+  <VariableMain />
+</VariableStateProvider>
+...
+```
+
+To access the context, just use the hooks!
+
+```js
+import { useVariableState, useVariableStateSetters} from '../context/variableStateContext';
+
+function VariableMain() {
+  let { viewingId, isEditing, isDirty } = useVariableState;
+  let { setViewingId, setIsEditing, setIsDirty } = useVariableStateSetters;
+  ...
+}
+```
+
