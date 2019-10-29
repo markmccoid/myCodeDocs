@@ -4,7 +4,8 @@ title: React Hooks
 sidebar_label: React Hooks
 ---
 
-[React Documentation on Hooks](https://reactjs.org/docs/hooks-overview.html)
+- [React Documentation on Hooks](https://reactjs.org/docs/hooks-overview.html)
+- [Some Useful Hooks](https://usehooks.com/)
 
 ## Safe Set
 
@@ -106,7 +107,7 @@ const Grid = styled.div`
 `;
 ```
 
-## Hooks with Context
+## *Hooks with Context
 
 If you have some state that you will need to be sharing with via context, this seemed like a great way to "package" the state, state setters and context all together.
 
@@ -238,3 +239,21 @@ function VariableMain() {
 }
 ```
 
+## Publish Hook to NPM
+
+The [create-react-hook](https://www.npmjs.com/package/create-react-hook) module sets up a project so that you can deploy your react hook.
+
+```bash
+$ npx create-react-hook
+? Package Name: @yournpmusename/useMyNewHook // scopes hook to your user
+? Package Description: a description for the hook
+? Authors GitHub Handle: markmccoid
+? Github Repo Path: markmccoid\useMyNewHookd
+...
+```
+
+Add your hook code to the `index.js` in the `src` directory. [Egghead course](https://egghead.io/lessons/react-extract-a-custom-hook-into-its-own-module-with-create-react-hook)
+
+### npm version ([docs](https://docs.npmjs.com/cli/version))
+
+You can use the command line tool `npm version ...` to bump your version.  It will also set a git tag for the version.
