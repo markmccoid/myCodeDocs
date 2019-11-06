@@ -53,6 +53,9 @@
     "Quotable": []
   },
   "components": {
-    "Utility": ["_components/component-mypromptalert", "doc5"]
+    "Utility": [
+      "_components/component-mypromptalert",
+      "_components/component-searchinputbox"
+    ]
   }
 }
