@@ -15,12 +15,13 @@
       "javascript/javascript-snippets",
       "javascript/npm-module-creation"
     ],
-    "JS Libs": [
+    "JS/React Libs": [
       "javascript/lib_lodash-library",
       "javascript/lib_axios",
       "javascript/lib_ramda",
       "javascript/lib_momentjs",
-      "javascript/lib_redux-forms"
+      "javascript/lib_redux-forms",
+      "react/lib_reactbeautifuldnd"
     ],
     "React": [
       "react/react-basics",
