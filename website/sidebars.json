@@ -21,7 +21,8 @@
       "javascript/lib_ramda",
       "javascript/lib_momentjs",
       "javascript/lib_redux-forms",
-      "react/lib_reactbeautifuldnd"
+      "react/lib_reactbeautifuldnd",
+      "react/lib_antdesign"
     ],
     "React": [
       "react/react-basics",
@@ -36,7 +37,10 @@
       "redux/my-redux-pattern",
       "redux/react-redux-compliment"
     ],
-    "HTMLCSS": ["html-css/html-css-snippets", "html-css/tailwindcss"],
+    "HTMLCSS": [
+      "html-css/html-css-snippets",
+      "html-css/tailwindcss"
+    ],
     "Electron": [
       "electron/electron-react-boiler",
       "electron/electron-basics",
@@ -49,14 +53,17 @@
       "projects/tmdb-api-reference",
       "projects/electron-tv-tracker"
     ],
-    "TMDB API": ["projects/tmdb-wrapper-api"],
+    "TMDB API": [
+      "projects/tmdb-wrapper-api"
+    ],
     "CarTracker": [],
     "Quotable": []
   },
   "components": {
     "Utility": [
       "_components/component-mypromptalert",
-      "_components/component-searchinputbox"
+      "_components/component-searchinputbox",
+      "_components/component-antd-tagcloud"
     ]
   }
 }
