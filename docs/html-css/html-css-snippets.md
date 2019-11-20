@@ -85,3 +85,9 @@ The main property to get a navbar to "stick" to the top (or bottom) is the *posi
 
 See the React Hooks documentation -> [Handle Dynamic Height Changes in Component](../react/react-hooks#handle-dynamic-height-changes-in-component)
 
+## FocusManager
+
+This relies on the code being used in **React**.  But will allow you to only call the **onBlur** function when the focus leave a group of HTML tags.
+
+[FocusManager Component](../react/react-components/#focusmanager)
+

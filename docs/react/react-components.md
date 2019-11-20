@@ -4,6 +4,62 @@ title: React Components
 sidebar_label: React Components
 ---
 
+## FocusManager
+
+Sometimes the **onBlur** event on a single *div* or *component* isn't what you want.  Instead, you only want to perform a blur when focus leaves a group of HTML tags.
+
+This article helped me build the **FocusManager** component. [Focus and Blur in Composite Widget]( https://medium.com/@jessebeach/dealing-with-focus-and-blur-in-a-composite-widget-in-react-90d3c3b49a9b )
+
+**FocusManger.js**
+
+```jsx
+import React, { useState, useRef, useEffect } from "react";
+
+const FocusManager = ({ handleBlur, children }) => {
+  let [isManagingFocus, setIsManagingFocus] = useState(true);
+  let timeoutIdRef = useRef();
+
+  const _onBlur = () => {
+    timeoutIdRef.current = setTimeout(() => {
+      if (isManagingFocus) {
+        setIsManagingFocus(false);
+      }
+    }, 0);
+  };
+  const _onFocus = () => {
+    clearTimeout(timeoutIdRef.current);
+    if (!isManagingFocus) {
+      setIsManagingFocus(true);
+    }
+  };
+  useEffect(() => {
+    if (isManagingFocus) {
+      console.log("managing focus");
+    } else {
+      console.log("NOT managing focus");
+      handleBlur();
+    }
+  }, [isManagingFocus, handleBlur]);
+  return (
+    <div onBlur={_onBlur} onFocus={_onFocus}>
+      {children}
+    </div>
+  );
+};
+
+export default FocusManager;
+```
+
+Obviously, take out the console.log statements.  Just there so you can see when the events are firing.
+
+Currently, I'm only accepting an **handleBlur** function that gets called when we *lose* focus.  If needed, you could also accept a **handleFocus** function if needed.
+
+**From linked article**
+
+> This behavior is achieved by waiting a “tick” on a blur event before toggling the isManagingFocus state to false. By a tick, I mean the next processing cycle in the main thread. We an wait a tick by using setTimeout to delay the state setting. The blur and focus events will happen in the same tick (under normal circumstances), allowing the component to cancel its reaction to the blur event if a focus event occurs in the next moment and clears the timeout. If no focus event from an element within the grid occurs (if the user has traversed out of the grid component), then the blur event will be processed in the next tick and the grid component will toggle isManagingFocus to false.
+>
+> Any time we use setTimeout/clearTimeout to manage order of operations, it feels icky. I freely admit this. It seems like a hack and admittedly this approach is that. But the DOM gives us scant tools to respond to focus and blur events. We’re often left with timing hacks and interpreting secondary effects to understand where focus is on the page and where it’s going to next.
+
 ## react-dates from air bnb
 
 [react-dates](https://github.com/airbnb/react-dates)
