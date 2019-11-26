@@ -712,6 +712,8 @@ electron.ipcRenderer.on("route-settings", (event, message) => {
 
 ## Building Your App
 
+> Be sure that you have the `package.json` file set up correctly as described earlier.
+
 First build the react application:
 
 ```
@@ -729,4 +731,16 @@ The pack script won't create an installer, just the application files.  To creat
 ```
 $ yarn run dist
 ```
+
+### Killing The Electron Process
+
+Every once in a while the electron process gets stuck in memory and won't let you rebuild the app.  If you can't find your app name or the Electron process in the Task Manager, you can use the following command on Windows 10 to get the job done.
+
+```bash
+$ tasklist
+...
+$ taskkill /F /PID 12345
+```
+
+Use `tasklist` to list all running tasks with their Process Ids.  Find either you app name or Electron and note the PID and then run `taskkill`
 
