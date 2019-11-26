@@ -10,7 +10,6 @@ sidebar_label: React Router
 ## React Router v4
 
 <div><a name="react-router-v4"></a></div>
-
 This new version of react router is totally different from previous versions.  
 Everything is “component” based.  A bit hard to get your head around, but here goes.
 
@@ -69,9 +68,16 @@ location: {
 }
 ```
 
-You can use the npm package *query-string* to parse the search property of the location object.
+### Extract Query string from location
 
+To get the data in the query string (the stuff after the ? in the url), use the [URLSearchParams() JS constructor](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams) .  This is a standard JavaScript function which returns an object with your query string data:
 
+```javascript
+// example - /mypath?userId=5
+{
+    userId: 5
+}
+```
 
 ### BrowserRouter
 
@@ -383,10 +389,146 @@ const Teachers = ({ match }) => {
 
 [React Router v4 URL Params](https://reacttraining.com/react-router/web/example/url-params)
 
+### Prompt
+
+The Prompt component will allow you to display a message when trying to navigate to a different route if a boolean **true** is detected.
+
+```jsx
+<form>
+	<Prompt
+        when={isBlockingState}
+        message="You will lose changes, continue?"
+    />
+    <input onChange={e => isBlockState = true} />
+</form>
+```
+
+## Rendering Sidebar and Main on One Route
+
+You can accomplish this in multiple ways.  One being to create an object with all the routes and their destinations:
+
+```jsx
+import React from 'react';
+
+export const routes = [
+  {
+    path: '/',
+    exact: true,
+    sidebar: () => <div>home!</div>,
+    main: () => <h2>Home</h2>
+  },
+  {
+    path: '/posts',
+    sidebar: () => <div>posts sidebar</div>,
+    main: () => <h2>posts main</h2>
+  },
+  {
+    path: '/orders',
+    sidebar: () => <div>Orders Sidebar</div>,
+    main: () => <h2>Orders Main</h2>
+  },
+  {
+    path: '/customers',
+    sidebar: () => <div>Customer Sidebar</div>,
+    main: () => <div>Customer Main</div>
+  },
+  {
+    path: '/students',
+    sidebar: () => <div>Students Sidebar section</div>,
+    main: () => <div>Students Main section</div>
+  }
+];
+
+```
+
+Then in your components you will loop over the above object and pull what you need to create your routes.
+
+Here is the sidebar component
+
+```jsx
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import { routes } from '../routes';
+
+function Sidebar() {
+  return (
+    <div
+      style={{
+        padding: '10px',
+        width: '40%',
+        background: '#f0f0f0'
+      }}
+    >
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/posts">Posts</Link>
+        </li>
+        <li>
+          <Link to="/orders">Orders</Link>
+        </li>
+        <li>
+          <Link to="/customers">Customers</Link>
+        </li>
+        <li>
+          <Link to="/students">Students</Link>
+        </li>
+      </ul>
+
+      {routes.map((route, index) => (
+        // You can render a <Route> in as many places
+        // as you want in your app. It will render along
+        // with any other <Route>s that also match the URL.
+        // So, a sidebar or breadcrumbs or anything else
+        // that requires you to render multiple things
+        // in multiple places at the same URL is nothing
+        // more than multiple <Route>s.
+        <Route
+          key={index}
+          path={route.path}
+          exact={route.exact}
+          component={route.sidebar}
+        />
+      ))}
+    </div>
+  );
+}
+export default Sidebar;
+```
+
+And the Main component:
+
+```jsx
+import React from 'react';
+import { Route } from 'react-router-dom';
+import { routes } from '../routes';
+
+function Main() {
+  return (
+    <div style={{ flex: 1, padding: '10px' }}>
+      {routes.map((route, index) => (
+        // Render more <Route>s with the same paths as
+        // above, but different components this time.
+        <Route
+          key={index}
+          path={route.path}
+          exact={route.exact}
+          component={route.main}
+        />
+      ))}
+    </div>
+  );
+}
+export default Main;
+```
+
+Order of the paths in the object will be important if you are wrapping your routes in a Switch component.
+
 # React-Router v2
 
 <div><a name="react-router-v2"></a></div>
-
 ```
 npm install —save react-router
 ```
