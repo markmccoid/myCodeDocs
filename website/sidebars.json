@@ -37,6 +37,9 @@
       "redux/my-redux-pattern",
       "redux/react-redux-compliment"
     ],
+    "ReactNavtive": [
+      "reactnative/react-native"
+    ],
     "HTMLCSS": [
       "html-css/html-css-snippets",
       "html-css/tailwindcss"
