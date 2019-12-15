@@ -129,7 +129,7 @@ Then we build the function that will return our Context Provider.
 
 Note that all our state is created inside this provider function. 
 
-```javascript
+```jsx
 // variableStateContext.js
 
 import React, { useState, useContext } from "react";
@@ -238,6 +238,135 @@ function VariableMain() {
   ...
 }
 ```
+
+## Another Context Option with useReducer
+
+This is another way to use context with the **useReducer** hook.  
+
+It is a function that exports your Context and Provider component.  It is a Context factory that you can use to setup as many Contexts needed.
+
+```jsx
+// createDataContext.js
+import React, { useReducer } from "react";
+
+export default (reducer, actions, initialState) => {
+  const Context = React.createContext();
+
+  const Provider = ({ children }) => {
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    let boundActions = Object.keys(actions).reduce((ba, key) => {
+      ba[key] = actions[key](dispatch);
+      return ba;
+    }, {});
+    
+    return (
+      <Context.Provider value={{ state, ...boundActions }}>
+        {children}
+      </Context.Provider>
+    );
+  };
+
+  return { Context, Provider };
+};
+
+```
+
+To use this function you would create your context file.  You will need a **reducer** function, an **actions** object and **initial state**.
+
+> If you need async actions in your reducer, you will need to update the dispatch function to be able to deal with them.
+
+```jsx
+// BlogContext.js
+import createDataContext from "./createDataContext";
+
+const blogReducer = (state, action) => {
+  switch (action.type) {
+    case "add_blogpost":
+      return [...state, { title: `Blog Post #${state.length + 1}` }];
+    default:
+      return state;
+  }
+};
+
+const addBlogPost = dispatch => {
+  return () => {
+    dispatch({ type: "add_blogpost" });
+  };
+};
+
+export const { Context, Provider } = createDataContext(
+  blogReducer,
+  { addBlogPost },
+  []
+);
+```
+
+Lastly, you will need to import your BlogContext into the files that need the data.  Also, don't forget to wrap your component tree in the Provider component.
+
+### Make Reducer Handle Thunks
+
+I originally coded this to handle multiple reducers, however, I think that having separate contexts for each reducer may be better.  Here is the multiple reducer implementation:
+
+```javascript
+/**
+ * thunk dispatch
+ * @param {array} dispatchArr - Array of dispatch functions returned from useReducer calls
+ * @param {any} store - main store that holds all data from above mentioned useReducer calls
+ *
+ * @returns {function} - returns a function that accepts an action.
+ *    The action can be a standard redux style action {type: '', payload: ''}
+ *    or a function, i.e. thunk
+ *    If it is a function/thunk/async func then we will call it and pass the "fullDispatch" function
+ *    along with the store.
+ */
+function useThunkDispatch(dispatchArr, store) {
+  return action => {
+    let fullDispatch = action => {
+      dispatchArr.forEach(dispatchFunc => {
+        dispatchFunc(action);
+      });
+    };
+    if (typeof action === 'function') {
+      action(fullDispatch, store);
+    } else {
+      fullDispatch(action);
+    }
+  };
+}
+```
+
+Here is the implementation without the multiple reducers
+
+```javascript
+/**
+ * thunk dispatch
+ * @param {function} dispatch -  dispatch function returned from useReducer call
+ * @param {any} store - store that holds the data(state)
+ *
+ * @returns {function} - returns a function that accepts an action.
+ *    The action can be a standard redux style action {type: '', payload: ''}
+ *    or a function, i.e. thunk
+ *    If it is a function/thunk/async func then we will call it and pass the "fullDispatch" function
+ *    along with the store.
+ */
+function useThunkDispatch(dispatch, store) {
+  return action => {
+    let fullDispatch = action => {
+      dispatch(action);
+    };
+    if (typeof action === 'function') {
+      action(fullDispatch, store);
+    } else {
+      fullDispatch(action);
+    }
+  };
+}
+```
+
+When using the above, you may want to wrap the dispatch in a **useRef** so that it doesn't get recreated each time.
+
+
 
 ## Search Input Box Hook
 
@@ -407,6 +536,57 @@ export default useSearchInput;
 ```
 
 
+
+## UseOnKeyPress Hook
+
+```javascript
+const useOnKeyPress = (targetKey, onKeyDown, onKeyUp, isDebugging = false) => {
+  const [isKeyDown, setIsKeyDown] = useState(false);
+  const onKeyDownLocal = useCallback(e => {
+    if (isDebugging)
+      console.log(
+        "key down",
+        e.key,
+        e.key != targetKey ? "- isn't triggered" : "- is triggered"
+      );
+    if (e.key != targetKey) return;
+    setIsKeyDown(true);
+
+    if (typeof onKeyDown != "function") return;
+
+    onKeyDown(e);
+  });
+
+  const onKeyUpLocal = useCallback(e => {
+    if (isDebugging)
+      console.log(
+        "key up",
+        e.key,
+        e.key != targetKey ? "- isn't triggered" : "- is triggered"
+      );
+
+    if (e.key != targetKey) return;
+
+    setIsKeyDown(false);
+
+    if (typeof onKeyUp != "function") return;
+    onKeyUp(e);
+  });
+
+  useEffect(() => {
+    addEventListener("keydown", onKeyDownLocal);
+    addEventListener("keyup", onKeyUpLocal);
+
+    return () => {
+      removeEventListener("keydown", onKeyDownLocal);
+      removeEventListener("keyup", onKeyUpLocal);
+    };
+  }, []);
+
+  return isKeyDown;
+};
+
+```
 
 
 

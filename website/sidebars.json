@@ -22,7 +22,8 @@
       "javascript/lib_momentjs",
       "javascript/lib_redux-forms",
       "react/lib_reactbeautifuldnd",
-      "react/lib_antdesign"
+      "react/lib_antdesign",
+      "react/lib_zustand"
     ],
     "React": [
       "react/react-basics",
