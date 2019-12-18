@@ -53,6 +53,45 @@ The **createStackNavigator** function takes two objects as arguments.  The first
 
 The last line `export default createAppContainer(navigator)` boots up our app.
 
+## Adding Items to Navigation Header
+
+Many times you will want to add an icon, text or something that will cause an action in the header of your screen.  Like the **+** button in the header below.
+
+![react-native-navigation002](..\assets\react-native-navigation002.png)
+
+To do this we do the following on the screen where we want the button:
+
+```jsx
+IndexScreen.navigationOptions = ({ navigation }) => {
+    return {
+        headerRight: (
+        	<TouchableOpacity onPress={() => navigation.navigate('Create')}>
+            	<Feather name="plus" size={30} style={{ marginRight: 10 }} />
+            </TouchableOpacity>
+        )
+    }
+}
+```
+
+## Passing Extra Data on Navigate
+
+To pass data when you navigate to a new screen, you can pass a second parameter when calling **navigation.navigate**. This parameter will be an object that contains the data you want passed:
+
+```jsx
+<TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
+// stuff to be pressed
+</TouchableOpacity>
+```
+
+Now, you need to access that data in the **Show** screen.  This data is embedded in the navigation prop, however, there is a function on the navigation prop that makes getting this data easy - **navigation.getParam()**
+
+```javascript
+const ShowScreen = ({ navigation }) => {
+	const id = navigation.getParam("id");
+    ...
+}
+```
+
 
 
 ## Using and Displaying Icons
