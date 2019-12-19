@@ -114,6 +114,20 @@ const [foo, bar] = useStore(state => [state.foo, state.bar], shallow)
 const keys = useStore(state => Object.keys(state.objects), shallow)
 ```
 
+> NOTE: It seems if I have an object as a property in my state, 
+>
+> ```javascript
+> const store = set => ({
+>   count: 0,
+>   happy: "😒",
+>   thought: ["empty"],
+>   myObject: { id: 1, name: "mark", subObj: { test: "test" } },
+>   ...
+> }
+> ```
+>
+> It will automatically do the shallow testing.  Meaning if I reference this object in my code, it will only cause a rerender when something in the object gets changed.
+
 
 
 ## Using Devtools
