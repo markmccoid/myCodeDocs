@@ -4,7 +4,63 @@ title: Axios
 sidebar_label: Axios
 ---
 
-[Axios on Github](https://github.com/mzabriskie/axios) 
+[axios on Github](https://github.com/mzabriskie/axios) 
+
+## axios Basics
+
+Axios has many features, but at its most basic, you can simply instantiate it and call it's *.get*, *.post*, etc functions to make async API requests.
+
+> NOTE: Anything you pass through this first *get* parameter must URI Encoded.  You can use `encodeURIComponent('?searchparm=the test')` to do this for you.
+>
+> You will see that there are ways to get axios to do the encoding for you.
+
+```javascript
+import axios from 'axios';
+
+axios.get('http://someapi.com/theApi?searchparm=test')
+	.then(resp => console.log(resp))
+```
+
+### The Config Object
+
+While we can build the full URL with included search params, there is an easier and cleaner way to go about  this.  
+
+You can pass a second parameter to the **get** function in axios and this parameter is a config object.  The key features I use are the params (stuff after the "?" in the URL) and the base URL.
+
+```javascript
+import axios from 'axios';
+
+// equivalent to the first example.
+axios.get('http://someapi.com/theApi', {
+  params: {
+    searchparm: "test"
+  }
+})
+  .then(resp => console.log(resp));
+```
+
+We could also include the base URL in the config.  This would just be the part of the URL that stays the same throughout API Calls.
+
+```javascript
+import axios from 'axios';
+
+// equivalent to the first example.
+axios.get(""/theApi", {
+  baseURL: "http://someapi.com"
+  params: {
+    searchparm: "test"
+  }
+})
+  .then(resp => console.log(resp));
+```
+
+
+
+
+
+## OLDER
+
+
 
 I currently use this to make calls to site APIs that return JSON data.
 
