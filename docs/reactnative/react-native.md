@@ -20,13 +20,34 @@ Choose a blank project and then enter the name of your project.
 
 There are options for navigation, however, **[react-navigation]( https://reactnavigation.org/docs/en/getting-started.html)** is what I use.
 
-![](E:\myProgramming\myCodeDocs\docs\assets\react-native-navigation001.png)
+![](..\assets\react-native-navigation001.png)
 
 You will need to install react-navigation using the following:
 
 ```bash
-$ npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack
+$ npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack react-navigation
 ```
+
+There a number of different types of navigators.
+
+- Stack Navigator
+- Tab Navigator
+- Switch Navigator
+- Drawer Navigator
+
+Most of the time you will nest the different navigators to get the route structure that you want.  For example, if your app requires a login/auth before getting to the main application route, you would set up a switch navigator that would you a login route and a main route.  
+
+The main route may be a tab navigator with each of its associated screens actually being stack navigators.
+
+Some Videos:
+
+[Combining Navigators v3](https://www.youtube.com/watch?v=w24FE9PZpzk)
+
+[More Combining Navigators v4](https://www.youtube.com/watch?v=0VfzgFZt-AI)
+
+### Stack Navigator
+
+[Stack Navigator Docs](https://reactnavigation.org/docs/en/stack-navigator.html)
 
 You can change your App.js file that the expo-cli creates and replace it with your navigation.
 
@@ -37,7 +58,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import SearchScreen from './screens/SearchScreen';
 
 const navigator = createStackNavigator({
-    Search: 'SearchScreen'
+    Search: SearchScreen
 }, {
     initialRouteName: 'Search',
     defaultNavigationObjects: {
@@ -49,11 +70,50 @@ export default createAppContainer(navigator)
 
 ```
 
-The **createStackNavigator** function takes two objects as arguments.  The first is a list of screens and the seconds is an object of options.
+The **createStackNavigator** function takes two objects as arguments.  The first is a list of screens (**RouteConfig Object**) and the seconds is an object of options (**StackNavigatorConfig Object**).
+
+`createStackNavigator(RouteConfigs, StackNavigatorConfig);`
+
+If you want to have more options for each route name (Search in the case above), you can pass an object to each route key:
+
+```javascript
+const navigator = createStackNavigator({
+  Search: {
+    screen: SearchScreen,
+    navigationOptions: {
+      title: 'Search Screen'
+    }
+  }
+},{
+  ...
+})
+```
+
+I like the above so that I can explicity name each screen in the stack navigator.  However, if you prefer, you can define the navigation object in the component itself by adding it to the component as follows:
+
+```jsx
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+
+const DetailScreen = ({ navigation }) => {
+  return (
+    <View>
+      <Text>Detail Screen</Text>
+    </View>
+  );
+};
+// Here we are overriding the navigationOptions property
+DetailScreen.navigationOptions = {
+  title: "Details"
+};
+export default DetailScreen;
+```
+
+> NOTE: By doing this, you will override what is in the route config object.
 
 The last line `export default createAppContainer(navigator)` boots up our app.
 
-## Adding Items to Navigation Header
+### Adding Items to Navigation Header
 
 Many times you will want to add an icon, text or something that will cause an action in the header of your screen.  Like the **+** button in the header below.
 
@@ -72,6 +132,108 @@ IndexScreen.navigationOptions = ({ navigation }) => {
     }
 }
 ```
+
+### Tab Navigator
+
+There are a couple of Tab Navigators
+
+- [createBottomTabNavigator](https://reactnavigation.org/docs/en/bottom-tab-navigator.html)
+- [createMaterialBottomTabNavigator](https://reactnavigation.org/docs/en/material-bottom-tab-navigator.html)
+- [createMaterialTopTabNavigator](https://reactnavigation.org/docs/en/material-top-tab-navigator.html)
+
+I will go over creating the Bottom Tab Navigator.
+
+[Tab Navigator Scenarios](https://reactnavigation.org/docs/en/tab-based-navigation.html)
+
+While each tab in the tab navigator is associated to a screen, it can also (and usually will be) associated with a Stack Navigator.  This does two things for you, first, it gives you a title and second it give you a safe area on top.  You can also integrate buttons into this top area.
+
+You will need to make sure you have imported the `react-navigation-tabs` module
+
+```bash
+$ yarn add react-navigation-tabs
+```
+
+You will also then import:
+
+```javascript
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+```
+
+It's function arguments are similar to the Stack Navigator, you will pass a Route Config and Options:
+
+`createBottomTabNavigator(RouteConfigs, TabNavigatorConfig);`
+
+Here is a sample Tab Navigator
+
+```jsx
+const TabNavigator = createBottomTabNavigator(
+  {
+    ViewMovies: {
+      screen: HomeStack,
+      navigationOptions: ({ navigation }) => {
+        console.log(
+          "home tab nav",
+          navigation.state.routes[navigation.state.index]
+        );
+        return {
+          tabBarLabel: "View Movies",
+          tabBarIcon: ({ tintColor }) => (
+            <MaterialIcons
+              name="movie"
+              color={tintColor}
+              size={24}
+              style={{ marginTop: 5 }}
+            />
+          )
+        };
+      }
+    },
+    Search: {
+      screen: SearchStack,
+      navigationOptions: {
+        tabBarLabel: "Search",
+        tabBarIcon: ({ tintColor }) => (
+          <MaterialIcons
+            name="search"
+            color={tintColor}
+            size={24}
+            style={{ marginTop: 5 }}
+          />
+        )
+      }
+    },
+    Tags: {
+      screen: TagScreen,
+      navigationOptions: {
+        tabBarLabel: "Tags",
+        tabBarIcon: ({ tintColor }) => (
+          <FontAwesome
+            name="tags"
+            color={tintColor}
+            size={24}
+            style={{ marginTop: 5 }}
+          />
+        )
+      }
+    }
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: "red",
+      inactiveTintColor: "gray"
+    }
+  }
+);
+//
+
+export default createAppContainer(TabNavigator);
+```
+
+Notice that each Screen in the tab navigator can/should have its own navigationOptions object.  You can the details of what these options are here:
+
+[Tab Navigator navigationOptions](https://reactnavigation.org/docs/en/bottom-tab-navigator.html#navigationoptions-for-screens-inside-of-the-navigator)
+
+Some of these options can be configured with a function that receive props that allow you to dynamically set stuff.
 
 ## Passing Extra Data on Navigate
 
@@ -94,7 +256,7 @@ const ShowScreen = ({ navigation }) => {
 
 
 
-## Using and Displaying Icons
+# Using and Displaying Icons
 
 The expo-cli sets up a huge set of icons for us to use.  You will find the details here: [github.com/expo/vector-icons](github.com/expo/vector-icons).
 
