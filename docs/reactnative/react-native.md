@@ -233,7 +233,26 @@ Notice that each Screen in the tab navigator can/should have its own navigationO
 
 [Tab Navigator navigationOptions](https://reactnavigation.org/docs/en/bottom-tab-navigator.html#navigationoptions-for-screens-inside-of-the-navigator)
 
+Setting navigationOptions is tricky in understanding what you are setting.  From what I can see, you set the navigationOptions on the child you want it set on.
+
+[Docs for Navigation Options](https://reactnavigation.org/docs/en/navigation-options-resolution.html)
+
 Some of these options can be configured with a function that receive props that allow you to dynamically set stuff.
+
+For example, the *tabBarIcon* property in *navigationOptions* on each tab "screen" can be a function.  This function can accept the **tintColor** from the overall *tabBarOptions* (either *activeTintColor* or *inactiveTinColor*) or you could set it to whatever you want.
+
+```jsx
+tabBarIcon: ({ tintColor }) => (
+          <FontAwesome
+            name="tags"
+            color={tintColor}
+            size={24}
+            style={{ marginTop: 5 }}
+          />
+        )	
+```
+
+ 
 
 ## Passing Extra Data on Navigate
 
