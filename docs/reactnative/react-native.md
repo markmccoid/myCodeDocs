@@ -252,7 +252,122 @@ tabBarIcon: ({ tintColor }) => (
         )	
 ```
 
- 
+ ### Understanding navigationOptions
+
+Still don't understand fully, but they are definitely powerful and confusing.  Read [Docs for Navigation Options](https://reactnavigation.org/docs/en/navigation-options-resolution.html)
+
+From what I can tell, all navigators (Stack, Tab, etc) take a navigationOptions property, as well as all screens within a navigator.  What gets confusing, is that just because all of these will take a navigationOptions property, doesn't mean it will always get called.  
+
+I found that a base tabNavigator with a navigationOptions property doesn't get looked at, however, the screens within that tabNavigator can each have a navigationOptions property that does get "run".
+
+Here is a scenario, I have a main tab navigator (TabNavigator) with three tabs, when the **Tags** tab is selected, we hide this main tab navigator and the new route will be another tab navigator (TagTabNavigator) with an icon in the headerRight that will "close" or navigate back to the main tab navigator.
+
+![image-20191229234439385](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-navoptions001.png)
+
+![image-20191229234538083](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-navoptions002.png)
+
+Here is the code for the TagTabNavigator
+
+```jsx
+let TagTabNavigator = createBottomTabNavigator(
+  {
+    TagView: {
+      screen: TagScreen,
+      navigationOptions: () => {
+        console.log("in TagView Tag Screen");
+      }
+    },
+    TagEdit: {
+      screen: TagEditScreen
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => {
+      console.log("inMAINTagTab - HeaderRight");
+      return {
+        headerRight: (
+          <TouchableOpacity onPress={() => navigation.navigate("ViewMovies")}>
+            <Feather name="plus" size={30} style={{ marginRight: 10 }} />
+          </TouchableOpacity>
+        )
+      };
+    }
+  }
+);
+```
+
+Here is the code for the TabNavigator.  Notice that we have the code to hide the TabNavigator on the screen that when focused we want to hide the main Tab Navigator.  We are using the **navigation.isFocused()** function to determine if this route is selected (the Tags route).
+
+```jsx
+const TabNavigator = createBottomTabNavigator({
+  ViewMovies: {
+    screen: HomeStack,
+    navigationOptions: ({ navigation }) => {
+      // console.log(
+      //   "home tab nav",
+      //   navigation.state.routes[navigation.state.index]
+      // );
+      return {
+        tabBarLabel: "View Movies",
+        tabBarIcon: ({ tintColor }) => (
+          <MaterialIcons
+            name="movie"
+            color={tintColor}
+            size={24}
+            style={{ marginTop: 5 }}
+          />
+        )
+      };
+    }
+  },
+  Search: {
+    screen: SearchStack,
+    navigationOptions: ({ navigation }) => {
+      console.log(
+        "in searchStack",
+        navigation
+        // navigation.state.routes[navigation.state.index]
+      );
+      console.log("isfocused", navigation.isFocused());
+      return {
+        tabBarLabel: "Search",
+        tabBarIcon: ({ tintColor }) => (
+          <MaterialIcons
+            name="search"
+            color={tintColor}
+            size={24}
+            style={{ marginTop: 5 }}
+          />
+        )
+      };
+    }
+  },
+  Tags: {
+    screen: TagStack,
+    navigationOptions: ({ navigation }) => {
+      // console.log(
+      //   "in TagStack",
+      //   navigation.state
+      //   // navigation.state.routes[navigation.state.index]
+      // );
+      return {
+        tabBarVisible: !navigation.isFocused(),
+        tabBarLabel: "Tags",
+        tabBarIcon: ({ tintColor }) => (
+          <FontAwesome
+            name="tags"
+            color={tintColor}
+            size={24}
+            style={{ marginTop: 5 }}
+          />
+        )
+      };
+    }
+  }
+});
+```
+
+
 
 ## Passing Extra Data on Navigate
 
