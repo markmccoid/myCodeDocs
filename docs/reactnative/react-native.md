@@ -25,7 +25,7 @@ There are options for navigation, however, **[react-navigation]( https://reactna
 You will need to install react-navigation using the following:
 
 ```bash
-$ npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack react-navigation
+$ npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack react-navigation react-navigation-hooks
 ```
 
 There a number of different types of navigators.
@@ -367,6 +367,129 @@ const TabNavigator = createBottomTabNavigator({
 });
 ```
 
+### Drawer Navigator
+
+A Drawer Navigator is one that can be pulled out from the side of the phone and has routes on it that can be selected.
+
+Usually when you have a Drawer, you will put a menu icon in the upper left hand corner so the user has something to touch to access the drawer.
+
+The big question is where do you place this icon, on the Drawer navigator, on the Screen or if you have a stack of screens on the stack??
+
+Probably depends on other stuff, but if you have a drawer with one of its routes being a Stack of screens, you can set the icon (headerLeft) in the *defaultNavigationOptions* on the stack.  BUT, usually in a stack, that means you will be accessing other screens within the stack.  By setting the drawer menu icon on the main stack, it will cover up the go back icon you get by default when navigating within a stack.  
+
+You can conquer this by checking which screen/route within the stack is active and show/hide based on this OR  you could just put it in the navigation Options for the screen you want to view it on.
+
+Here is the code for the Drawer Navigator:
+
+```jsx
+import { createDrawerNavigator } from "react-navigation-drawer";
+import ViewMovieStack from "./ViewMovieStack";
+
+// Drawer Navigator
+const ViewMovieDrawerNavigator = createDrawerNavigator({
+  ALL: {
+    screen: ViewMovieStack,
+    navigationOptions: {
+      drawerIcon: ({ tintColor }) => (
+        <Ionicons name="md-home" style={{ color: tintColor }} />
+      ),
+      drawerLabel: "HomeAll"
+    }
+  },
+  Favorites: {
+    screen: ViewMovieStack,
+    params: { folder: "favs" },
+    navigationOptions: ({ navigation }) => {
+      return {
+        params: { folder: "favs" },
+        drawerIcon: ({ tintColor }) => (
+          <Ionicons name="ios-heart" style={{ color: tintColor }} />
+        ),
+        drawerLabel: "Favorites"
+      };
+    }
+  }
+});
+
+export default ViewMovieDrawerNavigator;
+```
+
+![image-20191231131153354](/Users/markmccoid/Library/Application Support/typora-user-images/image-20191231131153354.png)
+
+But now, how do we get the menu to show only on the first page of the MovieStack?
+
+This is done inside the MovieStack creation.  You can either do it in the *navigationOptions* for the screen you want to see the menu icon in or in the *defaultNavigationOptions* if you want to turn it off/on for screens.
+
+```jsx
+import React from "react";
+import { TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { createStackNavigator } from "react-navigation-stack";
+import ViewMovieScreen from "../screens/ViewMovieScreen";
+import MovieDetailScreen from "../screens/MovieDetailScreen";
+
+const ViewMovieStack = createStackNavigator(
+  {
+    ViewMovies: {
+      screen: ViewMovieScreen,
+      params: { folder: "all" },
+      navigationOptions: ({ navigation }) => {
+        return {
+          title: "View Movies",
+          headerLeft: ({ tintColor }) => (
+            <TouchableOpacity onPress={() => navigation.openDrawer()}>
+              <Ionicons name="md-menu" style={{ color: tintColor }} size={24} />
+            </TouchableOpacity>
+          )
+        };
+      }
+    },
+    ViewMoviesFav: {
+      screen: ViewMovieScreen,
+      params: { folder: "fav" },
+      navigationOptions: {
+        title: "View Favorite Movies"
+      }
+    },
+    MovieDetail: {
+      screen: MovieDetailScreen
+    }
+  },
+  {
+    initialRouteName: "ViewMovies"
+    // defaultNavigationOptions: ({ navigation }) => {
+    //   console.log("defaultNavnav", navigation);
+    //   let showDrawerMenu = true;
+    //   if (navigation.state.routeName === "MovieDetail") {
+    //     showDrawerMenu = false;
+    //   }
+    //   return {
+    //     headerLeft: showDrawerMenu
+    //       ? ({ tintColor }) => (
+    //           <TouchableOpacity onPress={() => navigation.openDrawer()}>
+    //             <Ionicons
+    //               name="md-menu"
+    //               style={{ color: tintColor }}
+    //               size={24}
+    //             />
+    //           </TouchableOpacity>
+    //         )
+    //       : "",
+    //     drawerLabel: "Home"
+    //   };
+    // }
+  }
+);
+
+export default ViewMovieStack;
+```
+
+The commented out *defaultNavigationOptions* show how to do it by turning the menu icon on/off.
+
+### Hooks
+
+[Hooks Docs](https://github.com/react-navigation/hooks)
+
 
 
 ## Passing Extra Data on Navigate
@@ -434,7 +557,63 @@ const styles = StyleSheet.create({
 })
 ```
 
+# Text Input
 
+You can use the React Native *TextInput* control. [TextInput Docs](https://facebook.github.io/react-native/docs/textinput)
+
+```jsx
+<TextInput
+  style={styles.input}
+  value={searchString}
+  onChangeText={e => setSearchString(e)}
+/>
+```
+
+Notice that the *onChangeText* function call the function with the value in the input box which is a bit different from the web implementation.
+
+Some other useful settings on TextInput:
+
+- onSubmitEditing - function to call when return key is pressed
+- autoCapitalize - Can determine what to auto capitalize [autoCapitalizeDocs](https://facebook.github.io/react-native/docs/textinput#autocapitalize)
+- autoComplete - Can provide hints for the type of field, like username, address, etc. you can turn it off by setting this to "off". There are some other useful settings here to.
+- autoCorrect - When an input is auto corrected, it can be annoying, you can turn it off by setting this to {false}
+
+# Text Component
+
+Prety straight forward, but did find that to limit the number of lines, you pass the prop *numberOfLines*.
+
+This will give you ellipes if the text is longer than 1 line.  Also note there is an *ellipsizeMode* that can be head, tail(*this is the default) or middle.  
+
+```jsx
+<Text numberOfLines={1} style={styles.title}>
+  {movie.title}
+</Text>
+```
+
+
+
+
+
+# FlatList Component
+
+Used to render a list of items.  There are three main props:
+
+1. **data** - an Array of data to be used in the FlatList
+2. **keyExtractor** - Each item in the list needs a key, this prop expects a function to which it will pass a single item from the array of data.  You can then use this to construct a key for that item.  NOTE: this key MUST be a STRING.
+3. **renderItems** - This is a function that takes an argument (destructured as *item*).  This *item* argument is one item from the array of data that you have passed the FlatList in the data prop.  The return will be a component that will be rendered in the FlatList
+
+```jsx
+<FlatList
+  data={movies.data.results}
+  keyExtractor={movie => movie.id.toString()}
+  renderItem={({ item }) => {
+    console.log("renderItem: ", item);
+    return <MovieResultItem movie={item} />;
+  }}
+/>
+```
+
+> NOTE: You should always render you FlatList in a View with flex: 1.  This keeps the last item in the list from being hidden by the bottom of the screen.
 
 # Styling
 
