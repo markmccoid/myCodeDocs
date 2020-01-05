@@ -615,6 +615,38 @@ Used to render a list of items.  There are three main props:
 
 > NOTE: You should always render you FlatList in a View with flex: 1.  This keeps the last item in the list from being hidden by the bottom of the screen.
 
+## Scroll To Top
+
+When reloading a flatlist with data, such as when repopulating after a search, it will stay in the same position unless you tell it to go back to the top.  
+
+To do this, you just need to create ref for the flatlist and then call a scroll to top function when the list is changed:
+
+```jsx
+function MyComponent() {
+    const flatListRef = React.useRef()
+
+    const scrollToTop = () => {
+        // use current
+        flatListRef.current.scrollToOffset({ animated: true, offset: 0 })
+    }
+	React.useEffect(() => {
+    if (flatListRef.current) {
+      scrollToTop();
+    }
+  }, [data_that_triggers_effect]);
+  
+    return (    
+        <FlatList
+            ref={flatListRef}
+            data={...}
+            ...
+        />
+    )
+}
+```
+
+
+
 # Styling
 
 
