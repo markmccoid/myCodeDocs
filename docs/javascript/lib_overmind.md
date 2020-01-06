@@ -118,6 +118,21 @@ See Config main example, but to run, just include the *onInitialize* object prop
 
 ### State
 
+#### [getters](https://overmindjs.org/guides/beginner/02_definingstate?view=react&typescript=false)
+
+I'm looking at these getters, which can traditional JavaScript `get doSomething(){ }` style getters or Overmind's cached getter as similar to selectors in redux:
+
+**cached getter**
+
+```javascript
+export const state = {
+  title: 'My awesome title',
+  upperTitle: state => state.title.toUpperCase()
+}
+```
+
+This cached getter does receive two arguments, the first is the current state the getter is defined and the second all the state.  This second argument may be helpful if you have namespaces and thus multiple states.
+
 
 
 ### Actions
