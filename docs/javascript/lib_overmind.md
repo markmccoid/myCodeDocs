@@ -269,7 +269,50 @@ let { state, actions } = useOvermind();
 
 > This is the same state/actions/effects that you will get in the **context** object passed to your actions/effects.
 
+### merge function
 
+The merge function can take two namespaces and merge them into one.  This will make it like you just defined all your state, actions, effects in a single config.  
+
+```javascript
+import { merge } from 'overmind/config';
+import { config as oSearch } from "./oSearch";
+import { config as oSaved } from "./oSaved";
+
+export const config = merge(oSearch, oSaved);
+```
+
+Here is the difference in the data model when you merge vs namespace.
+
+![img](C:\Users\mark.mccoid\Documents\GitHub\myCodeDocs\docs\assets\overmind-merged-001.png)
+
+Thinking that this is only useful to split your code up. 
+
+> NOTE: Your actions and your Effect are also merged, thus when accessing an effect in an action, you won't have the namespace names.
+
+The other way to use the **merge** function is to put a root level node on your namespaced store.
+
+```javascript
+import { merge, namespaced } from "overmind/config";
+import { config as oSearch } from "./oSearch";
+import { config as oSaved } from "./oSaved";
+
+export const config = merge(
+  {
+    state: {
+      overlord: "mm",
+      upperBool: state => {
+        console.log("UPPERBOOL", state);
+        return !state.oSearch.isNewQuery;
+      }
+    }
+  },
+  namespaced({ oSearch, oSaved })
+);
+```
+
+Notice the namespaces highlighted in yellow below:
+
+![1578518082594](C:\Users\mark.mccoid\Documents\GitHub\myCodeDocs\docs\assets\overmind-merged-002.png)
 
 ## Functional Programming with Overmind
 
