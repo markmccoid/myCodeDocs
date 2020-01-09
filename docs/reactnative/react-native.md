@@ -615,6 +615,11 @@ Used to render a list of items.  There are three main props:
 
 > NOTE: You should always render you FlatList in a View with flex: 1.  This keeps the last item in the list from being hidden by the bottom of the screen.
 
+Some useful props for the FlatList
+
+- **onEndReached** (function) - when the end of the list is reached this function will be called.  There is a threshold prop also that lets you determine when the "end" is reached and thus when the function is called.
+- **keyboardDismissMode** - Super useful if you are doing any type of auto querying based on entry in a list box.  If this is set to **on-drag**, then when you drag the FlatList, the keyboard dismisses.  This is also on the ScrollView.
+
 ## Scroll To Top
 
 When reloading a flatlist with data, such as when repopulating after a search, it will stay in the same position unless you tell it to go back to the top.  
