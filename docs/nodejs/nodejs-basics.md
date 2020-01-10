@@ -14,7 +14,9 @@ sidebar_label: Node JS Basics
 
 
 
-## Yargs Library
+## Useful Utility Libraries
+
+### Yargs
 
 This is essential to any command line node program.  yargs helps you parse command line arguments and generate help documentation for your tool.
 
@@ -55,4 +57,16 @@ pirate-parser <cmd> [args]
     --help  Show help                                                  
  [boolean]
 ```
+
+### [Dotenv](https://github.com/motdotla/dotenv)
+
+`dotenv` allows us to set environment variables from a `.env` file, instead of setting them on the command line. For example, if we creating a file called `.env` in the root of our project with the following contents:
+
+```bash
+ADMIN_PASSWORD=password123
+JWT_SECRET=jwt123
+MONGO_URI=mongodb+srv:...
+```
+
+For example, `dotenv` will make the `ADMIN_PASSWORD` in our .env file accessible to our app as: `process.env.ADMIN_PASSWORD`.
 
