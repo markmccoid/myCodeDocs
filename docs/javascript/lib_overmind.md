@@ -133,6 +133,25 @@ export const state = {
 
 This cached getter does receive two arguments, the first is the current state the getter is defined and the second all the state.  This second argument may be helpful if you have namespaces and thus multiple states.
 
+**Dynamic getter**
+
+Sometimes you want to derive state based on some value coming from the user interface. You can do this by creating a function that returns a function. For example you want to be able to select records in a table and calculate some data based on that:
+
+```javascript
+export const state = {
+  counts: {
+    a: 2,
+    b: 3,
+    c: 5
+  },
+  totalCountBy: state => ids => ids.reduce((aggr, id) => aggr + state.counts[id], 0)
+}
+
+// state.totalCountBy(['a', 'b'])
+```
+
+
+
 
 
 ### Actions

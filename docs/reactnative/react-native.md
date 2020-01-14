@@ -119,6 +119,8 @@ Many times you will want to add an icon, text or something that will cause an ac
 
 ![react-native-navigation002](..\assets\react-native-navigation002.png)
 
+
+
 To do this we do the following on the screen where we want the button:
 
 ```jsx
