@@ -135,6 +135,10 @@ IndexScreen.navigationOptions = ({ navigation }) => {
 }
 ```
 
+Example of a dynamic header icon which changes based on if a modal screen is showing.
+
+[example](#headerright-dynamic-icon-example)
+
 ### Tab Navigator
 
 There are a couple of Tab Navigators
@@ -368,6 +372,175 @@ const TabNavigator = createBottomTabNavigator({
   }
 });
 ```
+
+#### Route in Nav Options
+
+Still a bit hazy on this, but if you have navigationOptions in a Navigator that doesn't directly show a screen, but instead references another Navigator (Stack, Tab, etc), then to get to Params, etc, you will need to use the following syntax:
+
+```javascript
+...
+navigationOptions: ({ navigation }) => {
+        let params = navigation.state.routes[navigation.state.index].params;
+        let routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+        //console.log("PARAMS", params);
+        let isFiltered = params ? params.isFiltered : false;
+        let numFilters = params ? params.numFilters : undefined;
+        console.log(
+          "MOVIE TAB NAV",
+          navigation.state.routes[navigation.state.index]
+        );
+}
+...
+```
+
+Notice you will use the `navigation.state.index` to look inside the `navigation.state.routes` object to get at any params, etc.
+
+The `navigation.state.routes` array looks like this:
+
+```javascript
+[
+  Object {
+    "key": "id-1579582094912-0",
+    "params": Object {
+      "isFiltered": false,
+      "numFilters": 0,
+    },
+    "routeName": "ViewMoviesScreen",
+  },
+]
+```
+
+Depending on how many screens/routes are in the associated navigator, you will have multiple rows in the array.
+
+If you are at the screen, that code will NOT work.  You must access it directly like this:
+
+```javascript
+navigation.state.params
+// or to get the route object
+navigation.state
+```
+
+The route object `navigation.state` looks like this:
+
+```javascript
+{
+  "key": "id-1579582094912-0",
+  "params": Object {
+    "isFiltered": false,
+    "numFilters": 0,
+  },
+  "routeName": "ViewMoviesScreen",
+}
+```
+
+#### headerRight Dynamic icon example
+
+This is an example where the ViewMovieStack referenced in the ViewMovies property has a main screen and a model.  If the modal is showing, a close icon shows in the header, if not, then a filter icon is shown.
+
+To make this work, the modal is set to not have a header.
+
+```jsx
+const MainMovieStack = createStackNavigator(
+  {
+    ViewMovies: {
+      screen: ViewMovieStack,
+      navigationOptions: ({ navigation }) => {
+        let params = navigation.state.routes[navigation.state.index].params;
+        let routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+        //console.log("PARAMS", params);
+        let isFiltered = params ? params.isFiltered : false;
+        let numFilters = params ? params.numFilters : undefined;
+        console.log(
+          "MOVIE TAB NAV",
+          navigation.state.routes,
+          navigation.state.index
+        );
+        // console.log(
+        //   "MOVIE TAB PARAMS",
+        //   navigation.state.routes[navigation.state.index].params
+        // );
+        return {
+          title: "View Movies",
+          headerRight: () => {
+            if (routeName === "ViewMoviesFilter") {
+              return (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ViewMoviesScreen")}
+                >
+                  <AntDesign
+                    name="close"
+                    size={30}
+                    style={{ marginRight: 10 }}
+                  />
+                </TouchableOpacity>
+              );
+            } else {
+              return (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ViewMoviesFilter")}
+                >
+                  <Feather
+                    name="filter"
+                    size={30}
+                    style={{
+                      marginRight: 15,
+                      color: isFiltered ? "green" : "black"
+                    }}
+                  />
+                  {numFilters ? (
+                    <Badge
+                      status="success"
+                      value={numFilters}
+                      containerStyle={{
+                        position: "absolute",
+                        top: -5,
+                        right: 10
+                      }}
+                    />
+                  ) : null}
+                </TouchableOpacity>
+              );
+            }
+          }
+        };
+      }
+    },
+    ...
+```
+
+Here is the **ViewMovieStack**
+
+```jsx
+const ViewMovieStack = createStackNavigator(
+  {
+    ViewMoviesScreen: {
+      screen: ViewMovieScreen,
+      navigationOptions: ({ navigation }) => {
+        return {
+          headerRight: (
+            <TouchableOpacity
+              onPress={() => navigation.navigate("ViewMoviesFilter")}
+            >
+              <AntDesign name="close" size={30} style={{ marginRight: 10 }} />
+            </TouchableOpacity>
+          )
+        };
+      }
+    },
+    ViewMoviesFilter: {
+      screen: ViewMoviesFilterScreen
+    }
+  },
+  {
+    mode: "modal",
+    headerMode: "none"
+  }
+);
+```
+
+
 
 ### Drawer Navigator
 
@@ -621,6 +794,29 @@ Some useful props for the FlatList
 
 - **onEndReached** (function) - when the end of the list is reached this function will be called.  There is a threshold prop also that lets you determine when the "end" is reached and thus when the function is called.
 - **keyboardDismissMode** - Super useful if you are doing any type of auto querying based on entry in a list box.  If this is set to **on-drag**, then when you drag the FlatList, the keyboard dismisses.  This is also on the ScrollView.
+
+## Styling a FlatList
+
+Usually a FlatList will show one render item per column.  This leaves all the styling to the component used in the **renderItem** prop.  However, if you want to have multiple items on a column, you would set the **numColumns** prop to something greater than one.  
+
+When you do this, you can pass another prop,**columnWrapperStyle** and with this you can style each row.
+
+For example, you could center each render item using:
+
+```javascript
+<FlatList
+  data={state.oSaved.getFilteredMovies}
+  keyExtractor={(movie, idx) => movie.id.toString() + idx}
+  //** Style each row, here we are centering the items **/
+  columnWrapperStyle={{ justifyContent: "center" }}
+  renderItem={({ item }) => {
+    return <ViewMovieItem movie={item} />;
+  }}
+  numColumns={2}
+/>
+```
+
+
 
 ## Scroll To Top
 
