@@ -45,6 +45,80 @@ Some Videos:
 
 [More Combining Navigators v4](https://www.youtube.com/watch?v=0VfzgFZt-AI)
 
+### Switch Navigator
+
+The purpose of SwitchNavigator is to only ever show one screen at a time. By default, it does not handle back actions and it resets routes to their default state when you switch away. This is the exact behavior that we want from the [authentication flow](https://reactnavigation.org/docs/en/auth-flow.html).
+
+The authentication flow docs from React Navigation are good.
+
+From their exampe:
+
+```javascript
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+
+// Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
+// goes here.
+
+const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen });
+const AuthStack = createStackNavigator({ SignIn: SignInScreen });
+
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoading: AuthLoadingScreen,
+      App: AppStack,
+      Auth: AuthStack,
+    },
+    {
+      initialRouteName: 'AuthLoading',
+    }
+  )
+);
+```
+
+Notice the AuthLoading route.  The point of this screen is to check to see if the user is already logged in (either a token stored in AsyncStorage) and if so, then direct to the Main App route, if not, send the user to the Auth route where they can sign in or sign up.
+
+Here is an example AuthLoadingScreen component:
+
+```jsx
+import React from 'react';
+import {
+  ActivityIndicator,
+  AsyncStorage,
+  StatusBar,
+  StyleSheet,
+  View,
+} from 'react-native';
+
+class AuthLoadingScreen extends React.Component {
+  componentDidMount() {
+    this._bootstrapAsync();
+  }
+
+  // Fetch the token from storage then navigate to our appropriate place
+  _bootstrapAsync = async () => {
+    const userToken = await AsyncStorage.getItem('userToken');
+
+    // This will switch to the App screen or Auth screen and this loading
+    // screen will be unmounted and thrown away.
+    this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+  };
+
+  // Render any loading content that you like here
+  render() {
+    return (
+      <View>
+        <ActivityIndicator />
+        <StatusBar barStyle="default" />
+      </View>
+    );
+  }
+}
+```
+
+Notice it really is just displaying and ActivityIndicator until it determines if the user is logged in.
+
 ### Stack Navigator
 
 [Stack Navigator Docs](https://reactnavigation.org/docs/en/stack-navigator.html)
