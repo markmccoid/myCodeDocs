@@ -13,6 +13,150 @@ They have two specific database products.
 
 This document is focused on Cloud Firestore.
 
+## Initializing Firestore
+
+This document will focus on the Web version of Firebase. 
+
+After you have created your project, you will need to get the Firebase web configuration details and create your `firebase.js` file.  This will be the file that initializes Firebase.
+
+```javascript
+import firebase from "firebase";
+import "@firebase/firestore";
+import env from "../env.js";
+
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: env.API_KEY,
+  authDomain: env.AUTH_DOMAIN,
+  databaseURL: env.DATABASE_URL,
+  projectId: env.PROJECT_ID,
+  storageBucket: env.STORAGE_BUCKET,
+  messagingSenderId: env.MESSAGE_SENDER_ID,
+  appId: env.APP_ID
+};
+// Initialize Firebase
+let Firebase = firebase.initializeApp(firebaseConfig);
+export const db = firebase.firestore();
+export default Firebase;
+```
+
+The **default export** is **Firebase**, which is a reference to ALL of the firebase functions.  It will be used for Auth or any other functions above the firestore database.
+
+The other is a **named export**, which you can call anything, but is called **db** in the above example.
+
+This is the Firestore database reference.  It will be used to access the collections and documents in the database.
+
+## Auth
+
+The most difficult thing about Auth is how you implement the flow in you application.  From the Firebase side, it is relatively easy.
+
+### Set up an onAuthStateChanged() listener
+
+The first thing we need is a way to tell if a user is logged in or not.  This is usually done near the root of your application so that you can determine which routes the user will have access to.
+
+Here is a simple example in an applications root file App.js
+
+```jsx
+import React from "react";
+import Firebase from "./storage/firebase";
+import SignIn from "./components/Auth/SignIn";
+
+function App() {
+  const [user, setUser] = React.useState();
+  React.useEffect(() => {
+    let unsubscribe = Firebase.auth().onAuthStateChanged(user => {
+      setUser(user);
+    });
+    return unsubscribe;
+  }, []);
+
+  return (
+    <div>
+      {user ? (
+        <div>
+          <SearchMovie />
+          <SavedMovies />
+          <br />
+          <ViewMovies />
+        </div>
+      ) : (
+        <SignIn />
+      )}
+    </div>
+  );
+}
+
+export default App;
+```
+
+Notice in the **useEffect** function, we are setting this to only run once when the application mounts, since has set up a listener that will fire whenever the user's auth status changes.
+
+When the auth status changes, the function passed to **onAuthStateChanged()** will be executed.
+
+Don't forget to get the **unsubscribe** method and return it as the cleanup function (if you are using useEffect).
+
+### Sign In/Sign Up
+
+If our app requires a user to be logged in, then if their auth status is not logged in, we will redirect to a Sign In page.  This page should also have a link so that the user can Sign Up if they have not done so before.
+
+If you want to keep profile information on a user, you can request this at SignUp and create the users profile as they sign up.
+
+Here is a sign up function with the assumption that email and password are being set elsewhere in component.
+
+```javascript
+  const signUp = () => {
+    // Firebase.auth()
+    //   .createUserWithEmailAndPassword(email, password)
+    //   .then(resp => console.log("SIGNED UP ", resp));
+    //-------
+    // If you wanted to create a initial user profile upon user creation 
+    // you could do this:
+    Firebase.auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(resp => {
+        return fsDB
+          .collection("users")
+          .doc(resp.user.uid)
+          .set({ email });
+      });
+  };
+```
+
+You don't have to do anything (create a user doc) upon creation, but it is an option.
+
+Here is a Sign In Method:
+
+```javascript
+const signIn = () => {
+    Firebase.auth().signInWithEmailAndPassword(email, password);
+  };
+```
+
+These are just the base Firebase functions to get you logged in, however, you will most likely want to store the user's **uid** somewhere globally or where you database writes/reads/updates are going to happen, as you will want it when you perform DB operations.
+
+If you need the **uid**, you can also request it at any time using the following:
+
+```javascript
+firebase.auth().currentUser
+```
+
+### Insert and Results
+
+Here are some examples of inserts and their results:
+
+```javascript
+    firestore
+      .collection("users")
+      .doc(uid)
+      .set({ tagData: fbTagData });
+```
+
+**Result**
+
+![1579899491222](..\assets\firestore-query-001.png)
+
+
+
 ## Design Decisions
 
 Good video on [Design Decisions](https://www.youtube.com/watch?v=lW7DWV2jST0)
