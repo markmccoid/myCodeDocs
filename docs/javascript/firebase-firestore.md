@@ -155,6 +155,21 @@ Here are some examples of inserts and their results:
 
 ![1579899491222](..\assets\firestore-query-001.png)
 
+When you have an array of objects, as above, it looks as if you will need to send the whole array of objects.  There is not a way to update an individual object or append an object to the array that I have found.  However, if you simply have an array of types (string, number, etc) you can use ArrayUnion.
+
+[Array Firebase Docs](https://firebase.google.com/docs/firestore/manage-data/add-data#update_elements_in_an_array)
+
+Another way to organize the schema for Arrays of Objects would be to simply take the key of each object in the array and make that a key:
+
+```javascript
+users.uid.tagData = {
+  'adfdadifdadf': 'Favorite',
+  '23fjkadfda;3': 'Watched'
+}
+```
+
+
+
 
 
 ## Design Decisions

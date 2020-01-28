@@ -741,7 +741,7 @@ The commented out *defaultNavigationOptions* show how to do it by turning the me
 
 
 
-## Passing Extra Data on Navigate
+### Passing Extra Data on Navigate
 
 To pass data when you navigate to a new screen, you can pass a second parameter when calling **navigation.navigate**. This parameter will be an object that contains the data you want passed:
 
@@ -758,6 +758,92 @@ const ShowScreen = ({ navigation }) => {
 	const id = navigation.getParam("id");
     ...
 }
+```
+
+### Navigating Without the Navigation prop
+
+Sometimes you need to navigate from a screen without the navigation prop.  One example is when setting up a listener for Firestore that determines if a user is logged in.  The **onAuthStateChanged** function.
+
+To do this I needed to implement in the main App function where I was initiating the main navigation loop.
+
+You end up setting up a NavigationService.js file that dispatches actions.
+
+[React Navigation Docs](https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
+
+**NavigationService.js**
+
+```javascript
+import { NavigationActions } from "react-navigation";
+
+let _navigator;
+
+function setTopLevelNavigator(navigatorRef) {
+  _navigator = navigatorRef;
+}
+
+function navigate(routeName, params) {
+  _navigator.dispatch(
+    NavigationActions.navigate({
+      routeName,
+      params
+    })
+  );
+}
+
+// add other navigation functions that you need and export them
+
+export default {
+  navigate,
+  setTopLevelNavigator
+};
+```
+
+Here is where I implemented on the App component and used the functions.
+
+**App.js**
+
+```jsx
+import React from "react";
+import { createAppContainer } from "react-navigation";
+import { YellowBox } from "react-native";
+import { initTMDB } from "tmdb_api";
+import { config } from "./src/store/overmind";
+import { Provider } from "overmind-react";
+import { createOvermind } from "overmind";
+import NavigationService from "./src/navigators/NavigationService";
+import Firebase from "./src/storage/firebase";
+// import MainTabNavigator from "./src/navigators/MainTabNavigator";
+import AppSwitchNavigator from "./src/navigators/AppSwitchNavigator";
+
+//import "./src/storage/firebase";
+
+const App = createAppContainer(AppSwitchNavigator);
+// suppress require cycle warning coming from tmdb_api package
+YellowBox.ignoreWarnings(["Require cycle:"]);
+export default () => {
+  initTMDB("0e4935aa81b04539beb687d04ff414e3");
+  // Sets up Listener for Auth state.  If logged
+  const overmind = createOvermind(config, { devtools: "192.168.1.22:3031" });
+  React.useEffect(() => {
+    let unsubscribe = Firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        NavigationService.navigate("App");
+      } else {
+        NavigationService.navigate("SignIn");
+      }
+    });
+    return () => unsubscribe();
+  });
+  return (
+    <Provider value={overmind}>
+      <App
+        ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+      />
+    </Provider>
+  );
+};
 ```
 
 
