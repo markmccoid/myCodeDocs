@@ -213,6 +213,106 @@ Example of a dynamic header icon which changes based on if a modal screen is sho
 
 [example](#headerright-dynamic-icon-example)
 
+The headerRight, among other options in navigationOptions can be functions:
+
+```jsx
+IndexScreen.navigationOptions = ({ navigation }) => {
+    return {
+          title: "View Movies",
+          headerRight: () => {
+            if (routeName === "ViewMoviesFilter") {
+              return (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ViewMoviesScreen")}
+                >
+                  <AntDesign
+                    name="close"
+                    size={30}
+                    style={{ marginRight: 10 }}
+                  />
+                </TouchableOpacity>
+              );
+            } else ...
+    }
+}
+```
+
+But let's say you need to **access your store via a hook**.  You can't do that in the above function directly, but what you can do is create a functional component that does all that stuff and use it inside the headerRight function.
+
+```jsx
+navigationOptions: ({ navigation }) => {
+  let movie = navigation.getParam("movie");
+  // Get number of tags for movieId
+
+  // console.log("DETAIL PARAMS", numberOfTags);
+  return {
+    title: movie.title,
+    headerTitleStyle: { fontSize: 22 },
+    headerRight: () => {
+      let routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+      if (routeName === "MovieDetailTagEdit") {
+        return (
+          <TouchableOpacity
+            onPress={() => navigation.navigate("MovieDetailScreen")}
+            >
+            <AntDesign
+              name="close"
+              size={30}
+              style={{ marginRight: 10 }}
+              />
+          </TouchableOpacity>
+        );
+      } else {
+        return (
+          <MovieDetailHeaderRight
+            navigate={navigation.navigate}
+            movie={movie}
+            />
+        );
+      }
+    }
+  };
+}
+```
+
+Notice the **MovieDetailHeaderRight** functional component:
+
+```jsx
+import React from "react";
+import { TouchableOpacity } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { Badge } from "react-native-elements";
+import { useOvermind } from "../store/overmind";
+
+export const MovieDetailHeaderRight = props => {
+  let { state } = useOvermind();
+  const numberOfTags = state.oSaved.getMovieTags(props.movie.id).length;
+  return (
+    <TouchableOpacity
+      onPress={() =>
+        props.navigate("MovieDetailTagEdit", { movie: props.movie })
+      }
+    >
+      <Feather name="tag" size={30} style={{ marginRight: 10 }} />
+      {numberOfTags ? (
+        <Badge
+          status="success"
+          value={numberOfTags}
+          containerStyle={{
+            position: "absolute",
+            top: -5,
+            right: 10
+          }}
+        />
+      ) : null}
+    </TouchableOpacity>
+  );
+};
+```
+
+
+
 ### Tab Navigator
 
 There are a couple of Tab Navigators
