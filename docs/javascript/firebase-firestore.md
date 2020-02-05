@@ -172,6 +172,27 @@ users.uid.tagData = {
 
 
 
+## Query Helpers
+
+### Read an Array of Docs
+
+If you had a schema with a parent collection with a number of docs underneath it and you had an array of those doc "ids", here is how you could get at them all:
+
+```javascript
+const readIds = async(collection, ids) => {
+  const reads = ids.map(id => collection.doc(id).get());
+  const result = await Promise.all(reads);
+  return result.map(v => v.data());
+};
+
+// call the above
+readIds(db.collection('products'), ['ProdOne', 'ProdTwo', 'ProdThree'])
+```
+
+[Reference Video](https://www.youtube.com/watch?v=35RlydUf6xo&t=382s)
+
+
+
 ## Design Decisions
 
 Good video on [Design Decisions](https://www.youtube.com/watch?v=lW7DWV2jST0)
