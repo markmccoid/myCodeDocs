@@ -64,7 +64,7 @@ Your config object is passed to the **createOvermind()** function when creating 
 import { createOvermind } from 'overmind';
 import { config } from './store/overmind';
 
-const overmind = createOvermind(config)l
+const overmind = createOvermind(config)
 ```
 
 Usually it makes sense to set up the config object in a separate directory *store* or *overmind*.
