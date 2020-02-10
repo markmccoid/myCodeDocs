@@ -45,6 +45,80 @@ Some Videos:
 
 [More Combining Navigators v4](https://www.youtube.com/watch?v=0VfzgFZt-AI)
 
+### Switch Navigator
+
+The purpose of SwitchNavigator is to only ever show one screen at a time. By default, it does not handle back actions and it resets routes to their default state when you switch away. This is the exact behavior that we want from the [authentication flow](https://reactnavigation.org/docs/en/auth-flow.html).
+
+The authentication flow docs from React Navigation are good.
+
+From their exampe:
+
+```javascript
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+
+// Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
+// goes here.
+
+const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen });
+const AuthStack = createStackNavigator({ SignIn: SignInScreen });
+
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoading: AuthLoadingScreen,
+      App: AppStack,
+      Auth: AuthStack,
+    },
+    {
+      initialRouteName: 'AuthLoading',
+    }
+  )
+);
+```
+
+Notice the AuthLoading route.  The point of this screen is to check to see if the user is already logged in (either a token stored in AsyncStorage) and if so, then direct to the Main App route, if not, send the user to the Auth route where they can sign in or sign up.
+
+Here is an example AuthLoadingScreen component:
+
+```jsx
+import React from 'react';
+import {
+  ActivityIndicator,
+  AsyncStorage,
+  StatusBar,
+  StyleSheet,
+  View,
+} from 'react-native';
+
+class AuthLoadingScreen extends React.Component {
+  componentDidMount() {
+    this._bootstrapAsync();
+  }
+
+  // Fetch the token from storage then navigate to our appropriate place
+  _bootstrapAsync = async () => {
+    const userToken = await AsyncStorage.getItem('userToken');
+
+    // This will switch to the App screen or Auth screen and this loading
+    // screen will be unmounted and thrown away.
+    this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+  };
+
+  // Render any loading content that you like here
+  render() {
+    return (
+      <View>
+        <ActivityIndicator />
+        <StatusBar barStyle="default" />
+      </View>
+    );
+  }
+}
+```
+
+Notice it really is just displaying and ActivityIndicator until it determines if the user is logged in.
+
 ### Stack Navigator
 
 [Stack Navigator Docs](https://reactnavigation.org/docs/en/stack-navigator.html)
@@ -119,6 +193,8 @@ Many times you will want to add an icon, text or something that will cause an ac
 
 ![react-native-navigation002](..\assets\react-native-navigation002.png)
 
+
+
 To do this we do the following on the screen where we want the button:
 
 ```jsx
@@ -132,6 +208,110 @@ IndexScreen.navigationOptions = ({ navigation }) => {
     }
 }
 ```
+
+Example of a dynamic header icon which changes based on if a modal screen is showing.
+
+[example](#headerright-dynamic-icon-example)
+
+The headerRight, among other options in navigationOptions can be functions:
+
+```jsx
+IndexScreen.navigationOptions = ({ navigation }) => {
+    return {
+          title: "View Movies",
+          headerRight: () => {
+            if (routeName === "ViewMoviesFilter") {
+              return (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ViewMoviesScreen")}
+                >
+                  <AntDesign
+                    name="close"
+                    size={30}
+                    style={{ marginRight: 10 }}
+                  />
+                </TouchableOpacity>
+              );
+            } else ...
+    }
+}
+```
+
+But let's say you need to **access your store via a hook**.  You can't do that in the above function directly, but what you can do is create a functional component that does all that stuff and use it inside the headerRight function.
+
+```jsx
+navigationOptions: ({ navigation }) => {
+  let movie = navigation.getParam("movie");
+  // Get number of tags for movieId
+
+  // console.log("DETAIL PARAMS", numberOfTags);
+  return {
+    title: movie.title,
+    headerTitleStyle: { fontSize: 22 },
+    headerRight: () => {
+      let routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+      if (routeName === "MovieDetailTagEdit") {
+        return (
+          <TouchableOpacity
+            onPress={() => navigation.navigate("MovieDetailScreen")}
+            >
+            <AntDesign
+              name="close"
+              size={30}
+              style={{ marginRight: 10 }}
+              />
+          </TouchableOpacity>
+        );
+      } else {
+        return (
+          <MovieDetailHeaderRight
+            navigate={navigation.navigate}
+            movie={movie}
+            />
+        );
+      }
+    }
+  };
+}
+```
+
+Notice the **MovieDetailHeaderRight** functional component:
+
+```jsx
+import React from "react";
+import { TouchableOpacity } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { Badge } from "react-native-elements";
+import { useOvermind } from "../store/overmind";
+
+export const MovieDetailHeaderRight = props => {
+  let { state } = useOvermind();
+  const numberOfTags = state.oSaved.getMovieTags(props.movie.id).length;
+  return (
+    <TouchableOpacity
+      onPress={() =>
+        props.navigate("MovieDetailTagEdit", { movie: props.movie })
+      }
+    >
+      <Feather name="tag" size={30} style={{ marginRight: 10 }} />
+      {numberOfTags ? (
+        <Badge
+          status="success"
+          value={numberOfTags}
+          containerStyle={{
+            position: "absolute",
+            top: -5,
+            right: 10
+          }}
+        />
+      ) : null}
+    </TouchableOpacity>
+  );
+};
+```
+
+
 
 ### Tab Navigator
 
@@ -367,6 +547,175 @@ const TabNavigator = createBottomTabNavigator({
 });
 ```
 
+#### Route in Nav Options
+
+Still a bit hazy on this, but if you have navigationOptions in a Navigator that doesn't directly show a screen, but instead references another Navigator (Stack, Tab, etc), then to get to Params, etc, you will need to use the following syntax:
+
+```javascript
+...
+navigationOptions: ({ navigation }) => {
+        let params = navigation.state.routes[navigation.state.index].params;
+        let routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+        //console.log("PARAMS", params);
+        let isFiltered = params ? params.isFiltered : false;
+        let numFilters = params ? params.numFilters : undefined;
+        console.log(
+          "MOVIE TAB NAV",
+          navigation.state.routes[navigation.state.index]
+        );
+}
+...
+```
+
+Notice you will use the `navigation.state.index` to look inside the `navigation.state.routes` object to get at any params, etc.
+
+The `navigation.state.routes` array looks like this:
+
+```javascript
+[
+  Object {
+    "key": "id-1579582094912-0",
+    "params": Object {
+      "isFiltered": false,
+      "numFilters": 0,
+    },
+    "routeName": "ViewMoviesScreen",
+  },
+]
+```
+
+Depending on how many screens/routes are in the associated navigator, you will have multiple rows in the array.
+
+If you are at the screen, that code will NOT work.  You must access it directly like this:
+
+```javascript
+navigation.state.params
+// or to get the route object
+navigation.state
+```
+
+The route object `navigation.state` looks like this:
+
+```javascript
+{
+  "key": "id-1579582094912-0",
+  "params": Object {
+    "isFiltered": false,
+    "numFilters": 0,
+  },
+  "routeName": "ViewMoviesScreen",
+}
+```
+
+#### headerRight Dynamic icon example
+
+This is an example where the ViewMovieStack referenced in the ViewMovies property has a main screen and a model.  If the modal is showing, a close icon shows in the header, if not, then a filter icon is shown.
+
+To make this work, the modal is set to not have a header.
+
+```jsx
+const MainMovieStack = createStackNavigator(
+  {
+    ViewMovies: {
+      screen: ViewMovieStack,
+      navigationOptions: ({ navigation }) => {
+        let params = navigation.state.routes[navigation.state.index].params;
+        let routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+        //console.log("PARAMS", params);
+        let isFiltered = params ? params.isFiltered : false;
+        let numFilters = params ? params.numFilters : undefined;
+        console.log(
+          "MOVIE TAB NAV",
+          navigation.state.routes,
+          navigation.state.index
+        );
+        // console.log(
+        //   "MOVIE TAB PARAMS",
+        //   navigation.state.routes[navigation.state.index].params
+        // );
+        return {
+          title: "View Movies",
+          headerRight: () => {
+            if (routeName === "ViewMoviesFilter") {
+              return (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ViewMoviesScreen")}
+                >
+                  <AntDesign
+                    name="close"
+                    size={30}
+                    style={{ marginRight: 10 }}
+                  />
+                </TouchableOpacity>
+              );
+            } else {
+              return (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ViewMoviesFilter")}
+                >
+                  <Feather
+                    name="filter"
+                    size={30}
+                    style={{
+                      marginRight: 15,
+                      color: isFiltered ? "green" : "black"
+                    }}
+                  />
+                  {numFilters ? (
+                    <Badge
+                      status="success"
+                      value={numFilters}
+                      containerStyle={{
+                        position: "absolute",
+                        top: -5,
+                        right: 10
+                      }}
+                    />
+                  ) : null}
+                </TouchableOpacity>
+              );
+            }
+          }
+        };
+      }
+    },
+    ...
+```
+
+Here is the **ViewMovieStack**
+
+```jsx
+const ViewMovieStack = createStackNavigator(
+  {
+    ViewMoviesScreen: {
+      screen: ViewMovieScreen,
+      navigationOptions: ({ navigation }) => {
+        return {
+          headerRight: (
+            <TouchableOpacity
+              onPress={() => navigation.navigate("ViewMoviesFilter")}
+            >
+              <AntDesign name="close" size={30} style={{ marginRight: 10 }} />
+            </TouchableOpacity>
+          )
+        };
+      }
+    },
+    ViewMoviesFilter: {
+      screen: ViewMoviesFilterScreen
+    }
+  },
+  {
+    mode: "modal",
+    headerMode: "none"
+  }
+);
+```
+
+
+
 ### Drawer Navigator
 
 A Drawer Navigator is one that can be pulled out from the side of the phone and has routes on it that can be selected.
@@ -492,7 +841,7 @@ The commented out *defaultNavigationOptions* show how to do it by turning the me
 
 
 
-## Passing Extra Data on Navigate
+### Passing Extra Data on Navigate
 
 To pass data when you navigate to a new screen, you can pass a second parameter when calling **navigation.navigate**. This parameter will be an object that contains the data you want passed:
 
@@ -509,6 +858,92 @@ const ShowScreen = ({ navigation }) => {
 	const id = navigation.getParam("id");
     ...
 }
+```
+
+### Navigating Without the Navigation prop
+
+Sometimes you need to navigate from a screen without the navigation prop.  One example is when setting up a listener for Firestore that determines if a user is logged in.  The **onAuthStateChanged** function.
+
+To do this I needed to implement in the main App function where I was initiating the main navigation loop.
+
+You end up setting up a NavigationService.js file that dispatches actions.
+
+[React Navigation Docs](https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
+
+**NavigationService.js**
+
+```javascript
+import { NavigationActions } from "react-navigation";
+
+let _navigator;
+
+function setTopLevelNavigator(navigatorRef) {
+  _navigator = navigatorRef;
+}
+
+function navigate(routeName, params) {
+  _navigator.dispatch(
+    NavigationActions.navigate({
+      routeName,
+      params
+    })
+  );
+}
+
+// add other navigation functions that you need and export them
+
+export default {
+  navigate,
+  setTopLevelNavigator
+};
+```
+
+Here is where I implemented on the App component and used the functions.
+
+**App.js**
+
+```jsx
+import React from "react";
+import { createAppContainer } from "react-navigation";
+import { YellowBox } from "react-native";
+import { initTMDB } from "tmdb_api";
+import { config } from "./src/store/overmind";
+import { Provider } from "overmind-react";
+import { createOvermind } from "overmind";
+import NavigationService from "./src/navigators/NavigationService";
+import Firebase from "./src/storage/firebase";
+// import MainTabNavigator from "./src/navigators/MainTabNavigator";
+import AppSwitchNavigator from "./src/navigators/AppSwitchNavigator";
+
+//import "./src/storage/firebase";
+
+const App = createAppContainer(AppSwitchNavigator);
+// suppress require cycle warning coming from tmdb_api package
+YellowBox.ignoreWarnings(["Require cycle:"]);
+export default () => {
+  initTMDB("0e4935aa81b04539beb687d04ff414e3");
+  // Sets up Listener for Auth state.  If logged
+  const overmind = createOvermind(config, { devtools: "192.168.1.22:3031" });
+  React.useEffect(() => {
+    let unsubscribe = Firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        NavigationService.navigate("App");
+      } else {
+        NavigationService.navigate("SignIn");
+      }
+    });
+    return () => unsubscribe();
+  });
+  return (
+    <Provider value={overmind}>
+      <App
+        ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+      />
+    </Provider>
+  );
+};
 ```
 
 
@@ -615,6 +1050,34 @@ Used to render a list of items.  There are three main props:
 
 > NOTE: You should always render you FlatList in a View with flex: 1.  This keeps the last item in the list from being hidden by the bottom of the screen.
 
+Some useful props for the FlatList
+
+- **onEndReached** (function) - when the end of the list is reached this function will be called.  There is a threshold prop also that lets you determine when the "end" is reached and thus when the function is called.
+- **keyboardDismissMode** - Super useful if you are doing any type of auto querying based on entry in a list box.  If this is set to **on-drag**, then when you drag the FlatList, the keyboard dismisses.  This is also on the ScrollView.
+
+## Styling a FlatList
+
+Usually a FlatList will show one render item per column.  This leaves all the styling to the component used in the **renderItem** prop.  However, if you want to have multiple items on a column, you would set the **numColumns** prop to something greater than one.  
+
+When you do this, you can pass another prop,**columnWrapperStyle** and with this you can style each row.
+
+For example, you could center each render item using:
+
+```javascript
+<FlatList
+  data={state.oSaved.getFilteredMovies}
+  keyExtractor={(movie, idx) => movie.id.toString() + idx}
+  //** Style each row, here we are centering the items **/
+  columnWrapperStyle={{ justifyContent: "center" }}
+  renderItem={({ item }) => {
+    return <ViewMovieItem movie={item} />;
+  }}
+  numColumns={2}
+/>
+```
+
+
+
 ## Scroll To Top
 
 When reloading a flatlist with data, such as when repopulating after a search, it will stay in the same position unless you tell it to go back to the top.  
@@ -649,7 +1112,36 @@ function MyComponent() {
 
 # Styling
 
+## Styled Components
 
+You can use **styled-components** with React Native.
+
+
+
+## StyleSheet
+
+This is the traditional way to style your app.
+
+### Shadows
+
+```javascript
+const styles = StyleSheet.create({
+  containerStyle: {
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: '#ddd',
+    borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10,
+  }
+})
+```
 
 
 
