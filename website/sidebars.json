@@ -15,7 +15,9 @@
       "javascript/javascript-snippets",
       "javascript/npm-module-creation"
     ],
-    "Node": ["nodejs/nodejs-basics"],
+    "Node": [
+      "nodejs/nodejs-basics"
+    ],
     "JS/React Libs": [
       "javascript/lib_lodash-library",
       "javascript/lib_axios",
@@ -38,10 +40,16 @@
     "Redux": [
       "redux/react-redux",
       "redux/my-redux-pattern",
-      "redux/react-redux-compliment"
+      "redux/react-redux-compliment",
+      "redux/baby-redux"
     ],
-    "ReactNative": ["reactnative/react-native"],
-    "HTMLCSS": ["html-css/html-css-snippets", "html-css/tailwindcss"],
+    "ReactNative": [
+      "reactnative/react-native"
+    ],
+    "HTMLCSS": [
+      "html-css/html-css-snippets",
+      "html-css/tailwindcss"
+    ],
     "Electron": [
       "electron/electron-react-boiler",
       "electron/electron-basics",
@@ -54,7 +62,9 @@
       "projects/tmdb-api-reference",
       "projects/electron-tv-tracker"
     ],
-    "TMDB API": ["projects/tmdb-wrapper-api"],
+    "TMDB API": [
+      "projects/tmdb-wrapper-api"
+    ],
     "CarTracker": [],
     "Quotable": []
   },
