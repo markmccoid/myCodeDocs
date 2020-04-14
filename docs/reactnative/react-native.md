@@ -1110,6 +1110,12 @@ function MyComponent() {
 
 
 
+# Common Modules
+
+[React Native Hooks](https://github.com/react-native-community/hooks) - Great module for accessing common things like dimensions, photo roll, etc.
+
+
+
 # Styling
 
 ## Styled Components
