@@ -1114,6 +1114,41 @@ function MyComponent() {
 
 [React Native Hooks](https://github.com/react-native-community/hooks) - Great module for accessing common things like dimensions, photo roll, etc.
 
+## Getting Dimensions
+
+```javascript
+...
+import { useDimensions } from "@react-native-community/hooks";
+...
+const MyComponent = () => {
+	const { width, height } = useDimensions().window;  
+  return (...)
+}
+```
+
+Here I am just pulling the Window dimensions.  Here is what the full object would look like:
+
+```javascript
+const dimensions = useDimensions();
+// dimensions Object
+{
+  "screen": Object {
+    "fontScale": 1,
+    "height": 896,
+    "scale": 2,
+    "width": 414,
+  },
+  "window": Object {
+    "fontScale": 1,
+    "height": 896,
+    "scale": 2,
+    "width": 414,
+  },
+}
+```
+
+
+
 
 
 # Styling

@@ -89,6 +89,33 @@ Currently the parameters passed that I know of are:
 
 #### navigation Parameter
 
+The **navigation** parameter is passed to screens directly called by React Navigation.  If you need the navigation parameter in a component that doesn't get this parameter passed, you can use the hook `useNavigation` to get access to it.
+
+```javascript
+import { useNavigation } from "@react-navigation/native";
+```
+
+The most common thing you will use the **navigation** parameter for is to **navigate** to other screens.
+
+The other is to access the **setOptions** and **setParams** functions.
+
+The **setOptions** is useful if you wanted to change the options (title, header icon, etc) from within your component.
+
+```javascript
+...
+const ViewDetails = ({ navigation, route }) => {
+  let movieId = route.params?.movieId;
+  // Set the title to the current movie title
+  navigation.setOptions({ title: movie.title });
+  
+  return (
+    ...
+    );
+...    
+```
+
+
+
 #### route Parameter
 
 This is a route object.  The information in this route object varies depending on if the route you are on is a "stack" or a screen. 
