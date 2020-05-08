@@ -99,6 +99,8 @@ The most common thing you will use the **navigation** parameter for is to **navi
 
 The other is to access the **setOptions** and **setParams** functions.
 
+#### navigation - setOptions
+
 The **setOptions** is useful if you wanted to change the options (title, header icon, etc) from within your component.
 
 ```javascript
@@ -113,6 +115,65 @@ const ViewDetails = ({ navigation, route }) => {
     );
 ...    
 ```
+
+#### navigation - setParams
+
+The setParams function of the navigation parameter lets you set the Params for the Route that you are in.
+
+```javascript
+const ViewMovies = ({ navigation, route }) => {
+  const { state, actions } = useOvermind();
+  useEffect(() => {
+    navigation.setParams({
+      isFiltered: state.oSaved.filterData.tags.length > 0,
+      numFilters: state.oSaved.filterData.tags.length,
+    });
+  }, [state.oSaved.filterData.tags.length]);
+  return ( ... );
+}
+```
+
+
+
+
+
+The resulting route object will look like this:
+
+```javascript
+
+routeObj = {
+  "key": "ViewMovies-Riwdc770gfEQ4j2taPrcC",
+  "name": "ViewMovies",
+  "params": undefined,
+  "state": Object {
+    "index": 1,
+    "key": "stack-4JjmGo70wv-Pvce1LTDDD",
+    "routeNames": Array [
+      "Movies",
+      "Filter",
+    ],
+    "routes": Array [
+      Object {
+        "key": "Movies-aWZr8QGjN27WYObSQybXK",
+        "name": "Movies",
+        "params": Object {
+          "isFiltered": false,
+          "numFilters": 0,
+        },
+      },
+      Object {
+        "key": "Filter-Y5ms14pTYFFowAmqZ-a4x",
+        "name": "Filter",
+        "params": undefined,
+      },
+    ],
+    "stale": false,
+    "type": "stack",
+  },
+}
+```
+
+
 
 
 
