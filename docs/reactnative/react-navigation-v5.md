@@ -18,6 +18,31 @@ $ expo install react-native-gesture-handler react-native-reanimated react-native
 
 If you are not using **Expo**, then check out the docs on installing dependencies for a [bare React Native Project](https://reactnavigation.org/docs/getting-started#installing-dependencies-into-a-bare-react-native-project).
 
+## Hooks
+
+**useNavigation**
+
+```jsx
+import * as React from 'react';
+import { Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+function MyBackButton() {
+  const navigation = useNavigation();
+
+  return (
+    <Button
+      title="Back"
+      onPress={() => {
+        navigation.goBack();
+      }}
+    />
+  );
+}
+```
+
+
+
 ## Stack Navigator
 
 ### Navigate to a Specific Screen
@@ -26,6 +51,8 @@ This should apply to navigation to any screen, regardless of what type of Naviga
 
 - **navigation.goBack**() - moves backwards in your history stack of screens.
 - **navigation.navigate('route name')** - Must pass a route name to navigate to.  If you have nested navigators, I believe you can pass a second object with your own specific params and/or a `screen` param that will be a sub screen to navigat to.
+- **[Navigate to Nested Screens](https://reactnavigation.org/docs/nesting-navigators/)**
+- 
 
 ### Passing Params
 
@@ -85,9 +112,122 @@ You can configure your stack by passing a set of options via the **options** pro
 
 The options prop is an object with different options.  However, most of the time, you will want to pass a function that returns the options object.  The function you pass will be called with some parameters that are essential in dynamically setting some of the options.
 
+Here is an example setting the **headerRight** icon for a screen within a stack.
+
+```jsx
+...
+<ViewStack.Navigator>
+      <ViewStack.Screen
+        name="ViewMovies"
+        component={ViewMoviesStack}
+        options={({ navigation, route }) => {
+          // Using optional chaining because initial route object is for stack
+          let currentScreenName =
+            route?.state?.routeNames[route.state.index] || "Movies";
+          let params = route?.state?.routes[route.state.index].params;
+
+          let isFiltered = params?.isFiltered;
+          let numFilters = params?.numFilters;
+
+          return {
+            title: "Movies",
+            headerRight: () => {
+              if (currentScreenName === "Movies") {
+                return (
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("Filter")}
+                  >
+                    <FilterIcon
+                      color="black"
+                      size={30}
+                      style={{ marginRight: 15 }}
+                    />
+                    {isFiltered && (
+                      <Badge
+                        status="success"
+                        value={numFilters}
+                        containerStyle={{
+                          position: "absolute",
+                          top: -5,
+                          right: 10,
+                        }}
+                      />
+                    )}
+                  </TouchableOpacity>
+                );
+              } else if (currentScreenName === "Filter") {
+                return (
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate("Movies", { returning: true })
+                    }
+                  >
+                    <CloseIcon
+                      color="black"
+                      size={30}
+                      style={{ marginRight: 15 }}
+                    />
+                  </TouchableOpacity>
+                );
+              }
+            },
+          };
+        }}
+      />
+      <ViewStack.Screen
+        name="Details"
+        component={ViewDetails}
+        options={({ navigation, route }) => {
+          console.log("DET ROUTE", route);
+          console.log("Params", route?.params);
+          // Using optional chaining because initial route object is for stack
+          let currentScreenName =
+            route?.state?.routeNames[route.state.index] || "Details";
+          return {
+            headerRight: () => {
+              return null;
+            },
+          };
+        }}
+      />
+    </ViewStack.Navigator>
+...
+```
+
+There is a prop parameter the into the `headerRight` and `headerLeft` options.
+
+Notice how many of them are undefined.  I'm wondering if this is a standard prop passed into all options functions and we just need to know what is what.
+
+```javascript
+{
+  "allowFontScaling": undefined,
+  "backImage": undefined,
+  "canGoBack": false,
+  "label": undefined,
+  "labelStyle": Array [
+    undefined,
+    undefined,
+  ],
+  "labelVisible": undefined,
+  "onLabelLayout": [Function anonymous],
+  "onPress": undefined,
+  "pressColorAndroid": undefined,
+  "screenLayout": Object {
+    "height": 812,
+    "width": 414,
+  },
+  "tintColor": undefined,
+  "titleLayout": Object {
+    "height": 21,
+    "width": 39,
+  },
+  "truncatedLabel": undefined,
+}
+```
+
 Currently the parameters passed that I know of are:
 
-#### navigation Parameter
+#### `navigation `Parameter
 
 The **navigation** parameter is passed to screens directly called by React Navigation.  If you need the navigation parameter in a component that doesn't get this parameter passed, you can use the hook `useNavigation` to get access to it.
 
@@ -329,4 +469,22 @@ The **tabBarIcon** property also accepts a function, some of its params are **fo
 
 
 ## [Add Badges to Icons](https://reactnavigation.org/docs/tab-based-navigation#add-badges-to-icons)
+
+## Drawer Navigator
+
+[Drawer Docs](https://reactnavigation.org/docs/drawer-based-navigation/)
+
+The Drawer pulls out from the left or right.
+
+### useIsDrawerOpen
+
+To determine if a drawer is opened or closed
+
+```jsx
+import { useIsDrawerOpen } from '@react-navigation/drawer';
+
+// ...
+
+const isDrawerOpen = useIsDrawerOpen();
+```
 

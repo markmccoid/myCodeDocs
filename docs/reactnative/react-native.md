@@ -1,5 +1,5 @@
 ---
-id: react-native
+**id**: react-native
 title: React Native
 sidebar_label: React Native
 ---
@@ -16,7 +16,7 @@ $ npx expo-cli inti projectname
 
 Choose a blank project and then enter the name of your project.
 
-## Navigation
+## Navigation - React Navigation v4
 
 There are options for navigation, however, **[react-navigation]( https://reactnavigation.org/docs/en/getting-started.html)** is what I use.
 
@@ -1008,10 +1008,96 @@ Notice that the *onChangeText* function call the function with the value in the 
 
 Some other useful settings on TextInput:
 
-- onSubmitEditing - function to call when return key is pressed
-- autoCapitalize - Can determine what to auto capitalize [autoCapitalizeDocs](https://facebook.github.io/react-native/docs/textinput#autocapitalize)
-- autoComplete - Can provide hints for the type of field, like username, address, etc. you can turn it off by setting this to "off". There are some other useful settings here to.
-- autoCorrect - When an input is auto corrected, it can be annoying, you can turn it off by setting this to {false}
+- **onSubmitEditing** - function to call when return key is pressed
+- **autoCapitalize** - Can determine what to auto capitalize [autoCapitalizeDocs](https://facebook.github.io/react-native/docs/textinput#autocapitalize)
+  - `characters`: all characters.
+  - `words`: first letter of each word.
+  - `sentences`: first letter of each sentence (*default*).
+  - `none`: don't auto capitalize anything.
+- **keyboardType** - determines which keyboard to open.  Here are the ones that work across all platforms:
+  - `default`
+  - `number-pad`
+  - `decimal-pad`
+  - `numeric`
+  - `email-address`
+  - `phone-pad`
+- **autoCorrect** - (bool) When an input is auto corrected, it can be annoying, you can turn it off by setting this to {false}
+- **returnKeyType** - Determines what the return key should say.  Be aware the if you use the "next" option, you will need to programatically make it go to the next field. 
+
+
+
+## TextInput returnKeyType Changes Focus
+
+This is not automatic.  It seems like if. you set the **returnKeyType** to the *next* option, React Native will automatically know what you want it to do.  Not the case!  It can't read your mind yet!
+
+Luckily, every TextInput component has the **onSubmitEditing** prop.  This prop accepts a function that is called when the return key is pressed.
+
+You can use **refs** to set a TextInput's focus state as described in the code below.
+
+```jsx
+import React, { useRef } from 'react'
+...
+
+const MyFormComponent = () => {
+  const ref_input2 = useRef();
+  const ref_input3 = useRef();
+  return (
+    <>
+      <TextInput
+        placeholder="Input1"
+        autoFocus={true}
+        returnKeyType="next"
+        onSubmitEditing={() => ref_input2.current.focus()}
+      />
+      <TextInput
+        placeholder="Input2"
+        returnKeyType="next"
+        onSubmitEditing={() => ref_input3.current.focus()}
+        ref={ref_input2}
+      />
+      <TextInput
+        placeholder="Input3"
+        ref={ref_input3}
+      />
+    </>
+  )
+}
+```
+
+## Keyboard Avoiding View + Keyboard.dismiss()
+
+Even though the keyboard is needed, it's also a pain in the ass when it covers up your inputs.  Also, it would be nice to be able to dismiss the keyboard as it could be hiding an important button!
+
+[React Native Docs on KeyboardAvoidingView](https://reactnative.dev/docs/keyboardavoidingview)
+
+The basic premise is that you will use a **TouchableWithoutFeedback** component to wrap a View and when this area is pressed, the keyboard will be hidden using the React Native **Keyboard** Object.
+
+```jsx
+import React from 'react';
+import { View, TextInput, 
+        TouchableWithoutFeedback, Keyboard, 
+        KeyboardAvoidingView } from 'react-native';
+
+const SomeComponent = (props) => {
+  ...
+  return (
+  <View>
+  	<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    	<KeyboardAvoidingView
+        behavior={"padding"}
+        style={styles.someViewStyle}
+      >
+        <TextInput ... />  
+        <TextInput ... />  
+      </KeyboardAvoidingView>      
+    </TouchableWithoutFeedback>  
+  </View>
+  )
+}
+...
+```
+
+
 
 # Text Component
 
@@ -1152,6 +1238,21 @@ const dimensions = useDimensions();
 
 
 # Styling
+
+## iOS Dark Mode Issues
+
+Dark mode can cause issues.
+
+One way around is to modify the `info.plist` file to include the following:
+
+```xml
+<key>UIUserInterfaceStyle</key>
+<string>Light</string>
+```
+
+[Article on Styling Dark Mode](https://medium.com/javascript-in-plain-english/react-native-dark-mode-and-theming-dc299bec206d)
+
+
 
 ## Styled Components
 
