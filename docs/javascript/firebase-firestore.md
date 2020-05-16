@@ -256,3 +256,70 @@ $ npm install --global firebase-tools
 
 Functions that are run based on something that happens to your data.  For example, whenever a restaurant changes it name, you want to update all the orders that have the restaurant name in them updated also.   
 
+In my MovieTracker appliction there was a need to create some default Tags.  I create a cloud function that ran whenever a user was created in Firestore.
+
+Here is a good [starter Video](https://www.youtube.com/watch?v=DYfP-UIKxH0&t=330s) on the setup.  
+
+**Install Firebase Tools Globally**
+
+These tools will facilitate creating and deploying your projects.
+
+```bash
+$ npm install -g firebase-tools
+```
+
+**Create a Project Directory**
+
+While you most likely could create a project folder inside your main application folder, I think keeping it separate may be a good idea.  But who knows.
+
+Anyway, create a directory for your cloud functions project:
+
+cd into that new directory and **Login Into Firebase**. 
+
+> Very important to log into firebase via the CLI. 
+
+```bash
+$ firebase login
+```
+
+**Initialize your project**
+
+Remember, you are in your project directory.  From here you will type
+
+```bash
+$ firebase init	
+```
+
+This will create your project scaffolding.  It will ask you what type of project you want to setup.  I just wanted Functions, so that is what I chose.  Lastly, it will ask you which Firebase project (database) you want to use for the project.
+
+You will find a **functions** which contains your **index.js** file.  This is where your functions will reside.
+
+Here is an example function.  Note that we gain access to our firestore instance by using the **admin** object.
+
+`let db = admin.firestore()`
+
+```javascript
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+
+admin.initializeApp();
+
+exports.newUserSetup = functions.auth.user().onCreate((user) => {
+  // Create some default tags for new users
+  const uid = user.uid;
+  // setup our default tags
+  let tags = [
+    { tagId: "001a", tagName: "Favorites" },
+    { tagId: "002a", tagName: "Watched" },
+    { tagId: "003a", tagName: "Next Up" },
+  ];
+  console.log("NewUserSetup", admin);
+  return admin
+    .firestore()
+    .collection("users")
+    .doc(uid)
+    .update({ tagData: tags });
+  //return userDocRef.update({ tagData: tags });
+});
+```
+
