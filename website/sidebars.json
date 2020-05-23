@@ -44,7 +44,9 @@
       "redux/baby-redux"
     ],
     "ReactNative": [
-      "reactnative/react-native"
+      "reactnative/react-native",
+      "reactnative/react-navigation-v5",
+      "reactnative/react-navigation-v4"
     ],
     "HTMLCSS": [
       "html-css/html-css-snippets",
