@@ -206,8 +206,11 @@ Used to render a list of items.  There are three main props:
 
 Some useful props for the FlatList
 
-- **onEndReached** (function) - when the end of the list is reached this function will be called.  There is a threshold prop also that lets you determine when the "end" is reached and thus when the function is called.
+- **onEndReached** (function) - when the end of the list is reached this function will be called.  There is a threshold prop also that lets you determine when the "end" is reached and thus when the function is called. This is useful when you want to load more data when the end of the list is reached.  
 - **keyboardDismissMode** - Super useful if you are doing any type of auto querying based on entry in a list box.  If this is set to **on-drag**, then when you drag the FlatList, the keyboard dismisses.  This is also on the ScrollView.
+- **ListHeaderComponent** - You can pass a component to this prop and it will render as the header to your FlatList.  You can also pass a style object via ListHeaderComponentStyle.  Not sure of the use case for the style prop as you can simply style the header component.
+- **onContentSizeChange** - prop accepts a function that will be called when the content size changes.  Not really sure when it is called, but will be called whenever you change the data being sent to the FlatList that causes a rerender.
+- **onScroll** - This prop accepts a function that will be called whenever an onScroll Event occurs.  You can throttle this using the **scrollEventThrottle** property.  Since scrolling will produce a lot of events, be aware of this.
 
 ## Styling a FlatList
 
@@ -262,7 +265,120 @@ function MyComponent() {
 }
 ```
 
+## What is getItemLayout
 
+Since the FlatList is rendered parts at a time, you can't use functions like **scrollToIndex** by themselves.  You will need to create a **getItemLayout** function and pass it as a prop of the same name to your FlatList.
+
+This function in essence is telling the flat list how large each item is and how far to scroll to get the item in question.
+
+```jsx
+const getItemLayout = (data, index) => {
+  return {
+    length: height,
+    offset: height * index,
+    index,
+  };
+};
+```
+
+I believe the getItemLayout function is called when scrolling and you are using scrolltoIndex.  It lets the app know where in the list to scroll because it has all the information.
+
+This gets tought if the height of the items in the flatlist are variable heights.
+
+## scrollToIndex - scrollToTop - etc.
+
+To effectively use these functions you will need to assign a ref to use in a function (useEffect or otherwise).
+
+```jsx
+// This is used in the FlatList as the HeaderComponent
+const ListHeader = (show) => {
+  return (
+    <View style={show ? {} : { display: 'none' }}>
+      <SearchBar
+        placeholder="Search..."
+        platform="ios"
+        onChangeText={(search) => console.log('search term', search)}
+      />
+    </View>
+  );
+};
+
+const ViewMoviesScreen = ({ navigation, route }) => {
+  const [refreshing, setRefreshing] = React.useState(false);
+  const [showSearch, setShowSearch] = React.useState(false);
+  const flatListRef = React.useRef();
+  
+  const getItemLayout = (data, index) => {
+    let height = index === 1 ? 70 : 150;
+    return {
+      length: height,
+      offset: height * index - 70,
+      index,
+    };
+  };
+  
+  ...
+  
+ useEffect(() => {
+    setTimeout(() => {
+      flatListRef.current.scrollToIndex({ animated: true, index: 1 });
+    }, 2000);
+  }, []);
+
+  <FlatList
+        data={state.oSaved.getFilteredMovies}
+        ref={flatListRef}
+        getItemLayout={getItemLayout}
+        // onContentSizeChange={() => {
+        //   if (
+        //     flatListRef?.scrollToIndex &&
+        //     state.oSaved.getFilteredMovies?.length
+        //   ) {
+        //     flatListRef.current.scrollToIndex({
+        //       index: 1,
+        //     });
+        //   }
+        // }}
+        keyboardDismissMode
+        onScroll={(evt) => {
+          // console.log(evt.nativeEvent.contentOffset);
+          if (evt.nativeEvent.contentOffset.y < -10) {
+            setShowSearch(true);
+          }
+        }}
+        scrollEventThrottle={16}
+        onContentSizeChange={
+          () => {
+            // console.log('onContet size');
+            // if (refreshing) {
+            //   setRefreshing(false);
+            // } else {
+            //   setShowSearch(false);
+            // }
+          }
+          //flatListRef.current.scrollToIndex({ animated: true, index: 1 })
+        }
+        keyExtractor={(movie, idx) => movie.id.toString() + idx}
+        // columnWrapperStyle={{ justifyContent: "space-around" }}
+        // numColumns={2}
+        ListHeaderComponent={() => ListHeader(showSearch)}
+        renderItem={({ item, index }) => {
+          return (
+            <ViewMoviesListItem
+              movie={item}
+              setMovieEditingId={setMovieEditingId}
+              movieEditingId={movieEditingId}
+            />
+          );
+        }}
+      />
+}
+
+```
+
+
+
+ 
 
 # Common Modules
 
@@ -302,6 +418,30 @@ const dimensions = useDimensions();
 ```
 
 
+
+# Images
+
+**Display an image from a URL**
+
+```jsx
+<Image
+  style={{ width: 130, height: 200, marginRight: 10 }}
+  source={{ uri: movie.posterURL }}
+  resizeMode="contain"
+/>
+```
+
+
+
+**Get Image asset to Display**
+
+```jsx
+<Image
+   style={{ width: 130, height: 200, marginRight: 10 }}
+   source={require('./placeholder.png')}
+   resizeMode="contain"
+  />
+```
 
 
 
