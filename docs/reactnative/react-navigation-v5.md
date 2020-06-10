@@ -476,6 +476,86 @@ The **tabBarIcon** property also accepts a function, some of its params are **fo
 
 The Drawer pulls out from the left or right.
 
+### Custom Content in Drawer
+
+You have full control over what is displayed in the drawer.  To do so, you will need to create a component that holds the custom content.
+
+React Navigation provides wrapping components to make your life easier.  
+
+- DrawerContentScrollView - is this scrollview that encompasses the content. 
+- DrawerItemList - this contains the screen that are children to your main drawer.  If you don't have any screens and are creating all custom content, you don't need this component.
+- DrawerItem - The component that allows you to create your own item.
+
+**Custom Drawer Contents component**
+
+```jsx
+// The DrawerContentScrollView takes care of housekeeping for scroll view (notches, etc)
+// The DrawerItemList displays the screens that you pass as children to your drawer
+// The DrawerItem components are your custom components
+// props sent to custom drawer include navigation
+
+function CustomDrawerContent(props) {
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+      <DrawerItem
+        label="Settings"
+        onPress={() => props.navigation.navigate('Settings')}
+        style={{
+          borderBottomColor: 'black',
+          borderBottomWidth: 1,
+          width: '100%',
+          padding: 0,
+        }}
+      />
+    </DrawerContentScrollView>
+  );
+}
+```
+
+**Props Passed to Custom Content Component**
+
+To use this custom content, you will need to use the **drawerContent** prop on the Drawer Navigator component.  This will pass props to your custom content component.  These are the props:
+
+- **`state`** - The navigation state of the navigator, `state.routes` contains list of all routes
+- **`navigation`** - The navigation object for the navigator.
+- **`descriptors`** - An descriptor object containing options for the drawer screens. The options can be accessed at `descriptors[route.key].options`.
+- **`progress`** - Reanimated Node that represents the animated position of the drawer (0 is closed; 1 is open).
+
+**Props passed to the DrawerItem Component**
+
+The `DrawerItem` component accepts the following props:
+
+- **`label (required):`** The label text of the item. Can be string, or a function returning a react element. e.g. ({ focused, color }) => <Text style={{ color }}>{focused ? 'Focused text' : 'Unfocused text'}</Text>.
+- **`icon:`** Icon to display for the item. Accepts a function returning a react element. e.g. ({ focused, color, size }) => <Icon color={color} size={size} name={focused ? 'heart' : 'heart-outline'} />.
+- **`focused:`** Boolean indicating whether to highlight the drawer item as active.
+-  **`onPress (required):`** Function to execute on press.
+-  **`activeTintColor:`** Color for the icon and label when the item is active.
+- **`inactiveTintColor:`** Color for the icon and label when the item is inactive.
+- **`activeBackgroundColor:`** Background color for item when it's active.
+- **`inactiveBackgroundColor:`** Background color for item when it's inactive.
+- **`labelStyle:`** Style object for the label Text.
+- **`style:`** Style object for the wrapper View.
+
+**Using Custom Content**
+
+You will user your custom content component by passing it via the **drawerContent** prop on the Drawer.Navigator component.
+
+```jsx
+<Drawer.Navigator
+  drawerType="front"
+  drawerStyle={{ backgroundColor: '#ccc' }}
+  drawerContent={(props) => <CustomDrawerContent {...props} />}
+>
+  <Drawer.Screen name="<" component={AppTabsScreen} />
+  <Drawer.Screen name="Home" component={RedirectToMain} />
+  <Drawer.Screen name="Settings" component={Settings} />
+  <Drawer.Screen name="Sign Out" component={SignOut} />
+</Drawer.Navigator>
+```
+
+
+
 ### useIsDrawerOpen
 
 To determine if a drawer is opened or closed

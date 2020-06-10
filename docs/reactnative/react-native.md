@@ -376,6 +376,44 @@ const ViewMoviesScreen = ({ navigation, route }) => {
 
 ```
 
+## Changing numColumns on the Fly
+
+If you have a 2 column FlatList, defined by using the **numColumns** prop and you want to dynamically change it to 1 column, you will get an error saying you need to change the key prop. 
+
+To do this, just add a prop on the FlatList called **key** and set it to change when you change the number of columns.  This will force a rerender.
+
+> Why this doesn't usually work the way you want.  When you rerender, you will be sent back to the top of the FlatList. 
+
+Here is an example:
+
+```jsx
+...
+  return (
+    <View style={styles.containerForPortrait}>
+      {showSearch ? <ListSearchBar /> : null}
+      <FlatList
+        data={state.oSaved.getFilteredMovies}
+        ref={flatListRef}
+        // getItemLayout={getItemLayout}
+        keyboardDismissMode
+        keyExtractor={(movie, idx) => movie.id.toString() + idx}
+        key={movieEditingId ? 1 : 2}
+        // columnWrapperStyle={{ justifyContent: "space-around" }}
+        numColumns={movieEditingId ? 1 : 2}
+        renderItem={({ item, index }) => {
+          return (
+            <ViewMoviesListItem
+              movie={item}
+              setMovieEditingId={setMovieEditingId}
+              movieEditingId={movieEditingId}
+            />
+          );
+        }}
+      />
+    </View>
+  );
+```
+
 
 
  
