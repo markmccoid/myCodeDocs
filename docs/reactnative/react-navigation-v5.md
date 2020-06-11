@@ -50,9 +50,71 @@ function MyBackButton() {
 This should apply to navigation to any screen, regardless of what type of Navigator it is located in.  To navigate to a specific screen, you will most likely be using the `navigation` prop.  It has several functions for navigation.
 
 - **navigation.goBack**() - moves backwards in your history stack of screens.
+
 - **navigation.navigate('route name')** - Must pass a route name to navigate to.  If you have nested navigators, I believe you can pass a second object with your own specific params and/or a `screen` param that will be a sub screen to navigat to.
-- **[Navigate to Nested Screens](https://reactnavigation.org/docs/nesting-navigators/)**
-- 
+
+   
+
+### [Navigate to Nested Screens](https://reactnavigation.org/docs/nesting-navigators/)
+
+You can navigate to nested screens using the **navigation.navigate** function.
+
+The thing to understand is that the second parameter object contains params, plus if you use **screen** as one of the object properties, it will navigate to the screen.
+
+For example, let's say you have a bottom tab with three tabs and a stack associated with each.
+
+![image-20200610232216627](../assets/reactnavigationv5_001.png)
+
+On the **ViewMoviesTab**, we have the **ViewStack**, which has two screens
+
+- **ViewMovies** - But this is a stack with two Screens - **Movies** and **Filters**
+- **ViewDetails** - a screen pointing to a component.
+
+If you want to get to view Details:
+
+```jsx
+props.navigation.navigate('ViewMoviesTab', {
+  screen: 'Details',
+  params: { movieId: 520663 },
+})
+```
+
+We navigate to the **ViewMoviesTab**, then tell it to go to the **Details** screen.  Best I can tell, everything else will be interpreted as a Param.
+
+But what if you wanted to navigate into the ViewMovies stack and didn't want the default screen, but instead wanted to go to the filter screen.
+
+You can do this, by nesting your screen details:
+
+```jsx
+navigation.navigate('ViewMoviesTab', {
+  screen: 'ViewMovies',
+  params: { screen: 'Filter', someNeededParam: 'xyz' },
+});
+```
+
+This is effectively saying, go to the **ViewMoviesTab** and then to the **ViewMovies** screen.  But we know this is a stack, so we could stop there and just get the default screen or we can pass a **Params** key with another screen name.  In this case the **Filter** screen and then pass this screen some Params.
+
+> If you want to **closeDrawer()** and then navigate to a page, you will need to put the navigate in a setTimeout
+>
+> ```jsx
+> <DrawerItem
+> label="Redirect Home"
+> onPress={() => {
+>   console.log('PROPS', props.navigation);
+>   setTimeout(
+>     () =>
+>       props.navigation.navigate('ViewMoviesTab', {
+>         screen: 'Details',
+>         params: { movieId: 520663 },
+>       }),
+>     500
+>   );
+>   props.navigation.toggleDrawer();
+> }}
+> />
+> ```
+>
+> 
 
 ### Passing Params
 
