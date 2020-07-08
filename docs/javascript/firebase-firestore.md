@@ -140,6 +140,18 @@ If you need the **uid**, you can also request it at any time using the following
 firebase.auth().currentUser
 ```
 
+## Inserting and Updating
+
+When using Firestore, remember that it goes **Collection** -> **Document** -> **Collection** -> **Document** and on and on.
+
+Meaning, you can have multiple documents in a Collection, but you cannot embed a Document in another Document.  BUT, you can have a Collection in a Document.
+
+Usually you will have a users **Collection** at the root of your project.  Each user will have their own **Document**.  Here is the important thing to remember, Documents are limited to 1 mb of data, so you can't just plop all your data in a single document (if it will exceed 1mb).
+
+I believe each read of a document counts as 1 read.  So, when you read the users document, that is one, then if you have a collection within that document and you read 1000 documents from that collection, that is 1000 reads.
+
+Since, I like to read all the data in at once, everytime the app starts, I will have a lot of reads.  
+
 ### Insert and Results
 
 Here are some examples of inserts and their results:
@@ -168,7 +180,68 @@ users.uid.tagData = {
 }
 ```
 
+### Updating
 
+You need to be careful with updating.  If you just grab a ref and then use something like `ref.update({fieldToUpdate: 'new val'})` , it will overwrite anything else in that Map (Object).
+
+If you just want to update a single key you would something like:
+
+```javascript
+let dbRef = await firestore.collection('users').doc(uid);
+let tagID = 30018;
+return userDocRef.update({
+  'userData.settings.defaultFilter': userDefaultFilterId,
+});
+```
+
+This will update an object that has the following shape while leaving the other keys intact:
+
+```javascript
+userData: {
+  settings: {
+    defaultFilter: '',
+    otherStuff: ''
+  }
+}
+```
+
+If you have a dynamic key you want to update, just use this format:
+
+````javascript
+let dbRef = await firestore.collection('users').doc(uid);
+let tagID = 30018;
+return userDocRef.update({
+  [`userData.tags.${tagID}`]: userDataSettings,
+});
+````
+
+> the Set function also has a merge flag 
+
+**Summary**
+
+- `set` without `merge` will overwrite a document or create it if it doesn't exist yet
+- `set` with `merge` will update fields in the document or create it if it doesn't exists
+- `update` will update fields but will fail if the document doesn't exist
+- `create` will create the document but fail if the document already exists
+
+There's also a difference in the kind of data you provide to `set` and `update`.
+
+For `set` you always have to provide document-shaped data:
+
+```
+set(
+  {a: {b: {c: true}}},
+  {merge: true}
+)
+```
+
+With `update` you can also use field paths for updating nested values:
+
+```
+update({
+  'a.b.c': true
+})
+```
 
 
 
