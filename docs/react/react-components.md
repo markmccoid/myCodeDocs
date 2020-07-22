@@ -4,6 +4,20 @@ title: React Components
 sidebar_label: React Components
 ---
 
+## react-error-boundary
+
+[React Error Boundary](https://github.com/bvaughn/react-error-boundary)
+
+[Kent Dodd's Article](https://kentcdodds.com/blog/use-react-error-boundary-to-handle-errors-in-react?ck_subscriber_id=363848338)
+
+Wrapper around react's Error Boundary concept.
+
+## React Query ✅
+
+[React Query](https://github.com/tannerlinsley/react-query)
+
+Hooks for fetching, caching and updating asynchronous data in React
+
 ## FocusManager
 
 Sometimes the **onBlur** event on a single *div* or *component* isn't what you want.  Instead, you only want to perform a blur when focus leaves a group of HTML tags.
