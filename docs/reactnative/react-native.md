@@ -14,7 +14,26 @@ To initialize a new project use:
 $ npx expo-cli inti projectname
 ```
 
-Choose a blank project and then enter the name of your project.
+Choose a blank project or TypeScript and then enter the name of your project.
+
+You can also install expo-cli globally.  Thinking this may be the better way to go?  The command below will install or upgrade your expo-cli:
+
+```bash
+$ npm i -g expo-cli
+```
+
+### Upgrade the Expo SDK in a project
+
+Run `expo upgrade` in your project directory (requires the latest version of `expo-cli`, you can update with `npm i -g expo-cli`).
+
+When you install/upgrade the expo-cli, you should be given the option to upgrade your existing apps.  Alternatively you can runn the following commands:
+
+```bash
+$ expo client:install:ios
+$ expo client:install:android
+```
+
+If you built a standalone app previously, [remember](https://docs.expo.io/versions/latest/workflow/publishing/#limitations) that you'll need to create a new build in order to update the SDK version. Run `expo build:ios` and/or `expo build:android` when you are ready to do a new build for submission to stores.
 
 # Using and Displaying Icons
 

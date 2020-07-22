@@ -6,7 +6,7 @@ sidebar_label: React Native Animation
 
 ## Expo App Using ReAnimated
 
-This will take you through setting up an application to use the Reanimated animation library as laid out by William Candillon
+This will take you through setting up an application to use the Reanimated animation library as laid out by William Candillon from [start-react-native.com](start-react-native.com)
 
 ### Create your project
 
@@ -85,3 +85,8 @@ $ expo install react-native-screens react-native-safe-area-context @react-native
 //# 
 $ expo install expo-asset expo-font expo-constants
 ```
+
+## Reanimated Transitions
+
+[Reanimated Docs For Transitions](https://docs.swmansion.com/react-native-reanimated/docs/transitions)
+
