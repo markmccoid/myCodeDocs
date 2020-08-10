@@ -94,6 +94,10 @@ $ expo install expo-asset expo-font expo-constants
 
 These would be animations where you need a value to vary over time so that you have animate a style property to animate it.
 
+For simple animations, using the React Native Animation API would probably be easier, but the Reanimated API does allow for more robust transitions.
+
+
+
 ## Pan Gesture Handler
 
 [Pan Gesture Handler Docs](https://docs.swmansion.com/react-native-gesture-handler/docs/handler-pan)
