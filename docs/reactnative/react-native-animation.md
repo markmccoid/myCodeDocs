@@ -96,6 +96,252 @@ These would be animations where you need a value to vary over time so that you h
 
 For simple animations, using the React Native Animation API would probably be easier, but the Reanimated API does allow for more robust transitions.
 
+I'm sure this will all change in v2, but here goes.
+
+First thing, here are the common imports you will need for just about any timing animation:
+
+```javascript
+import Animated, { Easing, interpolate } from "react-native-reanimated";
+import { useClock, useValue } from "react-native-redash";
+
+const {
+  Clock,
+  Value,
+  useCode,
+  set,
+  block,
+  cond,
+  startClock,
+  stopClock,
+  clockRunning,
+  and,
+  not,
+  eq,
+  timing,
+} = Animated;
+```
+
+[**react-native-redash**](https://wcandillon.github.io/react-native-redash/) has some utilities that make some things easier.  The primary ones are the **useValue** and **useClock**.  These create new Value and new Clock, with the added benefit that they will keep their identiity across component re-renders.  This is easier than using a Ref or Memo.
+
+Here is a sample code that animates a circle getting larger and then smaller.
+
+```jsx
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import Animated, { Easing } from "react-native-reanimated";
+import { useClock, useValue } from "react-native-redash";
+
+import { Button, StyleGuide } from "../Components";
+
+const {
+  Clock,
+  Value,
+  useCode,
+  set,
+  block,
+  cond,
+  startClock,
+  stopClock,
+  clockRunning,
+  and,
+  not,
+  eq,
+  timing,
+} = Animated;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-between",
+    backgroundColor: StyleGuide.palette.background,
+  },
+  redblock: {
+    backgroundColor: "red",
+    width: 100,
+    height: 100,
+  },
+  circle: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderColor: "black",
+    borderWidth: 1,
+  },
+});
+
+// This is called every frome I believe
+// It returns an animation value that we can then use to transform a View or other Component
+const runTiming = (clock) => {
+  // The timing function requires a clock, a state object and config object
+  // These could be imported or set outside this function for performance.
+  // We modify these objects in the block that we return.
+  const state = {
+    finished: new Value(0), // indicator of whether we are finished or not
+    position: new Value(0), // current position of animation node (usually what we are looking to be as final return value)
+    frameTime: new Value(0),
+    time: new Value(0),
+  };
+  const config = {
+    toValue: new Value(1), // our final value we are moving to
+    duration: 3000, // how long in ms to get from starting position to toValue
+    easing: Easing.inOut(Easing.ease), // easing function
+  };
+  // The block is a block of code to execute 
+  // the last item in the array is what is returned
+  // first condition -> clock is NOT running, THEN set state.time = 0 ELSE run timing function
+  // second condition -> if state.finished === 1 (i.e animation is finished), THEN execute a block of code in [ ]
+  // these sets pretty much reset everything so that when the clock starts again, the animation picks up where it left off.
+  // last piece of code is just state.position and this is then the return value.
+  return block([
+    cond(
+      not(clockRunning(clock)),
+      set(state.time, 0),
+      timing(clock, state, config)
+    ),
+    cond(eq(state.finished, 1), [
+      set(state.finished, 0),
+      set(state.time, 0),
+      set(state.frameTime, 0),
+      set(config.toValue, cond(eq(state.position, 1), 0, 1)),
+    ]),
+    state.position,
+  ]);
+};
+const MyTiming = () => {
+  const [play, setPlay] = useState(false);
+  const clock = useClock();
+  const scale = useValue(0);
+  // If you didn't need to start and stop, this would be the one line of code that would start 
+  // the animation
+  // useCode(() => [startClock(clock), set(scale, runTiming(clock))], []);
+  // Need a animation value node that will be 0 (off) or 1 (on)
+  const isPlaying = useValue(0);
+  // set isPlaying based on the state value of play
+  // notice the useCode hook has a dependancy array so that it is only run if play changes.
+  useCode(() => set(isPlaying, play ? 1 : 0), [play]);
+  // This is what controls the animation
+  // first condition -> isPlaying (true) and clock NOT running, then start clock (startClock is from Animated)
+  // second condition -> isPlaying (false) and clock IS running, then stop clock (stopClock is from Animated)
+  // last part of block -> set the scale value based on what the runTiming function returns
+  useCode(
+    () => [
+      cond(and(isPlaying, not(clockRunning(clock))), startClock(clock)),
+      cond(and(not(isPlaying), clockRunning(clock)), stopClock(clock)),
+      set(scale, runTiming(clock)),
+    ],
+    []
+  );
+
+  return (
+    <View style={styles.container}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Animated.View
+          style={[
+            styles.circle,
+            {
+              transform: [
+                {
+                  scale: scale.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [1, 4],
+                  }),
+                },
+              ],
+            },
+          ]}
+        ></Animated.View>
+      </View>
+      <Button
+        label={play ? "Pause" : "Play"}
+        primary
+        onPress={() => setPlay((prev) => !prev)}
+      />
+    </View>
+  );
+};
+
+export default MyTiming;
+```
+
+**Using React Native's Animation**
+
+```jsx
+import React, { useState } from "react";
+import { StyleSheet, View, Animated, Easing } from "react-native";
+
+import { Button, StyleGuide } from "../Components";
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-between",
+    backgroundColor: StyleGuide.palette.background,
+  },
+  redblock: {
+    backgroundColor: "red",
+    width: 100,
+    height: 100,
+  },
+  circle: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderColor: "black",
+    borderWidth: 1,
+  },
+});
+
+const MyTiming = () => {
+  const [play, setPlay] = useState(false);
+  const [toValue, setToValue] = useState(1);
+  const animScale = new Animated.Value(0);
+
+  const outBreath = () =>
+    Animated.timing(animScale, {
+      duration: 3000,
+      easing: Easing.inOut(Easing.ease),
+      toValue: 1,
+      useNativeDriver: true,
+    }).start(inBreath);
+  const inBreath = () =>
+    Animated.timing(animScale, {
+      duration: 3000,
+      easing: Easing.inOut(Easing.ease),
+      toValue: 0,
+      useNativeDriver: true,
+    }).start(outBreath);
+  outBreath();
+
+  return (
+    <View style={styles.container}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Animated.View
+          style={[
+            styles.circle,
+            {
+              transform: [
+                {
+                  scale: animScale.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [1, 4],
+                  }),
+                },
+              ],
+            },
+          ]}
+        ></Animated.View>
+      </View>
+      <Button
+        label={play ? "Pause" : "Play"}
+        primary
+        onPress={() => setPlay((prev) => !prev)}
+      />
+    </View>
+  );
+};
+export default MyTiming;
+```
+
 
 
 ## Pan Gesture Handler
