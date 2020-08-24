@@ -342,9 +342,45 @@ const MyTiming = () => {
 export default MyTiming;
 ```
 
+## Animated.event()
+
+The purpose of Animated.event() is to set Animated.value nodes by mapping data from parameters passed in.  Usually this is the native Event, but in the case of the Pan Responder, it would be both.
+
+```javascript
+//The first parameter is an array of mappings.  This array will correspond to the number of arguments that will be
+//passed into the function that Animated.event creates.  Usually this is just the native event, but many of the Pan Responder callbacks will pass (event, gestureState).
+//Found that in the Pan Responder, useNativeDriver set to true gave errors.
+
+Animated.event([{...}, {...}, ...], { listener: fn, useNativeDriver: false | true})
+```
 
 
-## Pan Gesture Handler
+
+## Pan Responder
+
+The Pan Responder is the gesture handler that comes with React Native.  I find it a bit easier to use than the Pan Gesture Handler from the Reanimted folks.
+
+
+
+### Drag and Drop Flatlist
+
+Using the Pan Responder to build a drag and drop FlatList.
+
+There are a number of measurements you will need to help you calculate everything.
+
+![image-20200822235105551](../assets/react-native-panresponder-001.png)
+
+#### Scrolling list automatically
+
+As the item you are moving gets closer to the top or bottom, you will want to have the list start to scroll automatically.
+
+This is done via the **scrollToOffset()** function that is available to the FlatList.  To use it, you will need to create a ref and assing the FlatList to it.
+
+Then, in the **animateList** function, you can check how close you are to the top or bottom of the flatlist and scroll based on this:
+
+![image-20200823000955896](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-panresponder-002.png)
+
+## Pan Gesture Handler - Reanimated
 
 [Pan Gesture Handler Docs](https://docs.swmansion.com/react-native-gesture-handler/docs/handler-pan)
 
