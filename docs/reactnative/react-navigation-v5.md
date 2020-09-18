@@ -41,6 +41,8 @@ function MyBackButton() {
 }
 ```
 
+**useIsFocused**
+
 
 
 ## Stack Navigator
