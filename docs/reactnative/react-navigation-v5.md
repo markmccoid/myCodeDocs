@@ -664,7 +664,7 @@ The `DrawerItem` component accepts the following props:
 
 **Using Custom Content**
 
-You will user your custom content component by passing it via the **drawerContent** prop on the Drawer.Navigator component.
+You will use your custom content component by passing it via the **drawerContent** prop on the Drawer.Navigator component.
 
 ```jsx
 <Drawer.Navigator
@@ -677,6 +677,37 @@ You will user your custom content component by passing it via the **drawerConten
   <Drawer.Screen name="Settings" component={Settings} />
   <Drawer.Screen name="Sign Out" component={SignOut} />
 </Drawer.Navigator>
+```
+
+### Drawer Screen Options
+
+There is still something I don't understand about the interaction of the custom content and the Drawer.Screen components.  You don't need to have a matching Screen component, but if you want to be able to set options, I could only do it from the Drawer.Screen component.
+
+[Drawer Screen Options](https://reactnavigation.org/docs/drawer-navigator#options)
+
+The one that I used was to unMount the component (**unmountOnBlur**) when the screen was exited.
+
+```jsx
+const AppNav = () => {
+  return (
+    //-- Define the Drawer screens.  HomeStack is part of bottom tabs, but settings is not.
+    <Drawer.Navigator
+      drawerType="front"
+      drawerStyle={{}}
+      drawerContent={(props) => <AppNavDrawerContent {...props} />}
+    >
+      <Drawer.Screen name="h" component={AppTabsScreen} />
+      <Drawer.Screen name="Settings" component={SettingsStackScreen} />
+      <Drawer.Screen
+        options={{ unmountOnBlur: true }}
+        name="Carousel View"
+        component={TestCarouselAnim}
+      />
+      {/* <Drawer.Screen name="Home" component={RedirectToMain} />
+      <Drawer.Screen name="Settings" component={SettingsStackScreen} /> */}
+    </Drawer.Navigator>
+  );
+};
 ```
 
 
