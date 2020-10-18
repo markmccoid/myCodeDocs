@@ -102,9 +102,9 @@ function MyBackButton() {
 }
 ```
 
-**useIsFocused**
+### Focus Hooks
 
-
+**useIsFocused**, **useFocusEffect** are hooks that can trigger an action when a screen is focused.  The main difference is the the **useIsFocused** hook will cause a rerender, where the useFocusEffect will just run the code inside it.  [React Navigation v5 docs](https://reactnavigation.org/docs/function-after-focusing-screen/#triggering-an-action-with-the-usefocuseffect-hook)
 
 ## Stack Navigator
 

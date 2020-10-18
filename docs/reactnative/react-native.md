@@ -35,6 +35,42 @@ $ expo client:install:android
 
 If you built a standalone app previously, [remember](https://docs.expo.io/versions/latest/workflow/publishing/#limitations) that you'll need to create a new build in order to update the SDK version. Run `expo build:ios` and/or `expo build:android` when you are ready to do a new build for submission to stores.
 
+# Expo
+
+[sdk 39 Changes](https://dev.to/expo/expo-sdk-39-is-now-available-1lm8)
+
+## Selecting devices
+
+You can now pick which device or simulator to run your app on.
+
+After running `expo start`, press:
+
+- **shift+i** to select an iOS simulator
+
+- **shift+a** to select a connected Android device or emulator. You can also run your project on multiple Android devices at the same time.
+
+## Publishing an iOS app
+
+[Building Standalone Apps](https://docs.expo.io/distribution/building-standalone-apps/)
+
+[Deploying To App Stores](https://docs.expo.io/distribution/app-stores/)
+
+[Uploading Apps to App Stores](Uploading Apps to the Apple App Store)
+
+To build an app for iOS and get it to app store or TestFlight, you need to make a stand alone app.  It will be an IPA file.
+
+Run the following from you application directory.  You should have run yarn start in a different console.
+
+```bash
+$ expo build:ios -t archive
+```
+
+You will log in with your expo account and then your apple developer account.
+
+Let Expo create all the Provisiong Profiles and credentials.
+
+
+
 # Using and Displaying Icons
 
 The expo-cli sets up a huge set of icons for us to use.  You will find the details here: [github.com/expo/vector-icons](github.com/expo/vector-icons).
@@ -560,7 +596,27 @@ The first big distinction is that the PanResponder does not animate anything, ho
 
 The `Animated` library can then use the gesture input to animate stuff. 
 
+See more detail in the [react-native-animation doc](./react-native-animation)
 
+## Deep Linking
+
+I believe deep linking refers to being able to access specific pages / locations within your app via a *deep link* usually in the format of **appname:///**
+
+However, the other use is opening up a third party app from within your app.  For example, opening up the IMDB application to a specific movie or tv show page.  This is done with the **Linking** module from react native.
+
+Here is some code that will open up a specific title in the IMDB app.  Notice that the **openURL** is a promise.  It will fail if the link is invalid.  If this is the case, we will use another function on the **Linking** module to open up a web page to the imdb app so the user can download it.
+
+```javascript
+import { Linking } from "react-native";
+
+Linking.openURL(`imdb:///title/${movie.imdbId}`)
+  .catch((err) => {
+    Linking.openURL(
+      "https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525"
+    );
+  }
+)
+```
 
 
 
