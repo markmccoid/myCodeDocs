@@ -32,3 +32,21 @@ Lastly, we need to use it in another project.  We will use it in the **tmdb_api_
 C:\Users\mark.mccoid\Documents\GitHub\tmdb_api_tester\node_modules\tmdb_api -> C:\Users\mark.mccoid\AppData\Roaming\npm\node_modules\tmdb_api -> C:\Users\mark.mccoid\Documents\GitHub\tmdb_api
 ```
 
+## Publishing to NPM
+
+The easiest way to publish to NPM is to use the `np` package.  This is a good article on [publishing to NPM](https://zellwk.com/blog/publish-to-npm/).
+
+Here are the basics.
+
+Make sure `np` is installed globally or locally.  Globally is just easier:
+
+```bash
+$ npm install --global np
+```
+
+When in the directory of the package you want to publish, just run `np` and it will go through a series of questions and checks.
+
+Basics to have thought about:
+
+1. Make sure git is clean.  Everything is committed and pushed to the remote
+2. Make sure you know what version you want to make this release
