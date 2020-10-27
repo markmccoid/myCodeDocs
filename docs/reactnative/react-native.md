@@ -55,19 +55,29 @@ After running `expo start`, press:
 
 [Deploying To App Stores](https://docs.expo.io/distribution/app-stores/)
 
-[Uploading Apps to App Stores](Uploading Apps to the Apple App Store)
+[Uploading Apps to App Stores](Uploading Apps to the Apple App Store) and [Apple's docs](https://help.apple.com/app-store-connect/#/devb1c185036)
 
 To build an app for iOS and get it to app store or TestFlight, you need to make a stand alone app.  It will be an IPA file.
 
-Run the following from you application directory.  You should have run yarn start in a different console.
+Follow these steps:
 
-```bash
-$ expo build:ios -t archive
-```
+1. **App.json** - Update version.  Not sure how important this is.
 
-You will log in with your expo account and then your apple developer account.
+2. **Git** - check everything into git.  Don't know if it is necessary, but it makes sense.
 
-Let Expo create all the Provisiong Profiles and credentials.
+3. **yarn start** - Open a console and start the app, *yarn start* or *expo start*
+
+4. **build** - Build the ipa file
+
+   ```bash
+   $ expo build:ios -t archive 
+   ```
+
+5. **build cont.** - You will log in with your expo account and then your apple developer account. Also, let Expo create all the Provisiong Profiles and credentials.
+
+6. **Download** - Go to the link provided because once it is done, you will want to download the *ipa* file.  
+
+7. **Upload** - you will then upload this file to Apple using the Transporter app.
 
 
 
