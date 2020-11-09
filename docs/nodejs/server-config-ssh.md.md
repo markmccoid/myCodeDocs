@@ -335,9 +335,52 @@ Here are the steps:
 
   
 
-- d
 
-- 
+## Nginx Configuration
+
+### Redirects
+
+- 301 is a permanent redirect
+- 302 is a temporary redirect
+
+You can edit your Nginx configuration to redirect to another URL based on the current URL:
+
+```bash
+location /help {
+  return 301 https://developer.mozilla.org/en-US/;
+}
+```
+
+### Subdomains
+
+```bash
+server {
+	listen 80;
+	listen [::]80; # IPV6 notation
+	server_name movietracker.mccoidco.com
+	
+	location / {
+		proxy_pass: http://localhost:3000
+	}
+}
+```
+
+
+
+### Compression
+
+Nginx will compress using gzip on all data going out.  It is on by default.
+
+
+
+## Common Linux Tools
+
+- **find** - will find either files or directories.
+- **grep** - looks inside files
+- **ps aux** - shows processes running
+  `$ ps aux | grep node` - see if node is running
+
+
 
 
 
