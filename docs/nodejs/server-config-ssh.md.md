@@ -10,7 +10,7 @@ sidebar_label: Server Config / SSH
 
 [Express Performance](http://expressjs.com/en/advanced/best-practice-performance.html)
 
-
+[Explain Shell](https://explainshell.com/explain?cmd=curl+-sL) - Great for explaining what linux command are doing given the options being used.
 
 ## Setting up SSH keys on a Mac.
 
@@ -69,6 +69,22 @@ Make sure the permissions and ownership of the files are correct.
 ```shell
 $ chmod -R go= ~/.ssh
 $ chown -R $USER:$USER ~/.ssh
+```
+
+### Using Dropbox to Transfer Key
+
+If you need to get you public key over to the server, you can save in a dropbox file, then get the dropbox link and use the following on the server:
+
+```bash
+$ curl -L -o filename https://www.dropbox.com/s/pvtgi666ysdcrtt/pubrsa.txt?dl=1
+```
+
+Make sure to change the `dl=0` to `dl=1`
+
+Once the file is downloaded, you can add to the authorized_keys file:
+
+```bash
+$ cat filename >> ~/.ssh/authorized_keys
 ```
 
 
@@ -175,8 +191,119 @@ $ sudo vi /etc/ssh/sshd_config
 # must restart ssh daemon for changes to go into effect
 $ sudo service sshd restart
 
-
 ```
+
+## Security
+
+Disable Root access!  See above.
+
+You can view the logs of who is trying to gain access to your server:
+
+```bash
+# Check sudo access - This is the auth.log and contains information about happenings on your server
+$ sudo cat /var/log/auth.log
+```
+
+Keys ways to secure a server:
+
+- **SSH** - use instead of passwords
+- **Firewalls** - 
+- **Updates** - Keep your software up to date.
+- **Two Factor Authentication**
+- **VPN**
+
+### Updates
+
+This software will keep you applications updated.
+
+```bash
+# Install unattended upgrades
+$ sudo apt install unattended-upgrades
+
+# view Conf File
+$ cat /etc/apt/apt.conf.d/50unattended-upgrades
+```
+
+### Ports
+
+nmap is a port scanner.  You will most likely need to install it first:
+
+```bash
+# Install nmpa
+$ sudo apt install nmap
+
+# The manual
+$ man nmap
+
+# Run nmap
+$ nmap YOUR_SERVER_IP
+
+# Run showing more info
+$ nmap -sV YOUR_SERVER_IP
+```
+
+If you are running a nodejs server, for example an application created using ExpressJS, than most likely you will also see port 3000 or whatever port you are running that server on. 
+
+You should close this port as Nginx will be redirecting traffic to this app.
+
+### Firewall
+
+A simple firewall is `ufw`.  It allows you to think in *services* rather than *ports*.
+
+**Deny vs Reject**
+
+If you **deny** a request, you *black hole* it, meaning you don't respond to say, hey this port isn't open.  Whereas **reject** will send a packet back saying, hey this port port isn't open.
+
+Most of the time you will want to **deny**
+
+Here are its basic commands:
+
+![image-20201109113621220](..\assets\server-config-security-001.png)
+
+```bash
+# Check to see if ufw is active
+$ sudo ufw status
+
+# Enable it if not enabled
+$ sudo ufw enable
+
+# Make sure to Enable SSH/http
+$ sudo ufw allow ssh
+$ sudo ufw allow http
+```
+
+### Permissions
+
+You have three things you can do to a file **read, write and execute**.
+
+We use **sudo** (super user) when our user doesn't have those rights.
+
+`ls -la` in a directory will show you the permissions on files.
+
+You will see something that looks like this:
+
+![image-20201109120906265](..\assets\server-config-security-002.png)
+
+The first character designates is as a directory or not, the next 3 groups of 3 are *read,write,execute* for the current user, my group (sudo), everyone else.
+
+`chmod` is the command to change the permissions on a file.  it isn't super intuitive.  Here are common examples and cheat sheet:
+
+[chmod Cheat Sheet](https://isabelcastillo.com/linux-chmod-permissions-cheat-sheet)
+
+Set the permissions for a file or directory by using the `chmod` command. Each row has 2 examples, one for setting that permission for a file, and one for a directory named ‘dir’. This works in any linux distro, such as Ubuntu, etc.
+
+| Permission  | Command Examples                          | Description                                                  |
+| :---------- | :---------------------------------------- | :----------------------------------------------------------- |
+| rwx rwx rwx | chmod 777 filename <br />chmod -R 777 dir | Anybody can read, write, execute.                            |
+| rwx rwx r-x | chmod 775 filename <br />chmod -R 775 dir | Owner & Group can read, write, execute. Everyone else can read, execute. |
+| rwx rwx r–  | chmod 774 filename <br />chmod -R 774 dir | Owner & Group can read, write, execute. Everyone else can read. |
+| rwx r-x r-x | chmod 755 filename <br />chmod -R 755 dir | Owner can read, write, execute. Everyone else can read, execute. |
+| rwx — —     | chmod 700 filename <br />chmod -R 700 dir | Owner can read, write, execute. No one else has any rights.  |
+| rw- rw- rw- | chmod 666 filename <br />chmod -R 666 dir | Everyone can read, write.                                    |
+| rw- rw- r–  | chmod 664 filename <br />chmod -R 664 dir | Owner & Group can read, write. Everyone else can read.       |
+| rw- r– r–   | chmod 644 filename <br />chmod -R 644 dir | Owner can read, write. Everyone else can read.               |
+
+![image-20201109121237157](..\assets\server-config-security-003.png)
 
 ## Nginx / NodeJS
 
@@ -370,7 +497,46 @@ Here are the steps:
   $ git remote -v
   ```
 
-  
+
+### Upgrade Node
+
+You can use update scripts from nodesource.com.  To see the available distributions go to:
+
+[Node Distributions](https://github.com/nodesource/distributions#installation-instructions)
+
+```bash
+# Download setup script from nodesource pipe it to bash to run
+# this script resets needed pointer so that next step works.
+$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
+
+# Above script has reset nodejs pointers so that when we run apt-get install, it installs the
+# version given above
+$ sudo apt-get install -y nodejs
+```
+
+Another option to do the same.
+
+```bash
+# Download setup script from nodesource and save script (-o ...)
+# this script resets needed pointer so that next step works.
+$ curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+
+# Run script
+$ sudo bash nodesource_setup.sh
+
+# Above script has reset nodejs pointers so that when we run apt-get install, it installs the
+# version given above
+$ sudo apt install nodejs
+```
+
+**Update Global Packages**
+
+Since you may have installed some global packages with **npm**, you can also update all of these using:
+
+```bash
+$ sudo bpm update -g
+```
+
 
 
 ## Nginx Configuration

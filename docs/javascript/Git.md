@@ -6,6 +6,16 @@ sidebar_label: git
 
 
 
+## Restore a File you are Working on
+
+Scenario: you are working on a file and totally mucked it up.  You haven't committed yet, so you want to just revert the file back to what it looked like before you started working on it.  Meaning the last commit.
+
+```bash
+$ git restore filename.js
+```
+
+
+
 ## Removing files from Git
 
 If you delete a file from your project that is being tracked by git, you can use the `git rm` command OR you can
