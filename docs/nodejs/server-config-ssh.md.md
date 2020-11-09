@@ -38,7 +38,44 @@ mykey.pub
 
 The .pub is your public key.  This is the one that goes on your server.
 
+## Setting up SSH Keys on Windows
+
+Pretty much the same as above, but use **powershell**
+
+You keys will be located in your user directory `.ssh` 
+
+You can use Powershell to ssh into your server.
+
+### Setting up Multiple SSH Keys
+
+If you have multiple server and you want each to have it's own SSH key, you can do the following:
+
+1. Create the SSH Key on the target machine (i.e. the client that is going to be logging into the server)
+
+2. Copy the public key to a machine that has access to the server.
+
+3. Append the public key data to the ~/.ssh/authorized_keys files
+
+   ```bash
+   $ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLxXZr2gVHgwdnhi05D9VxDEVjHcFLr4NZ7WaayV9uQgOD9qXxSjyZNr5oMzyr4z1dOZRzf+CnoLZgM4wZ11IJ9hKZoOMchPUjRw5qwLJPbS/z1Kk3vGrRgjI2kA5kPi1l0P5E84RwGA+fil+qUTgj2IaYxc97C8DzTWHCg37oXSVz8gnKMrU633OLUeIp9JuoA+TEPn7KLKYy98I2m62mvnHOoXn7vRIqyMuHtTne/zHNjCkNWWuNURLGw1wpaPGBMeRLgvi0ZLz2bj2TrbFfWqHL+yJpMCD7wXjlYOs5lHFRRkUlDvjh3GHfPzKp7vmJ3+xml2R9a1BNwlEBWstx markm@DESKTOP-HR5U3AQ" >> ~/.ssh/authorized_keys
+   ```
+
+Not sure if the permissions stuff is needed.
+
+Once the `authorized_keys` file contains the public key, you need to update permissions on some of the files. The `~/.ssh` directory and `authorized_keys` file must have specific restricted permissions (`700` for `~/.ssh` and `600` for `authorized_keys`). If they don't, you won't be able to log in.
+
+Make sure the permissions and ownership of the files are correct.
+
+```shell
+$ chmod -R go= ~/.ssh
+$ chown -R $USER:$USER ~/.ssh
+```
+
+
+
 ### Logging into your server via SSH
+
+> When you set up your server, you will be prompted for the SSH key to use
 
 ```bash
 # substitute your ip address
