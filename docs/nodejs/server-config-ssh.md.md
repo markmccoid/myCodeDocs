@@ -511,6 +511,7 @@ $ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
 
 # Above script has reset nodejs pointers so that when we run apt-get install, it installs the
 # version given above
+# NOTE: apt-get is an outdated version of apt, but it still works
 $ sudo apt-get install -y nodejs
 ```
 
@@ -574,14 +575,73 @@ server {
 
 Nginx will compress using gzip on all data going out.  It is on by default.
 
+## Setting up HTTPS / HTTP2
+
+You can get a free certificate from:
+
+[certbot](https://certbot.eff.org/)
+
+Enter what software (Nginx) and OS you are using and then follow the instructions!
+
+After following the instructions and modifying Nginx configuration, it will have redirected your traffic to port 443, BUT we have a firewall in place and are not allowing traffic on this port, so we must now open it up!
+
+**Firewall Open port 443**
+
+```bash
+$ sudo ufw allow https
+```
+
+### HTTP2
+
+http2 is the next iteration of HTTP, it requires that HTTPS is setup on your website and allows then for less "handshakes".
+
+To set it up, you will modify your Nginx configuration as follows:
+
+```bash
+$ sudo vi /etc/nginx/sites-available/default
+
+# Modify the listen 443 line:
+listen 443 http2 ssl;
+
+# Restart Nginx
+$ sudo service nginx restart
+```
+
+## Web Sockets
+
+To use Web Sockets with Nginx, you will need to add the following location block.
+
+```bash
+$ sudo vi /etc/nginx/site-available/default
+
+location / {
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection "upgrade";
+  
+  proxy_pass http: //127.0.0.1:3000
+}
+```
+
 
 
 ## Common Linux Tools
 
 - **find** - will find either files or directories.
+
 - **grep** - looks inside files
+
 - **ps aux** - shows processes running
   `$ ps aux | grep node` - see if node is running
+  
+- **htop** - Tells us what is running and resources being taken.  Will need to install
+  
+  ```bash
+  $ sudo apt install htop
+  ```
+  
+  
+  
+- 
 
 
 
