@@ -520,6 +520,25 @@ const dimensions = useDimensions();
 }
 ```
 
+## Measuring the Layout
+
+I don't have a good handle on how this works and there is very little onilne about it.
+
+One little glimpse into it is buried in this [animation tutorial](https://www.youtube.com/watch?v=ZiSN9uik6OY) at around the 10:30 minute mark.
+
+I had trouble figuring out how/when to call the `measureLayout()` function.  It works based on `refs` that are set on the Item you want to measure and the ref of the containing parent.  So both of these refs must be set before you can get any information from the function call.
+
+It looks like if you are creating your own component, you can use the `forwardRef()` function and wrap your component in it.
+
+But once you have both refs you can do this:
+
+```javascript
+itemToMeasureRef.measureLayout(parentRef, (x,y,width,height) => {
+  // do something with these values
+  // maybe set state to use 
+})
+```
+
 
 
 # Images

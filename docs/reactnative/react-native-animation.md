@@ -380,7 +380,7 @@ Then, in the **animateList** function, you can check how close you are to the to
 
 ![image-20200823000955896](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-panresponder-002.png)
 
-## Pan Gesture Handler - Reanimated
+## Gesture Handlers - Reanimated
 
 [Pan Gesture Handler Docs](https://docs.swmansion.com/react-native-gesture-handler/docs/handler-pan)
 
@@ -557,6 +557,121 @@ The **diffClamp** function sets boundaries for your values.  Here that would be 
 From what I can tell the translateX and Y values of a view are the **top left** of the container.
 
 ![image-20200802235601734](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-animations-clamp-001.png)
+
+## ForceGestureHandler - Reanimated
+
+The force gesture handle is for iOS only.
+
+You will need to provide two functions
+
+- onGestureEvent
+
+- onHandlerStateChange - When the state changes this will run.  These are the state from the State enum import
+
+  `*import* { State, ForceTouchGestureHandler } *from* "react-native-gesture-handler";`
+
+  - State.UNDETERMINED = 0
+  - State.BEGAN = 2
+  - State.ACTIVE = 4
+  - State.END = 5
+
+Here is the nativeEvent Object returned by this handler:
+
+```javascript
+nativeEvent {
+  "absoluteX": 46,
+  "absoluteY": 398,
+  "force": 0.4475,
+  "handlerTag": 49,
+  "numberOfPointers": 1,
+  "oldState": 4,
+  "state": 5,
+  "target": 4067,
+  "x": 31,
+  "y": 51,
+}
+```
+
+
+
+```jsx
+import React from "react";
+import { StyleSheet, Text, View, Animated } from "react-native";
+import { State, ForceTouchGestureHandler } from "react-native-gesture-handler";
+
+const SetUserRating = (props) => {
+  const force = new Animated.Value(0);
+  const [fork, setFork] = React.useState(0);
+  const _onGestureEvent = (event) => {
+    force.setValue(event.nativeEvent.force);
+    setFork(event.nativeEvent.force);
+    if (event.nativeEvent.force > 0.5) {
+      props.setShowUserRating(true);
+    }
+  };
+  // Animated.event(
+  //   [
+  //     {
+  //       nativeEvent: {
+  //         force: force,
+  //       },
+  //     },
+  //   ],
+  //   { useNativeDriver: true }
+  // );
+  // const _onGestureEvent = Animated.event(
+  //   [
+  //     {
+  //       nativeEvent: {
+  //         force: force,
+  //       },
+  //     },
+  //   ],
+  //   { useNativeDriver: true }
+  // );
+
+  const _onHandlerStateChange = (event) => {
+    console.log(event.nativeEvent);
+    console.log(State.ACTIVE, State.UNDETERMINED, State.BEGAN, State.END);
+    if (event.nativeEvent.oldState === State.ACTIVE) {
+      force.setValue(0);
+      setFork(0);
+      // props.setShowUserRating(false);
+    }
+  };
+  return (
+    <View>
+      <ForceTouchGestureHandler
+        feedbackOnActivation
+        onGestureEvent={_onGestureEvent}
+        onHandlerStateChange={_onHandlerStateChange}
+      >
+        <Animated.View
+          style={[styles.box, { transform: [{ scale: Animated.add(1, force) }] }]}
+        >
+          <Text>{fork}</Text>
+        </Animated.View>
+      </ForceTouchGestureHandler>
+    </View>
+  );
+};
+
+export default SetUserRating;
+
+const styles = StyleSheet.create({
+  box: {
+    width: 50,
+    height: 50,
+
+    backgroundColor: "mediumspringgreen",
+    margin: 10,
+    zIndex: 200,
+  },
+});
+
+```
+
+
 
 ## CSS Overlays
 
