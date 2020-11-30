@@ -558,9 +558,13 @@ From what I can tell the translateX and Y values of a view are the **top left** 
 
 ![image-20200802235601734](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-animations-clamp-001.png)
 
-## ForceGestureHandler - Reanimated
+## ForceGestureHandler - Software Mansion (Reanimated)
 
-The force gesture handle is for iOS only.
+The force gesture handle is for iOS only AND only for iPhones from 6s through iPhone X.  They stopped supporting force touch or as they call it 3D Touch with the iPhone 11 forward. [Article on this discontinuation of 3D touch](https://www.businessinsider.com/apple-discontinues-3d-touch-iphone-11-replaces-with-haptic-touch-2019-9?op=1)
+
+What they now use is the Long Press with haptics and call it "Haptic Touch".  The article states:
+
+> The difference is that the new iPhones will provide haptic feedback, or small vibration jolts in response to long presses to make the interface more intuitive. 
 
 You will need to provide two functions
 
@@ -592,84 +596,163 @@ nativeEvent {
 }
 ```
 
-
+Here is a sample component with some animations that run when force touch is actived and when it ends.
 
 ```jsx
 import React from "react";
+import { Dimensions } from "react-native";
 import { StyleSheet, Text, View, Animated } from "react-native";
 import { State, ForceTouchGestureHandler } from "react-native-gesture-handler";
 
-const SetUserRating = (props) => {
-  const force = new Animated.Value(0);
-  const [fork, setFork] = React.useState(0);
+const { width, height } = Dimensions.get("window");
+const positionFactor = Math.floor((width - 50) / 10);
+
+const ForceTouchUserRating = ({ userRating, updateUserRating }) => {
+  const forceVal = React.useRef(new Animated.Value(0)).current;
+  const xPos = React.useRef(new Animated.Value(0)).current;
+  // Used to set User Rating Text higher when gesture active
+  // Turned on in _onGestureEvent and off in the "EndXPosAnim" callback.
+  const [gestureActive, setGestureActive] = React.useState(false);
+  const [currRating, setCurrRating] = React.useState(0);
+
+  //Animation on gesture START/activation
+  const gestureStartAnim = () =>
+    Animated.spring(forceVal, {
+      toValue: 1,
+      bounciness: 15,
+      speed: 10,
+      useNativeDriver: true,
+    }).start();
+  //Animation on gesture END
+  const gestureEndAnim = () =>
+    Animated.timing(forceVal, {
+      toValue: 0,
+      duration: 400,
+      useNativeDriver: true,
+    }).start(() => setGestureActive(false));
+  //Animation on Gesture End for translateX
+  const EndXPosAnim = () =>
+    Animated.spring(xPos, {
+      toValue: 0,
+      damping: 10,
+      useNativeDriver: true,
+    }).start();
+
   const _onGestureEvent = (event) => {
-    force.setValue(event.nativeEvent.force);
-    setFork(event.nativeEvent.force);
-    if (event.nativeEvent.force > 0.5) {
-      props.setShowUserRating(true);
+    let { force, absoluteY, y, absoluteX, x, oldState, state } = event.nativeEvent;
+    setGestureActive(true);
+    xPos.setValue(absoluteX - 66);
+    if (Math.floor(absoluteX / positionFactor) >= 10) {
+      setCurrRating(10);
+    } else {
+      setCurrRating(Math.floor(absoluteX / positionFactor));
     }
   };
-  // Animated.event(
-  //   [
-  //     {
-  //       nativeEvent: {
-  //         force: force,
-  //       },
-  //     },
-  //   ],
-  //   { useNativeDriver: true }
-  // );
-  // const _onGestureEvent = Animated.event(
-  //   [
-  //     {
-  //       nativeEvent: {
-  //         force: force,
-  //       },
-  //     },
-  //   ],
-  //   { useNativeDriver: true }
-  // );
 
   const _onHandlerStateChange = (event) => {
-    console.log(event.nativeEvent);
-    console.log(State.ACTIVE, State.UNDETERMINED, State.BEGAN, State.END);
-    if (event.nativeEvent.oldState === State.ACTIVE) {
-      force.setValue(0);
-      setFork(0);
-      // props.setShowUserRating(false);
+    // console.log(State.ACTIVE, State.UNDETERMINED, State.BEGAN, State.END);
+    // Event is over
+
+    let { oldState, state } = event.nativeEvent;
+    if (state === State.BEGAN) {
+      gestureStartAnim();
+    }
+    if (state === State.END) {
+      gestureEndAnim();
+    }
+    if (oldState === State.ACTIVE) {
+      //forceVal.setValue(0);
+      //xPos.setValue(0);
+      EndXPosAnim();
+      updateUserRating(currRating);
     }
   };
+
+  React.useEffect(() => {
+    setCurrRating(userRating);
+  }, [userRating]);
+
+  // If force touch not available, don't return anything
+  // Calling component needs to have fallback (UserRating component)
+  if (!ForceTouchGestureHandler.forceTouchAvailable) {
+    return null;
+  }
   return (
     <View>
       <ForceTouchGestureHandler
         feedbackOnActivation
+        minForce={0.5}
         onGestureEvent={_onGestureEvent}
         onHandlerStateChange={_onHandlerStateChange}
       >
         <Animated.View
-          style={[styles.box, { transform: [{ scale: Animated.add(1, force) }] }]}
+          style={[
+            styles.box,
+            gestureActive ? { justifyContent: "flex-start" } : { justifyContent: "center" },
+            {
+              transform: [
+                { translateX: xPos },
+                {
+                  translateY: forceVal.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0, -35],
+                    extrapolate: "clamp",
+                  }),
+                },
+                { scale: Animated.add(1, forceVal) },
+              ],
+            },
+          ]}
         >
-          <Text>{fork}</Text>
+          <Text style={styles.userRating}>{currRating}</Text>
         </Animated.View>
       </ForceTouchGestureHandler>
     </View>
   );
 };
 
-export default SetUserRating;
+export default ForceTouchUserRating;
 
 const styles = StyleSheet.create({
   box: {
-    width: 50,
-    height: 50,
-
-    backgroundColor: "mediumspringgreen",
-    margin: 10,
+    width: 60,
+    height: 30,
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 5,
+    backgroundColor: "yellow",
     zIndex: 200,
+    borderColor: "#777",
+    borderWidth: 1,
+  },
+  userRating: {
+    fontSize: 18,
+    fontWeight: "800",
   },
 });
-
 ```
+
+## LongPressGestureHandler - Software Mansion (Reanimated)
+
+As stated in the Force Gesture information above, there is no longer "force" or 3D Touch on iPhones, but instead it is called "Haptic Touch".  
+
+Haptic Touch is just a long press coupled with haptic feedback.
+
+To accomplish this in React Native, we will use Software Mansion's [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler), which is part of Expo.  This gets us part way there, as it contains a LongPressGestureHandler, but it does not have Haptic feedback.  To get Haptic Feedback, you will need to install [expo-haptics](https://docs.expo.io/versions/latest/sdk/haptics/).
+
+### Haptics
+
+There are two primary functions that I use with haptics:
+
+- `Haptics.notificationAsync(type)` - Give distinct haptics for Success, Warning and Error:
+  - `Haptics.NotificationFeedbackType.{Success, Warning, Error}`
+- Haptics.impactAsync(style) - Lets you set style as Light, Medium, Heavy
+  - `Haptics.ImpactFeedbackStyle.{Light, Medium, Heavy}`
+
+**Why not just use a Button Long Press**
+
+If you only need a long press and then an action, a button or touchableOpacity is fine, but if you want to use the long press to start a gesture that you can use to animate something to follow the fingers movement, then you will need the LongPressGestureHandler.
 
 
 
