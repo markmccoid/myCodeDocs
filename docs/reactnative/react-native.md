@@ -647,6 +647,10 @@ Linking.openURL(`imdb:///title/${movie.imdbId}`)
 )
 ```
 
+## Finite State Machines
+
+
+
 
 
 # OLD STUFF
