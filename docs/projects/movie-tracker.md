@@ -31,3 +31,112 @@ getPersonDetails(person.personId)
 );
 ```
 
+## Tags, Tagging and Filtering on Tags
+
+Users are able to define as many tags as they need.  This data will be stored in Overmind on the **tagDate** array.  It will hold an array of objects, each object representing a single tag:
+
+```javascript
+//oSaved.tagData
+[
+  {
+    tagId: '896456454564-54466',
+    tagName: 'Watched'
+  },
+  ...
+]
+```
+
+These tags are applied to movies to help a user filter the movies later.
+
+When a movie is tagged, a new object property is added to the movie object in the **oSaved.savedMovies** array of objects.  This object property is called **taggedWith** and is an array of **tagIds**.
+
+There are Overmind state functions (getters) that take these "applied" tags and convert them for use with the **TagCloud** component.
+
+The `getAllMovieTags` function accepts a movieId and returns a properly sorted array of tag objects in this form:
+
+```javascript
+{
+  tagId,
+  tagName,
+  isSelected
+}
+```
+
+The **isSelected** property allows the TagCloud component to know if the tag should be shown as being applied to the movie or not.
+
+The Overmind **actions** to save and remove tags to movies are `addTagToMovie` and `removeTagFromMovie` respectively.
+
+### Filtering Tags
+
+Using tags to filter our list of Saved Movies is done by storing the user selected filter data in Overmind at **oSaved.filterData**
+
+```javascript
+  filterData: {
+    tagOperator: "OR",
+    tags: [tagIds],
+    excludeTagOperator: "AND",
+    excludeTags: [tagIds]
+    genreOperator: "OR",
+    genres: [],
+    searchFilter: undefined,
+  },
+```
+
+While the **tags** and **excludeTags** are separate properties, the application uses the `getAllFilterTags` state function to return an array of objects:
+
+```javascript
+{
+  tagId,
+  tagName,
+  tagState, // 'include' or 'exclude'
+}
+```
+
+The TagCloudEnhanced component will use the tagState property to determine what the next state will be.  Currently it is **inactive -> include -> exclude**.
+
+
+
+```javascript
+// OLD FILTER TAG State Functions -- DELETE when new is working
+ //*----------------------------
+  //* FILTER TAG State Functions
+  // Returns on the tags that are currently
+  // being used to filter data
+  // NOTE: filter tags only store the tag id, which is why we need to
+  //       call the buildTagObjFromIds and pass whether the tag isSelected or not
+  // tag object returned { tagId, tagName, isSelected }
+  getFilterTags: derived((state) => {
+    let filterTagIds = state.filterData.tags;
+    return helpers.buildTagObjFromIds(state, filterTagIds, true);
+  }),
+  //--------------
+  // Returns only the tags that are NOT being used to filter data currently
+  getUnusedFilterTags: derived((state) => {
+    // Tags being used to filter currently
+    let filterTagIds = state.filterData.tags;
+    // All tags defined in the system
+    let allTagIds = helpers.retrieveTagIds(state.getTags);
+    let unusedFilterTagIds = allTagIds.filter(
+      (tagId) => !filterTagIds.find((tag) => tag === tagId)
+    );
+    return helpers.buildTagObjFromIds(state, unusedFilterTagIds, false);
+  }),
+  //--------------
+  getAllFilterTags: derived((state) => {
+    // Take the array of filter tag objects (that have the isSelected property set and not yet set.)
+    // and convert to an object with the tagId as the key.
+    // This makes it easy to pull the isSelected flag when running the tagSorter function (which returns an array)
+    const unsortedTags = _.keyBy(
+      [...state.getUnusedFilterTags, ...state.getFilterTags],
+      "tagId"
+    );
+    // We want to return the tags sorted as they are in the original array
+    // Pull all the tags and return the array sorted tag with the isSelected
+    // property pulled from unsorted tags
+    return helpers.tagSorter(unsortedTags, {
+      sortType: "fromarray",
+      sortedTagArray: state.getTags,
+    });
+  }),
+```
+

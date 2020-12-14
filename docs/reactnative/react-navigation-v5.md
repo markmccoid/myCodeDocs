@@ -106,6 +106,44 @@ function MyBackButton() {
 
 **useIsFocused**, **useFocusEffect** are hooks that can trigger an action when a screen is focused.  The main difference is the the **useIsFocused** hook will cause a rerender, where the useFocusEffect will just run the code inside it.  [React Navigation v5 docs](https://reactnavigation.org/docs/function-after-focusing-screen/#triggering-an-action-with-the-usefocuseffect-hook)
 
+### useNavigationState
+
+Get an object like this:
+
+> NOTE: While you will get all of the "routeNames" showing the routeNames array, the "routes" array will ONLY have those routes that have been accessed at the point in time that the `useNavigationSate` hook is called.
+
+```json
+{
+  "index": 0,
+  "key": "stack-p6lpGC7O_CJSchw18551-",
+  "routeNames": Array [
+    "Movies",
+    "Filter",
+  ],
+  "routes": Array [
+    Object {
+      "key": "Movies-CjT0WvbtoG5b5oEAe9Tl9",
+      "name": "Movies",
+      "params": undefined,
+    },
+  ],
+  "stale": false,
+  "type": "stack",
+}
+```
+
+I had a use for this, since the `route` prop passed to screens only contains information on the current route.  I wanted to get the route key for a particular route, so used this hook to get it.
+
+You will usually call this hook with a function that accepts `state` as its parameter.  You can then return the value that you want.
+
+Here is the code I used to get the route key for the **Movies** route
+
+```javascript
+const moviesKey = useNavigationState((state) => {
+  return state.routes[state.routeNames.indexOf("Movies")].key;
+});
+```
+
 ## Stack Navigator
 
 ### Navigate to a Specific Screen
@@ -534,6 +572,137 @@ const viewMoviesOptions = ({ navigation, route }) => {
     }
   };
 };
+```
+
+
+
+## Native Stack Navigator
+
+There is also a Native Stack Navigator that can be used via the **createNativeStackNavigator**.
+
+```javascript
+import { createNativeStackNavigator } from "react-native-screens/native-stack";
+```
+
+The main reason that I chose to use it in Move Tracker was because of how it displayed modal screens.  It looks more natural to iOS.  
+
+[Main Docs](https://reactnavigation.org/docs/native-stack-navigator/)
+
+[Github Docs](https://github.com/software-mansion/react-native-screens/tree/master/native-stack)
+
+Here is a simple implementation of this:
+
+```jsx
+    <ViewMoviesStackNav.Navigator
+      initialRouteName="Movies"
+      screenOptions={{
+        stackAnimation: "default",
+        stackPresentation: "modal",
+      }}
+    >
+      <ViewMoviesStackNav.Screen
+        name="Movies"
+        component={ViewMoviesScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <ViewMoviesStackNav.Screen
+        name="Filter"
+        component={ViewMoviesFilterScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </ViewMoviesStackNav.Navigator>
+```
+
+Many of the options are very similar to the regular stack navigator, however, there are a number of differences.
+
+One of the things that kind of tripped me up with the modal screen was determining when the screen was dismissed.
+
+One option is to use the `useFocusEffect` from react navigation.  You can return a function that will be called when the focus has been lost, i'm pretty sure.  You should test.
+
+```jsx
+import { CommonActions, useFocusEffect, useNavigationState } from "@react-navigation/native";
+
+...
+
+useFocusEffect(
+  React.useCallback(() => {
+    console.log("UFE-Filter");
+    return () => {
+      console.log("returning from UEF -> navigating");
+      //navigation.navigate("Movies", { returning: true, filterModified: true });
+      console.log("returning AFTERfrom UEF -> navigating");
+    };
+  }, [])
+);
+```
+
+> Note the use of the useCallback to wrap the function to be run on the useFocusEffect.  I believe this is because the useFocusEffect is triggered many times once the screen is focused.  You will use the `useCallBack` to have it only run once [] or when some other item changes.
+
+I found that adding a listener worked a bit better.  The `navigation` object has an `addListener` function you can use to add listeners.  For focus and blur needs, the listeners you can listen for are:
+
+- **dismiss** - 
+- **appear**
+- **transitionStart**
+- **transitionEnd**
+
+> **IMPORTANT** - When dismissing a modal, the **dismiss** and **transition...** listeners ONLY fire when the dismiss gesture is used for a modal screen.  If you have a button that navigates to a new screen, the dismiss gesture will NOT fire.  
+>
+> However, the appear listener will fire when the screen is navigated to and if you choose to do something when unsubscribing, you can simulate doing this when the screen is dismissed.
+
+Here are samples of each type of listener:
+
+```jsx
+import { CommonActions, useFocusEffect, useNavigationState } from "@react-navigation/native";
+
+...
+
+//-------------------------
+// DISMISS LISTENER
+React.useEffect(() => {
+  const unsubscribe = navigation.addListener("dismiss", (e) => {
+    console.log("being dismissed");
+    navigation.dispatch({
+      ...CommonActions.setParams({ filterModified: true }),
+      source: moviesKey,
+    });
+  });
+
+  return () => {
+    unsubscribe();
+    console.log("Unsub - Dismiss");
+  };
+}, [navigation]);
+
+//-------------------------
+// APPEAR LISTENER
+React.useEffect(() => {
+  const unsubscribe = navigation.addListener("appear", (e) => {
+    console.log("In Filter Appear");
+  });
+
+  return () => {
+    unsubscribe();
+    console.log("Unsub - Appear");
+  };
+}, [navigation]);
+
+//-------------------------
+// TRANSITIONSTART LISTENER
+React.useEffect(() => {
+  const unsubscribe = navigation.addListener("transitionStart", (e) => {
+    if (e.data.closing) {
+      console.log("Will be Dismiss");
+    } else {
+      console.log("WIll Appear");
+    }
+  });
+
+  return unsubscribe;
+}, [navigation]);
 ```
 
 
