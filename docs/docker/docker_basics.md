@@ -4,6 +4,10 @@ title: Docker Basics
 sidebar_label: Docker Basics
 ---
 
+## Resources
+
+[Academind Cheat Sheet](../assets/external/Docker-Images-Containers.pdf)
+
 ## Installing Docker on Windows
 
 You can do it on the Home version, but Windows Pro is preferrable.
@@ -194,6 +198,20 @@ EXPOSE 80
 CMD node server.js
 ```
 
+### Build an Image
+
+The `Dockerfile `contains the instructions or the template for building an **image** that will then be used to instantiate a **container**.
+
+To build an image you will use the build command in the directory where the `Dockerfile `is located.
+
+The `-t name:tag` is optional, but it makes sense to at least give your image a name (the tag is option also)
+
+```bash
+$ docker build -t goals:latest .
+```
+
+
+
 ## Images
 
 Every time you run a `docker build` command, you will create an image on your system.  You will also create a local image if you use `docker run image_name` that is an image on docker hub.  
@@ -201,6 +219,8 @@ Every time you run a `docker build` command, you will create an image on your sy
 To see the images that you have on your system use:
 
 `docker images`
+
+### Remove an Image
 
 To **remove** and image use:
 
@@ -212,17 +232,53 @@ To remove all images, you can use the following:
 
 `docker image prune`
 
+The above will only remove images that do not have names/tags.  If you want to also remove those images, use:
+
+`docker image prune -a`
+
+### Sharing Images
+
+To share an image, you will need to either use Docker Hub or a Private registery.
+
+Docker Hub will be the most likely place you will use.  Go to [hub.docker.com](http://hub.docker.com) and login, then click on the **Repositories** link.
+
+You can now create a repository and give it the properties you need.  It will also give you the command needed to `push` the image to this new repository.
+
+> Remember, if you make this public (free tier has only one Private repo available), make sure no "secret" info is exposed in image.
+
+**NOTE**
+
+When pushing an image to Docker Hub, it will need to be named the same as the repository that you created.  So, if you created a repository with the name `mynodeserver`, the full name would be `markmccoid/mynodeserver`, that is what you image would need to be named.
+
+You can do this by building the image with that name or if the image already exists you can use the `tag` option which is a rename command.
+
+`docker tag oldimagename markmccoid/mynodeserver`
+
+This is NOT actually renaming but create a "clone" with a new name/tag.
+
+> If you get an **auth** error, make sure you are logged into docker in your CLI.  Use **`docker login`**
+
+> You can push multiple images to a single repository by having different tags pushed.  So, maybe `markmccoid/mynodeserver:v1` and `markmccoid/mynodeserver:v2`
+
+**Use/Pull Stored Images**
+
+To get access or use your stored images use
+
+`docker pull markmccoid/imagename`
+
 ## Docker Commands
 
 Quick list of some of the commands for images and containers:
 
 **![image-20201216141436549](..\assets\docker-basics_002.png)**
 
-### **`docker ps -a`**
+### See All Containers **`docker ps -a`** 
 
 This will show you all running containers.  If you add the `-a` flag, you will see all containers that exist, even if they are not running.
 
 You can restart a stopped container by using the **`docker start containername`** command.
+
+
 
 ### **`docker run vs docker start`**
 
@@ -248,6 +304,10 @@ You can also see any of the logs (console output) from a running container by us
 
 Run `docker logs --help` and you will see the options for this command.  One of those options is `-f` to follow.  Which will in essence "attach" you to the container.
 
+**Remove container when it exits** - use the `--rm` flag when starting the container.
+
+**`docker run -p 3000:80 -d --rm image_sha`**
+
 ### -i -t flags Interactive mode
 
 I don't fully understand this, however, if you have an application that needs input from the outside via a terminal, you can use these flag on the `run` command.
@@ -271,3 +331,38 @@ There are two ways to remove stopped containers.  A quick, get rid of all stoppe
 If you just have specific containers that you want to remove use the `rm` option
 
 `docker rm container_name`
+
+### Copy Files into/out of Running Container
+
+To copy a file into or out of a running container, you can use the `cp` command.
+
+This will copy from your local to the container.
+
+Reverse for copying from container.
+
+```bash
+$ docker cp test/. container_name:/newDir
+```
+
+### Naming a Container or Image
+
+To name a container, when you run it, simply use the `--name`  option.
+
+```bash
+$ docker run -ps 3000:80 -rm --name nodeapp image_sha
+```
+
+**Image Naming**
+
+Images can also contain a tag.  For example, the node image would have a number of builds with different tags so that you could access a number of different node versions.
+
+To access them you would use the `imagename:tag`.  For example: `node:latest` or `node:14`
+
+We can do the same when we build our images.
+
+```bash
+$ docker build -t goals:latest .
+```
+
+
+
