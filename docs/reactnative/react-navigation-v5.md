@@ -144,6 +144,38 @@ const moviesKey = useNavigationState((state) => {
 });
 ```
 
+## Helpers
+
+These are functions that provide quick ways to get at information that is needed.
+
+### getFocusedRouteNameFromRoute
+
+[getFocused... Docs](https://reactnavigation.org/docs/screen-options-resolution/)
+
+This is useful determining the header title based on the navigation state.  If you have a modal stack, this will be useful.  
+
+```javascript
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+
+function getHeaderTitle(route) {
+  // If the focused route is not found, we need to assume it's the initial screen
+  // This can happen during if there hasn't been any navigation inside the screen
+  // In our case, it's "Feed" as that's the first screen inside the navigator
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+
+  switch (routeName) {
+    case 'Feed':
+      return 'News feed';
+    case 'Profile':
+      return 'My profile';
+    case 'Account':
+      return 'My account';
+  }
+}
+```
+
+
+
 ## Stack Navigator
 
 ### Navigate to a Specific Screen

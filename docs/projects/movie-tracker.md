@@ -33,7 +33,7 @@ getPersonDetails(person.personId)
 
 ## Tags, Tagging and Filtering on Tags
 
-Users are able to define as many tags as they need.  This data will be stored in Overmind on the **tagDate** array.  It will hold an array of objects, each object representing a single tag:
+Users are able to define as many tags as they need.  This data will be stored in Overmind on the **tagData** array.  It will hold an array of objects, each object representing a single tag:
 
 ```javascript
 //oSaved.tagData
@@ -46,13 +46,15 @@ Users are able to define as many tags as they need.  This data will be stored in
 ]
 ```
 
-These tags are applied to movies to help a user filter the movies later.
+These tags are applied to movies to help the user filter movies later.
 
 When a movie is tagged, a new object property is added to the movie object in the **oSaved.savedMovies** array of objects.  This object property is called **taggedWith** and is an array of **tagIds**.
 
 There are Overmind state functions (getters) that take these "applied" tags and convert them for use with the **TagCloud** component.
 
-The `getAllMovieTags` function accepts a movieId and returns a properly sorted array of tag objects in this form:
+> NOTE: This is for storing and showing tags on individual movies.  See the **Filtering Tags** section for details on how we use tags to filter movies. 
+
+The `getAllMovieTags` function accepts a movieId and returns a properly sorted array of tag objects in this form.  By properly sorted, I mean that we keep the tags in the order that the user has determined in the Tags tab.  
 
 ```javascript
 {
@@ -82,17 +84,32 @@ Using tags to filter our list of Saved Movies is done by storing the user select
   },
 ```
 
-While the **tags** and **excludeTags** are separate properties, the application uses the `getAllFilterTags` state function to return an array of objects:
+While the **tags** and **excludeTags** are separate properties in the **oSaved** store, the application uses the `getAllFilterTags` state function to return an array of objects:
 
 ```javascript
 {
   tagId,
   tagName,
-  tagState, // 'include' or 'exclude'
+  tagState, // 'include' or 'exclude' or 'inactive'
 }
 ```
 
 The TagCloudEnhanced component will use the tagState property to determine what the next state will be.  Currently it is **inactive -> include -> exclude**.
+
+#### FilterByTagsContainer
+
+This component encapsulates the **TagCloudEnhanced** component and obfuscates the properties so that it can be used for both the *creation* of saved filters as well as setting and applying an on the fly filter.
+
+**Components** using **FilterByTagsContainer**
+
+- ViewMoviesFitlerScreen
+- CreateSavedFilterScreen
+
+
+
+
+
+
 
 
 
