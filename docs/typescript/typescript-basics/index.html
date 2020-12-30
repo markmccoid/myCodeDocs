@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Typescript Basics · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Typescript Basics · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript."/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Typescript Basics</h1></header><article><div><span><p>TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.</p>
+<h2><a class="anchor" aria-hidden="true" id="install-typescript"></a><a href="#install-typescript" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install Typescript</h2>
+<p>To get started we need to install Typescript.</p>
+<pre><code class="hljs css language-bash">$ npm install -g typescript
+</code></pre>
+<p>Note, you can also install <code>ts-node</code> for a command line tool to play with typescript without much tooling.</p>
+<p>However, if you want to compile Typescript, you should only need to install Typescript.</p>
+<p>To compile</p>
+<pre><code class="hljs css language-bash">$ tsc index.ts
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="typescript-configuration"></a><a href="#typescript-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Typescript configuration</h2>
+<p>Usually you will want to configure how Typescript works within your project.  To do that you need a <code>tsconfig.json</code> file.</p>
+<p>The easiest way to get this created is to run the following:</p>
+<pre><code class="hljs css language-bash">$ tsc --init
+// message TS6071: Successfully created a tsconfig.json file.
+</code></pre>
+<blockquote>
+<p>If you make any changes to the tsconfig.json (and you will!), you may need to restart any command prompts you are in to get the compiler to see the changes.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="common-configuration-changes"></a><a href="#common-configuration-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Configuration Changes</h3>
+<ul>
+<li><strong>outDir</strong> - where to output the complied code</li>
+<li><strong>rootDir</strong> - where to find the source code.</li>
+</ul>
+<p>Now if you run just <code>tsc</code> at the command line, it will compile everything in the defined <strong>rootDir</strong> and put the built files in <strong>outDir</strong></p>
+<p>It is also useful to run <code>tsc</code> in watch mode.  This just means it will watch for changes and recompile when it sees them.</p>
+<pre><code class="hljs css language-bash">$ tsc -w
+</code></pre>
+<p>However,  a better way to run is to init the directory with <em>npm</em> and install nodemon and concurrently</p>
+<pre><code class="hljs css language-bash">$ npm init -y
+$ npm install nodemon concurrently
+</code></pre>
+<p>Then in package.json, you will need to add the following scripts section:</p>
+<pre><code class="hljs css language-json">  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
+  },
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="typescript-classes"></a><a href="#typescript-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TypeScript Classes</h2>
+<p>First course taken on Typescript focuses on usage in classes</p>
+<h3><a class="anchor" aria-hidden="true" id="public-constructor-arguments"></a><a href="#public-constructor-arguments" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Public Constructor Arguments</h3>
+<p>If you have a class that accepts arguments and these arguments are public there is some shorthand syntax.  Here is the non shorthand:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sorter</span> </span>{
+  public collection: number[];
+
+  <span class="hljs-keyword">constructor</span>(collection: number[]) {
+    <span class="hljs-keyword">this</span>.collection = collection;
+  }
+}
+</code></pre>
+<p>This can be shortened to:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sorter</span> </span>{
+  <span class="hljs-keyword">constructor</span>(public collection: number[]) {}
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="type-guards"></a><a href="#type-guards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type Guards</h2>
+<p>A type guard comes in handy when you have union operators for your types.  For example, if you could accept and Array or a string.  In your function, you would be limited to only those properties that were the same between Arrays and strings, but if you use a type guard, Typescript will know what you are doing and will not throw an error.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sorter</span> </span>{
+  <span class="hljs-keyword">constructor</span>(public collection: number[] | string) {}
+
+  sort(): <span class="hljs-keyword">void</span> {
+    <span class="hljs-keyword">const</span> length = <span class="hljs-keyword">this</span>.collection.length;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; length; i++) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; length - i - <span class="hljs-number">1</span>; j++) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.collection[j] &gt; <span class="hljs-keyword">this</span>.collection[j + <span class="hljs-number">1</span>]) {
+          <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.collection <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) { <span class="hljs-comment">// type guards</span>
+            <span class="hljs-keyword">const</span> temp = <span class="hljs-keyword">this</span>.collection[j];
+            <span class="hljs-keyword">this</span>.collection[j] = <span class="hljs-keyword">this</span>.collection[j + <span class="hljs-number">1</span>];
+            <span class="hljs-keyword">this</span>.collection[j + <span class="hljs-number">1</span>] = temp;
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>The <code>if (this.collection instanceof Array){}</code> is the type guard.  This isn't any facing Typescript, it is JavaScript that Typescript understands and interprets.</p>
+<p>You will use the <code>instanceOf</code> for any value that is created with a constructor function and <code>typeof</code> for primitives:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// for number, string, boolean and symbols</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> myVariable === <span class="hljs-string">'number'</span>){
+  
+}
+
+<span class="hljs-comment">// for classes, either JavaScript created or you created</span>
+<span class="hljs-keyword">if</span> (someClass instanceOf <span class="hljs-built_in">Array</span>) {
+  
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#install-typescript">Install Typescript</a></li><li><a href="#typescript-configuration">Typescript configuration</a><ul class="toc-headings"><li><a href="#common-configuration-changes">Common Configuration Changes</a></li></ul></li><li><a href="#typescript-classes">TypeScript Classes</a><ul class="toc-headings"><li><a href="#public-constructor-arguments">Public Constructor Arguments</a></li></ul></li><li><a href="#type-guards">Type Guards</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

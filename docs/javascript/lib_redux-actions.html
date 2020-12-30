@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Redux-Actions npm Module · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[Docs](https://github.com/redux-utilities/redux-actions)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Redux-Actions npm Module · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="[Docs](https://github.com/redux-utilities/redux-actions)"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Redux-Actions npm Module</h1></header><article><div><span><p><a href="https://github.com/redux-utilities/redux-actions">Docs</a></p>
+<p><code>redux-actions</code> is a npm module designed to reduce some of the boilerplate of redux, while at the same time creating consistency by implementing the use <em>Flux Standard Actions</em> in your Action Creators.</p>
+<h2><a class="anchor" aria-hidden="true" id="flux-standard-action"></a><a href="#flux-standard-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flux Standard Action</h2>
+<p>The flux standard action shape is as follows:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">let</span> standardActionShap = {
+    <span class="hljs-attr">type</span>: TYPE_CONSTANT,
+    <span class="hljs-attr">payload</span>: whateverYouWant,
+    <span class="hljs-attr">error</span>: boolean,
+    <span class="hljs-attr">meta</span>: additionalData
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="createactions-and-createaction"></a><a href="#createactions-and-createaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>createActions and createAction</h2>
+<p>These functions streamline the process of creating action creator functions. <a href="https://redux-actions.js.org/api-reference/createaction-s">docs</a></p>
+<p><code>createAction</code> returns a function that will return an action:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> increment = createAction(<span class="hljs-string">'INCREMENT'</span>);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> decrement = createAction(<span class="hljs-string">'DECREMENT'</span>);
+
+increment(); <span class="hljs-comment">// { type: 'INCREMENT' }</span>
+decrement(); <span class="hljs-comment">// { type: 'DECREMENT' }</span>
+increment(<span class="hljs-number">10</span>); <span class="hljs-comment">// { type: 'INCREMENT', payload: 10 }</span>
+decrement([<span class="hljs-number">1</span>, <span class="hljs-number">42</span>]); <span class="hljs-comment">// { type: 'DECREMENT', payload: [1, 42] }</span>
+</code></pre>
+<p>Note, how the createAction will take anything that you pass as an argument and make it the payload.  However, it is only one item you can pass.  If you need multiple things, store them in an object and pass that to the function created with <code>createAction</code>.</p>
+<p>If you want to do something with the payload before returning the action, you can also pass a <em>payload creator</em> function.</p>
+<p>For example, if you wanted all text to be upper case, you could do the following:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> saveText = createAction(<span class="hljs-string">'SAVE_TEXT'</span>, text =&gt; text.toUpperCase());
+
+saveText(<span class="hljs-string">'text'</span>); <span class="hljs-comment">// { type: SAVE_TEXT, payload: 'TEXT' }</span>
+</code></pre>
+<p>Since you probably have multiple actions creators, you can speed all this up by using the <strong>createActions</strong> function.</p>
+<p><code>createActions</code> takes two arguments, the first being an ActionMap.  You could just pass that.  It maps each of your Actions types to a <em>payload creator</em> function.  If you don't want to do anything with the payload just use and identity function (x =&gt; x).</p>
+<pre><code class="hljs css language-javascript">createActions({
+  <span class="hljs-attr">ADD_TODO</span>: <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x, <span class="hljs-comment">// payload creator (identity function)</span>
+  <span class="hljs-attr">INCREMENT</span>: <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x,
+  <span class="hljs-attr">DECREMENT</span>: <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x,
+  <span class="hljs-attr">SAVE_TEXT</span>: <span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> text.toUpperCase() <span class="hljs-comment">// payload creator</span>
+});
+</code></pre>
+<p>For those items that just need an identity function, i.e. you are not changing the payload.  You can simply pass those as separate parameters after the ActionMap.</p>
+<pre><code class="hljs css language-javascript">createActions({
+  <span class="hljs-attr">SAVE_TEXT</span>: <span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> text.toUpperCase() <span class="hljs-comment">// payload creator</span>
+}, 
+  ADD_TODO,
+  INCREMENT,
+  DECREMENT
+);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="error-handling"></a><a href="#error-handling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Handling</h2>
+<p>When using <code>createAction</code>or <code>createActions</code>, if you pass an error object as the payload, the <code>error</code> property will automatically be set to true.  You can use this error flag in the reducer to check if the payload is an error object.</p>
+<p>Note, you must send an actual error object to get this flag to be set.</p>
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-attr">type</span>: TYPE_CONSTANT,
+    <span class="hljs-attr">payload</span>: <span class="hljs-built_in">Error</span> <span class="hljs-built_in">Object</span>,
+    <span class="hljs-attr">error</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="handleactions"></a><a href="#handleactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>handleActions</h2>
+<p><code>handleActions</code> is used to replace the standard switch statement in your reducer.</p>
+<p>It will output a reducer that you can either export or use <code>combineReducers</code> on.</p>
+<p>You pass the <code>handleActions</code> function an object with your Action Types as properties and the reducer functions as values to the Action Type property.  Also, you must send a second argument, which is the default state.</p>
+<p>Lastly, notice on AUTH_LOGIN, here we want to differential between an error state and a normal state.  To do this, instead of a function for the value, we pass an object, with two keys of it's own.  <strong>view</strong> and <strong>throw</strong>.  <strong>view</strong> is the regular reducer and <strong>throw</strong> is reducer to run if the error property is true.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> authReducer = handleActions({
+    <span class="hljs-attr">AUTH_LOGOUT</span>: <span class="hljs-function">(<span class="hljs-params">state, action</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> { <span class="hljs-attr">uid</span>: <span class="hljs-string">''</span>, <span class="hljs-attr">status</span>: <span class="hljs-string">'SUCCESS'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">''</span> };
+    },
+    <span class="hljs-attr">AUTH_SET_STATUS</span>: <span class="hljs-function">(<span class="hljs-params">state, action</span>) =&gt;</span> {
+            <span class="hljs-keyword">return</span> { ...state, <span class="hljs-attr">status</span>: action.payload, <span class="hljs-attr">message</span>: <span class="hljs-string">''</span> };
+    },
+    <span class="hljs-attr">AUTH_LOGIN</span>: {
+        <span class="hljs-attr">next</span>: <span class="hljs-function">(<span class="hljs-params">state, action</span>) =&gt;</span> {
+            <span class="hljs-keyword">return</span> { <span class="hljs-attr">uid</span>: action.payload, <span class="hljs-attr">status</span>: AUTH_SUCCESS, <span class="hljs-attr">message</span>: <span class="hljs-string">''</span> };
+        },
+        <span class="hljs-attr">throw</span>: <span class="hljs-function">(<span class="hljs-params">state, action</span>) =&gt;</span> {
+                <span class="hljs-keyword">return</span> { <span class="hljs-attr">uid</span>: <span class="hljs-string">''</span>, <span class="hljs-attr">status</span>: AUTH_ERROR, <span class="hljs-attr">message</span>: action.payload}
+        }
+    }
+}, authDefault)
+</code></pre>
+<p>Using the <code>handleActions</code> function, you can also direct an error to a different path in the reducer</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#flux-standard-action">Flux Standard Action</a></li><li><a href="#createactions-and-createaction">createActions and createAction</a></li><li><a href="#error-handling">Error Handling</a></li><li><a href="#handleactions">handleActions</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

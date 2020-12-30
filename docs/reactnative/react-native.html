@@ -1,0 +1,755 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>React Native · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Creating Initial Application"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="React Native · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="# Creating Initial Application"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>ReactNative</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">React Native</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="creating-initial-application"></a><a href="#creating-initial-application" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating Initial Application</h1>
+<p>You have two options for creating new application one is the <strong>expo-cli</strong>, the other is the <strong>react-native-cli</strong>.  We will be using the <strong>expo-cli</strong> as it includes a lot of stuff that you are going to need like icons, access to phone assets like the camera, etc.</p>
+<p>To initialize a new project use:</p>
+<pre><code class="hljs css language-bash">$ npx expo-cli inti projectname
+</code></pre>
+<p>Choose a blank project or TypeScript and then enter the name of your project.</p>
+<p>You can also install expo-cli globally.  Thinking this may be the better way to go?  The command below will install or upgrade your expo-cli:</p>
+<pre><code class="hljs css language-bash">$ npm i -g expo-cli
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="upgrade-the-expo-sdk-in-a-project"></a><a href="#upgrade-the-expo-sdk-in-a-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upgrade the Expo SDK in a project</h3>
+<p>Run <code>expo upgrade</code> in your project directory (requires the latest version of <code>expo-cli</code>, you can update with <code>npm i -g expo-cli</code>).</p>
+<p>When you install/upgrade the expo-cli, you should be given the option to upgrade your existing apps.  Alternatively you can runn the following commands:</p>
+<pre><code class="hljs css language-bash">$ expo client:install:ios
+$ expo client:install:android
+</code></pre>
+<p>If you built a standalone app previously, <a href="https://docs.expo.io/versions/latest/workflow/publishing/#limitations">remember</a> that you'll need to create a new build in order to update the SDK version. Run <code>expo build:ios</code> and/or <code>expo build:android</code> when you are ready to do a new build for submission to stores.</p>
+<h1><a class="anchor" aria-hidden="true" id="expo"></a><a href="#expo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Expo</h1>
+<p><a href="https://dev.to/expo/expo-sdk-39-is-now-available-1lm8">sdk 39 Changes</a></p>
+<h2><a class="anchor" aria-hidden="true" id="selecting-devices"></a><a href="#selecting-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Selecting devices</h2>
+<p>You can now pick which device or simulator to run your app on.</p>
+<p>After running <code>expo start</code>, press:</p>
+<ul>
+<li><p><strong>shift+i</strong> to select an iOS simulator</p></li>
+<li><p><strong>shift+a</strong> to select a connected Android device or emulator. You can also run your project on multiple Android devices at the same time.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="publishing-an-ios-app"></a><a href="#publishing-an-ios-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publishing an iOS app</h2>
+<p><a href="https://docs.expo.io/distribution/building-standalone-apps/">Building Standalone Apps</a></p>
+<p><a href="https://docs.expo.io/distribution/app-stores/">Deploying To App Stores</a></p>
+<p>[Uploading Apps to App Stores](Uploading Apps to the Apple App Store) and <a href="https://help.apple.com/app-store-connect/#/devb1c185036">Apple's docs</a></p>
+<p>To build an app for iOS and get it to app store or TestFlight, you need to make a stand alone app.  It will be an IPA file.</p>
+<p>Follow these steps:</p>
+<ol>
+<li><p><strong>App.json</strong> - Update version.  Not sure how important this is.</p></li>
+<li><p><strong>Git</strong> - check everything into git.  Don't know if it is necessary, but it makes sense.</p></li>
+<li><p><strong>yarn start</strong> - Open a console and start the app, <em>yarn start</em> or <em>expo start</em></p></li>
+<li><p><strong>build</strong> - Build the ipa file</p>
+<pre><code class="hljs css language-bash">$ expo build:ios -t archive 
+</code></pre></li>
+<li><p><strong>build cont.</strong> - You will log in with your expo account and then your apple developer account. Also, let Expo create all the Provisiong Profiles and credentials.</p></li>
+<li><p><strong>Download</strong> - Go to the link provided because once it is done, you will want to download the <em>ipa</em> file.</p></li>
+<li><p><strong>Upload</strong> - you will then upload this file to Apple using the Transporter app.</p></li>
+</ol>
+<h1><a class="anchor" aria-hidden="true" id="using-and-displaying-icons"></a><a href="#using-and-displaying-icons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using and Displaying Icons</h1>
+<p>The expo-cli sets up a huge set of icons for us to use.  You will find the details here: <a href="github.com/expo/vector-icons">github.com/expo/vector-icons</a>.</p>
+<p>But you most likely will just want the list of icons <a href="https://expo.github.io/vector-icons/">https://expo.github.io/vector-icons/</a>.</p>
+<p>You will notice that each icon has a name and a brand or creator of the icons like AntDesign, FontAwesome, Ionicons, etc.  You will need both the icon name and the creator name to use the icon in your project.</p>
+<p>It is very easy, simply import as follows:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> { FontAwesome } <span class="hljs-keyword">from</span> <span class="hljs-string">'@expo/vector-icons'</span>;
+
+<span class="hljs-keyword">const</span> SomeComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">FontAwesome</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    )
+}
+</code></pre>
+<p>Notice that I included the size prop, however, you could also add a style to the icon and set the fontSize.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> { View, StyleSheet } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+<span class="hljs-keyword">import</span> { FontAwesome } <span class="hljs-keyword">from</span> <span class="hljs-string">'@expo/vector-icons'</span>;
+
+<span class="hljs-keyword">const</span> SomeComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">FontAwesome</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.iconStyle}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    )
+}
+
+<span class="hljs-keyword">const</span> styles = StyleSheet.create({
+    <span class="hljs-attr">iconStyle</span>: {
+        <span class="hljs-attr">fontSize</span>: <span class="hljs-number">30</span>,
+        <span class="hljs-attr">alignSelf</span>: <span class="hljs-string">'center'</span>
+    }
+})
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="text-input"></a><a href="#text-input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Text Input</h1>
+<p>You can use the React Native <em>TextInput</em> control. <a href="https://facebook.github.io/react-native/docs/textinput">TextInput Docs</a></p>
+<pre><code class="hljs css language-jsx">&lt;TextInput
+  style={styles.input}
+  value={searchString}
+  onChangeText={e =&gt; setSearchString(e)}
+/&gt;
+</code></pre>
+<p>Notice that the <em>onChangeText</em> function call the function with the value in the input box which is a bit different from the web implementation.</p>
+<p>Some other useful settings on TextInput:</p>
+<ul>
+<li><strong>onSubmitEditing</strong> - function to call when return key is pressed</li>
+<li><strong>autoCapitalize</strong> - Can determine what to auto capitalize <a href="https://facebook.github.io/react-native/docs/textinput#autocapitalize">autoCapitalizeDocs</a>
+<ul>
+<li><code>characters</code>: all characters.</li>
+<li><code>words</code>: first letter of each word.</li>
+<li><code>sentences</code>: first letter of each sentence (<em>default</em>).</li>
+<li><code>none</code>: don't auto capitalize anything.</li>
+</ul></li>
+<li><strong>keyboardType</strong> - determines which keyboard to open.  Here are the ones that work across all platforms:
+<ul>
+<li><code>default</code></li>
+<li><code>number-pad</code></li>
+<li><code>decimal-pad</code></li>
+<li><code>numeric</code></li>
+<li><code>email-address</code></li>
+<li><code>phone-pad</code></li>
+</ul></li>
+<li><strong>autoCorrect</strong> - (bool) When an input is auto corrected, it can be annoying, you can turn it off by setting this to {false}</li>
+<li><strong>returnKeyType</strong> - Determines what the return key should say.  Be aware the if you use the &quot;next&quot; option, you will need to programatically make it go to the next field.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="textinput-returnkeytype-changes-focus"></a><a href="#textinput-returnkeytype-changes-focus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TextInput returnKeyType Changes Focus</h2>
+<p>This is not automatic.  It seems like if. you set the <strong>returnKeyType</strong> to the <em>next</em> option, React Native will automatically know what you want it to do.  Not the case!  It can't read your mind yet!</p>
+<p>Luckily, every TextInput component has the <strong>onSubmitEditing</strong> prop.  This prop accepts a function that is called when the return key is pressed.</p>
+<p>You can use <strong>refs</strong> to set a TextInput's focus state as described in the code below.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, { useRef } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+...
+
+const MyFormComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> ref_input2 = useRef();
+  <span class="hljs-keyword">const</span> ref_input3 = useRef();
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">TextInput</span>
+        <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Input1"</span>
+        <span class="hljs-attr">autoFocus</span>=<span class="hljs-string">{true}</span>
+        <span class="hljs-attr">returnKeyType</span>=<span class="hljs-string">"next"</span>
+        <span class="hljs-attr">onSubmitEditing</span>=<span class="hljs-string">{()</span> =&gt;</span> ref_input2.current.focus()}
+      /&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">TextInput</span>
+        <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Input2"</span>
+        <span class="hljs-attr">returnKeyType</span>=<span class="hljs-string">"next"</span>
+        <span class="hljs-attr">onSubmitEditing</span>=<span class="hljs-string">{()</span> =&gt;</span> ref_input3.current.focus()}
+        ref={ref_input2}
+      /&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">TextInput</span>
+        <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Input3"</span>
+        <span class="hljs-attr">ref</span>=<span class="hljs-string">{ref_input3}</span>
+      /&gt;</span>
+    <span class="hljs-tag">&lt;/&gt;</span></span>
+  )
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="keyboard-avoiding-view--keyboarddismiss"></a><a href="#keyboard-avoiding-view--keyboarddismiss" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Keyboard Avoiding View + Keyboard.dismiss()</h2>
+<p>Even though the keyboard is needed, it's also a pain in the ass when it covers up your inputs.  Also, it would be nice to be able to dismiss the keyboard as it could be hiding an important button!</p>
+<p><a href="https://reactnative.dev/docs/keyboardavoidingview">React Native Docs on KeyboardAvoidingView</a></p>
+<p>The basic premise is that you will use a <strong>TouchableWithoutFeedback</strong> component to wrap a View and when this area is pressed, the keyboard will be hidden using the React Native <strong>Keyboard</strong> Object.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { View, TextInput, 
+        TouchableWithoutFeedback, Keyboard, 
+        KeyboardAvoidingView } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+
+<span class="hljs-keyword">const</span> SomeComponent = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> {
+  ...
+  return (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TouchableWithoutFeedback</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{Keyboard.dismiss}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">KeyboardAvoidingView</span>
+        <span class="hljs-attr">behavior</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">padding</span>"}
+        <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.someViewStyle}</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TextInput</span> <span class="hljs-attr">...</span> /&gt;</span>  
+        <span class="hljs-tag">&lt;<span class="hljs-name">TextInput</span> <span class="hljs-attr">...</span> /&gt;</span>  
+      <span class="hljs-tag">&lt;/<span class="hljs-name">KeyboardAvoidingView</span>&gt;</span>      
+    <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableWithoutFeedback</span>&gt;</span>  
+  <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  )
+}
+...
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="text-component"></a><a href="#text-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Text Component</h1>
+<p>Prety straight forward, but did find that to limit the number of lines, you pass the prop <em>numberOfLines</em>.</p>
+<p>This will give you ellipes if the text is longer than 1 line.  Also note there is an <em>ellipsizeMode</em> that can be head, tail(*this is the default) or middle.</p>
+<pre><code class="hljs css language-jsx">&lt;Text numberOfLines={1} style={styles.title}&gt;
+  {movie.title}
+&lt;/Text&gt;
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="flatlist-component"></a><a href="#flatlist-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FlatList Component</h1>
+<p>Used to render a list of items.  There are three main props:</p>
+<ol>
+<li><strong>data</strong> - an Array of data to be used in the FlatList</li>
+<li><strong>keyExtractor</strong> - Each item in the list needs a key, this prop expects a function to which it will pass a single item from the array of data.  You can then use this to construct a key for that item.  NOTE: this key MUST be a STRING.</li>
+<li><strong>renderItems</strong> - This is a function that takes an argument (destructured as <em>item</em>).  This <em>item</em> argument is one item from the array of data that you have passed the FlatList in the data prop.  The return will be a component that will be rendered in the FlatList</li>
+</ol>
+<pre><code class="hljs css language-jsx">&lt;FlatList
+  data={movies.data.results}
+  keyExtractor={movie =&gt; movie.id.toString()}
+  renderItem={({ item }) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"renderItem: "</span>, item);
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MovieResultItem</span> <span class="hljs-attr">movie</span>=<span class="hljs-string">{item}</span> /&gt;</span></span>;
+  }}
+/&gt;
+</code></pre>
+<blockquote>
+<p>NOTE: You should always render you FlatList in a View with flex: 1.  This keeps the last item in the list from being hidden by the bottom of the screen.</p>
+</blockquote>
+<p>Some useful props for the FlatList</p>
+<ul>
+<li><strong>onEndReached</strong> (function) - when the end of the list is reached this function will be called.  There is a threshold prop also that lets you determine when the &quot;end&quot; is reached and thus when the function is called. This is useful when you want to load more data when the end of the list is reached.</li>
+<li><strong>keyboardDismissMode</strong> - Super useful if you are doing any type of auto querying based on entry in a list box.  If this is set to <strong>on-drag</strong>, then when you drag the FlatList, the keyboard dismisses.  This is also on the ScrollView.</li>
+<li><strong>ListHeaderComponent</strong> - You can pass a component to this prop and it will render as the header to your FlatList.  You can also pass a style object via ListHeaderComponentStyle.  Not sure of the use case for the style prop as you can simply style the header component.</li>
+<li><strong>onContentSizeChange</strong> - prop accepts a function that will be called when the content size changes.  Not really sure when it is called, but will be called whenever you change the data being sent to the FlatList that causes a rerender.</li>
+<li><strong>onScroll</strong> - This prop accepts a function that will be called whenever an onScroll Event occurs.  You can throttle this using the <strong>scrollEventThrottle</strong> property.  Since scrolling will produce a lot of events, be aware of this.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="styling-a-flatlist"></a><a href="#styling-a-flatlist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Styling a FlatList</h2>
+<p>Usually a FlatList will show one render item per column.  This leaves all the styling to the component used in the <strong>renderItem</strong> prop.  However, if you want to have multiple items on a column, you would set the <strong>numColumns</strong> prop to something greater than one.</p>
+<p>When you do this, you can pass another prop,<strong>columnWrapperStyle</strong> and with this you can style each row.</p>
+<p>For example, you could center each render item using:</p>
+<pre><code class="hljs css language-javascript">&lt;FlatList
+  data={state.oSaved.getFilteredMovies}
+  keyExtractor={(movie, idx) =&gt; movie.id.toString() + idx}
+  <span class="hljs-comment">//** Style each row, here we are centering the items **/</span>
+  columnWrapperStyle={{ <span class="hljs-attr">justifyContent</span>: <span class="hljs-string">"center"</span> }}
+  renderItem={({ item }) =&gt; {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ViewMovieItem</span> <span class="hljs-attr">movie</span>=<span class="hljs-string">{item}</span> /&gt;</span></span>;
+  }}
+  numColumns={<span class="hljs-number">2</span>}
+/&gt;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="scroll-to-top"></a><a href="#scroll-to-top" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scroll To Top</h2>
+<p>When reloading a flatlist with data, such as when repopulating after a search, it will stay in the same position unless you tell it to go back to the top.</p>
+<p>To do this, you just need to create ref for the flatlist and then call a scroll to top function when the list is changed:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyComponent</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> flatListRef = React.useRef()
+
+    <span class="hljs-keyword">const</span> scrollToTop = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-comment">// use current</span>
+        flatListRef.current.scrollToOffset({ <span class="hljs-attr">animated</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">offset</span>: <span class="hljs-number">0</span> })
+    }
+    React.useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (flatListRef.current) {
+      scrollToTop();
+    }
+  }, [data_that_triggers_effect]);
+  
+    <span class="hljs-keyword">return</span> (    
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FlatList</span>
+            <span class="hljs-attr">ref</span>=<span class="hljs-string">{flatListRef}</span>
+            <span class="hljs-attr">data</span>=<span class="hljs-string">{...}</span>
+            <span class="hljs-attr">...</span>
+        /&gt;</span></span>
+    )
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="what-is-getitemlayout"></a><a href="#what-is-getitemlayout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is getItemLayout</h2>
+<p>Since the FlatList is rendered parts at a time, you can't use functions like <strong>scrollToIndex</strong> by themselves.  You will need to create a <strong>getItemLayout</strong> function and pass it as a prop of the same name to your FlatList.</p>
+<p>This function in essence is telling the flat list how large each item is and how far to scroll to get the item in question.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">const</span> getItemLayout = <span class="hljs-function">(<span class="hljs-params">data, index</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">length</span>: height,
+    <span class="hljs-attr">offset</span>: height * index,
+    index,
+  };
+};
+</code></pre>
+<p>I believe the getItemLayout function is called when scrolling and you are using scrolltoIndex.  It lets the app know where in the list to scroll because it has all the information.</p>
+<p>This gets tought if the height of the items in the flatlist are variable heights.</p>
+<h2><a class="anchor" aria-hidden="true" id="scrolltoindex---scrolltotop---etc"></a><a href="#scrolltoindex---scrolltotop---etc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>scrollToIndex - scrollToTop - etc.</h2>
+<p>To effectively use these functions you will need to assign a ref to use in a function (useEffect or otherwise).</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// This is used in the FlatList as the HeaderComponent</span>
+<span class="hljs-keyword">const</span> ListHeader = <span class="hljs-function">(<span class="hljs-params">show</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{show</span> ? {} <span class="hljs-attr">:</span> { <span class="hljs-attr">display:</span> '<span class="hljs-attr">none</span>' }}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">SearchBar</span>
+        <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Search..."</span>
+        <span class="hljs-attr">platform</span>=<span class="hljs-string">"ios"</span>
+        <span class="hljs-attr">onChangeText</span>=<span class="hljs-string">{(search)</span> =&gt;</span> console.log('search term', search)}
+      /&gt;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+};
+
+<span class="hljs-keyword">const</span> ViewMoviesScreen = <span class="hljs-function">(<span class="hljs-params">{ navigation, route }</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> [refreshing, setRefreshing] = React.useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> [showSearch, setShowSearch] = React.useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> flatListRef = React.useRef();
+  
+  <span class="hljs-keyword">const</span> getItemLayout = <span class="hljs-function">(<span class="hljs-params">data, index</span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> height = index === <span class="hljs-number">1</span> ? <span class="hljs-number">70</span> : <span class="hljs-number">150</span>;
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">length</span>: height,
+      <span class="hljs-attr">offset</span>: height * index - <span class="hljs-number">70</span>,
+      index,
+    };
+  };
+  
+  ...
+  
+ useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      flatListRef.current.scrollToIndex({ <span class="hljs-attr">animated</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">index</span>: <span class="hljs-number">1</span> });
+    }, <span class="hljs-number">2000</span>);
+  }, []);
+
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FlatList</span>
+        <span class="hljs-attr">data</span>=<span class="hljs-string">{state.oSaved.getFilteredMovies}</span>
+        <span class="hljs-attr">ref</span>=<span class="hljs-string">{flatListRef}</span>
+        <span class="hljs-attr">getItemLayout</span>=<span class="hljs-string">{getItemLayout}</span>
+        // <span class="hljs-attr">onContentSizeChange</span>=<span class="hljs-string">{()</span> =&gt;</span> {
+        //   if (
+        //     flatListRef?.scrollToIndex &amp;&amp;
+        //     state.oSaved.getFilteredMovies?.length
+        //   ) {
+        //     flatListRef.current.scrollToIndex({
+        //       index: 1,
+        //     });
+        //   }
+        // }}
+        keyboardDismissMode
+        onScroll={(evt) =&gt; {
+          // console.log(evt.nativeEvent.contentOffset);
+          if (evt.nativeEvent.contentOffset.y <span class="hljs-tag">&lt; <span class="hljs-attr">-10</span>) {
+            <span class="hljs-attr">setShowSearch</span>(<span class="hljs-attr">true</span>);
+          }
+        }}
+        <span class="hljs-attr">scrollEventThrottle</span>=<span class="hljs-string">{16}</span>
+        <span class="hljs-attr">onContentSizeChange</span>=<span class="hljs-string">{</span>
+          () =&gt;</span> {
+            // console.log('onContet size');
+            // if (refreshing) {
+            //   setRefreshing(false);
+            // } else {
+            //   setShowSearch(false);
+            // }
+          }
+          //flatListRef.current.scrollToIndex({ animated: true, index: 1 })
+        }
+        keyExtractor={(movie, idx) =&gt; movie.id.toString() + idx}
+        // columnWrapperStyle={{ justifyContent: "space-around" }}
+        // numColumns={2}
+        ListHeaderComponent={() =&gt; ListHeader(showSearch)}
+        renderItem={({ item, index }) =&gt; {
+          return (
+            <span class="hljs-tag">&lt;<span class="hljs-name">ViewMoviesListItem</span>
+              <span class="hljs-attr">movie</span>=<span class="hljs-string">{item}</span>
+              <span class="hljs-attr">setMovieEditingId</span>=<span class="hljs-string">{setMovieEditingId}</span>
+              <span class="hljs-attr">movieEditingId</span>=<span class="hljs-string">{movieEditingId}</span>
+            /&gt;</span>
+          );
+        }}
+      /&gt;</span>
+}
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="changing-numcolumns-on-the-fly"></a><a href="#changing-numcolumns-on-the-fly" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changing numColumns on the Fly</h2>
+<p>If you have a 2 column FlatList, defined by using the <strong>numColumns</strong> prop and you want to dynamically change it to 1 column, you will get an error saying you need to change the key prop.</p>
+<p>To do this, just add a prop on the FlatList called <strong>key</strong> and set it to change when you change the number of columns.  This will force a rerender.</p>
+<blockquote>
+<p>Why this doesn't usually work the way you want.  When you rerender, you will be sent back to the top of the FlatList.</p>
+</blockquote>
+<p>Here is an example:</p>
+<pre><code class="hljs css language-jsx">...
+  return (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.containerForPortrait}</span>&gt;</span>
+      {showSearch ? <span class="hljs-tag">&lt;<span class="hljs-name">ListSearchBar</span> /&gt;</span> : null}
+      <span class="hljs-tag">&lt;<span class="hljs-name">FlatList</span>
+        <span class="hljs-attr">data</span>=<span class="hljs-string">{state.oSaved.getFilteredMovies}</span>
+        <span class="hljs-attr">ref</span>=<span class="hljs-string">{flatListRef}</span>
+        // <span class="hljs-attr">getItemLayout</span>=<span class="hljs-string">{getItemLayout}</span>
+        <span class="hljs-attr">keyboardDismissMode</span>
+        <span class="hljs-attr">keyExtractor</span>=<span class="hljs-string">{(movie,</span> <span class="hljs-attr">idx</span>) =&gt;</span> movie.id.toString() + idx}
+        key={movieEditingId ? 1 : 2}
+        // columnWrapperStyle={{ justifyContent: "space-around" }}
+        numColumns={movieEditingId ? 1 : 2}
+        renderItem={({ item, index }) =&gt; {
+          return (
+            <span class="hljs-tag">&lt;<span class="hljs-name">ViewMoviesListItem</span>
+              <span class="hljs-attr">movie</span>=<span class="hljs-string">{item}</span>
+              <span class="hljs-attr">setMovieEditingId</span>=<span class="hljs-string">{setMovieEditingId}</span>
+              <span class="hljs-attr">movieEditingId</span>=<span class="hljs-string">{movieEditingId}</span>
+            /&gt;</span>
+          );
+        }}
+      /&gt;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="common-modules"></a><a href="#common-modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Modules</h1>
+<p><a href="https://github.com/react-native-community/hooks">React Native Hooks</a> - Great module for accessing common things like dimensions, photo roll, etc.</p>
+<h2><a class="anchor" aria-hidden="true" id="getting-dimensions"></a><a href="#getting-dimensions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Dimensions</h2>
+<pre><code class="hljs css language-javascript">...
+import { useDimensions } <span class="hljs-keyword">from</span> <span class="hljs-string">"@react-native-community/hooks"</span>;
+...
+const MyComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> { width, height } = useDimensions().window;  
+  <span class="hljs-keyword">return</span> (...)
+}
+</code></pre>
+<p>Here I am just pulling the Window dimensions.  Here is what the full object would look like:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> dimensions = useDimensions();
+<span class="hljs-comment">// dimensions Object</span>
+{
+  <span class="hljs-string">"screen"</span>: <span class="hljs-built_in">Object</span> {
+    <span class="hljs-string">"fontScale"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"height"</span>: <span class="hljs-number">896</span>,
+    <span class="hljs-string">"scale"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">"width"</span>: <span class="hljs-number">414</span>,
+  },
+  <span class="hljs-string">"window"</span>: <span class="hljs-built_in">Object</span> {
+    <span class="hljs-string">"fontScale"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"height"</span>: <span class="hljs-number">896</span>,
+    <span class="hljs-string">"scale"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">"width"</span>: <span class="hljs-number">414</span>,
+  },
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="measuring-the-layout"></a><a href="#measuring-the-layout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Measuring the Layout</h2>
+<p>I don't have a good handle on how this works and there is very little onilne about it.</p>
+<p>One little glimpse into it is buried in this <a href="https://www.youtube.com/watch?v=ZiSN9uik6OY">animation tutorial</a> at around the 10:30 minute mark.</p>
+<p>I had trouble figuring out how/when to call the <code>measureLayout()</code> function.  It works based on <code>refs</code> that are set on the Item you want to measure and the ref of the containing parent.  So both of these refs must be set before you can get any information from the function call.</p>
+<p>It looks like if you are creating your own component, you can use the <code>forwardRef()</code> function and wrap your component in it.</p>
+<p>But once you have both refs you can do this:</p>
+<pre><code class="hljs css language-javascript">itemToMeasureRef.measureLayout(parentRef, (x,y,width,height) =&gt; {
+  <span class="hljs-comment">// do something with these values</span>
+  <span class="hljs-comment">// maybe set state to use </span>
+})
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="images"></a><a href="#images" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Images</h1>
+<p><strong>Display an image from a URL</strong></p>
+<pre><code class="hljs css language-jsx">&lt;Image
+  style={{ <span class="hljs-attr">width</span>: <span class="hljs-number">130</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">200</span>, <span class="hljs-attr">marginRight</span>: <span class="hljs-number">10</span> }}
+  source={{ <span class="hljs-attr">uri</span>: movie.posterURL }}
+  resizeMode=<span class="hljs-string">"contain"</span>
+/&gt;
+</code></pre>
+<p><strong>Get Image asset to Display</strong></p>
+<pre><code class="hljs css language-jsx">&lt;Image
+   style={{ <span class="hljs-attr">width</span>: <span class="hljs-number">130</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">200</span>, <span class="hljs-attr">marginRight</span>: <span class="hljs-number">10</span> }}
+   source={<span class="hljs-built_in">require</span>(<span class="hljs-string">'./placeholder.png'</span>)}
+   resizeMode=<span class="hljs-string">"contain"</span>
+  /&gt;
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="styling"></a><a href="#styling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Styling</h1>
+<h2><a class="anchor" aria-hidden="true" id="ios-dark-mode-issues"></a><a href="#ios-dark-mode-issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iOS Dark Mode Issues</h2>
+<p>Dark mode can cause issues.</p>
+<p>One way around is to modify the <code>info.plist</code> file to include the following:</p>
+<pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>UIUserInterfaceStyle<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>Light<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+</code></pre>
+<p><a href="https://medium.com/javascript-in-plain-english/react-native-dark-mode-and-theming-dc299bec206d">Article on Styling Dark Mode</a></p>
+<h2><a class="anchor" aria-hidden="true" id="styled-components"></a><a href="#styled-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Styled Components</h2>
+<p>You can use <strong>styled-components</strong> with React Native.</p>
+<h2><a class="anchor" aria-hidden="true" id="stylesheet"></a><a href="#stylesheet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>StyleSheet</h2>
+<p>This is the traditional way to style your app.</p>
+<h3><a class="anchor" aria-hidden="true" id="shadows"></a><a href="#shadows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Shadows</h3>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> styles = StyleSheet.create({
+  <span class="hljs-attr">containerStyle</span>: {
+    <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">borderRadius</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">borderColor</span>: <span class="hljs-string">'#ddd'</span>,
+    <span class="hljs-attr">borderBottomWidth</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">shadowColor</span>: <span class="hljs-string">'#000'</span>,
+    <span class="hljs-attr">shadowOffset</span>: { <span class="hljs-attr">width</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">2</span> },
+    <span class="hljs-attr">shadowOpacity</span>: <span class="hljs-number">0.8</span>,
+    <span class="hljs-attr">shadowRadius</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">elevation</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">marginLeft</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">marginRight</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">marginTop</span>: <span class="hljs-number">10</span>,
+  }
+})
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="animation"></a><a href="#animation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Animation</h1>
+<p>React Native has the <code>Animated</code> library that is specifically designed to help you animate stuff.</p>
+<p>It is often paired with the <code>PanResponder</code> library.  The <code>PanResponer</code> library is what tells you how the user is interacting with the screen.  It deals with <em>Gestures</em>.</p>
+<p>The first big distinction is that the PanResponder does not animate anything, however it is intergal in telling you what the user is doing so that you CAN animate something in response to those gestures.</p>
+<p>The <code>Animated</code> library can then use the gesture input to animate stuff.</p>
+<p>See more detail in the <a href="./react-native-animation">react-native-animation doc</a></p>
+<h2><a class="anchor" aria-hidden="true" id="deep-linking"></a><a href="#deep-linking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deep Linking</h2>
+<p>I believe deep linking refers to being able to access specific pages / locations within your app via a <em>deep link</em> usually in the format of <strong>appname:///</strong></p>
+<p>However, the other use is opening up a third party app from within your app.  For example, opening up the IMDB application to a specific movie or tv show page.  This is done with the <strong>Linking</strong> module from react native.</p>
+<p>Here is some code that will open up a specific title in the IMDB app.  Notice that the <strong>openURL</strong> is a promise.  It will fail if the link is invalid.  If this is the case, we will use another function on the <strong>Linking</strong> module to open up a web page to the imdb app so the user can download it.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { Linking } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+
+Linking.openURL(<span class="hljs-string">`imdb:///title/<span class="hljs-subst">${movie.imdbId}</span>`</span>)
+  .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+    Linking.openURL(
+      <span class="hljs-string">"https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525"</span>
+    );
+  }
+)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="finite-state-machines"></a><a href="#finite-state-machines" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Finite State Machines</h2>
+<h1><a class="anchor" aria-hidden="true" id="old-stuff"></a><a href="#old-stuff" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OLD STUFF</h1>
+<h2><a class="anchor" aria-hidden="true" id="app-creation"></a><a href="#app-creation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>App Creation</h2>
+<p>To create an app use the following:</p>
+<pre><code class="hljs css language-npm">    <span class="hljs-comment">//Create the project -- this creates a directory of projectName</span>
+    react-<span class="hljs-keyword">native</span> <span class="hljs-keyword">init</span> projectName
+    
+    <span class="hljs-comment">//Run the simulator</span>
+    react-<span class="hljs-keyword">native</span> run-ios
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="initial-app-setup"></a><a href="#initial-app-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initial App Setup</h2>
+<p>The entry points into a react native application are the <em>index.ios.js</em> and <em>index.andriod.js</em>.
+The method Stephen Grider uses is to have both of these entries point be the same code.</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">import</span> { AppRegistry } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+    <span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./src/App'</span>;
+    
+    AppRegistry.registerComponent(<span class="hljs-string">'manager'</span>, () =&gt; App);
+</code></pre>
+<p>The AppRegistry.registerComponent function has two arguments. The first must be the name you used when you ran the react-native init command. The next argument must be a function returning the a react component. Above, we are importing the App component from the src directory.</p>
+<p>I believe that the first argument to the registerComponent function must be lower case and match the directory of the application.
+The second function is redirecting to the root js file for the application.  Here we are using App.js as the root.</p>
+<blockquote>
+<p>NOTE: To get a view to scroll you need to put a style of flex: 1 on the top level view of the components you want to be scrollable:</p>
+</blockquote>
+<pre><code class="hljs css language-javascript">&lt;View style={{ flex: 1 }}&gt;
+    &lt;Header headerText='Albums!'/&gt;
+    &lt;AlbumList /&gt;
+&lt;/View&gt;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="boilerplate-for-a-redux-application"></a><a href="#boilerplate-for-a-redux-application" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Boilerplate for a Redux application</h2>
+<h3><a class="anchor" aria-hidden="true" id="using-react-native-router-flux-for-navigation"></a><a href="#using-react-native-router-flux-for-navigation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>using react-native-router-flux for navigation</h3>
+<p>Below is the boilerplate code for an application using redux and navigation with <a href="https://github.com/aksonov/react-native-router-flux">react-native-route-flux</a>.</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> { View, Text } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+    <span class="hljs-keyword">import</span> { Provider } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+    <span class="hljs-keyword">import</span> { createStore, applyMiddleware } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>;
+    <span class="hljs-keyword">import</span> ReduxThunk <span class="hljs-keyword">from</span> <span class="hljs-string">'redux-thunk'</span>;
+    <span class="hljs-keyword">import</span> reducers <span class="hljs-keyword">from</span> <span class="hljs-string">'./reducers'</span>;
+    <span class="hljs-keyword">import</span> firebase <span class="hljs-keyword">from</span> <span class="hljs-string">'firebase'</span>;
+    
+    <span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">'./Router'</span>;
+    
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+      componentWillMount() {
+        <span class="hljs-comment">// Initialize Firebase</span>
+        <span class="hljs-keyword">const</span> config = {
+          <span class="hljs-attr">apiKey</span>: <span class="hljs-string">'AIzaSyBq6sapPRNHlRxaLU5UzwsnYpHJRnvwLMg'</span>,
+          <span class="hljs-attr">authDomain</span>: <span class="hljs-string">'manager-642cb.firebaseapp.com'</span>,
+          <span class="hljs-attr">databaseURL</span>: <span class="hljs-string">'https://manager-642cb.firebaseio.com'</span>,
+          <span class="hljs-attr">storageBucket</span>: <span class="hljs-string">'manager-642cb.appspot.com'</span>,
+          <span class="hljs-attr">messagingSenderId</span>: <span class="hljs-string">'67690040094'</span>
+        };
+        firebase.initializeApp(config);
+      }
+      render() {
+        <span class="hljs-keyword">const</span> store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+        <span class="hljs-comment">//store.subscribe(()=&gt; console.log(store.getState()));</span>
+        <span class="hljs-keyword">return</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{store}</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Router</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>
+        );
+      };
+    }
+    
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="redux-setup"></a><a href="#redux-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redux setup</h4>
+<p>This example is creating the redux store in the app code.  Note that the reducers import is a folder with an index file that is exporting all of the specific reducer JS files.
+The reducer index file is using the combineReducers() function to export a reducer for the store to use:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">import</span> { combineReducers } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>;
+    <span class="hljs-keyword">import</span> AuthReducer <span class="hljs-keyword">from</span> <span class="hljs-string">'./AuthReducer'</span>;
+    <span class="hljs-keyword">import</span> EmployeeFormReducer <span class="hljs-keyword">from</span> <span class="hljs-string">'./EmployeeFormReducer'</span>;
+    
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> combineReducers({
+      <span class="hljs-attr">auth</span>: AuthReducer,
+      <span class="hljs-attr">employeeForm</span>: EmployeeFormReducer
+    });
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="navigation-with-react-native-router-flux"></a><a href="#navigation-with-react-native-router-flux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Navigation with react-native-router-flux</h4>
+<p>In this app, we have store our routes (Scenes) in a separate <strong>Router.js</strong> file.</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> { Scene, Router } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-router-flux'</span>;
+    <span class="hljs-keyword">import</span> LoginForm <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/LoginForm'</span>;
+    <span class="hljs-keyword">import</span> EmployeeList <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/EmployeeList'</span>;
+    <span class="hljs-keyword">import</span> EmployeeCreate <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/EmployeeCreate'</span>;
+    <span class="hljs-keyword">import</span> { Actions } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-router-flux'</span>;
+    
+    <span class="hljs-keyword">const</span> RouterComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Router</span> <span class="hljs-attr">sceneStyle</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">paddingTop:</span> <span class="hljs-attr">65</span>}}&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Scene</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"auth"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Scene</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"login"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{LoginForm}</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Please login"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Scene</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Scene</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"main"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Scene</span>
+              <span class="hljs-attr">initial</span>
+              <span class="hljs-attr">rightTitle</span>=<span class="hljs-string">"Add"</span>
+              <span class="hljs-attr">onRight</span>=<span class="hljs-string">{()</span> =&gt;</span> Actions.employeeCreate()}
+              key="employeeList"
+              component={EmployeeList}
+              title="Employees"
+            /&gt;
+            <span class="hljs-tag">&lt;<span class="hljs-name">Scene</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"employeeCreate"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{EmployeeCreate}</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Create Employee"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Scene</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Router</span>&gt;</span></span>
+      );
+    };
+    
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> RouterComponent;
+</code></pre>
+<p>The top level component for navigation with this component is <strong>&lt;Router&gt;</strong>.
+The children of this component will be <strong>&lt;Scene&gt;</strong> components.  Each Scene is a view/separate screen in your application.
+Scenes can have nested scenes.  The top level Scenes are useful for grouping scenes together allowing navigation back to a group.  However, when navigating to a group, only the first scene OR the scene with the key of <strong>initial</strong> set to true will show.
+For scenes to display, there are three required keys, they are:</p>
+<ul>
+<li><strong>key</strong> - this is the name that you will reference to in the Actions call to show the scene.</li>
+<li><strong>component</strong> - this is the actual component that will be shown.</li>
+<li><strong>title</strong> - this is the title of the scene.</li>
+</ul>
+<p><strong>Other useful keys:</strong></p>
+<ul>
+<li><strong>rightTitle</strong> - this will display a title link in the right side of the header.</li>
+<li><strong>onRight</strong> - this is a function that will be called when the rightTitle is pressed.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="common-react-native-components"></a><a href="#common-react-native-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common React Native Components</h2>
+<ul>
+<li><strong>View</strong> - Anything shown on the screen must be wrapped in a view</li>
+<li><strong>Text</strong> - Text to display on the screen</li>
+<li><strong>TouchableOpacity</strong> - Wraps a Text component and allows it to be pressed.</li>
+<li><strong>Modal</strong></li>
+</ul>
+<h1><a class="anchor" aria-hidden="true" id="config--app-secrets-file"></a><a href="#config--app-secrets-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Config / App Secrets File</h1>
+<p>You should create a file outside of your components directory that will hold some basic configuration and items you want hidden from users.</p>
+<p>Configuration would include device screen dimensions, api URLs, api Keys.</p>
+<p>For Firebase, you could keep your firebase config and api information in a file like this.</p>
+<p>Below is an example that gets device dimensions.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">'use strict'</span>
+
+<span class="hljs-keyword">import</span> Dimensions <span class="hljs-keyword">from</span> <span class="hljs-string">'Dimensions'</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-built_in">window</span> = Dimensions.get(<span class="hljs-string">'window'</span>);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">windowHeight</span>: <span class="hljs-built_in">window</span>.height,
+  <span class="hljs-attr">windowWidth</span>: <span class="hljs-built_in">window</span>.width,
+
+  <span class="hljs-attr">windowHeightHalf</span>: <span class="hljs-built_in">window</span>.height * <span class="hljs-number">0.5</span>,
+  <span class="hljs-attr">windowHeightThird</span>: <span class="hljs-built_in">window</span>.height * <span class="hljs-number">0.333</span>,
+  <span class="hljs-attr">windowHeightTwoThirds</span>: <span class="hljs-built_in">window</span>.height * <span class="hljs-number">0.666</span>,
+  <span class="hljs-attr">windowHeightQuarter</span>: <span class="hljs-built_in">window</span>.height * <span class="hljs-number">0.25</span>,
+  <span class="hljs-attr">windowHeightFifth</span>: <span class="hljs-built_in">window</span>.height * <span class="hljs-number">0.20</span>,
+  <span class="hljs-attr">windowHeightThreeQuarters</span>: <span class="hljs-built_in">window</span>.height * <span class="hljs-number">0.75</span>,
+
+  <span class="hljs-attr">windowWidthHalf</span>: <span class="hljs-built_in">window</span>.width * <span class="hljs-number">0.5</span>,
+  <span class="hljs-attr">windowWidthThird</span>: <span class="hljs-built_in">window</span>.width * <span class="hljs-number">0.333</span>,
+  <span class="hljs-attr">windowWidthTwoThirds</span>: <span class="hljs-built_in">window</span>.width * <span class="hljs-number">0.666</span>,
+  <span class="hljs-attr">windowWidthQuarter</span>: <span class="hljs-built_in">window</span>.width * <span class="hljs-number">0.25</span>,
+  <span class="hljs-attr">windowWidthFifth</span>: <span class="hljs-built_in">window</span>.width * <span class="hljs-number">0.20</span>,
+  <span class="hljs-attr">windowWidthThreeQuarters</span>: <span class="hljs-built_in">window</span>.width * <span class="hljs-number">0.75</span>,
+  <span class="hljs-attr">windowWidthNineTenths</span>: <span class="hljs-built_in">window</span>.width * <span class="hljs-number">0.9</span>,
+
+  <span class="hljs-attr">apiUrl</span>: <span class="hljs-string">'https://newsapi.org/v1'</span>,
+  <span class="hljs-attr">apiKey</span>: <span class="hljs-string">'YOUR_API_KEY'</span>, <span class="hljs-comment">// add your API key here</span>
+
+  <span class="hljs-comment">/*
+   * Create your own API key by signing up for newsapi.org: https://newsapi.org/
+   * Plug it in here. We will explain how to use this in the next lesson
+   */</span>
+}
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="third-party-components"></a><a href="#third-party-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Third Party Components</h1>
+<h2><a class="anchor" aria-hidden="true" id="react-native-navigationhttpswixgithubioreact-native-navigation"></a><a href="#react-native-navigationhttpswixgithubioreact-native-navigation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://wix.github.io/react-native-navigation/#/">react-native-navigation</a></h2>
+<p>A native navigation solution from Wix.  Note that if you are using a create-react-native-app installation, you will need to eject before using Wix react native navigation.
+The intallation can be a bit tricky.  You have to get into the xcode project, but I found their instructions to be sufficient.</p>
+<h2><a class="anchor" aria-hidden="true" id="react-native-vector-iconshttpsgithubcomobladorreact-native-vector-icons"></a><a href="#react-native-vector-iconshttpsgithubcomobladorreact-native-vector-icons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/oblador/react-native-vector-icons">react-native-vector-icons</a></h2>
+<p>Gives you access to icons to use within your application.  I have only used the Ionicons font.  You can view the available Ionicons at <a href="https://ionicframework.com/docs/ionicons/">Ionicons Available</a>.  Note that the name one the left is not the name to use, you must click on the icons to display the different names, usually prefixed with 'ios' or 'md'.</p>
+<p>You can access an icon via the Icon component as follows:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> Icon <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-vector-icons/Ionicons'</span>
+
+...
+<span class="hljs-comment">//View other component properties on their gitHub page</span>
+&lt;Icon name=<span class="hljs-string">'ios-arrow-forward'</span> size={<span class="hljs-number">20</span>} /&gt;
+</code></pre>
+<p>You can also use the Icon component to get a bitmapped image returned.  the getImageSource returns a promise.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { Navigation } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-navigation'</span>;
+<span class="hljs-keyword">import</span> Icon <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-vector-icons/Ionicons'</span>;
+
+<span class="hljs-keyword">const</span> startTabs = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-built_in">Promise</span>.all([
+    Icon.getImageSource(<span class="hljs-string">'ios-albums'</span>, <span class="hljs-number">30</span>),
+    Icon.getImageSource(<span class="hljs-string">'ios-car'</span>, <span class="hljs-number">30</span>)  
+  ]).then(<span class="hljs-function"><span class="hljs-params">sources</span> =&gt;</span> {
+    Navigation.startTabBasedApp({
+      <span class="hljs-attr">tabs</span>: [
+        {
+          <span class="hljs-attr">screen</span>: <span class="hljs-string">'car-tracker.ServiceListScreen'</span>,
+          <span class="hljs-attr">label</span>: <span class="hljs-string">'Service List'</span>,
+          <span class="hljs-attr">icon</span>: sources[<span class="hljs-number">0</span>],
+          <span class="hljs-attr">title</span>: <span class="hljs-string">'Service List'</span>
+        },
+        {
+          <span class="hljs-attr">screen</span>: <span class="hljs-string">'car-tracker.CarScreen'</span>,
+          <span class="hljs-attr">label</span>: <span class="hljs-string">'Car Detail'</span>,
+          <span class="hljs-attr">icon</span>: sources[<span class="hljs-number">1</span>],
+          <span class="hljs-attr">title</span>: <span class="hljs-string">'Car List'</span>
+        },
+      ]
+    });
+  });
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> startTabs;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="react-native-communicationshttpsgithubcomanarchicknightreact-native-communications"></a><a href="#react-native-communicationshttpsgithubcomanarchicknightreact-native-communications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/anarchicknight/react-native-communications">react-native-communications</a></h2>
+<p>Open a web address, easily call, email, text, iMessage (iOS only) someone in React Native</p>
+<h1><a class="anchor" aria-hidden="true" id="react-native-playground"></a><a href="#react-native-playground" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React Native Playground</h1>
+<p><a href="https://snack.expo.io/">Snack.io</a></p>
+<p>This is a site that uses expo and allows you to test React Native code similar to codepen, jsbin, etc.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/redux/baby-redux"><span class="arrow-prev">← </span><span>Simple Redux Package</span></a><a class="docs-next button" href="/my-code-docs/docs/reactnative/react-navigation-v5"><span>React Navigation V5</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#selecting-devices">Selecting devices</a></li><li><a href="#publishing-an-ios-app">Publishing an iOS app</a></li><li><a href="#textinput-returnkeytype-changes-focus">TextInput returnKeyType Changes Focus</a></li><li><a href="#keyboard-avoiding-view--keyboarddismiss">Keyboard Avoiding View + Keyboard.dismiss()</a></li><li><a href="#styling-a-flatlist">Styling a FlatList</a></li><li><a href="#scroll-to-top">Scroll To Top</a></li><li><a href="#what-is-getitemlayout">What is getItemLayout</a></li><li><a href="#scrolltoindex---scrolltotop---etc">scrollToIndex - scrollToTop - etc.</a></li><li><a href="#changing-numcolumns-on-the-fly">Changing numColumns on the Fly</a></li><li><a href="#getting-dimensions">Getting Dimensions</a></li><li><a href="#measuring-the-layout">Measuring the Layout</a></li><li><a href="#ios-dark-mode-issues">iOS Dark Mode Issues</a></li><li><a href="#styled-components">Styled Components</a></li><li><a href="#stylesheet">StyleSheet</a><ul class="toc-headings"><li><a href="#shadows">Shadows</a></li></ul></li><li><a href="#deep-linking">Deep Linking</a></li><li><a href="#finite-state-machines">Finite State Machines</a></li><li><a href="#app-creation">App Creation</a></li><li><a href="#initial-app-setup">Initial App Setup</a></li><li><a href="#boilerplate-for-a-redux-application">Boilerplate for a Redux application</a><ul class="toc-headings"><li><a href="#using-react-native-router-flux-for-navigation">using react-native-router-flux for navigation</a></li></ul></li><li><a href="#common-react-native-components">Common React Native Components</a></li><li><a href="#react-native-navigationhttpswixgithubioreact-native-navigation"><a href="https://wix.github.io/react-native-navigation/#/">react-native-navigation</a></a></li><li><a href="#react-native-vector-iconshttpsgithubcomobladorreact-native-vector-icons"><a href="https://github.com/oblador/react-native-vector-icons">react-native-vector-icons</a></a></li><li><a href="#react-native-communicationshttpsgithubcomanarchicknightreact-native-communications"><a href="https://github.com/anarchicknight/react-native-communications">react-native-communications</a></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>React Hooks · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [React Documentation on Hooks](https://reactjs.org/docs/hooks-overview.html)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="React Hooks · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="- [React Documentation on Hooks](https://reactjs.org/docs/hooks-overview.html)"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>React</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">React Hooks</h1></header><article><div><span><ul>
+<li><a href="https://reactjs.org/docs/hooks-overview.html">React Documentation on Hooks</a></li>
+<li><a href="https://usehooks.com/">Some Useful Hooks</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="safe-set"></a><a href="#safe-set" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Safe Set</h2>
+<p>Sometimes you will need to only use a useState setter.</p>
+<p>Useful if it is possible that your component will unmount after an async function runs but before it finishes.</p>
+<pre><code class="hljs css language-javascript">useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  fetch(<span class="hljs-string">'http://www.splashbase.co/api/v1/images/random?images_only=true'</span>)
+    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.json())
+    .then(<span class="hljs-function"><span class="hljs-params">imageObj</span> =&gt;</span> safeSetRandomImage(imageObj.url))
+}, [someDependancy]);
+
+<span class="hljs-keyword">const</span> mountedRef = useRef(<span class="hljs-literal">false</span>);
+useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  mountedRef.current = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (mountedRef.current = <span class="hljs-literal">false</span>)
+  }, [someDependancy]);
+
+<span class="hljs-keyword">const</span> safeSetRandomImage = <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> mountedRef.current &amp;&amp; setRandomImage(...args)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="handle-dynamic-height-changes-in-component"></a><a href="#handle-dynamic-height-changes-in-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handle Dynamic Height Changes in Component</h2>
+<p>See Analytix Security <a href="https://github.com/analytixncs/analytixsecurity/blob/master/src/components/Main.js">MainContent.js</a> and <a href="https://github.com/analytixncs/analytixsecurity/blob/master/src/components/SearchFilterBar/SearchFilterBar.js">SearchFilterBar.js</a></p>
+<p>This is a situation where you have a component like a navbar or searchbar and the elements in it can change their height, based on items selected, etc.</p>
+<p>To accomplish this, we will use the <em>useEffect</em> hook to setup a listener for resize events and then another <em>useEffect</em> hook to make sure those changes are reflected in our CSS, here being a styled-component.  Oh and don't forget we need some state to store the updated height in, thus we will use <em>useState</em> for this.</p>
+<blockquote>
+<p>The updated height (state) in this case will need to be used by the parent component most likely.  It will depend on how you have structured your application.  In this example, I have:</p>
+<pre><code class="hljs css language-jsx">&lt;MainContent&gt;
+   &lt;SearchBarFilter setSearchBarHeight={setSearchBarHeight} /&gt;
+  
+   &lt;Grid searchBarHeight={searchBarHeight}&gt;{children...}&lt;/Grid&gt;
+&lt;/MainContent&gt;
+</code></pre>
+<p>Grid is a styled-component that will use the height to modify it's CSS</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="useeffect-to-add-event-listener"></a><a href="#useeffect-to-add-event-listener" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>useEffect to add Event Listener</h3>
+<p>The first <em>useEffect</em> hooks set up the window event listener and is only run on mounting.  Also note we are sending a cleanup function.</p>
+<blockquote>
+<p>The event listener will only respond to resizes of your window itself.  If you have something like a option box that when filled makes the component height larger, you will need to setup an effect to deal with those changes and update the height when that state changes.</p>
+</blockquote>
+<pre><code class="hljs css language-javascript">  <span class="hljs-comment">// Add an event listener that fires every time window is resized</span>
+  <span class="hljs-comment">// Use this so that we can set the 'div' height of SearchFilterBar</span>
+  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, handleResize.current);
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">'resize'</span>, handleResize.current);
+    };
+  }, []);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="handleresize-function"></a><a href="#handleresize-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>handleResize Function</h3>
+<p>Note that we have a <strong>handleResize</strong> function that we need to create.  I am storing it in a <em>ref</em>, but I don't think that is necessary.</p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-comment">// Stores height of search bar since it dynamically gets bigger/smaller based on</span>
+  <span class="hljs-comment">// how many companies are being searched for.  Passed up to CSS for appropriate styling</span>
+  <span class="hljs-keyword">let</span> handleResize = useRef(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    setSearchBarHeight(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'SearchFilterBar'</span>).clientHeight);
+  });
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="useeffect-to-set-the-new-height"></a><a href="#useeffect-to-set-the-new-height" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>useEffect To Set The New Height</h3>
+<p>Whenever the <em>setSearchBarHeight</em> function changes, we run the effect.</p>
+<pre><code class="hljs css language-javascript">useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  setSearchBarHeight(
+   <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'SearchFilterBar'</span>).clientHeight
+  );
+}, [setSearchBarHeight]);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="style-component-using-height"></a><a href="#style-component-using-height" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Style-component using Height</h3>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> Grid = styled.div<span class="hljs-string">`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: <span class="hljs-subst">${baseColors.background}</span>;
+  margin-top: <span class="hljs-subst">${props =&gt; <span class="hljs-string">`<span class="hljs-subst">${props.searchBarHeight + <span class="hljs-number">10</span>}</span>px`</span>}</span>;
+  position: absolute;
+  width: 100%;
+`</span>;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="hooks-with-context"></a><a href="#hooks-with-context" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>*Hooks with Context</h2>
+<p>If you have some state that you will need to be sharing with via context, this seemed like a great way to &quot;package&quot; the state, state setters and context all together.</p>
+<p>Main ideas for this came from <a href="https://kentcdodds.com/blog/how-to-use-react-context-effectively">article by Kent Dodds</a></p>
+<p>The idea is that we have a single file that exports the following:</p>
+<ul>
+<li><strong>StateProvider</strong> - This is the context provider and will be the default export from the file.</li>
+<li><strong>use...State</strong> - This is the hook that will return the state values to you.  This keeps your files consuming the context from having to use the <em>useContext</em> hook and also they will not have to import the context</li>
+<li><strong>use...StateSetters</strong> - This is the hook that returns the state setters.</li>
+</ul>
+<p>I stored this file in a folder called <strong>context</strong> with the thought that if you have multiple sets of data that will be shared at different levels of the application, we will have different contexts.</p>
+<p>This example is for storing information on viewing/editing a Qlikview Variable, hence all of the naming have Variable in them.</p>
+<p>The first piece of the file creates our needed Contexts, one to hold the <strong>State</strong>, the other to hold the <strong>Setters</strong>.</p>
+<p>Then we build the function that will return our Context Provider.</p>
+<p>Note that all our state is created inside this provider function.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// variableStateContext.js</span>
+
+<span class="hljs-keyword">import</span> React, { useState, useContext } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+
+<span class="hljs-keyword">const</span> VariableStateContext = React.createContext();
+<span class="hljs-keyword">const</span> VariableSettersContext = React.createContext();
+
+<span class="hljs-comment">/**======================================================
+ * Provider function
+ * This function is also where all the state is created
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VariableStateProvider</span>(<span class="hljs-params">{ children }</span>) </span>{
+  <span class="hljs-keyword">let</span> [viewingId, setViewingIdMain] = useState();
+  <span class="hljs-keyword">let</span> [isEditing, setIsEditing] = useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">let</span> [isDirty, setIsDirty] = useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-comment">// When setting the viewing ID need to take into account state</span>
+  <span class="hljs-comment">// of being edited</span>
+  <span class="hljs-keyword">let</span> setViewingId = <span class="hljs-function"><span class="hljs-params">newViewingId</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (newViewingId) {
+      setIsEditing(<span class="hljs-literal">false</span>);
+    }
+    setViewingIdMain(newViewingId);
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">VariableStateContext.Provider</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">viewingId</span>, <span class="hljs-attr">isEditing</span>, <span class="hljs-attr">isDirty</span> }}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">VariableSettersContext.Provider</span>
+        <span class="hljs-attr">value</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">setViewingId</span>, <span class="hljs-attr">setIsEditing</span>, <span class="hljs-attr">setIsDirty</span> }}
+      &gt;</span>
+        {children}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">VariableSettersContext.Provider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">VariableStateContext.Provider</span>&gt;</span></span>
+  );
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useVariableState = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { ... }
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useVariableStateSetters = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { ... }
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> VariableStateProvider;
+</code></pre>
+<p>Now that we have the provider, we will build out our hooks that will get the context for us.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">/**======================================================
+ * Variable State
+ *
+ * useVariableState()
+ *  Returns and object with the Variable state
+ *   { viewingId, isEditing, isDirty }
+ *
+ * Just a helper hook so that the user doesn't
+ * need to import the VariableStateContext and useContext
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useVariableState = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> context = useContext(VariableStateContext);
+  <span class="hljs-keyword">if</span> (context === <span class="hljs-literal">undefined</span>) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(
+      <span class="hljs-string">"useVariableState must be used within a VariableStateProvider"</span>
+    );
+  }
+  <span class="hljs-keyword">return</span> context;
+};
+
+<span class="hljs-comment">/**======================================================
+ * Variable State Setters
+ *
+ * useVariableStateSetting()
+ *  Return an object with the setter functions
+ *   { setViewingId, setIsEditing, setIsDirty }
+ *
+ *
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> variableStateContext = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> context = useContext(VariableSettersContext);
+  <span class="hljs-keyword">if</span> (context === <span class="hljs-literal">undefined</span>) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(
+      <span class="hljs-string">"useVariableStateSetters must be used within a VariableStateProvider"</span>
+    );
+  }
+  <span class="hljs-keyword">return</span> context;
+};
+</code></pre>
+<p>Straight forward, read Kent's article for the details.</p>
+<p>Lastly, to implement, you will need to first place the provider around the components that need access to the state.</p>
+<pre><code class="hljs css language-jsx">import VariableStateProvider from '../context/variableStateContext';
+...
+&lt;VariableStateProvider&gt;
+  &lt;VariableMain /&gt;
+&lt;/VariableStateProvider&gt;
+...
+</code></pre>
+<p>To access the context, just use the hooks!</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { useVariableState, useVariableStateSetters} <span class="hljs-keyword">from</span> <span class="hljs-string">'../context/variableStateContext'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VariableMain</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> { viewingId, isEditing, isDirty } = useVariableState;
+  <span class="hljs-keyword">let</span> { setViewingId, setIsEditing, setIsDirty } = useVariableStateSetters;
+  ...
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="another-context-option-with-usereducer"></a><a href="#another-context-option-with-usereducer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Another Context Option with useReducer</h2>
+<p>This is another way to use context with the <strong>useReducer</strong> hook.</p>
+<p>It is a function that exports your Context and Provider component.  It is a Context factory that you can use to setup as many Contexts needed.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// createDataContext.js</span>
+<span class="hljs-keyword">import</span> React, { useReducer } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (reducer, actions, initialState) =&gt; {
+  <span class="hljs-keyword">const</span> Context = React.createContext();
+
+  <span class="hljs-keyword">const</span> Provider = <span class="hljs-function">(<span class="hljs-params">{ children }</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> [state, dispatch] = useReducer(reducer, initialState);
+
+    <span class="hljs-keyword">let</span> boundActions = <span class="hljs-built_in">Object</span>.keys(actions).reduce(<span class="hljs-function">(<span class="hljs-params">ba, key</span>) =&gt;</span> {
+      ba[key] = actions[key](dispatch);
+      <span class="hljs-keyword">return</span> ba;
+    }, {});
+    
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Context.Provider</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">state</span>, <span class="hljs-attr">...boundActions</span> }}&gt;</span>
+        {children}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Context.Provider</span>&gt;</span></span>
+    );
+  };
+
+  <span class="hljs-keyword">return</span> { Context, Provider };
+};
+
+</code></pre>
+<p>To use this function you would create your context file.  You will need a <strong>reducer</strong> function, an <strong>actions</strong> object and <strong>initial state</strong>.</p>
+<blockquote>
+<p>If you need async actions in your reducer, you will need to update the dispatch function to be able to deal with them.</p>
+</blockquote>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// BlogContext.js</span>
+<span class="hljs-keyword">import</span> createDataContext <span class="hljs-keyword">from</span> <span class="hljs-string">"./createDataContext"</span>;
+
+<span class="hljs-keyword">const</span> blogReducer = <span class="hljs-function">(<span class="hljs-params">state, action</span>) =&gt;</span> {
+  <span class="hljs-keyword">switch</span> (action.type) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"add_blogpost"</span>:
+      <span class="hljs-keyword">return</span> [...state, { <span class="hljs-attr">title</span>: <span class="hljs-string">`Blog Post #<span class="hljs-subst">${state.length + <span class="hljs-number">1</span>}</span>`</span> }];
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">return</span> state;
+  }
+};
+
+<span class="hljs-keyword">const</span> addBlogPost = <span class="hljs-function"><span class="hljs-params">dispatch</span> =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    dispatch({ <span class="hljs-attr">type</span>: <span class="hljs-string">"add_blogpost"</span> });
+  };
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> { Context, Provider } = createDataContext(
+  blogReducer,
+  { addBlogPost },
+  []
+);
+</code></pre>
+<p>Lastly, you will need to import your BlogContext into the files that need the data.  Also, don't forget to wrap your component tree in the Provider component.</p>
+<h3><a class="anchor" aria-hidden="true" id="make-reducer-handle-thunks"></a><a href="#make-reducer-handle-thunks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make Reducer Handle Thunks</h3>
+<p>I originally coded this to handle multiple reducers, however, I think that having separate contexts for each reducer may be better.  Here is the multiple reducer implementation:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">/**
+ * thunk dispatch
+ * <span class="hljs-doctag">@param <span class="hljs-type">{array}</span> <span class="hljs-variable">dispatchArr</span></span> - Array of dispatch functions returned from useReducer calls
+ * <span class="hljs-doctag">@param <span class="hljs-type">{any}</span> <span class="hljs-variable">store</span></span> - main store that holds all data from above mentioned useReducer calls
+ *
+ * <span class="hljs-doctag">@returns <span class="hljs-type">{function}</span> </span>- returns a function that accepts an action.
+ *    The action can be a standard redux style action {type: '', payload: ''}
+ *    or a function, i.e. thunk
+ *    If it is a function/thunk/async func then we will call it and pass the "fullDispatch" function
+ *    along with the store.
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useThunkDispatch</span>(<span class="hljs-params">dispatchArr, store</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">action</span> =&gt;</span> {
+    <span class="hljs-keyword">let</span> fullDispatch = <span class="hljs-function"><span class="hljs-params">action</span> =&gt;</span> {
+      dispatchArr.forEach(<span class="hljs-function"><span class="hljs-params">dispatchFunc</span> =&gt;</span> {
+        dispatchFunc(action);
+      });
+    };
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> action === <span class="hljs-string">'function'</span>) {
+      action(fullDispatch, store);
+    } <span class="hljs-keyword">else</span> {
+      fullDispatch(action);
+    }
+  };
+}
+</code></pre>
+<p>Here is the implementation without the multiple reducers</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">/**
+ * thunk dispatch
+ * <span class="hljs-doctag">@param <span class="hljs-type">{function}</span> <span class="hljs-variable">dispatch</span></span> -  dispatch function returned from useReducer call
+ * <span class="hljs-doctag">@param <span class="hljs-type">{any}</span> <span class="hljs-variable">store</span></span> - store that holds the data(state)
+ *
+ * <span class="hljs-doctag">@returns <span class="hljs-type">{function}</span> </span>- returns a function that accepts an action.
+ *    The action can be a standard redux style action {type: '', payload: ''}
+ *    or a function, i.e. thunk
+ *    If it is a function/thunk/async func then we will call it and pass the "fullDispatch" function
+ *    along with the store.
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useThunkDispatch</span>(<span class="hljs-params">dispatch, store</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">action</span> =&gt;</span> {
+    <span class="hljs-keyword">let</span> fullDispatch = <span class="hljs-function"><span class="hljs-params">action</span> =&gt;</span> {
+      dispatch(action);
+    };
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> action === <span class="hljs-string">'function'</span>) {
+      action(fullDispatch, store);
+    } <span class="hljs-keyword">else</span> {
+      fullDispatch(action);
+    }
+  };
+}
+</code></pre>
+<p>When using the above, you may want to wrap the dispatch in a <strong>useRef</strong> so that it doesn't get recreated each time.</p>
+<h2><a class="anchor" aria-hidden="true" id="search-input-box-hook"></a><a href="#search-input-box-hook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Search Input Box Hook</h2>
+<p>Originally implemented as a <strong>Render Prop</strong> component, this is the hook implementation.</p>
+<p>To see the Render Prop implementation, go to <a href="../_components/component-searchinputbox">Search Input Box Component</a></p>
+<p>The idea with this hooks is that  you will pass it the <strong>searchArray</strong> that will be used to match with typed in input.  The hook returns the following:</p>
+<pre><code class="hljs css language-javascript">{
+  searchingIsOn, <span class="hljs-comment">// boolean letting us know if the search function is active</span>
+  spreadProps <span class="hljs-comment">// props that need to be spread on the input control</span>
+}
+</code></pre>
+<p><strong>spreadProps</strong> is itself an object the contains</p>
+<pre><code class="hljs css language-javascript">spreadProps: {
+  ref,
+  value,
+  onKeyDown,
+  onChange
+}
+</code></pre>
+<p>Since the updated <strong>value</strong> is always being returned in spreadProps, you can pull it out early on and use it as needed:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> useSearchInput <span class="hljs-keyword">from</span> <span class="hljs-string">"./useSearchInput"</span>;
+
+<span class="hljs-keyword">const</span> authors = [
+  { <span class="hljs-attr">author</span>: <span class="hljs-string">"mark"</span> },
+  { <span class="hljs-attr">author</span>: <span class="hljs-string">"lori"</span> },
+  { <span class="hljs-attr">author</span>: <span class="hljs-string">"Haley"</span> },
+  { <span class="hljs-attr">author</span>: <span class="hljs-string">"Hunter"</span> }
+];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> [author, setAuthor] = React.useState(<span class="hljs-string">""</span>);
+  <span class="hljs-keyword">let</span> {searchingIsOn, spreadProps} = useSearchInput({
+    <span class="hljs-attr">searchArray</span>: authors.map(<span class="hljs-function"><span class="hljs-params">author</span> =&gt;</span> author.author)
+  });
+  <span class="hljs-keyword">let</span> { value } = spreadProps;
+  
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> 
+      <span class="hljs-attr">style</span>=<span class="hljs-string">{searchingIsOn</span> ? { <span class="hljs-attr">backgroundColor:</span> '<span class="hljs-attr">white</span>'} <span class="hljs-attr">:</span> {<span class="hljs-attr">backgroundColor:</span> '<span class="hljs-attr">yellow</span>'}}
+      {<span class="hljs-attr">...spreadProps</span>} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Use an Author"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="code-for-usesearchinput-hook"></a><a href="#code-for-usesearchinput-hook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code for useSearchInput hook</h3>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { useState, useRef, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-comment">/**
+ * parameters: { searchArray: [] }
+ * Uses the passed searchArray and display like google predictive search
+ * Escape key press turns off searching, press again, turns back on
+ * the "searchingIsOn" value returned from useSearchInput() lets you know if
+ * searching is on or off
+ *
+ * @param {Object} - { searchArray: [] }
+ * @example
+ *   let {searchingIsOn, spreadProps} = useSearchInput({
+ *     searchArray: arrayToSearch
+ *   });
+ *  // get the value so you can use it after it is input
+ *   let { value } = spreadProps;
+ *  ....
+ *  &lt;input {...spreadProps}
+ *    style={searchingIsOn ? { backgroundColor: 'white'} : {backgroundColor: 'yellow'}}
+ *    placeholder="Input a Value"
+ *  /&gt;
+ */</span>
+<span class="hljs-keyword">const</span> useSearchInput = <span class="hljs-function">(<span class="hljs-params">{ searchArray }</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> [inputValue, setInputValue] = useState(<span class="hljs-string">""</span>);
+  <span class="hljs-keyword">const</span> [backspace, setBackspace] = useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> [escKey, setEscKey] = useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> [startPos, setStartPos] = useState(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> [endPos, setEndPos] = useState(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> inputEl = useRef();
+
+  <span class="hljs-keyword">const</span> onKeyDown = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> keyPressed = e.key;
+    <span class="hljs-comment">//Check keyPressed and set selection</span>
+    <span class="hljs-keyword">switch</span> (keyPressed) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">"ArrowRight"</span>:
+        setStartPos(inputEl.current.selectionStart + <span class="hljs-number">1</span>);
+        setEndPos(inputEl.current.selectionStart + <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">"ArrowLeft"</span>:
+        setStartPos(inputEl.current.selectionStart - <span class="hljs-number">1</span>);
+        setEndPos(inputEl.current.selectionStart - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">"Backspace"</span>:
+        <span class="hljs-keyword">if</span> (startPos !== endPos) {
+          setStartPos(inputEl.current.selectionStart);
+          setEndPos(inputEl.current.selectionStart);
+        } <span class="hljs-keyword">else</span> {
+          setStartPos(inputEl.current.selectionStart - <span class="hljs-number">1</span>);
+          setEndPos(inputEl.current.selectionStart - <span class="hljs-number">1</span>);
+        }
+        setBackspace(<span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">"Delete"</span>:
+        setStartPos(inputEl.current.selectionStart);
+        setEndPos(inputEl.current.selectionStart);
+        setBackspace(<span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">"Escape"</span>:
+        setStartPos(inputEl.current.selectionStart);
+        setEndPos(inputEl.current.selectionStart);
+        setEscKey(!escKey);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">break</span>;
+    }
+  };
+  <span class="hljs-keyword">const</span> onInputChange = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+    <span class="hljs-comment">//Get input value</span>
+    <span class="hljs-comment">//CHECK FOR this.state.backspace and if true, set state to target.value passed</span>
+    <span class="hljs-comment">// and set backspace to false</span>
+    <span class="hljs-keyword">const</span> inputValue = e.target.value;
+    <span class="hljs-keyword">if</span> (backspace || escKey) {
+      setInputValue(inputValue);
+      setBackspace(<span class="hljs-literal">false</span>);
+      <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-comment">//Setup match expression</span>
+    <span class="hljs-keyword">const</span> matchExpr = inputValue.length &gt; <span class="hljs-number">0</span> ? <span class="hljs-string">"^"</span> + inputValue : <span class="hljs-regexp">/.^/</span>;
+    <span class="hljs-comment">//Create RegExp Object</span>
+    <span class="hljs-keyword">const</span> expr = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(matchExpr, <span class="hljs-string">"ig"</span>);
+    <span class="hljs-comment">//Try and Find a match in array of service inputValues</span>
+    <span class="hljs-keyword">const</span> foundItem = searchArray.find(<span class="hljs-function"><span class="hljs-params">desc</span> =&gt;</span> desc.match(expr));
+    <span class="hljs-comment">// console.log(`foundItem ${foundItem}`);</span>
+    <span class="hljs-comment">//If not found, return inputValue, else return found item and set selection range</span>
+    <span class="hljs-keyword">const</span> finalValue = foundItem || inputValue;
+
+    setStartPos(inputValue.length);
+    setEndPos(finalValue.length);
+    <span class="hljs-comment">// console.log(`startpos: ${startPos} -- endpos: ${endPos} -- foundItem: ${foundItem}`)</span>
+    setInputValue(finalValue);
+  };
+  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (startPos !== endPos) {
+      inputEl.current.setSelectionRange(startPos, endPos);
+    }
+  });
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">searchingIsOn</span>: !escKey,
+    <span class="hljs-attr">spreadProps</span>: {
+      <span class="hljs-attr">ref</span>: inputEl,
+      <span class="hljs-attr">value</span>: inputValue,
+      <span class="hljs-attr">onKeyDown</span>: onKeyDown,
+      <span class="hljs-attr">onChange</span>: onInputChange
+    }
+  };
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> useSearchInput;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="useonkeypress-hook"></a><a href="#useonkeypress-hook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UseOnKeyPress Hook</h2>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> useOnKeyPress = <span class="hljs-function">(<span class="hljs-params">targetKey, onKeyDown, onKeyUp, isDebugging = <span class="hljs-literal">false</span></span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> [isKeyDown, setIsKeyDown] = useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> onKeyDownLocal = useCallback(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (isDebugging)
+      <span class="hljs-built_in">console</span>.log(
+        <span class="hljs-string">"key down"</span>,
+        e.key,
+        e.key != targetKey ? <span class="hljs-string">"- isn't triggered"</span> : <span class="hljs-string">"- is triggered"</span>
+      );
+    <span class="hljs-keyword">if</span> (e.key != targetKey) <span class="hljs-keyword">return</span>;
+    setIsKeyDown(<span class="hljs-literal">true</span>);
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> onKeyDown != <span class="hljs-string">"function"</span>) <span class="hljs-keyword">return</span>;
+
+    onKeyDown(e);
+  });
+
+  <span class="hljs-keyword">const</span> onKeyUpLocal = useCallback(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (isDebugging)
+      <span class="hljs-built_in">console</span>.log(
+        <span class="hljs-string">"key up"</span>,
+        e.key,
+        e.key != targetKey ? <span class="hljs-string">"- isn't triggered"</span> : <span class="hljs-string">"- is triggered"</span>
+      );
+
+    <span class="hljs-keyword">if</span> (e.key != targetKey) <span class="hljs-keyword">return</span>;
+
+    setIsKeyDown(<span class="hljs-literal">false</span>);
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> onKeyUp != <span class="hljs-string">"function"</span>) <span class="hljs-keyword">return</span>;
+    onKeyUp(e);
+  });
+
+  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    addEventListener(<span class="hljs-string">"keydown"</span>, onKeyDownLocal);
+    addEventListener(<span class="hljs-string">"keyup"</span>, onKeyUpLocal);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      removeEventListener(<span class="hljs-string">"keydown"</span>, onKeyDownLocal);
+      removeEventListener(<span class="hljs-string">"keyup"</span>, onKeyUpLocal);
+    };
+  }, []);
+
+  <span class="hljs-keyword">return</span> isKeyDown;
+};
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="publish-hook-to-npm"></a><a href="#publish-hook-to-npm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publish Hook to NPM</h2>
+<p>The <a href="https://www.npmjs.com/package/create-react-hook">create-react-hook</a> module sets up a project so that you can deploy your react hook.</p>
+<pre><code class="hljs css language-bash">$ npx create-react-hook
+? Package Name: @yournpmusename/useMyNewHook // scopes hook to your user
+? Package Description: a description <span class="hljs-keyword">for</span> the hook
+? Authors GitHub Handle: markmccoid
+? Github Repo Path: markmccoid\useMyNewHookd
+...
+</code></pre>
+<p>Add your hook code to the <code>index.js</code> in the <code>src</code> directory. <a href="https://egghead.io/lessons/react-extract-a-custom-hook-into-its-own-module-with-create-react-hook">Egghead course</a></p>
+<h3><a class="anchor" aria-hidden="true" id="npm-version-docshttpsdocsnpmjscomcliversion"></a><a href="#npm-version-docshttpsdocsnpmjscomcliversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>npm version (<a href="https://docs.npmjs.com/cli/version">docs</a>)</h3>
+<p>You can use the command line tool <code>npm version ...</code> to bump your version.  It will also set a git tag for the version.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/react/react-basics"><span class="arrow-prev">← </span><span>React Basics</span></a><a class="docs-next button" href="/my-code-docs/docs/react/react-with-classes"><span>React With Classes</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#safe-set">Safe Set</a></li><li><a href="#handle-dynamic-height-changes-in-component">Handle Dynamic Height Changes in Component</a><ul class="toc-headings"><li><a href="#useeffect-to-add-event-listener">useEffect to add Event Listener</a></li><li><a href="#handleresize-function">handleResize Function</a></li><li><a href="#useeffect-to-set-the-new-height">useEffect To Set The New Height</a></li><li><a href="#style-component-using-height">Style-component using Height</a></li></ul></li><li><a href="#hooks-with-context">*Hooks with Context</a></li><li><a href="#another-context-option-with-usereducer">Another Context Option with useReducer</a><ul class="toc-headings"><li><a href="#make-reducer-handle-thunks">Make Reducer Handle Thunks</a></li></ul></li><li><a href="#search-input-box-hook">Search Input Box Hook</a><ul class="toc-headings"><li><a href="#code-for-usesearchinput-hook">Code for useSearchInput hook</a></li></ul></li><li><a href="#useonkeypress-hook">UseOnKeyPress Hook</a></li><li><a href="#publish-hook-to-npm">Publish Hook to NPM</a><ul class="toc-headings"><li><a href="#npm-version-docshttpsdocsnpmjscomcliversion">npm version (<a href="https://docs.npmjs.com/cli/version">docs</a>)</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

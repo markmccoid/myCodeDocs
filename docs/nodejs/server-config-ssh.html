@@ -1,0 +1,457 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Server Config and SSH · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Resources"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Server Config and SSH · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## Resources"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Server Config and SSH</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="resources"></a><a href="#resources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resources</h2>
+<p><a href="https://www.techrepublic.com/article/how-to-install-fail2ban-on-ubuntu-server-18-04/">Fail2Ban</a> - For production server, this will ban people who try and fail to login x number of times.</p>
+<p><a href="http://expressjs.com/en/advanced/best-practice-performance.html">Express Performance</a></p>
+<p><a href="https://explainshell.com/explain?cmd=curl+-sL">Explain Shell</a> - Great for explaining what linux command are doing given the options being used.</p>
+<h2><a class="anchor" aria-hidden="true" id="setting-up-ssh-keys-on-a-mac"></a><a href="#setting-up-ssh-keys-on-a-mac" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up SSH keys on a Mac.</h2>
+<p>Go to the SSH Directory and if it doesn't exist, create it.</p>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> ~/.ssh
+<span class="hljs-comment"># If this directory doesn't exist, then create it (the -p says to make if it doesn't exist)</span>
+$ mkdir -p ~/.ssh
+</code></pre>
+<p>Next, you will need to create your keys by running <code>ssh-keygen</code></p>
+<pre><code class="hljs css language-bash">$ ssh-keygen
+<span class="hljs-comment"># you will be prompted for a name and an optional passphrase</span>
+</code></pre>
+<p>This will create two files in your ssh directory.  For example, if you named your key <code>mykey</code> then you would have the following in your directory:</p>
+<pre><code class="hljs css language-bash">mykey
+mykey.pub
+</code></pre>
+<p>The .pub is your public key.  This is the one that goes on your server.</p>
+<h2><a class="anchor" aria-hidden="true" id="setting-up-ssh-keys-on-windows"></a><a href="#setting-up-ssh-keys-on-windows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up SSH Keys on Windows</h2>
+<p>Pretty much the same as above, but use <strong>powershell</strong></p>
+<p>You keys will be located in your user directory <code>.ssh</code></p>
+<p>You can use Powershell to ssh into your server.</p>
+<h3><a class="anchor" aria-hidden="true" id="setting-up-multiple-ssh-keys"></a><a href="#setting-up-multiple-ssh-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up Multiple SSH Keys</h3>
+<p>If you have multiple server and you want each to have it's own SSH key, you can do the following:</p>
+<ol>
+<li><p>Create the SSH Key on the target machine (i.e. the client that is going to be logging into the server)</p></li>
+<li><p>Copy the public key to a machine that has access to the server.</p></li>
+<li><p>Append the public key data to the ~/.ssh/authorized_keys files</p>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-string">"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLxXZr2gVHgwdnhi05D9VxDEVjHcFLr4NZ7WaayV9uQgOD9qXxSjyZNr5oMzyr4z1dOZRzf+CnoLZgM4wZ11IJ9hKZoOMchPUjRw5qwLJPbS/z1Kk3vGrRgjI2kA5kPi1l0P5E84RwGA+fil+qUTgj2IaYxc97C8DzTWHCg37oXSVz8gnKMrU633OLUeIp9JuoA+TEPn7KLKYy98I2m62mvnHOoXn7vRIqyMuHtTne/zHNjCkNWWuNURLGw1wpaPGBMeRLgvi0ZLz2bj2TrbFfWqHL+yJpMCD7wXjlYOs5lHFRRkUlDvjh3GHfPzKp7vmJ3+xml2R9a1BNwlEBWstx markm@DESKTOP-HR5U3AQ"</span> &gt;&gt; ~/.ssh/authorized_keys
+</code></pre></li>
+</ol>
+<p>Not sure if the permissions stuff is needed.</p>
+<p>Once the <code>authorized_keys</code> file contains the public key, you need to update permissions on some of the files. The <code>~/.ssh</code> directory and <code>authorized_keys</code> file must have specific restricted permissions (<code>700</code> for <code>~/.ssh</code> and <code>600</code> for <code>authorized_keys</code>). If they don't, you won't be able to log in.</p>
+<p>Make sure the permissions and ownership of the files are correct.</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> chmod -R go= ~/.ssh</span>
+<span class="hljs-meta">$</span><span class="bash"> chown -R <span class="hljs-variable">$USER</span>:<span class="hljs-variable">$USER</span> ~/.ssh</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="using-dropbox-to-transfer-key"></a><a href="#using-dropbox-to-transfer-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Dropbox to Transfer Key</h3>
+<p>If you need to get you public key over to the server, you can save in a dropbox file, then get the dropbox link and use the following on the server:</p>
+<pre><code class="hljs css language-bash">$ curl -L -o filename https://www.dropbox.com/s/pvtgi666ysdcrtt/pubrsa.txt?dl=1
+</code></pre>
+<p>Make sure to change the <code>dl=0</code> to <code>dl=1</code></p>
+<p>Once the file is downloaded, you can add to the authorized_keys file:</p>
+<pre><code class="hljs css language-bash">$ cat filename &gt;&gt; ~/.ssh/authorized_keys
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="logging-into-your-server-via-ssh"></a><a href="#logging-into-your-server-via-ssh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logging into your server via SSH</h3>
+<blockquote>
+<p>When you set up your server, you will be prompted for the SSH key to use</p>
+</blockquote>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># substitute your ip address</span>
+$ ssh root@100.100.100.100
+
+<span class="hljs-comment"># This will most likely deny you access since it doesn't know which key to check</span>
+$ ssh -i mykey root@100.100.100.100
+</code></pre>
+<p>Since you don't want to have to type the <code>-i mykey</code> every time, you need to create a config file in your ssh directory with the following.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># first cd into the ssh directory</span>
+$ <span class="hljs-built_in">cd</span> ~/.ssh
+$ vi config
+
+<span class="hljs-comment"># Enter the following into the config file and save</span>
+Host *
+ AddKeysToAgent yes
+ UseKeychain yes
+</code></pre>
+<p>To manually add to the keychain use the command below.</p>
+<blockquote>
+<p>NOTE: you don't need to do this if your config file has the above lines.</p>
+</blockquote>
+<pre><code class="hljs css language-bash">ssh-add -K ~/.ssh/mykey
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="updating-your-server"></a><a href="#updating-your-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updating your Server</h2>
+<p>To update the software on your server do the following:</p>
+<pre><code class="hljs css language-bash">$ apt update
+$ apt upgrade
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="add-new-user"></a><a href="#add-new-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add New User</h3>
+<p>Once you update your software you should create a new user so that you DO NOT login as root.</p>
+<p>We will be creating doing the following:</p>
+<ul>
+<li>Create a New User</li>
+<li>Give that user super user rights</li>
+<li>create an .ssh directory and copy public key over</li>
+<li>disable root access</li>
+</ul>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Create a User on your server</span>
+$ adduser username
+
+<span class="hljs-comment"># Give user "sudo" rights (Super User DO)</span>
+<span class="hljs-comment"># you are saying "add username to the super users group"</span>
+$ usermod -aG sudo username
+
+<span class="hljs-comment"># now login as your new user using su (Switch User)</span>
+<span class="hljs-comment"># don't think you will be asked for password,</span>
+$ su username
+
+<span class="hljs-comment"># Check sudo access - This is the auth.log and contains information about happenings on your server</span>
+$ sudo cat /var/<span class="hljs-built_in">log</span>/auth.log
+
+<span class="hljs-comment"># Make sure you are in your root and then make the .ssh directory</span>
+$ <span class="hljs-built_in">cd</span> ~
+$ mkdir -p ~/.ssh
+
+<span class="hljs-comment"># Create a new authorized_keys file and copy your public key into it.</span>
+<span class="hljs-comment"># See above for where that key is located on your current machine (NOT Server, but the machine you are</span>
+<span class="hljs-comment"># accessing your server from)</span>
+$ vi ~/.ssh/authorized_keys
+
+<span class="hljs-comment"># You can use the cat command to list the contents of your key.pub file to copy to vi</span>
+<span class="hljs-comment"># i = insert mode</span>
+<span class="hljs-comment"># esc = back out of insert mode</span>
+<span class="hljs-comment">#:wq = write and then quit</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="logging-in-as-new-user-and-disable-root"></a><a href="#logging-in-as-new-user-and-disable-root" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logging In as New User and Disable Root</h3>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Exit from the server as you were logged in as root</span>
+<span class="hljs-comment"># ssh as your new username</span>
+$ ssh username@100.55.55.55
+
+<span class="hljs-comment"># You now should change file permissions on authroized_keys</span>
+$ chmod 644 ~/.ssh/authorized_keys
+
+<span class="hljs-comment"># DISABLE ROOT</span>
+<span class="hljs-comment"># Do this by modifying your ssh daemon config file </span>
+<span class="hljs-comment"># Find "Permit Root Login" and change "yes" to "no"</span>
+<span class="hljs-comment"># See above for vi commands</span>
+$ sudo vi /etc/ssh/sshd_config
+
+<span class="hljs-comment"># must restart ssh daemon for changes to go into effect</span>
+$ sudo service sshd restart
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="security"></a><a href="#security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Security</h2>
+<p>Disable Root access!  See above.</p>
+<p>You can view the logs of who is trying to gain access to your server:</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Check sudo access - This is the auth.log and contains information about happenings on your server</span>
+$ sudo cat /var/<span class="hljs-built_in">log</span>/auth.log
+</code></pre>
+<p>Keys ways to secure a server:</p>
+<ul>
+<li><strong>SSH</strong> - use instead of passwords</li>
+<li><strong>Firewalls</strong> -</li>
+<li><strong>Updates</strong> - Keep your software up to date.</li>
+<li><strong>Two Factor Authentication</strong></li>
+<li><strong>VPN</strong></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="updates"></a><a href="#updates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updates</h3>
+<p>This software will keep you applications updated.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Install unattended upgrades</span>
+$ sudo apt install unattended-upgrades
+
+<span class="hljs-comment"># view Conf File</span>
+$ cat /etc/apt/apt.conf.d/50unattended-upgrades
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="ports"></a><a href="#ports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ports</h3>
+<p>nmap is a port scanner.  You will most likely need to install it first:</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Install nmpa</span>
+$ sudo apt install nmap
+
+<span class="hljs-comment"># The manual</span>
+$ man nmap
+
+<span class="hljs-comment"># Run nmap</span>
+$ nmap YOUR_SERVER_IP
+
+<span class="hljs-comment"># Run showing more info</span>
+$ nmap -sV YOUR_SERVER_IP
+</code></pre>
+<p>If you are running a nodejs server, for example an application created using ExpressJS, than most likely you will also see port 3000 or whatever port you are running that server on.</p>
+<p>You should close this port as Nginx will be redirecting traffic to this app.</p>
+<h3><a class="anchor" aria-hidden="true" id="firewall"></a><a href="#firewall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Firewall</h3>
+<p>A simple firewall is <code>ufw</code>.  It allows you to think in <em>services</em> rather than <em>ports</em>.</p>
+<p><strong>Deny vs Reject</strong></p>
+<p>If you <strong>deny</strong> a request, you <em>black hole</em> it, meaning you don't respond to say, hey this port isn't open.  Whereas <strong>reject</strong> will send a packet back saying, hey this port port isn't open.</p>
+<p>Most of the time you will want to <strong>deny</strong></p>
+<p>Here are its basic commands:</p>
+<p><img src="..\assets\server-config-security-001.png" alt="image-20201109113621220"></p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Check to see if ufw is active</span>
+$ sudo ufw status
+
+<span class="hljs-comment"># Enable it if not enabled</span>
+$ sudo ufw <span class="hljs-built_in">enable</span>
+
+<span class="hljs-comment"># Make sure to Enable SSH/http</span>
+$ sudo ufw allow ssh
+$ sudo ufw allow http
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="permissions"></a><a href="#permissions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Permissions</h3>
+<p>You have three things you can do to a file <strong>read, write and execute</strong>.</p>
+<p>We use <strong>sudo</strong> (super user) when our user doesn't have those rights.</p>
+<p><code>ls -la</code> in a directory will show you the permissions on files.</p>
+<p>You will see something that looks like this:</p>
+<p><img src="..\assets\server-config-security-002.png" alt="image-20201109120906265"></p>
+<p>The first character designates is as a directory or not, the next 3 groups of 3 are <em>read,write,execute</em> for the current user, my group (sudo), everyone else.</p>
+<p><code>chmod</code> is the command to change the permissions on a file.  it isn't super intuitive.  Here are common examples and cheat sheet:</p>
+<p><a href="https://isabelcastillo.com/linux-chmod-permissions-cheat-sheet">chmod Cheat Sheet</a></p>
+<p>Set the permissions for a file or directory by using the <code>chmod</code> command. Each row has 2 examples, one for setting that permission for a file, and one for a directory named ‘dir’. This works in any linux distro, such as Ubuntu, etc.</p>
+<table>
+<thead>
+<tr><th style="text-align:left">Permission</th><th style="text-align:left">Command Examples</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">rwx rwx rwx</td><td style="text-align:left">chmod 777 filename <br />chmod -R 777 dir</td><td style="text-align:left">Anybody can read, write, execute.</td></tr>
+<tr><td style="text-align:left">rwx rwx r-x</td><td style="text-align:left">chmod 775 filename <br />chmod -R 775 dir</td><td style="text-align:left">Owner &amp; Group can read, write, execute. Everyone else can read, execute.</td></tr>
+<tr><td style="text-align:left">rwx rwx r–</td><td style="text-align:left">chmod 774 filename <br />chmod -R 774 dir</td><td style="text-align:left">Owner &amp; Group can read, write, execute. Everyone else can read.</td></tr>
+<tr><td style="text-align:left">rwx r-x r-x</td><td style="text-align:left">chmod 755 filename <br />chmod -R 755 dir</td><td style="text-align:left">Owner can read, write, execute. Everyone else can read, execute.</td></tr>
+<tr><td style="text-align:left">rwx — —</td><td style="text-align:left">chmod 700 filename <br />chmod -R 700 dir</td><td style="text-align:left">Owner can read, write, execute. No one else has any rights.</td></tr>
+<tr><td style="text-align:left">rw- rw- rw-</td><td style="text-align:left">chmod 666 filename <br />chmod -R 666 dir</td><td style="text-align:left">Everyone can read, write.</td></tr>
+<tr><td style="text-align:left">rw- rw- r–</td><td style="text-align:left">chmod 664 filename <br />chmod -R 664 dir</td><td style="text-align:left">Owner &amp; Group can read, write. Everyone else can read.</td></tr>
+<tr><td style="text-align:left">rw- r– r–</td><td style="text-align:left">chmod 644 filename <br />chmod -R 644 dir</td><td style="text-align:left">Owner can read, write. Everyone else can read.</td></tr>
+</tbody>
+</table>
+<p><img src="..\assets\server-config-security-003.png" alt="image-20201109121237157"></p>
+<h2><a class="anchor" aria-hidden="true" id="nginx--nodejs"></a><a href="#nginx--nodejs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nginx / NodeJS</h2>
+<p>Nginx is a webserver.  Like Apache, but works well with node.</p>
+<p>First you must install the software.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Install Nginx</span>
+$ sudo apt install nginx
+
+<span class="hljs-comment"># Start the Nginx service</span>
+$ sudo service nginx start
+</code></pre>
+<p>Now, if you go to the website IP or domain that you have setup on this server, it will open up the default index page, which is <strong>index.nginx-debian.html</strong>.  It is located in <strong>/var/www/html/</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="nginx-configuration"></a><a href="#nginx-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nginx Configuration</h3>
+<p>The Nginx configuration file is located in <code>/etc/nginx/sites-available/default</code></p>
+<p>You can use <strong>less</strong> to view or <strong>vi</strong> to edit this file.  You will need to <strong>sudo</strong> to view most likely.</p>
+<p><strong>location block</strong></p>
+<p>The location block in the configuration file tells how the server will serve files.  It will look through the ones listed on the first line, index, index.html, etc.  That is what the <strong>try_files</strong> directive is telling it to do.  If all else fails, it displays a 404 error.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Add index.php to the list if you are using PHP</span>
+index index.html index.htm index.nginx-debian.html;
+
+server_name _;
+
+location / {
+  <span class="hljs-comment"># First attempt to serve request as file, then</span>
+  <span class="hljs-comment"># as directory, then fall back to displaying a 404.</span>
+  try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =404;
+}
+</code></pre>
+<p>You will notice that the <strong>try_files</strong> directive will look through the list of index files and display the first one it finds.  When installing Nginx, it creates the <em>index.nginx-debian.html</em> file.</p>
+<p>If you create an index.html, it will serve that one instead.</p>
+<pre><code class="hljs css language-bash">$ sudo vi /var/www/html/index.html
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="nodejs"></a><a href="#nodejs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NodeJS</h3>
+<p>Install nodeJS:</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Install NodeJS and npm</span>
+$ sudo apt install nodejs npm
+
+<span class="hljs-comment"># Install it</span>
+$ sudo apt install git
+</code></pre>
+<p>The Nginx <strong>/var/www</strong> directory can only be accessed by using sudo at this point.  We don't want to have to do this every time so we will use the <strong>chown</strong> command (Change Ownership).</p>
+<p>The next block will change ownership of the /var/www directory and then we will start creating directories for an application that will run on the server.  Note, this is for a Front End masters course.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># the -R is so command is Recursive</span>
+<span class="hljs-comment"># $USER is the current user you are logged in as (I think)</span>
+<span class="hljs-comment"># You can use echo $USER to see "who" $USER is</span>
+<span class="hljs-comment"># You could probably replace the $USER with your username</span>
+$ sudo chown -R <span class="hljs-variable">$USER</span>:<span class="hljs-variable">$USER</span> /var/www
+
+<span class="hljs-comment"># Make app directory for your applications</span>
+$ mkdir /var/www/app
+
+<span class="hljs-comment"># Move into that directory and initial a git repo</span>
+$ <span class="hljs-built_in">cd</span> /var/www/app &amp;&amp; git init
+
+<span class="hljs-comment"># Create directory structure - assumes we are in /var/www/app</span>
+$ mkdir -p ui/js ui/html ui/css
+
+<span class="hljs-comment"># Create an empty app.js file in the app dir and initialize the directory.</span>
+$ touch app.js
+$ npm init
+
+<span class="hljs-comment"># Install Express</span>
+$ npm i express --save
+</code></pre>
+<p><strong>Simple Express Server</strong></p>
+<p>Now update <strong>app.js</strong> with the following code.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> app = express();
+<span class="hljs-keyword">const</span> port = <span class="hljs-number">3000</span>;
+
+app.get(<span class="hljs-string">'/'</span>, (req, res) =&gt; {
+  res.send(<span class="hljs-string">'Hello World'</span>);
+});
+
+app.listen(port, () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Example app listening on port ${port}'</span>));
+</code></pre>
+<p>Now, if you run the node app above <code>node app.js</code> you can reach it by going to <code>mccoidco.com:3000</code></p>
+<p>Since we don't want to have people type the port, we are not going to go back into the <strong>Nginx</strong> configuration to set up a <strong>proxy pass</strong>.</p>
+<p><strong>Proxy pass</strong> means that we are going to take traffic coming in and pass it somewhere else.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># edit the Nginx configuration and add the proxy pass</span>
+$ sudo vi /etc/nginx/sites-available/default
+
+<span class="hljs-comment"># You will replace the location code block with this:</span>
+location / {
+  proxy_pass http://127.0.0.1:3000/;
+}
+
+<span class="hljs-comment"># restart your server for config to take effect</span>
+$ sudo service nginx reload
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="process-manager"></a><a href="#process-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Process Manager</h3>
+<p>A process manager keeps your</p>
+<ul>
+<li>application running</li>
+<li>Handles errors and restarts</li>
+<li>Can handle loggin and clustering</li>
+</ul>
+<p>The package manager is a npm module and we want to install it globally, as you may want it to access multiple applications.</p>
+<p><a href="https://pm2.keymetrics.io/docs/usage/startup/">PM2 Docs</a></p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># PM2 is the Process Manager we will use</span>
+$ sudo npm i -g pm2
+
+<span class="hljs-comment"># Start PM2</span>
+$ pm2 start app.js
+
+<span class="hljs-comment"># setup auto restart</span>
+<span class="hljs-comment"># This will give you a command that you will copy and paste into your terminal on the server</span>
+$ pm2 startup
+
+<span class="hljs-comment"># To see what PM2 is managing run</span>
+$ pm2 status
+
+</code></pre>
+<p><strong>NOTE 1</strong> : When upgrading to newer Node.js version, update the PM2 startup script! Use <code>pm2 unstartup</code> first then <code>pm2 startup</code> again.</p>
+<h3><a class="anchor" aria-hidden="true" id="git-setup"></a><a href="#git-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>git setup</h3>
+<p>Since you have an application on your server, you will want to be able to pull from git when new updates are available.</p>
+<p>Here are the steps:</p>
+<ul>
+<li><p>Create ssh keys on your server</p>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> ~/.ssh
+$ ssh-keygen
+<span class="hljs-comment"># You can just create the default id_rsa.pub keys </span>
+<span class="hljs-comment"># copy to github ssh keys</span>
+$ cat id_rsa.pub
+</code></pre></li>
+<li><p>Add the public key to GitHub</p></li>
+<li><p>Set the Global github config file for username and email.  This way if you ever push from this machine, you will know where it came from.</p>
+<pre><code class="hljs css language-bash">$ git config --global user.name <span class="hljs-string">"Your Name"</span>
+$ git config --global user.email <span class="hljs-string">"youremail@yourdomain.com"</span>
+</code></pre></li>
+<li><p>Add the remote for the GitHub repo to your App directory.  The <strong>important</strong> thing here, is to grab the <strong>ssh</strong> version and NOT the html version.
+<img src="../assets/server-config-git-001.png" alt="image-20201105093414185"></p>
+<p>Then you will take this and add it as a remote, if you have already initialized the &quot;app&quot; directory on your server.  OR if you haven't initialized, you can use the <code>git clone</code> command.</p>
+<pre><code class="hljs css language-bash">$ git <span class="hljs-built_in">clone</span> git@github.com:markmccoid/FullStack.git
+<span class="hljs-comment"># if you have already initialized a blank repo, you can just run below</span>
+<span class="hljs-comment"># if you cloned from above, I think you still need to run the line below.</span>
+$ git remote add origin git@github.com:markmccoid/FullStack.git
+
+<span class="hljs-comment"># Check to make sure remote is setup</span>
+$ git remote -v
+</code></pre></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="upgrade-node"></a><a href="#upgrade-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upgrade Node</h3>
+<p>You can use update scripts from nodesource.com.  To see the available distributions go to:</p>
+<p><a href="https://github.com/nodesource/distributions#installation-instructions">Node Distributions</a></p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Download setup script from nodesource pipe it to bash to run</span>
+<span class="hljs-comment"># this script resets needed pointer so that next step works.</span>
+$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
+
+<span class="hljs-comment"># Above script has reset nodejs pointers so that when we run apt-get install, it installs the</span>
+<span class="hljs-comment"># version given above</span>
+<span class="hljs-comment"># <span class="hljs-doctag">NOTE:</span> apt-get is an outdated version of apt, but it still works</span>
+$ sudo apt-get install -y nodejs
+</code></pre>
+<p>Another option to do the same.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Download setup script from nodesource and save script (-o ...)</span>
+<span class="hljs-comment"># this script resets needed pointer so that next step works.</span>
+$ curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+
+<span class="hljs-comment"># Run script</span>
+$ sudo bash nodesource_setup.sh
+
+<span class="hljs-comment"># Above script has reset nodejs pointers so that when we run apt-get install, it installs the</span>
+<span class="hljs-comment"># version given above</span>
+$ sudo apt install nodejs
+</code></pre>
+<p><strong>Update Global Packages</strong></p>
+<p>Since you may have installed some global packages with <strong>npm</strong>, you can also update all of these using:</p>
+<pre><code class="hljs css language-bash">$ sudo bpm update -g
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="nginx-configuration-1"></a><a href="#nginx-configuration-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nginx Configuration</h2>
+<h3><a class="anchor" aria-hidden="true" id="redirects"></a><a href="#redirects" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redirects</h3>
+<ul>
+<li>301 is a permanent redirect</li>
+<li>302 is a temporary redirect</li>
+</ul>
+<p>You can edit your Nginx configuration to redirect to another URL based on the current URL:</p>
+<pre><code class="hljs css language-bash">location /<span class="hljs-built_in">help</span> {
+  <span class="hljs-built_in">return</span> 301 https://developer.mozilla.org/en-US/;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="subdomains"></a><a href="#subdomains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Subdomains</h3>
+<pre><code class="hljs css language-bash">server {
+    listen 80;
+    listen [::]80; <span class="hljs-comment"># IPV6 notation</span>
+    server_name movietracker.mccoidco.com
+    
+    location / {
+        proxy_pass: http://localhost:3000
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="compression"></a><a href="#compression" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compression</h3>
+<p>Nginx will compress using gzip on all data going out.  It is on by default.</p>
+<h2><a class="anchor" aria-hidden="true" id="setting-up-https--http2"></a><a href="#setting-up-https--http2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up HTTPS / HTTP2</h2>
+<p>You can get a free certificate from:</p>
+<p><a href="https://certbot.eff.org/">certbot</a></p>
+<p>Enter what software (Nginx) and OS you are using and then follow the instructions!</p>
+<p>After following the instructions and modifying Nginx configuration, it will have redirected your traffic to port 443, BUT we have a firewall in place and are not allowing traffic on this port, so we must now open it up!</p>
+<p><strong>Firewall Open port 443</strong></p>
+<pre><code class="hljs css language-bash">$ sudo ufw allow https
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="http2"></a><a href="#http2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP2</h3>
+<p>http2 is the next iteration of HTTP, it requires that HTTPS is setup on your website and allows then for less &quot;handshakes&quot;.</p>
+<p>To set it up, you will modify your Nginx configuration as follows:</p>
+<pre><code class="hljs css language-bash">$ sudo vi /etc/nginx/sites-available/default
+
+<span class="hljs-comment"># Modify the listen 443 line:</span>
+listen 443 http2 ssl;
+
+<span class="hljs-comment"># Restart Nginx</span>
+$ sudo service nginx restart
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="web-sockets"></a><a href="#web-sockets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Web Sockets</h2>
+<p>To use Web Sockets with Nginx, you will need to add the following location block.</p>
+<pre><code class="hljs css language-bash">$ sudo vi /etc/nginx/site-available/default
+
+location / {
+  proxy_set_header Upgrade <span class="hljs-variable">$http_upgrade</span>;
+  proxy_set_header Connection <span class="hljs-string">"upgrade"</span>;
+  
+  proxy_pass http: //127.0.0.1:3000
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="common-linux-tools"></a><a href="#common-linux-tools" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Linux Tools</h2>
+<ul>
+<li><p><strong>find</strong> - will find either files or directories.</p></li>
+<li><p><strong>grep</strong> - looks inside files</p></li>
+<li><p><strong>ps aux</strong> - shows processes running
+<code>$ ps aux | grep node</code> - see if node is running</p></li>
+<li><p><strong>htop</strong> - Tells us what is running and resources being taken.  Will need to install</p>
+<pre><code class="hljs css language-bash">$ sudo apt install htop
+</code></pre></li>
+</ul>
+<ul>
+<li></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="configuring-a-domain"></a><a href="#configuring-a-domain" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring a Domain</h2>
+<p>To use a domain you own on your server, you will first have to add the domain to the service that is hosting your server.</p>
+<p>In the case of DigitalOcean, simply add the domain (don't have a screenshot of where, but figure it out).</p>
+<p>Then it will ask you to Create New Records.  Right now, you only need to create A records.</p>
+<p>To create one for <code>yourdomainname.com</code> use the @ sign for the Hostname and then the server to direct it to.</p>
+<p><img src="../assets/server-config-domain001.png" alt=""></p>
+<p>Then do the same with <code>www</code> for the Hostname.</p>
+<p>You should also see the Nameservers for the site that is hosting your server.  Make sure to update these with the site that has your domain name.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#resources">Resources</a></li><li><a href="#setting-up-ssh-keys-on-a-mac">Setting up SSH keys on a Mac.</a></li><li><a href="#setting-up-ssh-keys-on-windows">Setting up SSH Keys on Windows</a><ul class="toc-headings"><li><a href="#setting-up-multiple-ssh-keys">Setting up Multiple SSH Keys</a></li><li><a href="#using-dropbox-to-transfer-key">Using Dropbox to Transfer Key</a></li><li><a href="#logging-into-your-server-via-ssh">Logging into your server via SSH</a></li></ul></li><li><a href="#updating-your-server">Updating your Server</a><ul class="toc-headings"><li><a href="#add-new-user">Add New User</a></li><li><a href="#logging-in-as-new-user-and-disable-root">Logging In as New User and Disable Root</a></li></ul></li><li><a href="#security">Security</a><ul class="toc-headings"><li><a href="#updates">Updates</a></li><li><a href="#ports">Ports</a></li><li><a href="#firewall">Firewall</a></li><li><a href="#permissions">Permissions</a></li></ul></li><li><a href="#nginx--nodejs">Nginx / NodeJS</a><ul class="toc-headings"><li><a href="#nginx-configuration">Nginx Configuration</a></li><li><a href="#nodejs">NodeJS</a></li><li><a href="#process-manager">Process Manager</a></li><li><a href="#git-setup">git setup</a></li><li><a href="#upgrade-node">Upgrade Node</a></li></ul></li><li><a href="#nginx-configuration-1">Nginx Configuration</a><ul class="toc-headings"><li><a href="#redirects">Redirects</a></li><li><a href="#subdomains">Subdomains</a></li><li><a href="#compression">Compression</a></li></ul></li><li><a href="#setting-up-https--http2">Setting up HTTPS / HTTP2</a><ul class="toc-headings"><li><a href="#http2">HTTP2</a></li></ul></li><li><a href="#web-sockets">Web Sockets</a></li><li><a href="#common-linux-tools">Common Linux Tools</a></li><li><a href="#configuring-a-domain">Configuring a Domain</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

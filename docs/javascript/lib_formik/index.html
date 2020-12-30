@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Formik · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[Formik Site](https://jaredpalmer.com/formik/docs/overview)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Formik · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="[Formik Site](https://jaredpalmer.com/formik/docs/overview)"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Formik</h1></header><article><div><span><p><a href="https://jaredpalmer.com/formik/docs/overview">Formik Site</a></p>
+<p>There are two ways to use Formik (before hooks comes out).  One is with the <strong>Formik</strong> component the other is using the <strong>withFormik()</strong> Higher Order function.</p>
+<p>The <strong>Formik</strong> component is a render prop component.  So it's format is:</p>
+<pre><code class="hljs css language-jsx">&lt;Formik initialValues={{name, etc}}&gt;
+{({a, bunch, of, props}) =&gt; (
+    &lt;form&gt;
+    ....
+  &lt;/form&gt;
+)}
+&lt;/Formik&gt;
+</code></pre>
+<p>I went with the <strong>withFormik()</strong> function.</p>
+<p>Andrew Mead has a great video to get you up and running <a href="https://www.youtube.com/watch?v=yNiJkjEwmpw">Better React Forms with Formik</a></p>
+<p>I also used Ant Design components, which pose a few issues.  Ben Awad attacks this <a href="https://www.youtube.com/watch?v=pbCrDBQFU_A">Coding React Form with Formik and Ant Design</a></p>
+<h2><a class="anchor" aria-hidden="true" id="component-setup"></a><a href="#component-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Component Setup</h2>
+<p>Usually with a form you are going to have a user enter data and then you will use it!  Maybe send to server to save, etc.</p>
+<p>I chose to have one component to house the <strong>&quot;what I want to do&quot; / Submit</strong> logic , which wraps the component that is created by the <strong>useFormik()</strong> function.</p>
+<p>Visually and simple code:</p>
+<p><img src="C:\Users\mark.mccoid\Documents\GitHub\myCodeDocs\docs\assets\formik_1570201808954.png" alt="1570201808954"></p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">//FormContainerComponent.js</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">FormContainerComponent</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-comment">//Submit Logic, etc</span>
+  Return (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FormikFormComponent</span> <span class="hljs-attr">submit</span>=<span class="hljs-string">{submitLogic}</span> <span class="hljs-attr">initalFieldValue</span>=<span class="hljs-string">{}</span> <span class="hljs-attr">...</span> /&gt;</span></span>
+  )
+} 
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">FormComponent</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+     ....
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span>
+  )
+}
+
+<span class="hljs-keyword">const</span> FormikFormComponent = withFormik({
+  <span class="hljs-comment">//config option</span>
+})(FormComponent);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="withformik-configuration"></a><a href="#withformik-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>withFormik Configuration</h2>
+<p>There are a lot of options for configuration, so be sure to check out the <a href="https://jaredpalmer.com/formik/docs/api/withformik">API docs</a></p>
+<p>The ones that I used were:</p>
+<ul>
+<li>mapPropsToValues(props) - Used to initialize your forms.  Accepts any props from calling component, in the case above <strong>FormContainerComponent</strong></li>
+<li>validationSchema - uses <strong>yup</strong> to validate fields.</li>
+<li>handleSubmit(values, formikBag) - This is the submit logic that will run when the form is submitted.  Since you will most likely be passing the &quot;real&quot; submit logic from the calling component, you need to know that the <strong>formikBag</strong> object has a props object in it that you can use to access any props from the calling component.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#component-setup">Component Setup</a></li><li><a href="#withformik-configuration">withFormik Configuration</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

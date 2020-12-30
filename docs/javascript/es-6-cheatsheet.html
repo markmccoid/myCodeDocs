@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>ES6 Cheatsheet · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## let &amp; const"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="ES6 Cheatsheet · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## let &amp; const"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Javascript</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">ES6 Cheatsheet</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="let--const"></a><a href="#let--const" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>let &amp; const</h2>
+<p>Read more about <code>let</code> : <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let</a></p>
+<p>Read more about <code>const</code> : <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const</a></p>
+<p><code>let</code>  and <code>const</code>  basically replace <code>var</code> . You use <code>let</code>  instead of <code>var</code>  and <code>const</code>  instead of <code>var</code>  if you plan on never re-assigning this &quot;variable&quot; (effectively turning it into a constant therefore).</p>
+<h2><a class="anchor" aria-hidden="true" id="es6-arrow-functions"></a><a href="#es6-arrow-functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES6 Arrow Functions</h2>
+<p>Read more: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions</a></p>
+<p>Arrow functions are a different way of creating functions in JavaScript. Besides a shorter syntax, they offer advantages when it comes to keeping the scope of the <code>this</code>  keyword (see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">here</a>).</p>
+<p>Arrow function syntax may look strange but it's actually simple.</p>
+<pre><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span></span> callMe(<span class="hljs-keyword">name</span>) {     console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">name</span>);}
+</code></pre>
+<p>which you could also write as:</p>
+<pre><code class="hljs">const callMe = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span></span> {     console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">name</span>);}
+</code></pre>
+<p>becomes:</p>
+<pre><code class="hljs">const callMe = <span class="hljs-function"><span class="hljs-params">(name)</span> =&gt;</span> {     <span class="hljs-built_in">console</span>.log(name);}
+</code></pre>
+<p>**Important: **</p>
+<p>When having <strong>no arguments</strong>, you have to use empty parentheses in the function declaration:</p>
+<pre><code class="hljs">const callMe = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Max!'</span>);}
+</code></pre>
+<p>When having** exactly one argument**, you may omit the parentheses:</p>
+<pre><code class="hljs"><span class="hljs-keyword">const</span> callMe = <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> {     <span class="hljs-built_in">console</span>.log(name);}
+</code></pre>
+<p>When <strong>just returning a value</strong>, you can use the following shortcut:</p>
+<pre><code class="hljs"><span class="hljs-keyword">const</span> returnMe = <span class="hljs-keyword">name</span> =&gt; <span class="hljs-keyword">name</span>
+</code></pre>
+<p>That's equal to:</p>
+<pre><code class="hljs"><span class="hljs-keyword">const</span> returnMe = <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> {     <span class="hljs-keyword">return</span> name;}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="exports--imports"></a><a href="#exports--imports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Exports &amp; Imports</strong></h4>
+<p>In React projects (and actually in all modern JavaScript projects), you split your code across multiple JavaScript files - so-called modules. You do this, to keep each file/ module focused and manageable.</p>
+<p>To still access functionality in another file, you need <code>export</code>  (to make it available) and <code>import</code>  (to get access) statements.</p>
+<p>You got two different types of exports: <strong>default</strong> (unnamed) and <strong>named</strong>exports:</p>
+<p><strong>default</strong> =&gt; <code>export default ...;</code></p>
+<p><strong>named</strong> =&gt; <code>export const someData = ...;</code></p>
+<p>You can import <strong>default exports</strong> like this:</p>
+<p><code>import someNameOfYourChoice from './path/to/file.js';</code></p>
+<p>Surprisingly, <code>someNameOfYourChoice</code>  is totally up to you.</p>
+<p><strong>Named exports</strong> have to be imported by their name:</p>
+<p><code>import { someData } from './path/to/file.js';</code></p>
+<p>A file can only contain one default and an unlimited amount of named exports. You can also mix the one default with any amount of named exports in one and the same file.</p>
+<p>When importing <strong>named exports</strong>, you can also import all named exports at once with the following syntax:</p>
+<p><code>import * as upToYou from './path/to/file.js';</code></p>
+<p><code>upToYou</code>  is - well - up to you and simply bundles all exported variables/functions in one JavaScript object. For example, if you <code>export const someData = ...</code>  (<code>/path/to/file.js</code> ) you can access it on <code>upToYou</code>  like this: <code>upToYou.someData</code> .</p>
+<h2><a class="anchor" aria-hidden="true" id="classes"></a><a href="#classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Classes</h2>
+<p>Classes are a feature which basically replace constructor functions and prototypes. You can define blueprints for JavaScript objects with them.</p>
+<p>Like this:</p>
+<pre><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{    <span class="hljs-keyword">constructor</span> () {        <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Max'</span>;    }} <span class="hljs-keyword">const</span> person = <span class="hljs-keyword">new</span> Person();<span class="hljs-built_in">console</span>.log(person.name); <span class="hljs-comment">// prints 'Max'</span>
+</code></pre>
+<p>In the above example, not only the class but also a property of that class (=&gt; <code>name</code> ) is defined. They syntax you see there, is the &quot;old&quot; syntax for defining properties. In modern JavaScript projects (as the one used in this course), you can use the following, more convenient way of defining class properties:</p>
+<pre><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{    name = <span class="hljs-string">'Max'</span>;} <span class="hljs-keyword">const</span> person = <span class="hljs-keyword">new</span> Person();<span class="hljs-built_in">console</span>.log(person.name); <span class="hljs-comment">// prints 'Max'</span>
+</code></pre>
+<p>You can also define methods. Either like this:</p>
+<pre><code class="hljs"><span class="hljs-keyword">class</span> Person {    <span class="hljs-type">name</span> = <span class="hljs-string">'Max'</span>;    printMyName () {        console.log(this.name); // this <span class="hljs-keyword">is</span> required <span class="hljs-keyword">to</span> refer <span class="hljs-keyword">to</span> the <span class="hljs-keyword">class</span>!    }} const person = <span class="hljs-built_in">new</span> Person();person.printMyName();
+</code></pre>
+<p>Or like this:</p>
+<pre><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{    name = <span class="hljs-string">'Max'</span>;    printMyName = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name);    }} <span class="hljs-keyword">const</span> person = <span class="hljs-keyword">new</span> Person();person.printMyName();
+</code></pre>
+<p>The second approach has the same advantage as all arrow functions have: The <code>this</code>  keyword doesn't change its reference.</p>
+<p>You can also use <strong>inheritance</strong> when using classes:</p>
+<pre><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Human</span> </span>{    species = <span class="hljs-symbol">'huma</span>n';} <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Human</span> </span>{    name = <span class="hljs-symbol">'Ma</span>x';    printMyName = () =&gt; {        console.log(<span class="hljs-keyword">this</span>.name);    }} const person = <span class="hljs-keyword">new</span> <span class="hljs-type">Person</span>();person.printMyName();console.log(person.species); <span class="hljs-comment">// prints 'human'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="spread--rest-operator"></a><a href="#spread--rest-operator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spread &amp; Rest Operator</h2>
+<p>The spread and rest operators actually use the same syntax: <code>...</code></p>
+<p>Yes, that is the operator - just three dots. It's usage determines whether you're using it as the spread or rest operator.</p>
+<p><strong>Using the Spread Operator:</strong></p>
+<p>The spread operator allows you to pull elements out of an array (=&gt; split the array into a list of its elements) or pull the properties out of an object. Here are two examples:</p>
+<pre><code class="hljs"><span class="hljs-keyword">const</span> oldArray = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<span class="hljs-keyword">const</span> newArray = [...oldArray, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]; <span class="hljs-comment">// This now is [1, 2, 3, 4, 5];</span>
+</code></pre>
+<p>Here's the spread operator used on an object:</p>
+<pre><code class="hljs"><span class="hljs-keyword">const</span> oldObject = {    name: <span class="hljs-string">'Max'</span>};<span class="hljs-keyword">const</span> newObject = {    ...oldObject,    age: <span class="hljs-number">28</span>};
+</code></pre>
+<p><code>newObject</code>  would then be</p>
+<pre><code class="hljs">{    <span class="hljs-attribute">name</span>: <span class="hljs-string">'Max'</span>,    age: <span class="hljs-number">28</span>}
+</code></pre>
+<p>The spread operator is extremely useful for cloning arrays and objects. Since both are <a href="https://youtu.be/9ooYYRLdg_g">reference types (and not primitives)</a>, copying them safely (i.e. preventing future mutation of the copied original) can be tricky. With the spread operator you have an easy way of creating a (shallow!) clone of the object or array.</p>
+<h2><a class="anchor" aria-hidden="true" id="destructuring"></a><a href="#destructuring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Destructuring</h2>
+<p>Destructuring allows you to easily access the values of arrays or objects and assign them to variables.</p>
+<p>Here's an example for an array:</p>
+<pre><code class="hljs">const<span class="hljs-built_in"> array </span>= [1, 2, 3];const [a, b] = array;console.log(a); // prints 1console.log(b); // prints 2console.log(array); // prints [1, 2, 3]
+</code></pre>
+<p>And here for an object:</p>
+<pre><code class="hljs">const myObj = {    <span class="hljs-type">name</span>: <span class="hljs-string">'Max'</span>,    age: <span class="hljs-number">28</span>}const {<span class="hljs-type">name</span>} = myObj;console.log(<span class="hljs-type">name</span>); // prints <span class="hljs-string">'Max'</span>console.log(age); // prints undefinedconsole.log(myObj); // prints {<span class="hljs-type">name</span>: <span class="hljs-string">'Max'</span>, age: <span class="hljs-number">28</span>}
+</code></pre>
+<p>Destructuring is very useful when working with function arguments. Consider this example:</p>
+<pre><code class="hljs">const printName = <span class="hljs-function"><span class="hljs-params">(personObj)</span> =&gt;</span> {    <span class="hljs-built_in">console</span>.log(personObj.name);}printName({name: <span class="hljs-string">'Max'</span>, age: <span class="hljs-number">28</span>}); <span class="hljs-regexp">//</span> prints <span class="hljs-string">'Max'</span>
+</code></pre>
+<p>Here, we only want to print the name in the function but we pass a complete person object to the function. Of course this is no issue but it forces us to call personObj.name inside of our function. We can condense this code with destructuring:</p>
+<pre><code class="hljs">const printName = <span class="hljs-function"><span class="hljs-params">({name})</span> =&gt;</span> {    <span class="hljs-built_in">console</span>.log(name);}printName({name: <span class="hljs-string">'Max'</span>, age: <span class="hljs-number">28</span>}); <span class="hljs-regexp">//</span> prints <span class="hljs-string">'Max'</span>)
+</code></pre>
+<p>We get the same result as above but we save some code. By destructuring, we simply pull out the <code>name</code>  property and store it in a variable/ argument named <code>name</code>  which we then can use in the function body.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/javascript/keyboard-mouse-input"><span class="arrow-prev">← </span><span>Keyboard and Mouse Input</span></a><a class="docs-next button" href="/my-code-docs/docs/javascript/eslint-setup"><span>ESLint Setup</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#let--const">let &amp; const</a></li><li><a href="#es6-arrow-functions">ES6 Arrow Functions</a></li><li><a href="#classes">Classes</a></li><li><a href="#spread--rest-operator">Spread &amp; Rest Operator</a></li><li><a href="#destructuring">Destructuring</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

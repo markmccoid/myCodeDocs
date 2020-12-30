@@ -1,0 +1,667 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Electron Basics · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="I like to think of an Electron application as have two pieces, just like a web application.  "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Electron Basics · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="I like to think of an Electron application as have two pieces, just like a web application.  "/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Electron</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Electron Basics</h1></header><article><div><span><p>I like to think of an Electron application as have two pieces, just like a web application.</p>
+<ol>
+<li>The Backend Server - this is the Electron process</li>
+<li>The Web App - this is the UI</li>
+</ol>
+<p>These two processes cannot directly communicate.  You will need to use the <a href="#ipc-inter-process-communication">IPC</a> to communicate.</p>
+<p>Think of the Electron process (backend server) as being the piece that will handle most file system interactions.</p>
+<blockquote>
+<p>Note: You may want to use the HTML5 &lt;input type=&quot;file&quot; accept=&quot;video/*&quot;&gt; to show a file picker. The <strong>accept</strong> property can handle multiple types.</p>
+</blockquote>
+<p>I am thinking that it would be best to create an &quot;Interface&quot; set of functions that deal with the IPC communication so that if we port to a web app, this is the main piece that would need to change.  On the web, this &quot;Interface&quot; set of functions will now be connecting to the server.</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="project-setup"></a><a href="#project-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Project Setup</h2>
+<p>Nothing to crazy, here.  Create your directory, <strong>npm init</strong> and then install electron <strong>npm install --save electron</strong>.</p>
+<pre><code class="hljs"><span class="hljs-built_in">npm</span> init
+<span class="hljs-built_in">npm</span> install --save electron
+</code></pre>
+<p>Make sure to setup a script in package.json to use to start electron:</p>
+<pre><code class="hljs css language-json">"scripts": {
+    "electron": "electron ."
+  },
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="boiler-plate-code"></a><a href="#boiler-plate-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Boiler Plate Code</h3>
+<p>You need some basic files to get you started.</p>
+<p>In the root of the project directory, you will have your <strong>package.json</strong> plus:</p>
+<ul>
+<li><strong>index.js</strong> - This is your Electron process (i.e. the backend server analogy)</li>
+<li><strong>main.html</strong> - Doesn't have to be named main, but this will be the html file that will be loaded into the browser window instance that our index.js electron process will create.</li>
+</ul>
+<p><strong>NOTE:</strong> - in your main.html or index.html make sure to set the <strong><title></title></strong> to what you want to display in your title bar of the window.</p>
+<p>Here is the basic <strong>index.js</strong> code:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> electron = <span class="hljs-built_in">require</span>(<span class="hljs-string">'electron'</span>);
+
+<span class="hljs-keyword">const</span> { app, BrowserWindow } = electron;  <span class="hljs-comment">//destruction off the electron object</span>
+
+<span class="hljs-keyword">let</span> mainWindow;
+
+app.on(<span class="hljs-string">'ready'</span>, () =&gt; {
+  mainWindow = <span class="hljs-keyword">new</span> BrowserWindow({});
+  mainWindow.loadURL(<span class="hljs-string">`file://<span class="hljs-subst">${__dirname}</span>/main.html`</span>);
+})
+</code></pre>
+<p>Note, that we are declaring mainWindow outside of the app.on listener because of scoping within the callback.  Meaning, we will want to have access to this mainWindow variable in other parts of our code, not just in the listener callback.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="browserwindow-config-object"></a><a href="#browserwindow-config-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>BrowserWindow Config Object</h3>
+<p>The BrowserWindow function can have a config object passed to it.  Here are some basic settings:</p>
+<pre><code class="hljs css language-javascript">mainwWindow = <span class="hljs-keyword">new</span> BrowserWindow({
+  <span class="hljs-attr">width</span>: <span class="hljs-number">300</span>, <span class="hljs-comment">//in pixels</span>
+  <span class="hljs-attr">height</span>: <span class="hljs-number">500</span>, <span class="hljs-comment">//in pixels</span>
+  <span class="hljs-attr">frame</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">//title bar of app (i.e. one with minimize, maximize, etc)</span>
+  <span class="hljs-attr">resizable</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">//do not allow resizeing of window</span>
+  <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">//show window on startup or don't</span>
+})
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="determining-which-windows-or-mac-platform"></a><a href="#determining-which-windows-or-mac-platform" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Determining Which Windows or Mac platform</h2>
+<p>There will be times when we need to know if we are running on Windows or Mac.
+We can find this out by looking at the <strong>process.platform</strong> environment variable.</p>
+<ul>
+<li>Windows will be <strong>win32</strong></li>
+<li>Mac will be <strong>darwin</strong></li>
+<li>Other options - <strong>freebsd</strong>, <strong>linux</strong>, <strong>sunos</strong></li>
+</ul>
+<p>Can do something like:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">let</span> something = process.platform === <span class="hljs-string">'win32'</span> ? <span class="hljs-string">'windows stuff'</span> : <span class="hljs-string">'mac/other stuff'</span>;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="tray-icons--apps"></a><a href="#tray-icons--apps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tray Icons / Apps</h2>
+<p>You can also create apps that have an icon in the Windows tray or Mac top bar.
+To do this you will need to use the <strong>Tray</strong> class from electron:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { app, BrowserWindow, Tray } = electron;
+
+app.on(<span class="hljs-string">'ready'</span>, () =&gt; {
+  <span class="hljs-comment">//get an icon -- windows needs to have a background, mac is transparent</span>
+  <span class="hljs-keyword">const</span> iconName = process.platform === <span class="hljs-string">'win32'</span> ? <span class="hljs-string">'windows-icon.png'</span> : <span class="hljs-string">'iconTemplate.png'</span>;
+  <span class="hljs-keyword">const</span> iconPath = path.join(__dirname, <span class="hljs-string">`./src/assets/<span class="hljs-subst">${iconName}</span>`</span>);
+  <span class="hljs-comment">//Instantiate a new tray object passing in the icon</span>
+  tray = <span class="hljs-keyword">new</span> Tray(iconPath);
+  tray.on(<span class="hljs-string">'click'</span>, (event, bounds) =&gt; {
+  <span class="hljs-keyword">if</span>(mainWindow.isVisible()) {
+    mainWindow.hide()
+  } <span class="hljs-keyword">else</span> {
+    mainWindow.show();
+  }
+});
+...
+});
+</code></pre>
+<p>We can then define an .on 'click' event listener for the tray object.  Note, that the <strong>tray.on()</strong> callback function accepts the <em>event</em> object and the <em>bounds</em> object.</p>
+<h3><a class="anchor" aria-hidden="true" id="bounds-object"></a><a href="#bounds-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bounds object</h3>
+<p>The bounds object will help us determine the position of our window.</p>
+<p>In the case of the tray 'click' event, it tells us where we clicked.  Not the exact 'x,y', but the center of the icon we clicked on.</p>
+<p>There is also a &quot;window&quot; bounds object.  We can use both of these to position our window where we want.</p>
+<p><img src="https://dl.dropboxusercontent.com/s/s9svephsb1jbaiw/electron-bounds-mac-1-small.png" alt="Mac Bounds">
+<img src="https://dl.dropboxusercontent.com/s/irptoqlc6ndl3t5/electron-bounds-win-1-small.png" alt="Windows Bound
+s"></p>
+<h2><a class="anchor" aria-hidden="true" id="menus"></a><a href="#menus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Menus</h2>
+<p><a href="https://electron.atom.io/docs/api/menu/">Menu API Docs</a>
+Basic code to add a Menu to our application:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> electron = <span class="hljs-built_in">require</span>(<span class="hljs-string">'electron'</span>);
+
+<span class="hljs-keyword">const</span> { app, BrowserWindow, Menu } = electron;  <span class="hljs-comment">//destruction off the electron object</span>
+
+<span class="hljs-keyword">let</span> mainWindow;
+
+app.on(<span class="hljs-string">'ready'</span>, () =&gt; {
+  mainWindow = <span class="hljs-keyword">new</span> BrowserWindow({});
+  mainWindow.loadURL(<span class="hljs-string">`file://<span class="hljs-subst">${__dirname}</span>/main.html`</span>);
+
+  <span class="hljs-keyword">const</span> mainMenu = Menu.buildFromTemplate(menuTemplate);
+  Menu.setApplicationMenu(mainMenu);
+});
+
+<span class="hljs-keyword">const</span> menuTemplate = [
+  {
+    <span class="hljs-attr">label</span>: <span class="hljs-string">'File'</span>
+  }
+];
+</code></pre>
+<p>You can see that we are creating a menuTemplate, which is an array of objects defining what menu items we want to show.
+One thing to note is that when we apply our menu via <strong>Menu.setApplicationMenu</strong>, we REMOVE all default menu items and key bindings.  So ctrl-r, won't reload and we can't get to the developer console, etc.</p>
+<h3><a class="anchor" aria-hidden="true" id="menu-templates"></a><a href="#menu-templates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Menu Templates</h3>
+<p>The menu template is an array of objects, with each first level object being a top-level menu item.  You can also define sub-menus, which are then an array of objects defining the menu items under the menu item it is defined under:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> menuTemplate = [
+  {
+    <span class="hljs-attr">label</span>: <span class="hljs-string">'File'</span>,
+    <span class="hljs-attr">submenu</span>: [
+      {
+        <span class="hljs-attr">label</span>: <span class="hljs-string">'New Todo'</span>
+      }
+    ]
+  }
+];
+</code></pre>
+<p><strong>Cross Platform Menu Issue</strong> - You will find that on Mac machines, it makes the first menu item part of the &quot;system&quot; menu, so for macs you need to enter a blank object for the first item in the menuTemplate to account for this.  Luckily, since electron is based on node, we have access to node's <strong>process.platform</strong> function.  This will return either &quot;darwin&quot; for mac or &quot;win32&quot; for windows.  So, we can update our code to take this into account:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> menuTemplate = [
+  {
+    <span class="hljs-attr">label</span>: <span class="hljs-string">'File'</span>,
+    <span class="hljs-attr">submenu</span>: [
+      {
+        <span class="hljs-attr">label</span>: <span class="hljs-string">'New Todo'</span>
+      },
+      {
+        <span class="hljs-attr">label</span>: <span class="hljs-string">'Quit'</span>,
+        <span class="hljs-attr">accelerator</span>: <span class="hljs-function">(<span class="hljs-params">(</span>) =&gt;</span> {
+          <span class="hljs-keyword">if</span> (process.platform === <span class="hljs-string">'darwin'</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'Command+Q'</span>;
+          } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'Ctrl+Q'</span>;
+          }
+        })(),
+        click() {
+          app.quit();
+        }
+      }
+    ]
+  }
+];
+
+<span class="hljs-keyword">if</span> (process.platform === <span class="hljs-string">'darwin'</span>) {
+  menuTemplate.unshift({});
+}
+</code></pre>
+<p>Note that we have used the <strong>process.platform</strong> variable to also help us in setting up the menu accelerator key options.</p>
+<h4><a class="anchor" aria-hidden="true" id="roles"></a><a href="#roles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Roles</h4>
+<p>Certain menu commands can be accessed using the <em>role</em> property.  The role sets up the label, accelerator and click():</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> template = [
+  {
+    <span class="hljs-attr">label</span>: <span class="hljs-string">'Edit'</span>,
+    <span class="hljs-attr">submenu</span>: [
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'undo'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'redo'</span>},
+      {<span class="hljs-attr">type</span>: <span class="hljs-string">'separator'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'cut'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'copy'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'paste'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'pasteandmatchstyle'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'delete'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'selectall'</span>}
+    ]
+  },
+  {
+    <span class="hljs-attr">label</span>: <span class="hljs-string">'View'</span>,
+    <span class="hljs-attr">submenu</span>: [
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'reload'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'forcereload'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'toggledevtools'</span>},
+      {<span class="hljs-attr">type</span>: <span class="hljs-string">'separator'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'resetzoom'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'zoomin'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'zoomout'</span>},
+      {<span class="hljs-attr">type</span>: <span class="hljs-string">'separator'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'togglefullscreen'</span>}
+    ]
+  },
+  {
+    <span class="hljs-attr">role</span>: <span class="hljs-string">'window'</span>,
+    <span class="hljs-attr">submenu</span>: [
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'minimize'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'close'</span>}
+    ]
+  },
+  {
+    <span class="hljs-attr">role</span>: <span class="hljs-string">'help'</span>,
+    <span class="hljs-attr">submenu</span>: [
+      {
+        <span class="hljs-attr">label</span>: <span class="hljs-string">'Learn More'</span>,
+        click () { <span class="hljs-built_in">require</span>(<span class="hljs-string">'electron'</span>).shell.openExternal(<span class="hljs-string">'https://electron.atom.io'</span>) }
+      }
+    ]
+  }
+]
+
+<span class="hljs-keyword">if</span> (process.platform === <span class="hljs-string">'darwin'</span>) {
+  template.unshift({
+    <span class="hljs-attr">label</span>: app.getName(),
+    <span class="hljs-attr">submenu</span>: [
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'about'</span>},
+      {<span class="hljs-attr">type</span>: <span class="hljs-string">'separator'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'services'</span>, <span class="hljs-attr">submenu</span>: []},
+      {<span class="hljs-attr">type</span>: <span class="hljs-string">'separator'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'hide'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'hideothers'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'unhide'</span>},
+      {<span class="hljs-attr">type</span>: <span class="hljs-string">'separator'</span>},
+      {<span class="hljs-attr">role</span>: <span class="hljs-string">'quit'</span>}
+    ]
+  })
+
+  <span class="hljs-comment">// Edit menu</span>
+  template[<span class="hljs-number">1</span>].submenu.push(
+    {<span class="hljs-attr">type</span>: <span class="hljs-string">'separator'</span>},
+    {
+      <span class="hljs-attr">label</span>: <span class="hljs-string">'Speech'</span>,
+      <span class="hljs-attr">submenu</span>: [
+        {<span class="hljs-attr">role</span>: <span class="hljs-string">'startspeaking'</span>},
+        {<span class="hljs-attr">role</span>: <span class="hljs-string">'stopspeaking'</span>}
+      ]
+    }
+  )
+
+  <span class="hljs-comment">// Window menu</span>
+  template[<span class="hljs-number">3</span>].submenu = [
+    {<span class="hljs-attr">role</span>: <span class="hljs-string">'close'</span>},
+    {<span class="hljs-attr">role</span>: <span class="hljs-string">'minimize'</span>},
+    {<span class="hljs-attr">role</span>: <span class="hljs-string">'zoom'</span>},
+    {<span class="hljs-attr">type</span>: <span class="hljs-string">'separator'</span>},
+    {<span class="hljs-attr">role</span>: <span class="hljs-string">'front'</span>}
+  ]
+}
+
+<span class="hljs-keyword">const</span> menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+</code></pre>
+<p>Another option to creating the menu and having it check for windows or mac is to create a <em>main-menu.js</em> file in the root or app directory as follows:
+<a href="https://egghead.io/lessons/javascript-create-a-native-desktop-system-menu-with-the-electron-menu-module">Egghead on Electron</a></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//====main-menu.js</span>
+<span class="hljs-keyword">const</span> { app, Menu } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'electron'</span>);
+<span class="hljs-keyword">const</span> isWindows = process.platform === <span class="hljs-string">'win32'</span>;
+
+<span class="hljs-built_in">module</span>.exports = {
+  setMainMenu
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setMainMenu</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> template = [
+    {
+      <span class="hljs-attr">label</span>: isWindows ? <span class="hljs-string">'File'</span> : app.getName(),
+      <span class="hljs-attr">subMenu</span>: [
+        {
+          <span class="hljs-attr">label</span>: isWindows ? <span class="hljs-string">'Exit'</span> : <span class="hljs-string">`Quite <span class="hljs-subst">${app.getName()}</span>`</span>,
+          <span class="hljs-attr">accelerator</span>: isWindows ? <span class="hljs-string">'Alt+F4'</span> : <span class="hljs-string">'CmdOrCtrl+Q'</span>,
+          click() { app.quit(); }
+        }
+      ]
+    }
+  ];
+
+<span class="hljs-keyword">const</span> menu = Menu.buildFromTemplate(template);
+Menu.setApplicationMenu(menu);
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="dev-environment-menus"></a><a href="#dev-environment-menus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dev Environment Menus</h4>
+<p>You can determine if you are in the Dev or production environment using the <strong>process.env.NODE_ENV</strong> variable.</p>
+<p>An example would be adding Development menu options to your menu.  You could do this by checkin the NODE_ENV variable and if not in production, push on a new menu item to the menu template:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">'production'</span>) {
+  menuTemplate.push({
+    <span class="hljs-attr">label</span>: <span class="hljs-string">'Developer'</span>,
+    <span class="hljs-attr">submenu</span>: [{
+      <span class="hljs-attr">label</span>: <span class="hljs-string">'Toggle Dev Tools'</span>,
+      <span class="hljs-attr">accelerator</span>: <span class="hljs-string">'CommandOrControl+Alt+I'</span>,
+      click(item, focusedWindow) {
+        focusedWindow.toggleDevTools();
+      }
+    }]
+  })
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="accelerators"></a><a href="#accelerators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>accelerators</h4>
+<p>You can easily add accelerator keys within applications by adding the <em>accelerator:</em> property to you menu object.  Note that the accelerator key options most likely will be different based on the OS that you are on, so we pass an IIFE (immediately-invoked function expression) and also use the <strong>process.platform</strong> variable to set these up:</p>
+<pre><code class="hljs css language-javascript">      {
+        <span class="hljs-attr">label</span>: <span class="hljs-string">'Quit'</span>,
+
+        <span class="hljs-attr">accelerator</span>: <span class="hljs-function">(<span class="hljs-params">(</span>) =&gt;</span> {
+          <span class="hljs-keyword">if</span> (process.platform === <span class="hljs-string">'darwin'</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'Command+Q'</span>;
+          } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'Ctrl+Q'</span>;
+          }
+        })(),
+
+        click() {
+          app.quit();
+        }
+
+<span class="hljs-comment">// OR Use a terniary expression</span>
+    {
+        ...
+        accelerator: process.platform === <span class="hljs-string">'darwin'</span> ? <span class="hljs-string">'Command+Q'</span> : <span class="hljs-string">'Ctrl+Q'</span>,
+        ...
+      }
+</code></pre>
+<p><strong>Key Options:</strong> <a href="https://github.com/electron/electron/blob/master/docs/api/accelerator.md">Electron Docs</a></p>
+<ul>
+<li><strong>Command (or Cmd for short)</strong></li>
+<li><strong>Control (or Ctrl for short)</strong></li>
+<li><strong>CommandOrControl (or CmdOrCtrl for short)</strong> - On Linux and Windows, the Command key does not have any effect so use CommandOrControl which represents Command on macOS and Control on Linux and Windows to define some accelerators.</li>
+<li><strong>Alt</strong></li>
+<li><strong>Option</strong> - Use <em>Alt</em> instead of <em>Option</em>. The Option key only exists on macOS, whereas the Alt key is available on all platforms.</li>
+<li><strong>AltGr</strong></li>
+<li><strong>Shift</strong></li>
+<li><strong>Super</strong> - The <em>Super</em> key is mapped to the Windows key on Windows and Linux and Cmd on macOS.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="function-calls"></a><a href="#function-calls" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>function calls</h4>
+<p>To associate an action with a menu and it's accelerator, you simply add a <em>click() {}</em> function to the menu object you are working on.  See example above.</p>
+<h2><a class="anchor" aria-hidden="true" id="creating-a-new-window"></a><a href="#creating-a-new-window" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a New Window</h2>
+<p>Easy as creating a new window instance with a <em>new BrowserWindow({})</em> call.</p>
+<p><a href="https://electronjs.org/docs/api/browser-window#class-browserwindow">BrowserWindow Properties</a></p>
+<p>Example function:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createAddWindow</span>(<span class="hljs-params"></span>) </span>{
+  addWindow = <span class="hljs-keyword">new</span> BrowserWindow({
+    <span class="hljs-attr">width</span>: <span class="hljs-number">300</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Add New Todo'</span>
+  });
+
+  addWindow.loadURL(<span class="hljs-string">`file://<span class="hljs-subst">${__dirname}</span>/add.html`</span>);
+  <span class="hljs-comment">//Garbage collection call.  Makes sure addWindow is properly destroyed when closed</span>
+  addWindow.on(<span class="hljs-string">'closed'</span>, () =&gt; addWindow = <span class="hljs-literal">null</span>);
+}
+</code></pre>
+<p><strong>Example use case:</strong></p>
+<p>Let's say I want to show a help guide when the user selects a menu option.</p>
+<p>I can set up the menu option to call a <strong>showUserGuide</strong> function.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//------------------------------------------------</span>
+<span class="hljs-comment">//Setup Help window function to show help from menu</span>
+<span class="hljs-comment">//The showUserGuide function is called from the Help/User Guide menu option</span>
+<span class="hljs-keyword">let</span> helpWindow;
+<span class="hljs-keyword">const</span> showUserGuide = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-comment">//If helpWindow already defined, give it focus and leave function</span>
+  <span class="hljs-keyword">if</span> (helpWindow) {
+    helpWindow.focus();
+    <span class="hljs-keyword">return</span>;
+  }
+  <span class="hljs-comment">//Define new BrowserWindow</span>
+  helpWindow = <span class="hljs-keyword">new</span> BrowserWindow({
+    <span class="hljs-attr">width</span>: <span class="hljs-number">1000</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">1000</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'Analytix Installer User Guide'</span>,
+    <span class="hljs-attr">icon</span>: path.join(__dirname, <span class="hljs-string">'assets/icon.ico'</span>)
+  });
+  <span class="hljs-comment">//When use closes help window, null its variable</span>
+  helpWindow.on(<span class="hljs-string">'closed'</span>, () =&gt; {
+    helpWindow = <span class="hljs-literal">null</span>;
+  });
+  <span class="hljs-comment">//Load help file HTML file into BrowserWindow</span>
+  helpWindow.loadURL(<span class="hljs-string">`file://<span class="hljs-subst">${__dirname}</span>/public/EAInstallerHelp.html`</span>);
+};
+</code></pre>
+<p>We must set up the <strong><em>helpWindow</em></strong> variable outside the function so that is can be accessed later.</p>
+<p>Since we don't want multiple instances of the User Guide window to be opened, we can check to see if the <strong><em>helpWindow</em></strong> variable has been initialized and if so, just give it focus.  If not, then create the window.</p>
+<p>We will need to set the variable <strong><em>helpWindow</em></strong> to null on the 'closed' event.</p>
+<h3><a class="anchor" aria-hidden="true" id="setting-the-window-title-and-icon"></a><a href="#setting-the-window-title-and-icon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting the Window Title and Icon</h3>
+<p>There are two ways to set the the title of a window.</p>
+<ol>
+<li>Pass the title property when instantiating via the <code>new BrowserWindow({ title: '' })</code> call.</li>
+<li>Set the <code>&lt;title&gt;my Title &lt;/title&gt;</code> property in the html file used for the window.</li>
+</ol>
+<p><strong>NOTE:</strong> the <code>&lt;title&gt;</code> will take precedence if you set both.</p>
+<p>My rule is to only use it via the BrowserWindow() call.  This will allow you to control via code.</p>
+<p>The <strong>icon</strong> for the window is set by passing the <code>icon: ''</code> property to the <code>BrowserWindow()</code> call.</p>
+<p><strong>NOTE:</strong> when setting the icon for the application, make sure to add it to the <code>package.json</code> file in the <em>build</em> section.</p>
+<pre><code class="hljs css language-json">  "build": {
+    "appId": "com.mccoid.car-service-tracker",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "./assets"
+    },
+    "win": {
+          "icon": "assets/cartracker.ico"
+        }
+  },
+</code></pre>
+<p>As a rule, I believe the ico file needs to be 256x256.</p>
+<h3><a class="anchor" aria-hidden="true" id="frameless-windows"></a><a href="#frameless-windows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Frameless Windows</h3>
+<p><a href="https://electronjs.org/docs/api/frameless-window">Frameless Windows Docs</a></p>
+<p>Key take away from these docs is the fact that we can use some webkit CSS rules to keep users from being able to select things like the H1 tags, etc.. Also we can make a region draggable.</p>
+<h4><a class="anchor" aria-hidden="true" id="draggable-regions"></a><a href="#draggable-regions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Draggable Regions</h4>
+<p>By default, the frameless window is non-draggable. Apps need to specify   <code>-webkit-app-region: drag</code> in CSS to tell Electron which regions are draggable   (like the OS's standard title bar), and apps can also use   <code>-webkit-app-region: no-drag</code> to exclude the non-draggable area from the   draggable region. Note that only rectangular shapes are currently supported.</p>
+<p>Note: <code>-webkit-app-region: drag</code> is known to have problems while the developer tools are open. See this <a href="https://github.com/electron/electron/issues/3647">GitHub issue</a> for more information including a workaround.</p>
+<p>To make the whole window draggable, you can add <code>-webkit-app-region: drag</code> as   <code>body</code>'s style:</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"-webkit-app-region: drag"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p>And note that if you have made the whole window draggable, you must also mark   buttons as non-draggable, otherwise it would be impossible for users to click on   hem:</p>
+<pre><code class="hljs css language-css"><span class="hljs-selector-tag">button</span> {
+    <span class="hljs-attribute">-webkit-app-region</span>: no-drag;
+  }
+</code></pre>
+<p>If you're setting just a custom title bar as draggable, you also need to make all buttons in title bar non-draggable.</p>
+<h4><a class="anchor" aria-hidden="true" id="text-selection"></a><a href="#text-selection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Text Selection</h4>
+<p>In a frameless window the dragging behaviour may conflict with selecting text.   For example, when you drag the titlebar you may accidentally select the text on   the titlebar. To prevent this, you need to disable text selection within a   draggable area like this:</p>
+<pre><code class="hljs css language-css"><span class="hljs-selector-class">.titlebar</span> {
+    <span class="hljs-attribute">-webkit-user-select</span>: none;
+    <span class="hljs-attribute">-webkit-app-region</span>: drag;
+  }
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="creating-native-dialogs"></a><a href="#creating-native-dialogs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating Native Dialogs</h2>
+<p><a href="https://electron.atom.io/docs/api/dialog/">Electron Dialog Docs</a></p>
+<p>You can create the Open, Save and standard Message box dialogs.</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="using-remote"></a><a href="#using-remote" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Remote</h2>
+<p><a href="https://github.com/electron/electron/blob/master/docs/api/remote.md">Remote Docs</a>
+The remote module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.</p>
+<p>In Electron, GUI-related modules (such as dialog, menu etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the ipc module is necessary to send inter-process messages to the main process. With the remote module, you can invoke methods of the main process object without explicitly sending inter-process messages.</p>
+<p>I have used this mainly for native file access.  The <strong>remote</strong> module lets you get paths to files.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { remote } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'electron'</span>);
+
+<span class="hljs-comment">//Can't access the remote.app. feature except from within a function.  Probably after app has loaded.</span>
+<span class="hljs-comment">//pass the filename including extension, will return the path, relative to where the GroupCreate.EXE</span>
+<span class="hljs-comment">//is located in production and relative to where electron index.js is in Dev.</span>
+<span class="hljs-keyword">const</span> getLocalFile = <span class="hljs-function">(<span class="hljs-params">dataFile</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (process.env.NODE_ENV === <span class="hljs-string">'development'</span> || process.env.NODE_ENV === <span class="hljs-string">'dev-home'</span>) {
+        <span class="hljs-keyword">return</span> path.join(remote.app.getAppPath(), <span class="hljs-string">'/dataFiles'</span>, dataFile);
+    }
+    <span class="hljs-keyword">return</span> path.join(path.dirname(remote.app.getPath(<span class="hljs-string">'exe'</span>)), <span class="hljs-string">'/dataFiles'</span>, dataFile);
+};
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="ipc---inter-process-communication"></a><a href="#ipc---inter-process-communication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IPC - Inter-process Communication</h2>
+<p>Allows the Electron main application to communicate and send data to the BrowserWindow children.</p>
+<p><img src="https://dl.dropboxusercontent.com/s/lfbrf6ewnhg4jq2/electron-ipc-1.png" alt=""></p>
+<p>Notice that each process, electron and HTML (front-end), has it's own send and receive functions.</p>
+<p><strong>Front end (Main Window in diagram), you have:</strong></p>
+<ul>
+<li><strong>ipcRenderer.send</strong> - sends message back to <em>electron</em> process</li>
+<li><strong>ipcRenderer.on</strong> - sets up a listener for messages being sent to window.</li>
+</ul>
+<p><strong>Electron Process</strong></p>
+<ul>
+<li><strong>mainWindow.webContents.send</strong> - mainWindow is the handle to the window we are sending data to.</li>
+<li><strong>ipcMain.on</strong> - sets up a listener for messages being sent from a window (HTML/front-end)</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="send-and-receive-via-ipc-front-end"></a><a href="#send-and-receive-via-ipc-front-end" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Send and Receive via IPC (Front-end)</h4>
+<p>The first step is to use the <em>ipcRenderer</em> from electron in our HTML (or React or other front end) to send the message:</p>
+<p><strong>SEND From Front-end HTML</strong></p>
+<pre><code class="hljs css language-javascript">//--addTodo.html
+  &lt;script&gt;
+  const electron = require('electron');
+  const { ipcRenderer } = electron;
+
+    document.querySelector('form').addEventListener('submit', (event) =&gt; {
+      event.preventDefault();
+      //Get value from input element
+      const newTodo = event.target.querySelector('input').value;
+      //send via ipcRenderer process.  the 'todo:add' is whatever you want.
+      ipcRenderer.send('todo:add', newTodo);
+    });
+  &lt;/script&gt;
+</code></pre>
+<p>Note that the 'todo:add' argument is user specified and will be used on the receiving end also.  So you should use descriptive terms here.  The second argument is the value we are sending.</p>
+<p><strong>SEND from a React application.</strong>
+Pretty much the same as in HTML, but you will need to use the following to get at the ipcRenderer function.  The window.require is important, something about using the electron require that is in the global window space versus whatever webpack uses.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { ipcRenderer }  = <span class="hljs-built_in">window</span>.require(<span class="hljs-string">'electron'</span>);
+</code></pre>
+<p><strong>Receive From Front-end</strong></p>
+<pre><code class="hljs css language-javascript">//--main.html
+  &lt;script&gt;
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+
+    ipcRenderer.on('todo:add', (event, todo) =&gt; {
+        const li = document.createElement('li');
+        const text = document.createTextNode(todo);
+        li.appendChild(text);
+        document.querySelector('ul').appendChild(li);
+    });
+  &lt;/script&gt;
+</code></pre>
+<p>Note that, as you will see, this <em>window</em> (html file) has been targeted with a 'todo:add' message.  Meaning, when you send data from the electron process, you must send it to a specific window.</p>
+<h4><a class="anchor" aria-hidden="true" id="send-and-receive-via-ipc-in-electron-process"></a><a href="#send-and-receive-via-ipc-in-electron-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Send and Receive via IPC in Electron Process</h4>
+<p>In our main electron process (index.js), we get ipcMain from the electron object and set a listener on it.  This listener will fire whenever the event it is looking for happens:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { app, BrowserWindow, Menu, ipcMain } = electron;  <span class="hljs-comment">//destruction off the electron object</span>
+
+...
+
+<span class="hljs-comment">//Watch for the 'todo:add' event to happen, then execute the callback.</span>
+ipcMain.on(<span class="hljs-string">'todo:add'</span>, (event, todo) =&gt; {
+<span class="hljs-comment">//Target the window you want to receive the message (it must establish an "on" listener)</span>
+  mainWindow.webContents.send(<span class="hljs-string">'todo:add'</span>, todo);
+  addWindow.close();  <span class="hljs-comment">//Make sure you garbage collect this window in your window creation function.</span>
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="useful-npm-modules"></a><a href="#useful-npm-modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Useful NPM Modules</h2>
+<h3><a class="anchor" aria-hidden="true" id="electron-window-state"></a><a href="#electron-window-state" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Electron-Window-State</h3>
+<p>Stores and restores window sizes and positions in your Electron App.</p>
+<pre><code class="hljs">$ <span class="hljs-built_in">npm</span> install --save electron-<span class="hljs-built_in">window</span>-state
+</code></pre>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> windowStateKeeper = <span class="hljs-built_in">require</span>(<span class="hljs-string">'electron-window-state'</span>);
+<span class="hljs-keyword">let</span> win;
+ 
+app.on(<span class="hljs-string">'ready'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// Load the previous state with fallback to defaults</span>
+  <span class="hljs-keyword">let</span> mainWindowState = windowStateKeeper({
+    <span class="hljs-attr">defaultWidth</span>: <span class="hljs-number">1000</span>,
+    <span class="hljs-attr">defaultHeight</span>: <span class="hljs-number">800</span>
+  });
+ 
+  <span class="hljs-comment">// Create the window using the state information</span>
+  win = <span class="hljs-keyword">new</span> BrowserWindow({
+    <span class="hljs-string">'x'</span>: mainWindowState.x,
+    <span class="hljs-string">'y'</span>: mainWindowState.y,
+    <span class="hljs-string">'width'</span>: mainWindowState.width,
+    <span class="hljs-string">'height'</span>: mainWindowState.height
+  });
+ 
+  <span class="hljs-comment">// Let us register listeners on the window, so we can update the state</span>
+  <span class="hljs-comment">// automatically (the listeners will be removed when the window is closed)</span>
+  <span class="hljs-comment">// and restore the maximized or full screen state</span>
+  mainWindowState.manage(win);
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="cheatsheet"></a><a href="#cheatsheet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cheatsheet</h2>
+<p><strong>mac vs windows</strong>
+Check the <em>process.platform</em> variable</p>
+<ul>
+<li>'win32'</li>
+<li>'darwin' is mac</li>
+</ul>
+<p><strong>Hide icon on doc on mac</strong>
+<em>app.dock.hide()</em> But it doesn't work on windows (will throw error)</p>
+<p><strong>BrowserWindow event Listeners</strong></p>
+<ul>
+<li>'blur'</li>
+<li>'ready-to-show' - fires when the initial DOM has been rendered.</li>
+</ul>
+<pre><code class="hljs css language-javascript">...
+app.on(<span class="hljs-string">'ready'</span>, () =&gt; {
+  mainWindow = newBrowserWindow({
+    <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span>
+  });
+  mainWindow.loadURL(...);
+  mainWindow.on(<span class="hljs-string">'ready-to-show'</span>, () =&gt; {
+    mainWindow.show();
+  });
+});
+</code></pre>
+<ul>
+<li></li>
+</ul>
+<p><strong>BrowserWindow functions</strong></p>
+<pre><code class="hljs css language-javascript">  mainWindow = <span class="hljs-keyword">new</span> BrowserWindow({
+    <span class="hljs-attr">width</span>: <span class="hljs-number">300</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,
+    <span class="hljs-attr">frame</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">resizable</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span>
+  });
+  <span class="hljs-comment">//Loads the URL to show</span>
+  mainWindow.loadURL(<span class="hljs-string">`file://<span class="hljs-subst">${__dirname}</span>/src/index.html`</span>);
+  <span class="hljs-comment">//sets up an event listener</span>
+  mainWindow.on(<span class="hljs-string">'blur'</span>, () =&gt; {
+    <span class="hljs-comment">//hides the window</span>
+    mainWindow.hide();
+  });
+  <span class="hljs-comment">//shows the window</span>
+  mainWindow.show();
+  <span class="hljs-comment">//Get the size of the window</span>
+  <span class="hljs-keyword">const</span> {width, height} = mainWindow.getBounds();
+  mainWindow.setBounds({
+    x, <span class="hljs-comment">//x position of the upper left corner</span>
+    y, <span class="hljs-comment">//y position of the upper left corner</span>
+    height,
+    width
+  })
+</code></pre>
+<p><strong>backgroundThrottling</strong> - When an app loses focus chromium throttles the app.  If you have a timer of something else running, it will pretty much stop until the app gets focus.
+Pass the backgrounThrottling web preference to the BrowserWindow constructor to keep this from happening.</p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-keyword">constructor</span>(url) {
+    <span class="hljs-keyword">super</span>({
+      <span class="hljs-attr">width</span>: <span class="hljs-number">300</span>,
+      <span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,
+      <span class="hljs-attr">frame</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">resizable</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">webPreferences</span>: { <span class="hljs-attr">backgroundThrottling</span>: <span class="hljs-literal">false</span>}
+    });
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/electron/electron-react-boiler"><span class="arrow-prev">← </span><span>Electron React Boiler</span></a><a class="docs-next button" href="/my-code-docs/docs/electron/electron-packaging"><span>Electron Packaging</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#project-setup">Project Setup</a><ul class="toc-headings"><li><a href="#boiler-plate-code">Boiler Plate Code</a></li><li><a href="#browserwindow-config-object">BrowserWindow Config Object</a></li></ul></li><li><a href="#determining-which-windows-or-mac-platform">Determining Which Windows or Mac platform</a></li><li><a href="#tray-icons--apps">Tray Icons / Apps</a><ul class="toc-headings"><li><a href="#bounds-object">bounds object</a></li></ul></li><li><a href="#menus">Menus</a><ul class="toc-headings"><li><a href="#menu-templates">Menu Templates</a></li></ul></li><li><a href="#creating-a-new-window">Creating a New Window</a><ul class="toc-headings"><li><a href="#setting-the-window-title-and-icon">Setting the Window Title and Icon</a></li><li><a href="#frameless-windows">Frameless Windows</a></li></ul></li><li><a href="#creating-native-dialogs">Creating Native Dialogs</a></li><li><a href="#using-remote">Using Remote</a></li><li><a href="#ipc---inter-process-communication">IPC - Inter-process Communication</a></li><li><a href="#useful-npm-modules">Useful NPM Modules</a><ul class="toc-headings"><li><a href="#electron-window-state">Electron-Window-State</a></li></ul></li><li><a href="#cheatsheet">Cheatsheet</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

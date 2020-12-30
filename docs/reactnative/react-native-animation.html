@@ -1,0 +1,712 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>React Native Animation · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Expo App Using ReAnimated"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="React Native Animation · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## Expo App Using ReAnimated"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">React Native Animation</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="expo-app-using-reanimated"></a><a href="#expo-app-using-reanimated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Expo App Using ReAnimated</h2>
+<p>This will take you through setting up an application to use the Reanimated animation library as laid out by William Candillon from <a href="start-react-native.com">start-react-native.com</a></p>
+<h3><a class="anchor" aria-hidden="true" id="create-your-project"></a><a href="#create-your-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create your project</h3>
+<p>First you need create your project.  The command below will invoke expo to create a project.</p>
+<p>It will ask what type of project, simply choose one.</p>
+<pre><code class="hljs css language-bash">$ npx expo-cli init name-of-project
+$ <span class="hljs-built_in">cd</span> name-of-project
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="modify-the-tsconfigjson"></a><a href="#modify-the-tsconfigjson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modify the tsconfig.json</h3>
+<p>This is a link to the tsconfig that William Candillon uses</p>
+<p><a href="https://github.com/wcandillon/react-native-gestures-and-animations-workshop/blob/master/tsconfig.json">tsconfig additions</a></p>
+<p>The are the additional items that can be added to the default.</p>
+<pre><code class="hljs css language-json">    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="eslint-add-ons"></a><a href="#eslint-add-ons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>eslint add ons</h3>
+<pre><code class="hljs css language-bash">$ yarn add eslint eslint-config-react-native-wcandillon --dev
+
+NOT SURE about these @react-native-community/eslint-config eslint-plugin-import
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="create-eslintrc"></a><a href="#create-eslintrc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create .eslintrc</h3>
+<p>add the following to .eslintrc</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"extends"</span>: <span class="hljs-string">"react-native-wcandillon"</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="eslint-scripts"></a><a href="#eslint-scripts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>eslint scripts</h3>
+<p>Change in <code>package.json</code> the &quot;lint&quot; script and change the max warnings:</p>
+<pre><code class="hljs css language-json">    "lint": "eslint --ext .ts,.tsx .",
+    "tsc": "tsc",
+    "ci": "yarn lint &amp;&amp; yarn tsc"
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="react-navigation--reanimated--gesture-handler--redash"></a><a href="#react-navigation--reanimated--gesture-handler--redash" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React Navigation / Reanimated / gesture handler / Redash</h3>
+<p>Here is the basics need for react navigation</p>
+<pre><code class="hljs css language-bash">//<span class="hljs-comment"># Redash is a utility application that is used in reanimated animations</span>
+$ yarn add react-native-redash
+//<span class="hljs-comment"># Just the base React Navigation V5 installs</span>
+$ yarn add @react-navigation/native @react-navigation/stack
+//<span class="hljs-comment"># Reanimated and the gesture handler</span>
+$ expo install react-native-gesture-handler react-native-reanimated 
+//<span class="hljs-comment"># some other installes that are useful</span>
+$ expo install react-native-screens react-native-safe-area-context @react-native-community/masked-view
+//<span class="hljs-comment"># </span>
+$ expo install expo-asset expo-font expo-constants
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="reanimated-transitions"></a><a href="#reanimated-transitions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reanimated Transitions</h2>
+<p><a href="https://docs.swmansion.com/react-native-reanimated/docs/transitions">Reanimated Docs For Transitions</a></p>
+<h2><a class="anchor" aria-hidden="true" id="reanimated-timing-animations"></a><a href="#reanimated-timing-animations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reanimated Timing Animations</h2>
+<p>These would be animations where you need a value to vary over time so that you have animate a style property to animate it.</p>
+<p>For simple animations, using the React Native Animation API would probably be easier, but the Reanimated API does allow for more robust transitions.</p>
+<p>I'm sure this will all change in v2, but here goes.</p>
+<p>First thing, here are the common imports you will need for just about any timing animation:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> Animated, { Easing, interpolate } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-reanimated"</span>;
+<span class="hljs-keyword">import</span> { useClock, useValue } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-redash"</span>;
+
+<span class="hljs-keyword">const</span> {
+  Clock,
+  Value,
+  useCode,
+  <span class="hljs-keyword">set</span>,
+  block,
+  cond,
+  startClock,
+  stopClock,
+  clockRunning,
+  and,
+  not,
+  eq,
+  timing,
+} = Animated;
+</code></pre>
+<p><a href="https://wcandillon.github.io/react-native-redash/"><strong>react-native-redash</strong></a> has some utilities that make some things easier.  The primary ones are the <strong>useValue</strong> and <strong>useClock</strong>.  These create new Value and new Clock, with the added benefit that they will keep their identiity across component re-renders.  This is easier than using a Ref or Memo.</p>
+<p>Here is a sample code that animates a circle getting larger and then smaller.</p>
+<pre><code class="hljs css language-jsx">import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import Animated, { Easing } from "react-native-reanimated";
+import { useClock, useValue } from "react-native-redash";
+
+import { Button, StyleGuide } from "../Components";
+
+const {
+  Clock,
+  Value,
+  useCode,
+  set,
+  block,
+  cond,
+  startClock,
+  stopClock,
+  clockRunning,
+  and,
+  not,
+  eq,
+  timing,
+} = Animated;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-between",
+    backgroundColor: StyleGuide.palette.background,
+  },
+  redblock: {
+    backgroundColor: "red",
+    width: 100,
+    height: 100,
+  },
+  circle: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderColor: "black",
+    borderWidth: 1,
+  },
+});
+
+// This is called every frome I believe
+// It returns an animation value that we can then use to transform a View or other Component
+const runTiming = (clock) =&gt; {
+  // The timing function requires a clock, a state object and config object
+  // These could be imported or set outside this function for performance.
+  // We modify these objects in the block that we return.
+  const state = {
+    finished: new Value(0), // indicator of whether we are finished or not
+    position: new Value(0), // current position of animation node (usually what we are looking to be as final return value)
+    frameTime: new Value(0),
+    time: new Value(0),
+  };
+  const config = {
+    toValue: new Value(1), // our final value we are moving to
+    duration: 3000, // how long in ms to get from starting position to toValue
+    easing: Easing.inOut(Easing.ease), // easing function
+  };
+  // The block is a block of code to execute 
+  // the last item in the array is what is returned
+  // first condition -&gt; clock is NOT running, THEN set state.time = 0 ELSE run timing function
+  // second condition -&gt; if state.finished === 1 (i.e animation is finished), THEN execute a block of code in [ ]
+  // these sets pretty much reset everything so that when the clock starts again, the animation picks up where it left off.
+  // last piece of code is just state.position and this is then the return value.
+  return block([
+    cond(
+      not(clockRunning(clock)),
+      set(state.time, 0),
+      timing(clock, state, config)
+    ),
+    cond(eq(state.finished, 1), [
+      set(state.finished, 0),
+      set(state.time, 0),
+      set(state.frameTime, 0),
+      set(config.toValue, cond(eq(state.position, 1), 0, 1)),
+    ]),
+    state.position,
+  ]);
+};
+const MyTiming = () =&gt; {
+  const [play, setPlay] = useState(false);
+  const clock = useClock();
+  const scale = useValue(0);
+  // If you didn't need to start and stop, this would be the one line of code that would start 
+  // the animation
+  // useCode(() =&gt; [startClock(clock), set(scale, runTiming(clock))], []);
+  // Need a animation value node that will be 0 (off) or 1 (on)
+  const isPlaying = useValue(0);
+  // set isPlaying based on the state value of play
+  // notice the useCode hook has a dependancy array so that it is only run if play changes.
+  useCode(() =&gt; set(isPlaying, play ? 1 : 0), [play]);
+  // This is what controls the animation
+  // first condition -&gt; isPlaying (true) and clock NOT running, then start clock (startClock is from Animated)
+  // second condition -&gt; isPlaying (false) and clock IS running, then stop clock (stopClock is from Animated)
+  // last part of block -&gt; set the scale value based on what the runTiming function returns
+  useCode(
+    () =&gt; [
+      cond(and(isPlaying, not(clockRunning(clock))), startClock(clock)),
+      cond(and(not(isPlaying), clockRunning(clock)), stopClock(clock)),
+      set(scale, runTiming(clock)),
+    ],
+    []
+  );
+
+  return (
+    &lt;View style={styles.container}&gt;
+      &lt;View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}&gt;
+        &lt;Animated.View
+          style={[
+            styles.circle,
+            {
+              transform: [
+                {
+                  scale: scale.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [1, 4],
+                  }),
+                },
+              ],
+            },
+          ]}
+        &gt;&lt;/Animated.View&gt;
+      &lt;/View&gt;
+      &lt;Button
+        label={play ? "Pause" : "Play"}
+        primary
+        onPress={() =&gt; setPlay((prev) =&gt; !prev)}
+      /&gt;
+    &lt;/View&gt;
+  );
+};
+
+export default MyTiming;
+</code></pre>
+<p><strong>Using React Native's Animation</strong></p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { StyleSheet, View, Animated, Easing } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+
+<span class="hljs-keyword">import</span> { Button, StyleGuide } <span class="hljs-keyword">from</span> <span class="hljs-string">"../Components"</span>;
+
+<span class="hljs-keyword">const</span> styles = StyleSheet.create({
+  <span class="hljs-attr">container</span>: {
+    <span class="hljs-attr">flex</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">justifyContent</span>: <span class="hljs-string">"space-between"</span>,
+    <span class="hljs-attr">backgroundColor</span>: StyleGuide.palette.background,
+  },
+  <span class="hljs-attr">redblock</span>: {
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">"red"</span>,
+    <span class="hljs-attr">width</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">100</span>,
+  },
+  <span class="hljs-attr">circle</span>: {
+    <span class="hljs-attr">width</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">borderRadius</span>: <span class="hljs-number">50</span>,
+    <span class="hljs-attr">borderColor</span>: <span class="hljs-string">"black"</span>,
+    <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">1</span>,
+  },
+});
+
+<span class="hljs-keyword">const</span> MyTiming = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> [play, setPlay] = useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> [toValue, setToValue] = useState(<span class="hljs-number">1</span>);
+  <span class="hljs-keyword">const</span> animScale = <span class="hljs-keyword">new</span> Animated.Value(<span class="hljs-number">0</span>);
+
+  <span class="hljs-keyword">const</span> outBreath = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+    Animated.timing(animScale, {
+      <span class="hljs-attr">duration</span>: <span class="hljs-number">3000</span>,
+      <span class="hljs-attr">easing</span>: Easing.inOut(Easing.ease),
+      <span class="hljs-attr">toValue</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">useNativeDriver</span>: <span class="hljs-literal">true</span>,
+    }).start(inBreath);
+  <span class="hljs-keyword">const</span> inBreath = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+    Animated.timing(animScale, {
+      <span class="hljs-attr">duration</span>: <span class="hljs-number">3000</span>,
+      <span class="hljs-attr">easing</span>: Easing.inOut(Easing.ease),
+      <span class="hljs-attr">toValue</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">useNativeDriver</span>: <span class="hljs-literal">true</span>,
+    }).start(outBreath);
+  outBreath();
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.container}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">flex:</span> <span class="hljs-attr">1</span>, <span class="hljs-attr">justifyContent:</span> "<span class="hljs-attr">center</span>", <span class="hljs-attr">alignItems:</span> "<span class="hljs-attr">center</span>" }}&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{[</span>
+            <span class="hljs-attr">styles.circle</span>,
+            {
+              <span class="hljs-attr">transform:</span> [
+                {
+                  <span class="hljs-attr">scale:</span> <span class="hljs-attr">animScale.interpolate</span>({
+                    <span class="hljs-attr">inputRange:</span> [<span class="hljs-attr">0</span>, <span class="hljs-attr">1</span>],
+                    <span class="hljs-attr">outputRange:</span> [<span class="hljs-attr">1</span>, <span class="hljs-attr">4</span>],
+                  }),
+                },
+              ],
+            },
+          ]}
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+        <span class="hljs-attr">label</span>=<span class="hljs-string">{play</span> ? "<span class="hljs-attr">Pause</span>" <span class="hljs-attr">:</span> "<span class="hljs-attr">Play</span>"}
+        <span class="hljs-attr">primary</span>
+        <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> setPlay((prev) =&gt; !prev)}
+      /&gt;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+};
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> MyTiming;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="animatedevent"></a><a href="#animatedevent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Animated.event()</h2>
+<p>The purpose of Animated.event() is to set Animated.value nodes by mapping data from parameters passed in.  Usually this is the native Event, but in the case of the Pan Responder, it would be both.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//The first parameter is an array of mappings.  This array will correspond to the number of arguments that will be</span>
+<span class="hljs-comment">//passed into the function that Animated.event creates.  Usually this is just the native event, but many of the Pan Responder callbacks will pass (event, gestureState).</span>
+<span class="hljs-comment">//Found that in the Pan Responder, useNativeDriver set to true gave errors.</span>
+
+Animated.event([{...}, {...}, ...], { <span class="hljs-attr">listener</span>: fn, <span class="hljs-attr">useNativeDriver</span>: <span class="hljs-literal">false</span> | <span class="hljs-literal">true</span>})
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="pan-responder"></a><a href="#pan-responder" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pan Responder</h2>
+<p>The Pan Responder is the gesture handler that comes with React Native.  I find it a bit easier to use than the Pan Gesture Handler from the Reanimted folks.</p>
+<h3><a class="anchor" aria-hidden="true" id="drag-and-drop-flatlist"></a><a href="#drag-and-drop-flatlist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Drag and Drop Flatlist</h3>
+<p>Using the Pan Responder to build a drag and drop FlatList.</p>
+<p>There are a number of measurements you will need to help you calculate everything.</p>
+<p><img src="../assets/react-native-panresponder-001.png" alt="image-20200822235105551"></p>
+<h4><a class="anchor" aria-hidden="true" id="scrolling-list-automatically"></a><a href="#scrolling-list-automatically" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scrolling list automatically</h4>
+<p>As the item you are moving gets closer to the top or bottom, you will want to have the list start to scroll automatically.</p>
+<p>This is done via the <strong>scrollToOffset()</strong> function that is available to the FlatList.  To use it, you will need to create a ref and assing the FlatList to it.</p>
+<p>Then, in the <strong>animateList</strong> function, you can check how close you are to the top or bottom of the flatlist and scroll based on this:</p>
+<p><img src="/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-panresponder-002.png" alt="image-20200823000955896"></p>
+<h2><a class="anchor" aria-hidden="true" id="gesture-handlers---reanimated"></a><a href="#gesture-handlers---reanimated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gesture Handlers - Reanimated</h2>
+<p><a href="https://docs.swmansion.com/react-native-gesture-handler/docs/handler-pan">Pan Gesture Handler Docs</a></p>
+<p>You will need to make sure you have installed this using:</p>
+<pre><code class="hljs css language-bash">$ expo install react-native-gesture-handler
+</code></pre>
+<p>In your code you will use the following import:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// PanGestureHandler is a components and State are contants that we can compare to the real state.</span>
+<span class="hljs-keyword">import</span> { PanGestureHandler, State } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-gesture-handler"</span>;
+</code></pre>
+<p>To use the <em>PanGestureHandler</em> you will need to wrap it around the component(s) you want to control/capture gestures for.</p>
+<p>Here is an example:</p>
+<p><strong>Capture Gestures</strong></p>
+<pre><code class="hljs css language-jsx">&lt;PanGestureHandler
+    onHandlerStateChange={myGestureEvent}
+    onGestureEvent={myGestureEvent}
+&gt;
+    &lt;Animated.View
+        style={{
+            transform: [{ translateX }, { translateY }],
+        }}
+    &gt;
+        &lt;Card /&gt;
+    &lt;/Animated.View&gt;
+&lt;/PanGestureHandler&gt;
+</code></pre>
+<p>Most likely the view inside will be an <strong>Animated.View</strong> as you probably want to move something with the gesture.</p>
+<p>You will need to properties on the <strong>PanGestureHandler</strong> to capture and use the gestures movement.</p>
+<p><strong>onHandlerStateChange</strong>, <strong>onGestureEvent</strong></p>
+<p>Can't find a clear definition of what they are, but if you want to move something, you need them both.  <strong>myGestureEvent</strong> is defined as an Animated event.  What I can tell with an Animated.event is that they map what the handler returns to variables which can then be used in translations to move a view.</p>
+<h3><a class="anchor" aria-hidden="true" id="redash-helper-for-pangesturehandler"></a><a href="#redash-helper-for-pangesturehandler" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redash Helper for PanGestureHandler</h3>
+<p>The <em>react-native-redash</em> package has a helper that returns all the event handlers needed by the PanGestureHandler.</p>
+<p><strong>Import and Use onGestureEvent</strong></p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> { onGestureEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-redash"</span>;
+...
+<span class="hljs-comment">// This is from redash and would take care of the long hand way we did things</span>
+<span class="hljs-comment">// &lt;PanGestureHandler {...gestureHandler}&gt; ... &lt;/PanGestureHandler&gt;</span>
+<span class="hljs-keyword">const</span> gestureHandler = onGestureEvent({
+  state,
+  translationX,
+  translationY,
+});
+...
+return (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.container}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">PanGestureHandler</span> {<span class="hljs-attr">...gestureHandler</span>}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>
+        <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+          <span class="hljs-attr">transform:</span> [{ <span class="hljs-attr">translateX</span> }, { <span class="hljs-attr">translateY</span> }],
+        }}
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">PanGestureHandler</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+);
+
+</code></pre>
+<p>We are just spreading the return object from the <strong>onGestureEvent</strong>.</p>
+<p>Here is the full example that shows how to get a card to move on the screen while saving the last value it was at when the gesture stopped.  This lets the movement pick up where it left off.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { StyleSheet, View, Dimensions, Text } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+<span class="hljs-keyword">import</span> { PanGestureHandler, State } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-gesture-handler"</span>;
+<span class="hljs-keyword">import</span> Animated, { block, multiply } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-reanimated"</span>;
+<span class="hljs-keyword">import</span> { diffClamp, onGestureEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-redash"</span>;
+
+<span class="hljs-keyword">import</span> Card <span class="hljs-keyword">from</span> <span class="hljs-string">"../useTransition/Card"</span>;
+
+<span class="hljs-keyword">const</span> { Value, cond, <span class="hljs-keyword">set</span>, eq, add, event } = Animated;
+const { width, height } = Dimensions.get(<span class="hljs-string">"window"</span>);
+
+<span class="hljs-keyword">const</span> withOffset = (
+  value: Animated.Value&lt;number&gt;,
+  <span class="hljs-attr">state</span>: Animated.Value&lt;State&gt;
+) =&gt; {
+  <span class="hljs-keyword">const</span> offset = <span class="hljs-keyword">new</span> Value(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">return</span> cond(
+    eq(state, State.END),
+    [<span class="hljs-keyword">set</span>(offset, add(offset, value)), offset],
+    add(offset, value)
+  );
+};
+const PanGesture = () =&gt; {
+  <span class="hljs-keyword">const</span> state = <span class="hljs-keyword">new</span> Value(State.UNDETERMINED);
+  <span class="hljs-keyword">const</span> translationX = <span class="hljs-keyword">new</span> Value(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> translationY = <span class="hljs-keyword">new</span> Value(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> CARD_WIDTH = <span class="hljs-number">300</span>;
+  <span class="hljs-keyword">const</span> CARD_HEIGHT = <span class="hljs-number">200</span>;
+  <span class="hljs-number">0</span>;
+  <span class="hljs-comment">// This is from redash and would take care of the long hand way we did things</span>
+  <span class="hljs-comment">// &lt;PanGestureHandler {...gestureHandler}&gt; ... &lt;/PanGestureHandler&gt;</span>
+  <span class="hljs-keyword">const</span> gestureHandler = onGestureEvent({
+    state,
+    translationX,
+    translationY,
+  });
+
+  <span class="hljs-comment">// Long hand way to create the event</span>
+  <span class="hljs-comment">// the event (Animated.event) maps the values in the inner object</span>
+  <span class="hljs-comment">// to those variables for use in styles to transform (move) a view</span>
+  <span class="hljs-keyword">const</span> myGestureEvent = event([
+    {
+      <span class="hljs-attr">nativeEvent</span>: {
+        state,
+        translationX,
+        translationY,
+      },
+    },
+  ]);
+  <span class="hljs-keyword">const</span> translateX = diffClamp(
+    withOffset(translationX, state),
+    <span class="hljs-number">0</span>,
+    width - CARD_WIDTH
+  );
+  <span class="hljs-keyword">const</span> translateY = diffClamp(
+    withOffset(translationY, state),
+    <span class="hljs-number">35</span>,
+    height - CARD_HEIGHT
+  );
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.container}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">PanGestureHandler</span> {<span class="hljs-attr">...gestureHandler</span>}&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+            <span class="hljs-attr">transform:</span> [{ <span class="hljs-attr">translateX</span> }, { <span class="hljs-attr">translateY</span> }],
+          }}
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">PanGestureHandler</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> PanGesture;
+
+<span class="hljs-keyword">const</span> styles = StyleSheet.create({
+  <span class="hljs-attr">container</span>: {
+    <span class="hljs-attr">flex</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">"#ccc"</span>,
+  },
+});
+</code></pre>
+<p><strong>Some Notes</strong></p>
+<p>The <strong>diffClamp</strong> function sets boundaries for your values.  Here that would be the translateX and translateY values.</p>
+<blockquote>
+<p>Use the <strong>diffClamp</strong> from <strong>redash</strong> and NOT reanimated.</p>
+</blockquote>
+<p>From what I can tell the translateX and Y values of a view are the <strong>top left</strong> of the container.</p>
+<p><img src="/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-animations-clamp-001.png" alt="image-20200802235601734"></p>
+<h2><a class="anchor" aria-hidden="true" id="forcegesturehandler---software-mansion-reanimated"></a><a href="#forcegesturehandler---software-mansion-reanimated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ForceGestureHandler - Software Mansion (Reanimated)</h2>
+<p>The force gesture handle is for iOS only AND only for iPhones from 6s through iPhone X.  They stopped supporting force touch or as they call it 3D Touch with the iPhone 11 forward. <a href="https://www.businessinsider.com/apple-discontinues-3d-touch-iphone-11-replaces-with-haptic-touch-2019-9?op=1">Article on this discontinuation of 3D touch</a></p>
+<p>What they now use is the Long Press with haptics and call it &quot;Haptic Touch&quot;.  The article states:</p>
+<blockquote>
+<p>The difference is that the new iPhones will provide haptic feedback, or small vibration jolts in response to long presses to make the interface more intuitive.</p>
+</blockquote>
+<p>You will need to provide two functions</p>
+<ul>
+<li><p>onGestureEvent</p></li>
+<li><p>onHandlerStateChange - When the state changes this will run.  These are the state from the State enum import</p>
+<p><code>*import* { State, ForceTouchGestureHandler } *from* &quot;react-native-gesture-handler&quot;;</code></p>
+<ul>
+<li>State.UNDETERMINED = 0</li>
+<li>State.BEGAN = 2</li>
+<li>State.ACTIVE = 4</li>
+<li>State.END = 5</li>
+</ul></li>
+</ul>
+<p>Here is the nativeEvent Object returned by this handler:</p>
+<pre><code class="hljs css language-javascript">nativeEvent {
+  <span class="hljs-string">"absoluteX"</span>: <span class="hljs-number">46</span>,
+  <span class="hljs-string">"absoluteY"</span>: <span class="hljs-number">398</span>,
+  <span class="hljs-string">"force"</span>: <span class="hljs-number">0.4475</span>,
+  <span class="hljs-string">"handlerTag"</span>: <span class="hljs-number">49</span>,
+  <span class="hljs-string">"numberOfPointers"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">"oldState"</span>: <span class="hljs-number">4</span>,
+  <span class="hljs-string">"state"</span>: <span class="hljs-number">5</span>,
+  <span class="hljs-string">"target"</span>: <span class="hljs-number">4067</span>,
+  <span class="hljs-string">"x"</span>: <span class="hljs-number">31</span>,
+  <span class="hljs-string">"y"</span>: <span class="hljs-number">51</span>,
+}
+</code></pre>
+<p>Here is a sample component with some animations that run when force touch is actived and when it ends.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { Dimensions } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+<span class="hljs-keyword">import</span> { StyleSheet, Text, View, Animated } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+<span class="hljs-keyword">import</span> { State, ForceTouchGestureHandler } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-gesture-handler"</span>;
+
+<span class="hljs-keyword">const</span> { width, height } = Dimensions.get(<span class="hljs-string">"window"</span>);
+<span class="hljs-keyword">const</span> positionFactor = <span class="hljs-built_in">Math</span>.floor((width - <span class="hljs-number">50</span>) / <span class="hljs-number">10</span>);
+
+<span class="hljs-keyword">const</span> ForceTouchUserRating = <span class="hljs-function">(<span class="hljs-params">{ userRating, updateUserRating }</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> forceVal = React.useRef(<span class="hljs-keyword">new</span> Animated.Value(<span class="hljs-number">0</span>)).current;
+  <span class="hljs-keyword">const</span> xPos = React.useRef(<span class="hljs-keyword">new</span> Animated.Value(<span class="hljs-number">0</span>)).current;
+  <span class="hljs-comment">// Used to set User Rating Text higher when gesture active</span>
+  <span class="hljs-comment">// Turned on in _onGestureEvent and off in the "EndXPosAnim" callback.</span>
+  <span class="hljs-keyword">const</span> [gestureActive, setGestureActive] = React.useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> [currRating, setCurrRating] = React.useState(<span class="hljs-number">0</span>);
+
+  <span class="hljs-comment">//Animation on gesture START/activation</span>
+  <span class="hljs-keyword">const</span> gestureStartAnim = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+    Animated.spring(forceVal, {
+      <span class="hljs-attr">toValue</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">bounciness</span>: <span class="hljs-number">15</span>,
+      <span class="hljs-attr">speed</span>: <span class="hljs-number">10</span>,
+      <span class="hljs-attr">useNativeDriver</span>: <span class="hljs-literal">true</span>,
+    }).start();
+  <span class="hljs-comment">//Animation on gesture END</span>
+  <span class="hljs-keyword">const</span> gestureEndAnim = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+    Animated.timing(forceVal, {
+      <span class="hljs-attr">toValue</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">duration</span>: <span class="hljs-number">400</span>,
+      <span class="hljs-attr">useNativeDriver</span>: <span class="hljs-literal">true</span>,
+    }).start(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> setGestureActive(<span class="hljs-literal">false</span>));
+  <span class="hljs-comment">//Animation on Gesture End for translateX</span>
+  <span class="hljs-keyword">const</span> EndXPosAnim = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+    Animated.spring(xPos, {
+      <span class="hljs-attr">toValue</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">damping</span>: <span class="hljs-number">10</span>,
+      <span class="hljs-attr">useNativeDriver</span>: <span class="hljs-literal">true</span>,
+    }).start();
+
+  <span class="hljs-keyword">const</span> _onGestureEvent = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> { force, absoluteY, y, absoluteX, x, oldState, state } = event.nativeEvent;
+    setGestureActive(<span class="hljs-literal">true</span>);
+    xPos.setValue(absoluteX - <span class="hljs-number">66</span>);
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Math</span>.floor(absoluteX / positionFactor) &gt;= <span class="hljs-number">10</span>) {
+      setCurrRating(<span class="hljs-number">10</span>);
+    } <span class="hljs-keyword">else</span> {
+      setCurrRating(<span class="hljs-built_in">Math</span>.floor(absoluteX / positionFactor));
+    }
+  };
+
+  <span class="hljs-keyword">const</span> _onHandlerStateChange = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+    <span class="hljs-comment">// console.log(State.ACTIVE, State.UNDETERMINED, State.BEGAN, State.END);</span>
+    <span class="hljs-comment">// Event is over</span>
+
+    <span class="hljs-keyword">let</span> { oldState, state } = event.nativeEvent;
+    <span class="hljs-keyword">if</span> (state === State.BEGAN) {
+      gestureStartAnim();
+    }
+    <span class="hljs-keyword">if</span> (state === State.END) {
+      gestureEndAnim();
+    }
+    <span class="hljs-keyword">if</span> (oldState === State.ACTIVE) {
+      <span class="hljs-comment">//forceVal.setValue(0);</span>
+      <span class="hljs-comment">//xPos.setValue(0);</span>
+      EndXPosAnim();
+      updateUserRating(currRating);
+    }
+  };
+
+  React.useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    setCurrRating(userRating);
+  }, [userRating]);
+
+  <span class="hljs-comment">// If force touch not available, don't return anything</span>
+  <span class="hljs-comment">// Calling component needs to have fallback (UserRating component)</span>
+  <span class="hljs-keyword">if</span> (!ForceTouchGestureHandler.forceTouchAvailable) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+  }
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ForceTouchGestureHandler</span>
+        <span class="hljs-attr">feedbackOnActivation</span>
+        <span class="hljs-attr">minForce</span>=<span class="hljs-string">{0.5}</span>
+        <span class="hljs-attr">onGestureEvent</span>=<span class="hljs-string">{_onGestureEvent}</span>
+        <span class="hljs-attr">onHandlerStateChange</span>=<span class="hljs-string">{_onHandlerStateChange}</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">{[</span>
+            <span class="hljs-attr">styles.box</span>,
+            <span class="hljs-attr">gestureActive</span> ? { <span class="hljs-attr">justifyContent:</span> "<span class="hljs-attr">flex-start</span>" } <span class="hljs-attr">:</span> { <span class="hljs-attr">justifyContent:</span> "<span class="hljs-attr">center</span>" },
+            {
+              <span class="hljs-attr">transform:</span> [
+                { <span class="hljs-attr">translateX:</span> <span class="hljs-attr">xPos</span> },
+                {
+                  <span class="hljs-attr">translateY:</span> <span class="hljs-attr">forceVal.interpolate</span>({
+                    <span class="hljs-attr">inputRange:</span> [<span class="hljs-attr">0</span>, <span class="hljs-attr">1</span>],
+                    <span class="hljs-attr">outputRange:</span> [<span class="hljs-attr">0</span>, <span class="hljs-attr">-35</span>],
+                    <span class="hljs-attr">extrapolate:</span> "<span class="hljs-attr">clamp</span>",
+                  }),
+                },
+                { <span class="hljs-attr">scale:</span> <span class="hljs-attr">Animated.add</span>(<span class="hljs-attr">1</span>, <span class="hljs-attr">forceVal</span>) },
+              ],
+            },
+          ]}
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.userRating}</span>&gt;</span>{currRating}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ForceTouchGestureHandler</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> ForceTouchUserRating;
+
+<span class="hljs-keyword">const</span> styles = StyleSheet.create({
+  <span class="hljs-attr">box</span>: {
+    <span class="hljs-attr">width</span>: <span class="hljs-number">60</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">30</span>,
+    <span class="hljs-attr">borderRadius</span>: <span class="hljs-number">15</span>,
+    <span class="hljs-attr">justifyContent</span>: <span class="hljs-string">"center"</span>,
+    <span class="hljs-attr">alignItems</span>: <span class="hljs-string">"center"</span>,
+    <span class="hljs-attr">paddingHorizontal</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">"yellow"</span>,
+    <span class="hljs-attr">zIndex</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">borderColor</span>: <span class="hljs-string">"#777"</span>,
+    <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">1</span>,
+  },
+  <span class="hljs-attr">userRating</span>: {
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-number">18</span>,
+    <span class="hljs-attr">fontWeight</span>: <span class="hljs-string">"800"</span>,
+  },
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="longpressgesturehandler---software-mansion-reanimated"></a><a href="#longpressgesturehandler---software-mansion-reanimated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LongPressGestureHandler - Software Mansion (Reanimated)</h2>
+<p>As stated in the Force Gesture information above, there is no longer &quot;force&quot; or 3D Touch on iPhones, but instead it is called &quot;Haptic Touch&quot;.</p>
+<p>Haptic Touch is just a long press coupled with haptic feedback.</p>
+<p>To accomplish this in React Native, we will use Software Mansion's <a href="https://github.com/software-mansion/react-native-gesture-handler">react-native-gesture-handler</a>, which is part of Expo.  This gets us part way there, as it contains a LongPressGestureHandler, but it does not have Haptic feedback.  To get Haptic Feedback, you will need to install <a href="https://docs.expo.io/versions/latest/sdk/haptics/">expo-haptics</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="haptics"></a><a href="#haptics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Haptics</h3>
+<p>There are two primary functions that I use with haptics:</p>
+<ul>
+<li><code>Haptics.notificationAsync(type)</code> - Give distinct haptics for Success, Warning and Error:
+<ul>
+<li><code>Haptics.NotificationFeedbackType.{Success, Warning, Error}</code></li>
+</ul></li>
+<li>Haptics.impactAsync(style) - Lets you set style as Light, Medium, Heavy
+<ul>
+<li><code>Haptics.ImpactFeedbackStyle.{Light, Medium, Heavy}</code></li>
+</ul></li>
+</ul>
+<p><strong>Why not just use a Button Long Press</strong></p>
+<p>If you only need a long press and then an action, a button or touchableOpacity is fine, but if you want to use the long press to start a gesture that you can use to animate something to follow the fingers movement, then you will need the LongPressGestureHandler.</p>
+<h2><a class="anchor" aria-hidden="true" id="css-overlays"></a><a href="#css-overlays" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSS Overlays</h2>
+<p>Many times you will want to line up objects on top of one another.  The stanard style in React Native to do this is:</p>
+<pre><code class="hljs css language-javascript">styles = StyleSheet.create({
+  <span class="hljs-attr">overlay</span>: {
+        <span class="hljs-attr">position</span>: <span class="hljs-string">"absolute"</span>,
+    <span class="hljs-attr">top</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">bottom</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">right</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">left</span>: <span class="hljs-number">0</span>,
+  }
+})
+</code></pre>
+<p>This is used so often, React Native has a helper for it. <code>StyleSheet.absoluteFillObject</code>. It returns the exact object from above, so you can spread it in your styles variable.</p>
+<pre><code class="hljs css language-javascript">styles = StyleSheet.create({
+  <span class="hljs-attr">overlay</span>: {
+        ...StyleSheet.absoluteFillObject
+  }
+})
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="rotating-overlayed-views"></a><a href="#rotating-overlayed-views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rotating Overlayed Views</h3>
+<p>This can be applied to a number of different things and not just overlayed views.  It shows how the transform array in a style is applied.</p>
+<p>It looks like it is in the order that the transforms are specified.  Below we have three cards that are overlayed.  We rotate them with this code and get:</p>
+<pre><code class="hljs css language-jsx">&lt;View style={styles.container}&gt;
+  // Cards is an array with 3 empty values so that we get 3 cards.
+      {cards.map((id, i) =&gt; {
+         //directions lets us dynamically assign a different angle for each card.
+        let direction = 0;
+        if (i === 0) {
+          direction = -1;
+        } else if (i === 2) {
+          direction = 1;
+        }
+        const rotate = direction * (toggled ? Math.PI / 6 : 0);
+
+        return (
+          &lt;Animated.View
+            key={i * id}
+            style={[
+              styles.overlay,
+              {
+                transform: [
+                  { translateX: -150 },
+                  { rotate: rotate + "rad" },
+                  { translateX: 150 },
+                ],
+              },
+            ]}
+          &gt;
+            &lt;Card index={i} /&gt;
+          &lt;/Animated.View&gt;
+        );
+      })}
+      &lt;View style={{ marginBottom: 40 }}&gt;
+        &lt;Button
+          title={toggled ? "Reset" : "Start"}
+          onPress={() =&gt; setToggled(toggled ? 0 : 1)}
+        /&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  );
+</code></pre>
+<p><img src="../assets/react-native-animation-overlays-001.png" alt="image-20200727234854343"></p>
+<p>However, if you did not apply the translateX transforms you would get this:</p>
+<p><img src="../assets/react-native-animation-overlays-002.png" alt="image-20200727235037173"></p>
+<p>So the translateX moves the axis that the rotation will be performed around</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#expo-app-using-reanimated">Expo App Using ReAnimated</a><ul class="toc-headings"><li><a href="#create-your-project">Create your project</a></li><li><a href="#modify-the-tsconfigjson">Modify the tsconfig.json</a></li><li><a href="#eslint-add-ons">eslint add ons</a></li><li><a href="#create-eslintrc">Create .eslintrc</a></li><li><a href="#eslint-scripts">eslint scripts</a></li><li><a href="#react-navigation--reanimated--gesture-handler--redash">React Navigation / Reanimated / gesture handler / Redash</a></li></ul></li><li><a href="#reanimated-transitions">Reanimated Transitions</a></li><li><a href="#reanimated-timing-animations">Reanimated Timing Animations</a></li><li><a href="#animatedevent">Animated.event()</a></li><li><a href="#pan-responder">Pan Responder</a><ul class="toc-headings"><li><a href="#drag-and-drop-flatlist">Drag and Drop Flatlist</a></li></ul></li><li><a href="#gesture-handlers---reanimated">Gesture Handlers - Reanimated</a><ul class="toc-headings"><li><a href="#redash-helper-for-pangesturehandler">Redash Helper for PanGestureHandler</a></li></ul></li><li><a href="#forcegesturehandler---software-mansion-reanimated">ForceGestureHandler - Software Mansion (Reanimated)</a></li><li><a href="#longpressgesturehandler---software-mansion-reanimated">LongPressGestureHandler - Software Mansion (Reanimated)</a><ul class="toc-headings"><li><a href="#haptics">Haptics</a></li></ul></li><li><a href="#css-overlays">CSS Overlays</a><ul class="toc-headings"><li><a href="#rotating-overlayed-views">Rotating Overlayed Views</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

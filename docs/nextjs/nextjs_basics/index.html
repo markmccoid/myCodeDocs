@@ -1,0 +1,719 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>NextJS Basics · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Installing"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="NextJS Basics · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="# Installing"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>NextJS</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">NextJS Basics</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="installing"></a><a href="#installing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing</h1>
+<p>You can use <code>creat-next-app</code> to get started very quickly.</p>
+<p><strong>npm</strong> or <strong>yarn</strong></p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> npx create-next-app</span>
+<span class="hljs-meta">#</span><span class="bash"> OR</span>
+<span class="hljs-meta">$</span><span class="bash"> yarn create next-app</span>
+</code></pre>
+<p>The scripts in <code>package.json</code> are</p>
+<pre><code class="hljs css language-json">"scripts": {
+  "dev": "next",
+  "build": "next build",
+  "start": "next start"
+}
+</code></pre>
+<p>So what do these commands do?</p>
+<p><code>next</code> Will start Next.js in dev mode with hot reloading.</p>
+<p><code>next build</code> Will build your project and ready it for production.</p>
+<p><code>next start</code> Will start your built app, used in production.</p>
+<p>The following is from the <a href="https://hendrixer.github.io/nextjs-course/">FrontEnd Masters Next JS Course Website</a></p>
+<h1><a class="anchor" aria-hidden="true" id="routing-with-pages"></a><a href="#routing-with-pages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Routing with Pages</h1>
+<p>You don't need to interact with a router directly to create pages. Next.js has built on conventions to make creating routes as easy as creating a file 🤙🏾.</p>
+<p>To get started, create a directory on your called <code>/pages</code>. Next.js will associate any file in this directory as a route. The file names determine the route name or pattern, and whatever component is exported is the actual page.</p>
+<p>Now let's create an index route by creating a file: <code>/pages/index.jsx</code>.</p>
+<p>Next, let's create a component and export it:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Index Page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+</code></pre>
+<p>Start your dev server:</p>
+<p><strong>npm</strong></p>
+<pre><code class="hljs css language-shell">npm run dev
+</code></pre>
+<p><strong>yarn</strong></p>
+<pre><code class="hljs css language-shell">yarn dev
+</code></pre>
+<p>We should now be able to navigate the browser to the index route of our app and see our h1's content. I really appreciate conventions like this that make developing apps that much more fun!</p>
+<p>Ok, big deal, we created an index page, but what about paths like <code>myapp.com/project/settings</code> and <code>myapp.com/user/1</code> where <code>1</code> is a parameter? Don't even trip; Next.js has you covered there.</p>
+<h2><a class="anchor" aria-hidden="true" id="folders-and-routes"></a><a href="#folders-and-routes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Folders and routes</h2>
+<p>To create a path like <code>/project/settings</code> we can use folders in our <code>/pages</code> directory. For our note taking app, we need the following routes for now:</p>
+<pre><code class="hljs css language-text">index => /
+all notes => /notes
+one note => /notes/:id
+</code></pre>
+<p>We already created the index route; let's create the all notes route:</p>
+<pre><code class="hljs css language-text">pages
+  notes
+    index.jsx
+</code></pre>
+<p>By adding an <code>index</code> page in a folder, we're telling Next.js that we want this component to be the index route for this path. So in this case, navigating to <code>/notes</code> will render the <code>pages/notes/index.jsx</code> component.</p>
+<p>Here's a placeholder component for that page that you can use.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+</code></pre>
+<blockquote>
+<p>🧠  <strong>reminder</strong>: We'll fill these pages out later with some excellent copy and pasting.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="dynamic-routes"></a><a href="#dynamic-routes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dynamic routes</h2>
+<p>Next.js makes it easy to create dynamic routes. Depending on if and how you want those pages to be prerendered will determine how you set them up. We're going to focus on creating dynamic routes that will not be built at build time but instead at run time on the server.</p>
+<blockquote>
+<p>🧠  <strong>reminder</strong>: We'll cover prerendering later, so don't overthink right now.</p>
+</blockquote>
+<p>So to create a dynamic route, we can create a file that looks like this:</p>
+<pre><code class="hljs css language-text">[id].jsx
+</code></pre>
+<p>Where <code>id</code> is the name of the parameter. You can name it whatever you want. Those brackets are not a typo or a placeholder; that's the syntax to create a dynamic route using file name conventions in the pages directory. So let's create our note route:</p>
+<pre><code class="hljs css language-text">pages
+  notes
+    index.jsx
+    [id].jsx
+</code></pre>
+<p>We can access the <code>id</code> param inside our page component using the <code>useRouter</code> hook from the <code>next/route</code> module. This comes for free with Next.js.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { useRouter } <span class="hljs-keyword">from</span> <span class="hljs-string">'next/router'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> router = useRouter()
+  <span class="hljs-keyword">const</span> { id }= router.query
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Note: {id} <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  )
+}
+</code></pre>
+<p>There param name on the query object is the same name as the param name in the file for that page.</p>
+<pre><code class="hljs css language-text">router.query.id
+             |
+             |
+            [id].jsx
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="catch-all-routes"></a><a href="#catch-all-routes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Catch-all routes</h3>
+<p>There's a beautiful feature that Next.js that allows us to define catch-all routes for when we're too lazy to make a page for each one.</p>
+<blockquote>
+<p>👍🏾 <strong>tip</strong>: A lazy developer is a good developer, well, ...sometimes 🙄</p>
+</blockquote>
+<p>What's a catch-all route, you say? Think of a glob.</p>
+<pre><code class="hljs css language-text">this/folder/**
+</code></pre>
+<p>Where <code>**</code> means everything inside <code>folder</code>. We can do the same with our dynamic routes! All we need is to create a file in our pages directory like this:</p>
+<pre><code class="hljs css language-text">docs/[...param].jsx
+</code></pre>
+<p>So the ellipsis <code>...</code> is used in this example to same that this file will represent and route that matches <code>/docs/a</code> or <code>docs/a/b</code> or <code>docs/a/b/c/d/a/b</code>. You get the point. You can then access all the params the same way you do with a single route param. The only difference is the value will be an array of the params in order.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { useRouter } <span class="hljs-keyword">from</span> <span class="hljs-string">'next/router'</span>
+
+<span class="hljs-comment">// file =&gt; /docs/[...params].jsx</span>
+<span class="hljs-comment">// route =&gt; /docs/a/b/c</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> router = useRouter()
+  <span class="hljs-keyword">const</span> { params }= router.query
+
+  <span class="hljs-comment">// params === ['a', 'b', 'c']</span>
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  )
+}
+</code></pre>
+<p>If you want to include the parent path in your catch-all route, you can use an optional catch-all route.</p>
+<pre><code class="hljs css language-text">docs/[[...param]].jsx
+</code></pre>
+<p>Just add another set of <code>[ ]</code> over your catch-all, and now <code>/docs</code> will be matched with all of its children. The params value on the <code>router.query</code> for the parent path will just be an empty object <code>{}</code>.</p>
+<p>So when would you use catch-all routes? I find them useful for when you have a bunch of pages that have pretty similar if not identical layouts and style but have different content and need their own URL. Such things like docs and wikis are a perfect use case.</p>
+<h2><a class="anchor" aria-hidden="true" id="non-pages"></a><a href="#non-pages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Non-pages</h2>
+<p>So pages are special, but what about when you just need a component? Next.js doesn't have any conventions or opinions about that. The community usually creates a <code>/src/components</code> folder where all the components live.</p>
+<h1><a class="anchor" aria-hidden="true" id="navigation"></a><a href="#navigation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Navigation</h1>
+<h2></h2>
+<p>Next.js has a few tricks up its sleeve to help us navigate between pages.</p>
+<h2><a class="anchor" aria-hidden="true" id="link-component"></a><a href="#link-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Link component</h2>
+<p>Similar to an <code>&lt;a&gt;</code> tag, we can use the <code>Link</code> component from then <code>next/link</code> module.</p>
+<pre><code class="hljs css language-jsx">&lt;Link href="/settings"&gt;
+  &lt;a&gt;settings&lt;/a&gt;
+&lt;/Link&gt;
+</code></pre>
+<p>There Link component allows you to do <strong>client-side</strong> routing. This is important because if you don't want that or are linking to another site, then you should just use an <code>a</code> tag instead.</p>
+<p>You must have an <code>a</code> tag as the child of the <code>Link</code> component, but the <code>href</code> lives on the <code>Link</code>.</p>
+<blockquote>
+<p>👍🏾 <strong>tip</strong>: Update your linter to not error out because your <code>&lt;a&gt;</code> tag does not have an href.</p>
+</blockquote>
+<p>The <code>href</code> prop takes a page name as it is in the pages directory. For dynamic routes, you will need the <code>as</code> prop as well.</p>
+<pre><code class="hljs css language-jsx">&lt;Link href="/user/[id].js" as={`/user/${user.id}`}&gt;
+  &lt;a&gt;user&lt;/a&gt;
+&lt;/Link&gt;
+</code></pre>
+<p>Let's link our pages together!</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// pages/index.jsx</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> Link <span class="hljs-keyword">from</span> <span class="hljs-string">'next/link'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Index page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/notes"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span> 
+)
+<span class="hljs-comment">// pages/notes/index.jsx</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> Link <span class="hljs-keyword">from</span> <span class="hljs-string">'next/link'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> notes = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">15</span>).fill(<span class="hljs-number">1</span>).map(<span class="hljs-function">(<span class="hljs-params">e, i</span>) =&gt;</span> ({<span class="hljs-attr">id</span>: i, <span class="hljs-attr">title</span>: <span class="hljs-string">`Note: <span class="hljs-subst">${i}</span>`</span>}))
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+      {notes.map(note =&gt; (
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{note.id}</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/notes/[id]"</span> <span class="hljs-attr">as</span>=<span class="hljs-string">{</span>`/<span class="hljs-attr">notes</span>/${<span class="hljs-attr">note.id</span>}`}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{note.title}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      ))}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+<span class="hljs-comment">// pages/notes/[id].jsx</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { useRouter } <span class="hljs-keyword">from</span> <span class="hljs-string">'next/router'</span>
+<span class="hljs-keyword">import</span> Link <span class="hljs-keyword">from</span> <span class="hljs-string">'next/link'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> router = useRouter()
+  <span class="hljs-keyword">const</span> { id }= router.query
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Note: {id} <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/notes"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="programmatic-routing"></a><a href="#programmatic-routing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Programmatic routing</h2>
+<p>For when you need to route between pages programmatically, you can use the router to do so. There are <a href="https://nextjs.org/docs/routing/introduction">many methods</a> on the router that you can use, so we'll focus on the ones we'll use in this course.</p>
+<p>Just like the <code>Link</code> component, use the router for client-side routing. To navigate to a page, you can use the <code>push</code> method, which works like <code>href</code> on the <code>Link</code> component.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { useRouter } <span class="hljs-keyword">from</span> <span class="hljs-string">'next/router'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> router = useRouter()
+  <span class="hljs-keyword">const</span> id = <span class="hljs-number">2</span>
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{e</span> =&gt;</span> router.push('/')}&gt;
+        Go Home
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{e</span> =&gt;</span> router.push('/user/[id]', `/user/${id}`)}&gt;
+        Dashboard
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">spanonClick={()</span> =&gt;</span> {router.push({
+                      pathname: '/post/[pid]',
+                    query: { pid: post.id },
+                    })
+            }}
+        &gt;
+      Click here to read more
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+</code></pre>
+<p>And that's all there is to routing! Our app doesn't look much like an app, no worries, we're going to fix that next.</p>
+<h1><a class="anchor" aria-hidden="true" id="styling"></a><a href="#styling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Styling</h1>
+<h2></h2>
+<p>Next.js comes with some styling conventions baked in, and they're pretty good. Because Next.js uses React, you can also use any other mechanism that works with React to style your apps.</p>
+<blockquote>
+<p>👍🏾 <strong>tip</strong> You might have to extend Next.js tp support your styling approach. More on that later.</p>
+</blockquote>
+<p>When it comes to styling, you have global styles and component styles. For global CSS, you have to import them at the entry point of your app. Wait, where is the entrance to my Next.js app? It's actually created for you, but you can and have to create your own now that you want global styles.</p>
+<p>Create an <code>pages/_app.jsx</code> file and add this:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params">{ Component, pageProps }</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Component</span> {<span class="hljs-attr">...pageProps</span>} /&gt;</span></span>
+}
+</code></pre>
+<p>This automatically gets created for you by default with the same code. In the <code>_app.jsx</code> you can import any CSS file, and the styles will be global now.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> <span class="hljs-string">'flexbox.css'</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'../mystyles.css'</span>
+</code></pre>
+<p>Now, when you don't want global CSS, Next.js supports <a href="https://github.com/css-modules/css-modules">css modules</a>. This will scope your CSS, avoiding collisions.</p>
+<blockquote>
+<p>🕳  <strong>deep dive</strong>: a unique class name is created every import to reuse the same CSS class names</p>
+</blockquote>
+<p>You can import a CSS module file anywhere in your app. To create a CSS module, you have to use a special syntax in the file name.</p>
+<pre><code class="hljs">styles<span class="hljs-class">.<span class="hljs-keyword">module</span>.<span class="hljs-title">css</span></span>
+</code></pre>
+<p>This makes CSS modules a perfect solution to styling components.</p>
+<pre><code class="hljs css language-text">components
+  button.jsx
+  button.module.css
+</code></pre>
+<blockquote>
+<p>👍🏾  <strong>tip</strong> You can use a CSS pre-processor by extending Next.js. We'll cover that later.</p>
+</blockquote>
+<p>I prefer to use a different solution when styling all my React apps, which we're going to use today.</p>
+<h1><a class="anchor" aria-hidden="true" id="theme-ui"></a><a href="#theme-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theme UI</h1>
+<h2></h2>
+<p>The following section is not entirely specific to Next.js and takes on how I prefer to style my React apps. I recommend checking out to this branch if you don't want to copy and paste or follow this section.</p>
+<p><a href="https://theme-ui.com/">theme ui</a> is a library that allows you to create theme objects and use them in your components. It also handles scoping and injecting the CSS into your app—pretty dope stuff.</p>
+<blockquote>
+<p>📏  <strong>TLDR;</strong> create an object representing a theme and use that theme for all your components</p>
+</blockquote>
+<p>Let's get our app looking like an app. First, install some things.</p>
+<p><strong>npm</strong></p>
+<pre><code class="hljs css language-shell">npm i theme-ui @theme-ui/presets --save
+</code></pre>
+<p><strong>yarn</strong></p>
+<pre><code class="hljs css language-shell">yarn add theme-ui @theme-ui/presets
+</code></pre>
+<p>Next, we'll create a theme. Make a file on the root of your app.</p>
+<pre><code class="hljs css language-text">theme.js
+</code></pre>
+<p>Now add this theme:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { roboto } <span class="hljs-keyword">from</span> <span class="hljs-string">'@theme-ui/presets'</span>
+
+<span class="hljs-keyword">const</span> theme = {
+  ...roboto,
+  <span class="hljs-attr">containers</span>: {
+    <span class="hljs-attr">card</span>: {
+      <span class="hljs-attr">boxShadow</span>: <span class="hljs-string">'0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'</span>,
+      <span class="hljs-attr">border</span>: <span class="hljs-string">'1px solid'</span>,
+      <span class="hljs-attr">borderColor</span>: <span class="hljs-string">'muted'</span>,
+      <span class="hljs-attr">borderRadius</span>: <span class="hljs-string">'4px'</span>,
+      <span class="hljs-attr">p</span>: <span class="hljs-number">2</span>,
+    },
+    <span class="hljs-attr">page</span>: {
+      <span class="hljs-attr">width</span>: <span class="hljs-string">'100%'</span>,
+      <span class="hljs-attr">maxWidth</span>: <span class="hljs-string">'960px'</span>,
+      <span class="hljs-attr">m</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">mx</span>: <span class="hljs-string">'auto'</span>,
+    }
+  },
+  <span class="hljs-attr">styles</span>: {
+    ...roboto.styles
+  }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> theme
+</code></pre>
+<p>This object uses a preset theme with some extras I added. Throw in a <code>console.log(theme)</code> to see what's in there.</p>
+<p>Next we'll create a Navigation component at <code>src/components/nav.jsx</code></p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">/** <span class="hljs-doctag">@jsx </span>jsx */</span>
+<span class="hljs-keyword">import</span> { jsx } <span class="hljs-keyword">from</span> <span class="hljs-string">'theme-ui'</span>
+<span class="hljs-keyword">import</span> Link <span class="hljs-keyword">from</span> <span class="hljs-string">'next/link'</span>
+
+<span class="hljs-keyword">const</span> Nav = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{height:</span> '<span class="hljs-attr">60px</span>', <span class="hljs-attr">width:</span> '<span class="hljs-attr">100vw</span>', <span class="hljs-attr">bg:</span> '<span class="hljs-attr">primary</span>', <span class="hljs-attr">borderBottom:</span> '<span class="hljs-attr">1px</span> <span class="hljs-attr">solid</span>', <span class="hljs-attr">borderColor:</span> '<span class="hljs-attr">primary</span>'}}&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{display:</span> '<span class="hljs-attr">flex</span>', <span class="hljs-attr">alignItems:</span> '<span class="hljs-attr">center</span>',  <span class="hljs-attr">justifyContent:</span> '<span class="hljs-attr">space-between</span>', <span class="hljs-attr">variant:</span> '<span class="hljs-attr">containers.page</span>', <span class="hljs-attr">height:</span> '<span class="hljs-attr">100</span>%'}}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{fontWeight:</span> '<span class="hljs-attr">bold</span>', <span class="hljs-attr">fontSize:</span> <span class="hljs-attr">4</span>, <span class="hljs-attr">cursor:</span> '<span class="hljs-attr">pointer</span>'}}&gt;</span>Note App<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/notes"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{color:</span> '<span class="hljs-attr">text</span>', <span class="hljs-attr">fontSize:</span> <span class="hljs-attr">3</span>, <span class="hljs-attr">cursor:</span> '<span class="hljs-attr">pointer</span>'}}&gt;</span>notes<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></span>
+)
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Nav
+</code></pre>
+<p>A few subtle but <strong>powerful</strong> things here. First, lets talk about this:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">/** <span class="hljs-doctag">@jsx </span>jsx */</span>
+<span class="hljs-keyword">import</span> { jsx } <span class="hljs-keyword">from</span> <span class="hljs-string">'theme-ui'</span>
+</code></pre>
+<p>Ummm, what is that, and how does this component render JSX without importing React? That comment is something called <code>JSX pragma</code>. Its a hint to the compiler how to compile this file. The comment combined with the JSX import from <code>theme-ui</code> tells the compiler, babel, in this case, of what JSX tool to use to handle JSX in this file. It's the same reason you had to import React in your JSX files.</p>
+<p>We need the theme-ui JSX to use the <code>sx</code> prop on all of our components. The <code>sx</code> prop allows us to add inline styles to components using CSS properties and values and values from our theme object that we created. It's <strong>BEAUTIFUL</strong> 💋.</p>
+<p>And now, our pages.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// pages/index.jsx</span>
+<span class="hljs-comment">/** <span class="hljs-doctag">@jsx </span>jsx */</span>
+<span class="hljs-keyword">import</span> { jsx } <span class="hljs-keyword">from</span> <span class="hljs-string">'theme-ui'</span>
+<span class="hljs-keyword">import</span> Link <span class="hljs-keyword">from</span> <span class="hljs-string">'next/link'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">height:</span> `<span class="hljs-attr">calc</span>(<span class="hljs-attr">100vh</span> <span class="hljs-attr">-</span> <span class="hljs-attr">60px</span>)`}}&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{variant:</span> '<span class="hljs-attr">containers.page</span>', <span class="hljs-attr">display:</span> '<span class="hljs-attr">flex</span>', <span class="hljs-attr">alignItems:</span> '<span class="hljs-attr">center</span>', <span class="hljs-attr">height:</span> '<span class="hljs-attr">100</span>%'}}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{fontSize:</span> <span class="hljs-attr">8</span>, <span class="hljs-attr">my:</span> <span class="hljs-attr">0</span>}}&gt;</span>This is a really dope note taking app.<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span> 
+)
+<span class="hljs-comment">// pages/notes/index.jsx</span>
+<span class="hljs-comment">/** <span class="hljs-doctag">@jsx </span>jsx */</span>
+<span class="hljs-keyword">import</span> { jsx } <span class="hljs-keyword">from</span> <span class="hljs-string">'theme-ui'</span>
+<span class="hljs-keyword">import</span> Link <span class="hljs-keyword">from</span> <span class="hljs-string">'next/link'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> notes = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">15</span>).fill(<span class="hljs-number">1</span>).map(<span class="hljs-function">(<span class="hljs-params">e, i</span>) =&gt;</span> ({<span class="hljs-attr">id</span>: i, <span class="hljs-attr">title</span>: <span class="hljs-string">`This is my note <span class="hljs-subst">${i}</span>`</span>}))
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{variant:</span> '<span class="hljs-attr">containers.page</span>'}}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My Notes<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{display:</span> '<span class="hljs-attr">flex</span>', <span class="hljs-attr">justifyContent:</span> '<span class="hljs-attr">space-between</span>', <span class="hljs-attr">alignItems:</span> '<span class="hljs-attr">center</span>', <span class="hljs-attr">flexWrap:</span> '<span class="hljs-attr">wrap</span>'}}&gt;</span>
+        {notes.map(note =&gt; (
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{width:</span> '<span class="hljs-attr">33</span>%', <span class="hljs-attr">p:</span> <span class="hljs-attr">2</span>}}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{note.id}</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/notes/[id]"</span> <span class="hljs-attr">as</span>=<span class="hljs-string">{</span>`/<span class="hljs-attr">notes</span>/${<span class="hljs-attr">note.id</span>}`}&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{textDecoration:</span> '<span class="hljs-attr">none</span>', <span class="hljs-attr">cursor:</span> '<span class="hljs-attr">pointer</span>'}}&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{variant:</span> '<span class="hljs-attr">containers.card</span>',}}&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{note.title}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        ))}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+<span class="hljs-comment">// pages/[id].jsx</span>
+<span class="hljs-comment">/** <span class="hljs-doctag">@jsx </span>jsx */</span>
+<span class="hljs-keyword">import</span> { jsx } <span class="hljs-keyword">from</span> <span class="hljs-string">'theme-ui'</span>
+<span class="hljs-keyword">import</span> { useRouter } <span class="hljs-keyword">from</span> <span class="hljs-string">'next/router'</span>
+<span class="hljs-keyword">import</span> Link <span class="hljs-keyword">from</span> <span class="hljs-string">'next/link'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> router = useRouter()
+  <span class="hljs-keyword">const</span> { id }= router.query
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">sx</span>=<span class="hljs-string">{{variant:</span> '<span class="hljs-attr">containers.page</span>'}}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Note: {id} <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+</code></pre>
+<p>We now need to wrap our app in the Theme UI provider. We have two options:</p>
+<ul>
+<li>wrap every page individually</li>
+<li>wrap the root component</li>
+</ul>
+<p>Because we want to use Theme UI in our entire app, its safe to wrap the root. So in the <code>pages/_app.jsx</code> file:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">/** <span class="hljs-doctag">@jsx </span>jsx */</span>
+<span class="hljs-keyword">import</span> { jsx } <span class="hljs-keyword">from</span> <span class="hljs-string">'theme-ui'</span>
+<span class="hljs-keyword">import</span> { ThemeProvider } <span class="hljs-keyword">from</span> <span class="hljs-string">'theme-ui'</span>
+<span class="hljs-keyword">import</span> theme <span class="hljs-keyword">from</span> <span class="hljs-string">'../theme'</span>
+<span class="hljs-keyword">import</span> Nav <span class="hljs-keyword">from</span> <span class="hljs-string">'../src/components/nav'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params">{ Component, pageProps }</span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ThemeProvider</span> <span class="hljs-attr">theme</span>=<span class="hljs-string">{theme}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Nav</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Component</span> {<span class="hljs-attr">...pageProps</span>} /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>      
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ThemeProvider</span>&gt;</span></span>
+  )
+}
+</code></pre>
+<p>Theme UI is profound, and we barely scratched the surface. I highly recommend checking it out.</p>
+<h1><a class="anchor" aria-hidden="true" id="customizing-nextjs-config"></a><a href="#customizing-nextjs-config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Customizing Next.js config</h1>
+<h2></h2>
+<p>If you want to change the build system's behavior, extend Next.js's features, or add ENV variables, you can do this easily in the <code>next-config.js</code> file.</p>
+<p>Either export and objet:</p>
+<pre><code class="hljs css language-js"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">webpack</span>: {
+    <span class="hljs-comment">// webpack config properties</span>
+  },
+  <span class="hljs-attr">env</span>: {
+    <span class="hljs-attr">MY_ENV_VAR</span>: process.env.SECRET
+  }
+}
+</code></pre>
+<p>Or a function:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> { PHASE_PRODUCTION_SERVER } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'next/constants'</span>)
+<span class="hljs-keyword">const</span> BundleAnalyzerPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack-bundle-analyzer'</span>).BundleAnalyzerPlugin
+
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">phase, { defaultConfig }</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (phase === PHASE_PRODUCTION_SERVER) {
+    <span class="hljs-keyword">return</span> {
+      ...defaultConfig,
+      <span class="hljs-attr">webpack</span>: {
+        <span class="hljs-attr">plugins</span>: [<span class="hljs-keyword">new</span> BundleAnalyzerPlugin()]
+      }
+    }
+  }
+
+  <span class="hljs-keyword">return</span> defaultConfig
+} 
+</code></pre>
+<p>Above I'm adding the bundle analyzer webpack plugin during a prod build of Next.js. You can check out all the <a href="https://github.com/vercel/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4">different phases</a> of Next.js.</p>
+<p>Next.js is production-ready and handles almost everything, but don't be scared to reach to that config and extend what you need.</p>
+<h1><a class="anchor" aria-hidden="true" id="plugins"></a><a href="#plugins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plugins</h1>
+<h2></h2>
+<p>The <code>next.config.js</code> file gives us the ability to do some powerful stuff. Because the config file has a convention, you should be able to use changes written by others. These are Next.js plugins.</p>
+<p>They look like this:</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// next.config.js</span>
+<span class="hljs-keyword">const</span> withOffline = <span class="hljs-built_in">require</span>(<span class="hljs-string">'next-offline'</span>)
+<span class="hljs-keyword">const</span> config = {
+  <span class="hljs-comment">// your next config</span>
+}
+
+<span class="hljs-built_in">module</span>.exports = withOffline(config)
+</code></pre>
+<p>Most plugins follow the <code>withPluginName</code> format. They also usually take your custom Next.js config, if any, to ensure its returned and consumed by Next.js. This allows you to compose plugins:</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// next.config.js</span>
+<span class="hljs-keyword">const</span> withPlugins = <span class="hljs-built_in">require</span>(<span class="hljs-string">'next-compose-plugins'</span>)
+<span class="hljs-keyword">const</span> withOffline = <span class="hljs-built_in">require</span>(<span class="hljs-string">'next-offline'</span>)
+<span class="hljs-keyword">const</span> withReactSvg = <span class="hljs-built_in">require</span>(<span class="hljs-string">'next-react-svg'</span>)
+<span class="hljs-keyword">const</span> config = {
+  <span class="hljs-attr">env</span>: {
+    <span class="hljs-attr">MY_ENV</span>: process.env.MY_ENV
+  }
+}
+
+<span class="hljs-built_in">module</span>.exports = withPlugins([
+  withOffline,
+  [withReactSvg, {
+    <span class="hljs-comment">// config for reactSvgPlugin</span>
+  }]
+], config)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="environment-variables"></a><a href="#environment-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Environment Variables</h2>
+<p><a href="https://nextjs.org/docs/basic-features/environment-variables">NextJS env Docs</a></p>
+<p>Remember that environment variables will not automatically be available in the browser code.  Not sure what distinguishes browser from backend, but if you want to initialize a library, do it in the <strong><em>app.js</em></strong> file in a <strong>useEffect(() =&gt; {}, [])</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="didnt-get-the-below-to-work"></a><a href="#didnt-get-the-below-to-work" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Didn't get the below to work.</h3>
+<p>We're going to install and env plugin that makes it super simple to use env vars in our app.</p>
+<p>First, let's install the modules we need.</p>
+<p><strong>npm</strong></p>
+<pre><code class="hljs css language-shell">npm i next-env dotenv-load --dev
+</code></pre>
+<p><strong>yarn</strong></p>
+<pre><code class="hljs css language-shell">yarn add next-env dotenv-load
+</code></pre>
+<p>In your <code>next.config.js</code> file:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> nextEnv = <span class="hljs-built_in">require</span>(<span class="hljs-string">'next-env'</span>)
+<span class="hljs-keyword">const</span> dotenvLoad = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dotenv-load'</span>)
+
+dotenvLoad()
+
+<span class="hljs-keyword">const</span> withNextEnv = nextEnv()
+<span class="hljs-built_in">module</span>.exports = withNextEnv()
+</code></pre>
+<p>Next, create a <code>.env</code> file on the root and add some envs.</p>
+<pre><code class="hljs css language-text">HELP_APP_URL=https://google.com
+</code></pre>
+<blockquote>
+<p>⚠️  <strong>warning</strong>: don't check .env files into git</p>
+</blockquote>
+<p>Now, we'll use the env in our app. Go to the Nav component and add an <code>a</code> tag to link to the external app.</p>
+<pre><code class="hljs css language-jsx">// src/components/nav.jsx
+&lt;a sx={{
+    color: 'text',
+    fontSize: 3,
+    cursor: 'pointer'
+  }}
+  href={process.env.HELP_APP_URL}
+&gt;
+  Help
+&lt;/a&gt;
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="api-routes"></a><a href="#api-routes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API Routes</h1>
+<h2></h2>
+<p>Next.js is a full-stack framework. Fullstack, as in it, has a server, not just for development, for rendering components on your server, but also for an API!</p>
+<p>Yes, you can legit ship an API right next to your App with no setup. Let's see how.</p>
+<p>All we have to do is create an <code>api</code> folder in our <code>pages</code> director. The file names and paths work just like pages do. However, instead of building components in those files, we'll create API handlers.</p>
+<pre><code class="hljs css language-text">pages
+  api
+    hello.js
+</code></pre>
+<blockquote>
+<p>👍🏾  <strong>tip</strong>: Next.js API routes are not the same as Vercel's Serverless API functions, although the setup is similar.</p>
+</blockquote>
+<h1><a class="anchor" aria-hidden="true" id="api-handlers"></a><a href="#api-handlers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API Handlers</h1>
+<h2></h2>
+<p>Now let's create some API handlers to handle data for our Notes app. The handlers are based on <a href="https://www.npmjs.com/package/connect">Connect</a>, which <a href="https://expressjs.com/">Express</a>.</p>
+<blockquote>
+<p>👍🏾  <strong>tipe</strong>: You can learn more about <a href="https://frontendmasters.com/courses/api-design-nodejs-v3/">Express and APIs with Node.js</a> from Frontend Masters</p>
+</blockquote>
+<p>A handler looks like this:</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// pages/api/data.js</span>
+<span class="hljs-comment">// route =&gt; /api/data</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (req, res) =&gt; {
+  res.statusCode = <span class="hljs-number">200</span>
+  res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>)
+  res.end(<span class="hljs-built_in">JSON</span>.stringify({ <span class="hljs-attr">message</span>: <span class="hljs-string">'hello'</span> }))
+}
+</code></pre>
+<p>By default, this handler will respond to all requests to <code>/api/data</code>. We need to split our logic based on the methods (GET, PUT, DELETE, etc.). We also need some way to use connect-based middleware, which would make building out these handlers much simpler.</p>
+<p>We can quickly look at the incoming request and get the method, and we can create some HOF's to handle middleware, but I landed on an excellent package that helps with this.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// pages/api/data</span>
+<span class="hljs-keyword">import</span> nc <span class="hljs-keyword">from</span> <span class="hljs-string">'next-connect'</span>;
+<span class="hljs-keyword">import</span> cors <span class="hljs-keyword">from</span> <span class="hljs-string">'cors'</span>
+
+<span class="hljs-keyword">const</span> handler = nc()
+  <span class="hljs-comment">// use connect based middleware</span>
+  .use(cors())
+  <span class="hljs-comment">// express like routing for methods</span>
+  .get(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    res.send(<span class="hljs-string">'Hello world'</span>)
+  })
+  .post(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    res.json({ <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span> })
+  })
+  .put(<span class="hljs-keyword">async</span> (req, res) =&gt; {
+    res.end(<span class="hljs-string">'hello'</span>)
+  })
+  
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> handler;
+</code></pre>
+<p>Pretty clean! Now, let's create some API routes for our Notes app. We need some basic CRUD:</p>
+<pre><code class="hljs css language-text">create note => POST /api/note
+update note => PATCH /api/note/:id
+delete note => DELETE /api/note/:id
+get one note => DELETE /api/note/:id
+get all notes => DELETE /api/note/
+</code></pre>
+<p>So from above, we only have 2 routes: <code>/api/note/:id</code></p>
+<pre><code class="hljs"><span class="hljs-regexp">/api/note/</span>
+</code></pre>
+<p>First, let's create a place to store our data. We'll stick to in memory for now.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// src/data/data.js</span>
+<span class="hljs-keyword">const</span> notes = []
+
+<span class="hljs-built_in">module</span>.exports = notes
+</code></pre>
+<p>Next, we'll create the routes in the <code>page/api/</code> directory.</p>
+<pre><code class="hljs css language-text">pages
+  api
+    note
+      [id].js
+      index.js
+// pages/api/note/index.js
+import nc from 'next-connect'
+import notes from '../../../src/data/data'
+
+const handler = nc()
+  .get((req, res) => {
+    res.json({data: notes})
+  })
+  .post((req, res) => {
+    const id = Date.now()
+    const note = {...req.body, id}
+
+    notes.push(note)
+    res.json({data: note})
+  })
+export default handler
+// pages/api/note/[id].js
+import nc from 'next-connect'
+import notes from '../../../src/data/data'
+
+const getNote = id => notes.find(n => n.id === parseInt(id))
+
+const handler = nc()
+  .get((req, res) => {
+    
+    const note = getNote(req.query.id)
+
+    if (!note) {
+      res.status(404)
+      res.end()
+      return
+    }
+
+    res.json({data: note})
+  })
+  .patch((req, res) => {
+    const note = getNote(req.query.id)
+
+    if (!note) {
+      res.status(404)
+      res.end()
+      return
+    }
+    
+    const i = notes.findIndex(n => n.id === parseInt(req.query.id))
+    const updated = {...note, ...req.body}
+
+    notes[i] = updated
+    res.json({data: updated})
+  })
+  .delete((req, res) => {
+    const note = getNote(req.query.id)
+
+    if (!note) {
+      res.status(404)
+      res.end()
+      return
+    }
+    const i = notes.findIndex(n => n.id === parseInt(req.query.id))
+    
+    notes.splice(i, 1)
+
+    res.json({data: req.query.id})
+  })
+
+export default handler
+</code></pre>
+<p>We can access the URL params on <code>req.query.paramName</code> just like with the client-side router.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/nodejs/server-config-ssh.md"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/my-code-docs/docs/javascript/lib_lodash-library"><span>Lodash Library</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#folders-and-routes">Folders and routes</a></li><li><a href="#dynamic-routes">Dynamic routes</a><ul class="toc-headings"><li><a href="#catch-all-routes">Catch-all routes</a></li></ul></li><li><a href="#non-pages">Non-pages</a></li><li><a href="#link-component">Link component</a></li><li><a href="#programmatic-routing">Programmatic routing</a></li><li><a href="#environment-variables">Environment Variables</a><ul class="toc-headings"><li><a href="#didnt-get-the-below-to-work">Didn't get the below to work.</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

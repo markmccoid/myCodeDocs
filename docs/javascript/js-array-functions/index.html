@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>JS Array Functions · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Here are some common JavaScript array functions."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="JS Array Functions · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="Here are some common JavaScript array functions."/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Javascript</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">JS Array Functions</h1></header><article><div><span><p>Here are some common JavaScript array functions.</p>
+<ul>
+<li><code>map()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map docs</a></li>
+<li><code>find()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">find docs</a></li>
+<li><code>findIndex()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">findIndex docs</a></li>
+<li><code>filter()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter docs</a></li>
+<li><code>reduce()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce?v=b">reduce docs</a></li>
+<li><code>concat()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat?v=b">concat docs</a></li>
+<li><code>slice()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">slice docs</a></li>
+<li><code>splice()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">splice docs</a></li>
+<li><code>some()</code>  =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">some docs</a></li>
+<li><code>every()</code> =&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every">every docs</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="search-an-array-with-an-array"></a><a href="#search-an-array-with-an-array" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Search an Array with an Array</h2>
+<p>Many times you will have an array of criteria that you will want to search your source array with.</p>
+<p>An example should help make some sense out of this.</p>
+<p>You have an array of objects that hold people of the cars makes they own:</p>
+<pre><code class="hljs css language-javascript">owners = [{
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Bob'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">44</span>,
+  <span class="hljs-attr">carsOwned</span>: [<span class="hljs-string">'chevy'</span>, <span class="hljs-string">'ford'</span>]
+},{
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Mark'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">49</span>,
+  <span class="hljs-attr">carsOwned</span>: [<span class="hljs-string">'honda'</span>, <span class="hljs-string">'hyudai'</span>, <span class="hljs-string">'toyota'</span>]
+},{
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Jim'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">54</span>,
+  <span class="hljs-attr">carsOwned</span>: [<span class="hljs-string">'chevy'</span>, <span class="hljs-string">'honda'</span>]
+},{
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Haley'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">24</span>,
+  <span class="hljs-attr">carsOwned</span>: [<span class="hljs-string">'hyundai'</span>]
+}]
+</code></pre>
+<p>Now let's say that you want to search the above array of owners and return all owners whose <code>carsOwned</code> array matches another criteria array.</p>
+<pre><code class="hljs css language-javascript">criteriaArray = [<span class="hljs-string">'honda'</span>, <span class="hljs-string">'toyota'</span>]
+</code></pre>
+<p>Before moving on, I see there being four different types of questions that could be asked:</p>
+<ol>
+<li>Which owners <strong>carsOwned</strong> array has cars where one or more (<em>some</em>) match those in the <strong>criteriaArray</strong></li>
+<li>Which owners <strong>carsOwned</strong> array matches ALL (<em>every</em>) of those in the <strong>criteriaArray</strong></li>
+<li>Which owners <strong>carsOwned</strong> array have NO cars matching those in the <strong>criteriaArray</strong>.</li>
+<li>Which owners <strong>carsOwned</strong> array is EQUAL to the <strong>criteriaArray</strong></li>
+</ol>
+<p>We'll tackle each one of these using JavaScript's awesome array built-in methods.</p>
+<h3><a class="anchor" aria-hidden="true" id="some-values-in-the-carsowned-array-match-those-in-the-criteriaarray"></a><a href="#some-values-in-the-carsowned-array-match-those-in-the-criteriaarray" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Some values in the carsOwned array match those in the criteriaArray</h3>
+<p>Here we are scanning the <strong>carsOwned</strong> array and as soon as we find a single match between the <strong>criteriaArray</strong> and the <strong>carsOwned</strong> array we can include that owner in our result list.</p>
+<p>Luckily, JavaScript has functions that we can use to make this fairly easy to compute:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">let</span> someOwners = owners.filter(<span class="hljs-function"><span class="hljs-params">owner</span> =&gt;</span>
+      owner.carsOwned.some(<span class="hljs-function"><span class="hljs-params">car</span> =&gt;</span> criteriaArray.includes(car))
+    );
+</code></pre>
+<p>We start by filtering the <strong>owners</strong> array of objects.  The filter function expects a True or False to be returned to determine whether or not to keep the passed array element.</p>
+<p>So the function we pass to the filter will be passed an element in the owner array, which is an object that has the <strong>carsOwned</strong> array in it. <code>{name, age, carsOwned}</code></p>
+<p>We then look into the cars owned array and use the Array's <em>some</em> prototype function to return either True or False.  The cool thing is that the <code>some()</code> function will immediately return a <code>true</code> once a single car has been found in the <strong>carsOwned</strong> array.  This just means that we don't always need to iterate through every item in the <strong>carsOwned</strong> array to determine whether to include this owner in our result.</p>
+<h3><a class="anchor" aria-hidden="true" id="all-values-in-the-criteriaarray-are-found-in-the-carsowned-array"></a><a href="#all-values-in-the-criteriaarray-are-found-in-the-carsowned-array" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>All values in the criteriaArray are found in the carsOwned array</h3>
+<p>Here we are looking to find owners who own every make of car in the criteriaArray.  While the approach is similar, once we get into the filter, we are actually searching the criteriaArray!</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">let</span> everyCar = owners.filter(<span class="hljs-function"><span class="hljs-params">owner</span> =&gt;</span>
+        criteriaArray.every(<span class="hljs-function"><span class="hljs-params">car</span> =&gt;</span> owner.carsOwned.includes(car))
+      );
+</code></pre>
+<p>We start by filtering the <strong>owners</strong> array of objects.  The filter function expects a True or False to be returned to determine whether or not to keep the passed array element.</p>
+<p>So the function we pass to the filter will be passed an element in the owner array, which is an object that has the <strong>carsOwned</strong> array in it. <code>{name, age, carsOwned}</code></p>
+<p>The function inside the filter that is using the <code>every()</code> function, but it is being applied to the <strong>criteriaArray</strong>. We are doing this because we want to find owners where every item in the <strong>criteriaArray</strong> exists in the <strong>owner.carsOwned</strong> array.</p>
+<p>We are passing a simple function to the <code>every()</code> function that just checks if the make from the criteria array exists in the <strong>owner.carsOwned</strong> array.  We are doing this by using the <code>includes()</code> array function.</p>
+<p>It's worth noting the the <code>some()</code>, <code>every()</code>, and <code>includes()</code> functions all return boolean values.</p>
+<h3><a class="anchor" aria-hidden="true" id="no-values-from-the-criteriaarray-are-found-in-the-carsowned-array"></a><a href="#no-values-from-the-criteriaarray-are-found-in-the-carsowned-array" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>No values from the criteriaArray are found in the carsOwned array</h3>
+<p>Next, let's find all the owners who do not have any items in their <strong>carsOwned</strong> array that match those in the <strong>criteriaArray</strong>.</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">let</span> noOwners = owners.filter(<span class="hljs-function"><span class="hljs-params">owner</span> =&gt;</span>
+      criteriaArray.every(<span class="hljs-function"><span class="hljs-params">car</span> =&gt;</span> !owner.carsOwned.includes(car))
+    );
+</code></pre>
+<p>We start by filtering the <strong>owners</strong> array of objects.  The filter function expects a True or False to be returned to determine whether or not to keep the passed array element.</p>
+<p>So the function we pass to the filter will be passed an element in the owner array, which is an object that has the <strong>carsOwned</strong> array in it. <code>{name, age, carsOwned}</code></p>
+<p>The function inside the filter that is using the <code>every()</code> function, but it is being applied to the <strong>criteriaArray</strong>. We are doing this because we want to find owners where every item in the <strong>criteriaArray</strong> exists in the <strong>owner.carsOwned</strong> array.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/javascript/language-basics"><span class="arrow-prev">← </span><span>JS Language Basics</span></a><a class="docs-next button" href="/my-code-docs/docs/javascript/keyboard-mouse-input"><span>Keyboard and Mouse Input</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#search-an-array-with-an-array">Search an Array with an Array</a><ul class="toc-headings"><li><a href="#some-values-in-the-carsowned-array-match-those-in-the-criteriaarray">Some values in the carsOwned array match those in the criteriaArray</a></li><li><a href="#all-values-in-the-criteriaarray-are-found-in-the-carsowned-array">All values in the criteriaArray are found in the carsOwned array</a></li><li><a href="#no-values-from-the-criteriaarray-are-found-in-the-carsowned-array">No values from the criteriaArray are found in the carsOwned array</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

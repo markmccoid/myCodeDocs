@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Promises and Async/Await · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Promises"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Promises and Async/Await · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## Promises"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Javascript</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Promises and Async/Await</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="promises"></a><a href="#promises" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Promises</h2>
+<p>Most important thing to understand about promises is how they are processed. Meaning, if you have a function called myPromise that returns a promise:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"First Line in function"</span>);
+        myPromise.then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Resolved Promise"</span>);
+        });
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Line 4 in function"</span>);
+    }
+    <span class="hljs-comment">//**************</span>
+    <span class="hljs-comment">//--Output</span>
+    <span class="hljs-comment">//First Line in function</span>
+    <span class="hljs-comment">//Line 4 in function</span>
+    <span class="hljs-comment">//Resolved Promise</span>
+</code></pre>
+<p>The code will run to completion before the .then on a promise is even checked if it is resolved.</p>
+<h2><a class="anchor" aria-hidden="true" id="asyncawait-feature-of-es6"></a><a href="#asyncawait-feature-of-es6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Async/Await feature of ES6</h2>
+<p>You must understand that the async/await feature is built on top of promises.</p>
+<p>To give an example of using async/await, we will first need to have a function that returns a promise to work with:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//Simple function that returns a promise and will resolve with a message in 'amount' of time.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">breathe</span>(<span class="hljs-params">amount</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (amount &lt; <span class="hljs-number">500</span>) {
+      reject(<span class="hljs-string">'That is too small of a value'</span>);
+    }
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(<span class="hljs-string">`Done for <span class="hljs-subst">${amount}</span> ms`</span>), amount);
+  });
+}
+</code></pre>
+<p>Next, we need to create an <em>async</em> function to work with the promise:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//an async function must begin with keyword 'async'</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">go</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Starting to breathe`</span>);
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">1000</span>);
+  <span class="hljs-built_in">console</span>.log(res);
+  <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">500</span>);
+  <span class="hljs-built_in">console</span>.log(res2);
+  <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">750</span>);
+  <span class="hljs-built_in">console</span>.log(res3);
+  <span class="hljs-keyword">const</span> res4 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">900</span>);
+  <span class="hljs-built_in">console</span>.log(res4);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'end'</span>);
+}
+</code></pre>
+<p>You must begin a function that is going to use <em>await</em> with the keyword <em>async</em>.</p>
+<p>Keep in mind that this is essentially creating a function that will be <strong>synchronous</strong>, but only when the code is running inside of it.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//Using the breathe function and the async function go</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'start'</span>);
+go();
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'end'</span>);
+<span class="hljs-comment">//result </span>
+<span class="hljs-comment">//start</span>
+<span class="hljs-comment">//end</span>
+<span class="hljs-comment">//Starting to breathe</span>
+<span class="hljs-comment">//1000</span>
+<span class="hljs-comment">//500</span>
+<span class="hljs-comment">//750</span>
+<span class="hljs-comment">//900</span>
+</code></pre>
+<p>A few key thing to note:</p>
+<ol>
+<li>Every <em>async</em> function will return a <strong>promise</strong></li>
+<li>Most things you <em>await</em> will be a <strong>promise</strong></li>
+<li><em>await</em> can only be used inside an <em>async</em> function</li>
+<li><em>async</em> makes that function, in essence, synchronous</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="error-handling"></a><a href="#error-handling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Handling</h3>
+<p>There are a couple of ways to handle errors, but on the surface, the <strong>async/await</strong> is creating synchronous code, so we can just use a <em>try/catch</em> block.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">go</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">1000</span>);
+    <span class="hljs-built_in">console</span>.log(res);
+    <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">500</span>);
+    <span class="hljs-built_in">console</span>.log(res2);
+    <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">750</span>);
+    <span class="hljs-built_in">console</span>.log(res3);
+  } <span class="hljs-keyword">catch</span>(err) {
+    <span class="hljs-built_in">console</span>.err(err);
+  }  
+  
+</code></pre>
+<p>OR if you don't use a try/catch in your async function, you could put a catch on the calling function:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">go</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">1000</span>);
+  <span class="hljs-built_in">console</span>.log(res);
+  <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">500</span>);
+  <span class="hljs-built_in">console</span>.log(res2);
+  <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">750</span>);
+  <span class="hljs-built_in">console</span>.log(res3);
+}
+
+go().catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(err));
+</code></pre>
+<p>However, in my testing I have found that if you have a <strong>try/catch</strong> in the async function and a <strong>.catch</strong> calling function and there is an error, the <strong>try/catch</strong> is the one that will be used.</p>
+<h3><a class="anchor" aria-hidden="true" id="then-on-the-async-function-call"></a><a href="#then-on-the-async-function-call" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>.then() on the async function call</h3>
+<p>You can use a .then() on the call to the async function.  The .then will be run after the function completes and will be passed whatever is returned from the function.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">go</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Starting to breathe`</span>);
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">1000</span>);
+  <span class="hljs-built_in">console</span>.log(res);
+  <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">500</span>);
+  <span class="hljs-built_in">console</span>.log(res2);
+  <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">750</span>);
+  <span class="hljs-built_in">console</span>.log(res3);
+  <span class="hljs-keyword">const</span> res4 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">900</span>);
+  <span class="hljs-built_in">console</span>.log(res4);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'end'</span>);
+  <span class="hljs-keyword">return</span> (<span class="hljs-string">'End of Async GO'</span>);
+}
+
+<span class="hljs-comment">//async go will complete and when complete the .then() will run</span>
+go().then(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`outside then called with - <span class="hljs-subst">${val}</span>`</span>));
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="higher-order-function-to-catch-repetitive-errors"></a><a href="#higher-order-function-to-catch-repetitive-errors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Higher Order Function to Catch Repetitive Errors</h3>
+<p>Many times you will want specific error handling for your async functions, however, there will be times when the same errors will need to be handled in multiple async functions.</p>
+<p>Instead of duplicating this error handing code over and over again, it is best to use a higher order function to capture and deal with the errors.</p>
+<p><a href="https://courses.wesbos.com/account/access/57a1679fa9a636e308fdfb2f/view/235537238">Wes Box example in his ES6 Course</a></p>
+<p>The below example also adds parameters that are passed to the go function.  This is just to show how these would be handled in the higher order function.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">breathe</span>(<span class="hljs-params">amount</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (amount &lt; <span class="hljs-number">500</span>) {
+      reject(<span class="hljs-string">'That is too small of a value'</span>);
+    }
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(<span class="hljs-string">`Done for <span class="hljs-subst">${amount}</span> ms`</span>), amount);
+  });
+}
+<span class="hljs-comment">//Our Higher Order function</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">catchErrors</span>(<span class="hljs-params">fn</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">...args</span>) </span>{
+    <span class="hljs-keyword">return</span> fn(...args).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Ohhhh nooo!!!!!'</span>);
+      <span class="hljs-built_in">console</span>.error(err);
+    });
+  }
+}
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">go</span>(<span class="hljs-params">name, last</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Starting for <span class="hljs-subst">${name}</span> <span class="hljs-subst">${last}</span>!`</span>);
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">1000</span>);
+  <span class="hljs-built_in">console</span>.log(res);
+  <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">500</span>);
+  <span class="hljs-built_in">console</span>.log(res2);
+  <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">750</span>);
+  <span class="hljs-built_in">console</span>.log(res3);
+  <span class="hljs-keyword">const</span> res4 = <span class="hljs-keyword">await</span> breathe(<span class="hljs-number">900</span>);
+  <span class="hljs-built_in">console</span>.log(res4);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'end'</span>);
+}
+
+<span class="hljs-keyword">const</span> wrappedFunction = catchErrors(go);
+wrappedFunction(<span class="hljs-string">'Wes'</span>, <span class="hljs-string">'Bos'</span>);
+</code></pre>
+<p>Note that the catchErrors function accepts the function (fn) and then returns a function.  The function it returns uses the <strong><em>...args</em></strong> (spread operator on the args) to accept any number of arguments that may be passed into the async function.</p>
+<p>When this higher order function (which has wrapped our async function) finally gets called, we pass the arguments to our async function <strong>fn(...args)</strong> and tack on a <strong>.catch()</strong> to handle any errors.</p>
+<p>We do return the fn() call, which return a promise that may and may not be used.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/my-code-docs/docs/javascript/using-local-storage"><span>Local Storage</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#promises">Promises</a></li><li><a href="#asyncawait-feature-of-es6">Async/Await feature of ES6</a><ul class="toc-headings"><li><a href="#error-handling">Error Handling</a></li><li><a href="#then-on-the-async-function-call">.then() on the async function call</a></li><li><a href="#higher-order-function-to-catch-repetitive-errors">Higher Order Function to Catch Repetitive Errors</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

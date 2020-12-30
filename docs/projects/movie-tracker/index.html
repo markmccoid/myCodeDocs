@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Movie Tracker · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## imdb App Links"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Movie Tracker · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## imdb App Links"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Movie Tracker</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="imdb-app-links"></a><a href="#imdb-app-links" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>imdb App Links</h2>
+<p>In the Movie Tracker app, there are a few places where you can open up the movie and cast members in IMDB.  I couldn't find any real documentation from IMDB on how to do this, but with some troubleshooting found out the following:</p>
+<p><strong>Linking to a movie</strong></p>
+<p>If we ever get to the catch, the assumption is that they don't have the imdb app loaded on their device, so send them to the app store.</p>
+<pre><code class="hljs css language-javascript">Linking.openURL(<span class="hljs-string">`imdb:///title/<span class="hljs-subst">${imdbId}</span>`</span>)
+  .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+     Linking.openURL(<span class="hljs-string">"https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525"</span>);
+   }
+)
+</code></pre>
+<p><strong>Linking to a Person</strong></p>
+<pre><code class="hljs css language-javascript">getPersonDetails(person.personId)
+  .then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> Linking.openURL(<span class="hljs-string">`imdb:///name/<span class="hljs-subst">${res.data.imdbId}</span>`</span>))
+  .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+    Linking.openURL(<span class="hljs-string">"https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525"</span>);
+   }
+);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="tags-tagging-and-filtering-on-tags"></a><a href="#tags-tagging-and-filtering-on-tags" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tags, Tagging and Filtering on Tags</h2>
+<p>Users are able to define as many tags as they need.  This data will be stored in Overmind on the <strong>tagData</strong> array.  It will hold an array of objects, each object representing a single tag:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//oSaved.tagData</span>
+[
+  {
+    <span class="hljs-attr">tagId</span>: <span class="hljs-string">'896456454564-54466'</span>,
+    <span class="hljs-attr">tagName</span>: <span class="hljs-string">'Watched'</span>
+  },
+  ...
+]
+</code></pre>
+<p>These tags are applied to movies to help the user filter movies later.</p>
+<p>When a movie is tagged, a new object property is added to the movie object in the <strong>oSaved.savedMovies</strong> array of objects.  This object property is called <strong>taggedWith</strong> and is an array of <strong>tagIds</strong>.</p>
+<p>There are Overmind state functions (getters) that take these &quot;applied&quot; tags and convert them for use with the <strong>TagCloud</strong> component.</p>
+<blockquote>
+<p>NOTE: This is for storing and showing tags on individual movies.  See the <strong>Filtering Tags</strong> section for details on how we use tags to filter movies.</p>
+</blockquote>
+<p>The <code>getAllMovieTags</code> function accepts a movieId and returns a properly sorted array of tag objects in this form.  By properly sorted, I mean that we keep the tags in the order that the user has determined in the Tags tab.</p>
+<pre><code class="hljs css language-javascript">{
+  tagId,
+  tagName,
+  isSelected
+}
+</code></pre>
+<p>The <strong>isSelected</strong> property allows the TagCloud component to know if the tag should be shown as being applied to the movie or not.</p>
+<p>The Overmind <strong>actions</strong> to save and remove tags to movies are <code>addTagToMovie</code> and <code>removeTagFromMovie</code> respectively.</p>
+<h3><a class="anchor" aria-hidden="true" id="filtering-tags"></a><a href="#filtering-tags" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filtering Tags</h3>
+<p>Using tags to filter our list of Saved Movies is done by storing the user selected filter data in Overmind at <strong>oSaved.filterData</strong></p>
+<pre><code class="hljs css language-javascript">  filterData: {
+    <span class="hljs-attr">tagOperator</span>: <span class="hljs-string">"OR"</span>,
+    <span class="hljs-attr">tags</span>: [tagIds],
+    <span class="hljs-attr">excludeTagOperator</span>: <span class="hljs-string">"AND"</span>,
+    <span class="hljs-attr">excludeTags</span>: [tagIds]
+    <span class="hljs-attr">genreOperator</span>: <span class="hljs-string">"OR"</span>,
+    <span class="hljs-attr">genres</span>: [],
+    <span class="hljs-attr">searchFilter</span>: <span class="hljs-literal">undefined</span>,
+  },
+</code></pre>
+<p>While the <strong>tags</strong> and <strong>excludeTags</strong> are separate properties in the <strong>oSaved</strong> store, the application uses the <code>getAllFilterTags</code> state function to return an array of objects:</p>
+<pre><code class="hljs css language-javascript">{
+  tagId,
+  tagName,
+  tagState, <span class="hljs-comment">// 'include' or 'exclude' or 'inactive'</span>
+}
+</code></pre>
+<p>The TagCloudEnhanced component will use the tagState property to determine what the next state will be.  Currently it is <strong>inactive -&gt; include -&gt; exclude</strong>.</p>
+<h4><a class="anchor" aria-hidden="true" id="filterbytagscontainer"></a><a href="#filterbytagscontainer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FilterByTagsContainer</h4>
+<p>This component encapsulates the <strong>TagCloudEnhanced</strong> component and obfuscates the properties so that it can be used for both the <em>creation</em> of saved filters as well as setting and applying an on the fly filter.</p>
+<p><strong>Components</strong> using <strong>FilterByTagsContainer</strong></p>
+<ul>
+<li>ViewMoviesFitlerScreen</li>
+<li>CreateSavedFilterScreen</li>
+</ul>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// OLD FILTER TAG State Functions -- DELETE when new is working</span>
+ <span class="hljs-comment">//*----------------------------</span>
+  <span class="hljs-comment">//* FILTER TAG State Functions</span>
+  <span class="hljs-comment">// Returns on the tags that are currently</span>
+  <span class="hljs-comment">// being used to filter data</span>
+  <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> filter tags only store the tag id, which is why we need to</span>
+  <span class="hljs-comment">//       call the buildTagObjFromIds and pass whether the tag isSelected or not</span>
+  <span class="hljs-comment">// tag object returned { tagId, tagName, isSelected }</span>
+  <span class="hljs-attr">getFilterTags</span>: derived(<span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> filterTagIds = state.filterData.tags;
+    <span class="hljs-keyword">return</span> helpers.buildTagObjFromIds(state, filterTagIds, <span class="hljs-literal">true</span>);
+  }),
+  <span class="hljs-comment">//--------------</span>
+  <span class="hljs-comment">// Returns only the tags that are NOT being used to filter data currently</span>
+  <span class="hljs-attr">getUnusedFilterTags</span>: derived(<span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> {
+    <span class="hljs-comment">// Tags being used to filter currently</span>
+    <span class="hljs-keyword">let</span> filterTagIds = state.filterData.tags;
+    <span class="hljs-comment">// All tags defined in the system</span>
+    <span class="hljs-keyword">let</span> allTagIds = helpers.retrieveTagIds(state.getTags);
+    <span class="hljs-keyword">let</span> unusedFilterTagIds = allTagIds.filter(
+      <span class="hljs-function">(<span class="hljs-params">tagId</span>) =&gt;</span> !filterTagIds.find(<span class="hljs-function">(<span class="hljs-params">tag</span>) =&gt;</span> tag === tagId)
+    );
+    <span class="hljs-keyword">return</span> helpers.buildTagObjFromIds(state, unusedFilterTagIds, <span class="hljs-literal">false</span>);
+  }),
+  <span class="hljs-comment">//--------------</span>
+  <span class="hljs-attr">getAllFilterTags</span>: derived(<span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> {
+    <span class="hljs-comment">// Take the array of filter tag objects (that have the isSelected property set and not yet set.)</span>
+    <span class="hljs-comment">// and convert to an object with the tagId as the key.</span>
+    <span class="hljs-comment">// This makes it easy to pull the isSelected flag when running the tagSorter function (which returns an array)</span>
+    <span class="hljs-keyword">const</span> unsortedTags = _.keyBy(
+      [...state.getUnusedFilterTags, ...state.getFilterTags],
+      <span class="hljs-string">"tagId"</span>
+    );
+    <span class="hljs-comment">// We want to return the tags sorted as they are in the original array</span>
+    <span class="hljs-comment">// Pull all the tags and return the array sorted tag with the isSelected</span>
+    <span class="hljs-comment">// property pulled from unsorted tags</span>
+    <span class="hljs-keyword">return</span> helpers.tagSorter(unsortedTags, {
+      <span class="hljs-attr">sortType</span>: <span class="hljs-string">"fromarray"</span>,
+      <span class="hljs-attr">sortedTagArray</span>: state.getTags,
+    });
+  }),
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#imdb-app-links">imdb App Links</a></li><li><a href="#tags-tagging-and-filtering-on-tags">Tags, Tagging and Filtering on Tags</a><ul class="toc-headings"><li><a href="#filtering-tags">Filtering Tags</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

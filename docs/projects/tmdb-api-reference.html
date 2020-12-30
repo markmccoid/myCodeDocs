@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>TMDB API Reference · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## The Movie DB API Reference"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="TMDB API Reference · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## The Movie DB API Reference"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>eTVTracker</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">eTVTracker</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/projects/tmdb-api-reference">TMDB API Reference</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/projects/electron-tv-tracker">Electron TV Tracker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">TMDB API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/projects/tmdb-wrapper-api">TMDB Wrapper API Reference</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">TMDB API Reference</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="the-movie-db-api-reference"></a><a href="#the-movie-db-api-reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Movie DB API Reference</h2>
+<h3><a class="anchor" aria-hidden="true" id="getting-an-api-key"></a><a href="#getting-an-api-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting an API Key</h3>
+<p>Go to <a href="https://www.themoviedb.org/">TMDb Site</a>, login and then go to your account page and there will be an API section where you can access your API Key.</p>
+<h3><a class="anchor" aria-hidden="true" id="configuration-object"></a><a href="#configuration-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Object</h3>
+<p>API Example call:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/configuration?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/edaw2l5lkpksjtr/ConfigurationObject.json?dl=0">Configuration JSON Output</a></p>
+<h4><a class="anchor" aria-hidden="true" id="getconfiguration"></a><a href="#getconfiguration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GET/configuration</h4>
+<p><strong><a href="https://developers.themoviedb.org/3/configuration/get-api-configuration">TMDb Docs</a></strong></p>
+<p>Get the system wide configuration information. Some elements of the API require some knowledge of this configuration data. The purpose of this is to try and keep the actual API responses as light as possible. It is recommended you cache this data within your application and check for updates every few days.</p>
+<p>This method currently holds the data relevant to building image URLs as well as the change key map.</p>
+<p>To build an image URL, you will need 3 pieces of data. The <code>base_url</code>, <code>size</code> and <code>file_path</code>. Simply combine them all and you will have a fully qualified URL. Here’s an example URL:</p>
+<pre><code class="hljs">https:<span class="hljs-regexp">//im</span>age.tmdb.org<span class="hljs-regexp">/t/</span>p<span class="hljs-regexp">/w500/</span><span class="hljs-number">8</span>uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg
+
+</code></pre>
+<p>The configuration method also contains the list of change keys which can be useful if you are building an app that consumes data from the change feed.</p>
+<h3><a class="anchor" aria-hidden="true" id="tv-api-calls"></a><a href="#tv-api-calls" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TV API Calls</h3>
+<h4><a class="anchor" aria-hidden="true" id="search-by-title-tv"></a><a href="#search-by-title-tv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Search By Title (TV)</h4>
+<p><a href="https://developers.themoviedb.org/3/search/search-tv-shows">TMDb Docs</a></p>
+<p>API Example Call:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/search/tv?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>&amp;page=1&amp;include_adult=false&amp;query=stranger things
+</code></pre>
+<p><a href="https://www.dropbox.com/s/q1jxqwd6m7734an/SearchByName_TV.json?dl=0">Search By Name JSON Object</a></p>
+<h4><a class="anchor" aria-hidden="true" id="get-show-detail-tv"></a><a href="#get-show-detail-tv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Show Detail (TV)</h4>
+<p><a href="https://developers.themoviedb.org/3/tv/get-tv-details">TMDb Docs</a></p>
+<p>API Example Call:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/tv/32815?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/m0kmcsbvpaksgme/GetShowDetail_TV.json?dl=0">Get Show Detail JSON Object</a></p>
+<h4><a class="anchor" aria-hidden="true" id="get-show-creditscast"></a><a href="#get-show-creditscast" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Show Credits/Cast</h4>
+<p><a href="https://developers.themoviedb.org/3/tv/get-tv-credits">TMDb Docs</a></p>
+<p>API Example Call:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/tv/32815/credits?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/o9zhe9dk2qxk4gz/GetShowCredits_TV.json?dl=0">Get Show Credits JSON Object</a></p>
+<h4><a class="anchor" aria-hidden="true" id="get-images-for-a-tv-show"></a><a href="#get-images-for-a-tv-show" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Images for a TV Show</h4>
+<p><a href="https://developers.themoviedb.org/3/tv/get-tv-images">TMDb Docs</a></p>
+<p>API Example Call:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/tv/32815/images?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/h78io4k89i6y92s/GetImagesTV.json?dl=0">Get Images JSON Object</a></p>
+<p>Quick and dirty of what you get back from this call is:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"backdrops"</span>: [],
+  <span class="hljs-attr">"posters"</span>: [],
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">12345</span>
+}
+</code></pre>
+<p>The <strong>backdrops</strong> and <strong>posters</strong> contain an array that looks like this:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"aspect_ratio"</span>: <span class="hljs-number">0.6666666666666666</span>,
+  <span class="hljs-attr">"file_path"</span>: <span class="hljs-string">"/x4bn54rjIFAxKLi6JLUgGwBy3W2.jpg"</span>,
+  <span class="hljs-attr">"height"</span>: <span class="hljs-number">1500</span>,
+  <span class="hljs-attr">"iso_639_1"</span>: <span class="hljs-string">"en"</span>,
+  <span class="hljs-attr">"vote_average"</span>: <span class="hljs-number">5.312</span>,
+  <span class="hljs-attr">"vote_count"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">"width"</span>: <span class="hljs-number">1000</span>
+}
+</code></pre>
+<p>However, I have found that you simply create a URL as detailed below using the <em>file_path</em> attribute.</p>
+<p>All image attributes just contain the image files name <code>/zpefjkadfasdf.jpg</code>, to access the image, you must use information obtained from the configuration object to build the image URL.  You could simply hard code this information in, however, if the base URL ever changed, your app would break.  Probably a good idea to pull this information from the config object when loading the app.</p>
+<p>To build an image URL, you will need 3 pieces of data. The <code>base_url</code>, <code>size</code> and <code>file_path</code>. Simply combine them all and you will have a fully qualified URL. Here’s an example URL:</p>
+<pre><code class="hljs">https:<span class="hljs-regexp">//im</span>age.tmdb.org<span class="hljs-regexp">/t/</span>p<span class="hljs-regexp">/w500/</span><span class="hljs-number">8</span>uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg
+
+</code></pre>
+<p>To get this information from the config object, you will need to pull the following items:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"images"</span>: {
+    <span class="hljs-attr">"base_url"</span>: <span class="hljs-string">"http://image.tmdb.org/t/p/"</span>,
+    <span class="hljs-attr">"secure_base_url"</span>: <span class="hljs-string">"https://image.tmdb.org/t/p/"</span>,
+    <span class="hljs-attr">"backdrop_size"</span>: [
+      <span class="hljs-string">"w300"</span>.
+      ...
+    ],
+    <span class="hljs-attr">"logo_sizes"</span>: [],
+    <span class="hljs-attr">"poster_sizes"</span>: [
+      <span class="hljs-string">"w92"</span>,
+      ...
+      <span class="hljs-string">"original"</span>
+    ]
+  }
+}
+</code></pre>
+<p>There are other attributes, however, the above should be enough to generate an image URL.</p>
+<p>Not sure of the best way to get at the sizes, will most likely pick the size needed for the image and hardcode.</p>
+<h4><a class="anchor" aria-hidden="true" id="get-tv-genre-list"></a><a href="#get-tv-genre-list" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get TV Genre List</h4>
+<p><a href="https://developers.themoviedb.org/3/genres/get-tv-list">TMDb Docs</a></p>
+<p>API Example Call:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/genre/tv/list?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/zsxm6kqiiultayy/GetTVGenreList.json?dl=0">Get Show Credits JSON Object</a></p>
+<h4><a class="anchor" aria-hidden="true" id="get-tv-season-and-episode-detail"></a><a href="#get-tv-season-and-episode-detail" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get TV Season and Episode Detail</h4>
+<p><a href="https://developers.themoviedb.org/3/tv-episodes/get-tv-episode-details">TMDb Docs</a></p>
+<p>/tv/{tv_id}/season/{season_number}/[episode/{episode_number}]</p>
+<p>There are a number of ways you can call this API to get information about a shows Seasons and Episodes.  All of the Get calls below require the TV Show ID.  This is obtained when you search for a TV Show by title.</p>
+<p>Get the <strong>details of a season</strong>, with 32815 being the tv show id:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/tv/32815?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/eoyadn2898mhj5b/GetTVSeasonDetail.json?dl=0">Get Show Season JSON Object</a></p>
+<p>Get the <strong>details of a ALL episodes in a season</strong>, with 32815 being the tv show id:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/tv/32815/season/1?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/iqlbaxghznbd3dt/GetTVEpisodeDetail.json?dl=0">Get Show Episode Detail JSON Object</a></p>
+<h4><a class="anchor" aria-hidden="true" id="get-external-id-imdb"></a><a href="#get-external-id-imdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get External ID (IMDB)</h4>
+<p>/tv/{tv_id}/external_ids</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/tv/32815/external_ids?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/624oo9m79rgx8dd/GetExternalIds_TV.json?dl=0">Get External IDs JSON</a></p>
+<h4><a class="anchor" aria-hidden="true" id="using-imdb-external-id-to-get-to-episode"></a><a href="#using-imdb-external-id-to-get-to-episode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using IMDB External ID to get to Episode</h4>
+<p>Url - <a href="http://www.imdb.com/title/{imdb_id}/?ref_=ttep_ep1">http://www.imdb.com/title/{imdb_id}/?ref_=ttep_ep1</a></p>
+<p>Example: <a href="http://www.imdb.com/title/tt1668798/?ref_=ttep_ep1">http://www.imdb.com/title/tt1668798/?ref_=ttep_ep1</a></p>
+<h3><a class="anchor" aria-hidden="true" id="movie-api-calls"></a><a href="#movie-api-calls" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Movie API Calls</h3>
+<h4><a class="anchor" aria-hidden="true" id="search-for-a-movie-by-title"></a><a href="#search-for-a-movie-by-title" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Search for a Movie by Title</h4>
+<p><a href="https://developers.themoviedb.org/3/search/search-movies">TMDB Docs</a></p>
+<p><strong>Query Parameters</strong></p>
+<ul>
+<li>page - returns the page specified.  If omitted only returns the first page.  In the return object you will also be handed a list of total pages.  You can use this information to help in navigating multiple pages.
+If you query a page that doesn't exist, your &quot;results&quot; array will be empty.</li>
+<li>query - contains the search text.</li>
+<li>year - an optional parameter that will narrow your searches for movies release is passed year.</li>
+</ul>
+<p>API Example Call:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/search/movie?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>&amp;page=1&amp;include_adult=false&amp;query=the house
+</code></pre>
+<p><a href="https://www.dropbox.com/s/if5amkjeoj6ub4n/SearchByName_Movie.json?dl=0">Search By Name Movie JSON Object</a></p>
+<h4><a class="anchor" aria-hidden="true" id="get-images-for-a-movie-movie"></a><a href="#get-images-for-a-movie-movie" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Images for a Movie (Movie)</h4>
+<p><a href="https://developers.themoviedb.org/3/movies/get-movie-images">TMDB Docs</a></p>
+<p><strong>Query Parameters</strong></p>
+<ul>
+<li>API Key</li>
+</ul>
+<p>API Example Call:</p>
+<p>The movie ID {345914} is returned in the movie objects when searching for a movie.</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/movie/345914/images?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/30spv0ejrk6z8du/GetImagesMovie.json?dl=0">Get Images for Movie JSON Object</a></p>
+<h4><a class="anchor" aria-hidden="true" id="get-movie-credits-movie"></a><a href="#get-movie-credits-movie" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Movie Credits (Movie)</h4>
+<p><a href="https://developers.themoviedb.org/3/movies/get-movie-credits">TMDB Docs</a></p>
+<p>API Example Call:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/movie/345914/credits?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>
+</code></pre>
+<p><a href="https://www.dropbox.com/s/ywqj4xum687igkw/GetMovieCredits.json?dl=0">Movie Credits JSON Object</a></p>
+<h4><a class="anchor" aria-hidden="true" id="get-find-movies-by-genre-and-more-movie"></a><a href="#get-find-movies-by-genre-and-more-movie" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get (Find) Movies by Genre and More (Movie)</h4>
+<p><a href="https://developers.themoviedb.org/3/discover/movie-discover">TDMB Docs</a></p>
+<p>These API calls will allow you to search/discover movies by a number of different characteristics.  The docs will hold all of these details, but here are a few useful ones:</p>
+<ul>
+<li><p>with_genres - return movies that match genre id(s).  You can get the Genre list for movies as follows:</p>
+<pre><code class="hljs css language-html">https://api.themoviedb.org/3/discover/movie?api_key=<span class="hljs-tag">&lt;<span class="hljs-name">API_Key</span>&gt;</span>&amp;sort_by=popularity.desc&amp;include_adult=false&amp;with_genres=16,28&amp;page=1
+</code></pre></li>
+<li><p>with_cast</p></li>
+</ul>
+<p><a href="https://www.dropbox.com/s/heefzsu7xg0yu4y/GetFindMoviesBy.json?dl=0">Get Find Movies JSON Object</a></p>
+<h2><a class="anchor" aria-hidden="true" id="the-omdb-api"></a><a href="#the-omdb-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The OMDb API</h2>
+<p>This API is an unofficial pull of IMDB's database.  Currently thinking of using it to get the imdb links for the episodes.</p>
+<p>Right now the API key I have is limited to 1000/day.</p>
+<p><a href="https://www.patreon.com/bePatron?u=5038490">Upgrade to more API Requests</a></p>
+<p>Here is my <strong>API Key</strong>: c0247b61</p>
+<p>Haven't found any documentation on the API, maybe once you become a patron.  Anyway, I'm looking to just get the IMDB ids for the episodes.  Here is the way to do that.</p>
+<pre><code class="hljs css language-html">http://www.omdbapi.com/?i=tt0944947&amp;Season=1&amp;apikey=c0247b61
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="tv-tracker-plus-data-guide"></a><a href="#tv-tracker-plus-data-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TV Tracker Plus Data Guide</h2>
+<p>Data will reside in a <em>redux</em> store in the application and initially in a <em>Firebase</em> database for permanent (backend) storage.</p>
+<p>There are three places where data is stored,</p>
+<ul>
+<li><strong>firebase</strong> - the main storage area for the data.  Code to Access in <strong>firebase</strong> folder.</li>
+<li><strong>redux</strong> - the application state.</li>
+<li><strong>TMDb API</strong> - the source for our TV and movie data. Code to access in <strong>api</strong> folder.</li>
+</ul>
+<p>To facilitate communication between these different stores, we have the <strong>dataModel</strong> folder.  It houses the code that access the <strong>TMDb API</strong> and the <strong>firebase</strong> code.</p>
+<p>For example, when I add a new TV Show, the <em>dmAddTVShowData</em> function will access the <strong>TMDb API</strong> code to get the source data, then format it to first send to <strong>firebase</strong> and call the appropriate firebase function and then return properly formatted data for the redux store.</p>
+<p>The data structure itself needs some work, but currently it is the following:</p>
+<pre><code class="hljs css language-javascript">data = {
+    <span class="hljs-attr">TV</span>: {
+        <span class="hljs-attr">showData</span>: {},
+        <span class="hljs-attr">seasonData</span>: {}, <span class="hljs-comment">//episode data in this structure</span>
+        <span class="hljs-attr">extraData</span>: {}, <span class="hljs-comment">//links, etc - probably should be in showData or userData or combo </span>
+        <span class="hljs-attr">userData</span>: {} <span class="hljs-comment">//User specific, shows watched, downloaded, custom poster image etc        </span>
+    },
+    <span class="hljs-attr">auth</span>: {
+        <span class="hljs-attr">uid</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">//firebase uid</span>
+        <span class="hljs-attr">status</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">//SUCCESS, WORKING, ERROR</span>
+        <span class="hljs-attr">message</span>: {
+            <span class="hljs-attr">code</span>:
+            message:
+        },
+    <span class="hljs-attr">search</span>: {
+        <span class="hljs-attr">searchTerm</span>: <span class="hljs-string">''</span>,
+        <span class="hljs-attr">status</span>: <span class="hljs-string">''</span> <span class="hljs-comment">//undefined, loading, success, error</span>
+      }
+    }
+}
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="routes"></a><a href="#routes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Routes</h2>
+<ul>
+<li><strong>/login</strong> -&gt; Login.js main login screen.  Starting point.</li>
+<li><strong>/</strong> -&gt; Main.js. Main screen with Header and Links to TV, API, Movie</li>
+<li><strong>/tv</strong> -&gt; TV starting point</li>
+<li><strong>/tv/add</strong> - TV Add show endpoint.</li>
+<li><strong>/tv/detail/:id</strong> - When a TV Show is chosen. The id will be passed to this route for display.</li>
+<li><strong>/api</strong> -&gt; API Starting point</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/my-code-docs/docs/projects/electron-tv-tracker"><span>Electron TV Tracker</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#the-movie-db-api-reference">The Movie DB API Reference</a><ul class="toc-headings"><li><a href="#getting-an-api-key">Getting an API Key</a></li><li><a href="#configuration-object">Configuration Object</a></li><li><a href="#tv-api-calls">TV API Calls</a></li><li><a href="#movie-api-calls">Movie API Calls</a></li></ul></li><li><a href="#the-omdb-api">The OMDb API</a></li><li><a href="#tv-tracker-plus-data-guide">TV Tracker Plus Data Guide</a></li><li><a href="#routes">Routes</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Redux with React (First Doc) · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Intro"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Redux with React (First Doc) · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## Intro"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Redux</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Redux with React (First Doc)</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="intro"></a><a href="#intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Intro</h2>
+<p>The main parts of the redux flow for react are:</p>
+<ol start="3">
+<li>&lt;Provider&gt;&lt;/Provider&gt; component</li>
+<li>The store</li>
+<li>Middleware - applyMiddleware()</li>
+<li>actions and their Action Creators</li>
+<li>reducers</li>
+<li>The connect function</li>
+</ol>
+<p>Very similar to ES5 syntax, but a bit different when using the connect() function.</p>
+<h2><a class="anchor" aria-hidden="true" id="provider-component"></a><a href="#provider-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Provider Component</h2>
+<p>The Provider component is the wrapper for our application, it will wrap react-router also:</p>
+<pre><code class="hljs">import { Provider } from 'react-redux';
+...
+ &lt;Provider store={createStoreWithMiddleware(reducers)}&gt;
+ &lt;Router history={browserHistory} routes={routes}/&gt;
+ &lt;/Provider&gt;
+</code></pre>
+<p>The store is where all the data will be stored. I have seen a couple of ways to create the store.</p>
+<p>Here is one way, it is done in the main index.js file:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
+    <span class="hljs-keyword">import</span> { Provider } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+    <span class="hljs-keyword">import</span> { createStore, applyMiddleware } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>;
+    <span class="hljs-keyword">import</span> { Router, browserHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router'</span>;
+    <span class="hljs-keyword">import</span> promise <span class="hljs-keyword">from</span> <span class="hljs-string">'redux-promise'</span>;
+    
+    <span class="hljs-keyword">import</span> reducers <span class="hljs-keyword">from</span> <span class="hljs-string">'./reducers'</span>;
+    <span class="hljs-keyword">import</span> routes <span class="hljs-keyword">from</span> <span class="hljs-string">'./routes'</span>;
+    
+    <span class="hljs-keyword">const</span> createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+    
+    ReactDOM.render(
+     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{createStoreWithMiddleware(reducers)}</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">Router</span> <span class="hljs-attr">history</span>=<span class="hljs-string">{browserHistory}</span> <span class="hljs-attr">routes</span>=<span class="hljs-string">{routes}/</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>
+     , <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.container'</span>));
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="the-store"></a><a href="#the-store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Store</h2>
+<p>On line 11, we are creating a variable &quot;createStoreWithMiddleware&quot; which is setting up our createStore() function, but also passing &quot;promise&quot; (redux-promise), which greatly helps when pulling data using axios.</p>
+<p>Then in the Provider component, we create the store and pass is to the store prop.</p>
+<p>For more detail see <a href="./my-redux-pattern#configurestorejs">My Redux Pattern Docs</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="connect-funtion"></a><a href="#connect-funtion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>connect() funtion</h2>
+<p>The connect() function allows you to inject your redux state into the components props object as we'll as map your action creators so that they are automatically send to the dispatch function.</p>
+<p>We do the above two things by creating a mapStateToProps(state) function and mapDispatchToProps(dispatch) funciton.</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapStateToProps</span>(<span class="hljs-params">state</span>) </span>{
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">weather</span>: state.weather
+        };
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapDispatchToProps</span>(<span class="hljs-params">dispatch</span>) </span>{
+        <span class="hljs-keyword">return</span> bindActionCreators({ fetchWeather }, dispatch);
+    }
+    
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="mapstatetopropsstate"></a><a href="#mapstatetopropsstate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>mapStateToProps(state)</h3>
+<p>The state parameter is passed the full application state. We can then either return all of the state:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapStateToProps</span>(<span class="hljs-params">state</span>) </span>{
+        <span class="hljs-keyword">return</span> state;
+    }
+</code></pre>
+<p>Or, most likely just return the portion of state that this component/container needs.</p>
+<p>In that case, you will return an object where the key is the prop name and the value is the piece of state that you want in the component.</p>
+<blockquote>
+<p>Note that the prop name (key) you choose, can be anything.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="mapdispatchtopropsdispatch--see-how-to-get-rid-of-using-this-function"></a><a href="#mapdispatchtopropsdispatch--see-how-to-get-rid-of-using-this-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>mapDispatchToProps(dispatch) — See how to get rid of using this function.</h3>
+<p>This function creates new wrapper functions that will call the dispatch function with your action create as a parameter.
+The function returns the bindActionsCreators() function, which is passed an object defining the new wrapped functions.
+It is easiest to simply use the ES6 object syntax and just pass the original action creator function name.
+This creates a wrapped function of the same name that you call via this.props.actionCreator(), which translates to dispatch(actionCreator).</p>
+<p>The second parameter to bindActionCreators is the dispatch function that is passed as a parameter to the mapDispatchToProps function.</p>
+<h2><a class="anchor" aria-hidden="true" id="export-component-using-the-connect-hoc"></a><a href="#export-component-using-the-connect-hoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>export component using the connect() HOC</h2>
+<p>The last step is to export your component/container so that other components can have access.</p>
+<p>This is done using the connect() function.</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+    <span class="hljs-comment">//Or if you do not need any application state</span>
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(<span class="hljs-literal">null</span>, mapDispatchToProps)(SearchBar);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="redux-shorthands-for-map-functions"></a><a href="#redux-shorthands-for-map-functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redux Shorthands for map functions</h2>
+<p>There are a few shortcuts. One will get rid of the need for the mapDispatchToProps function.</p>
+<p>To do this, you simply pass the action creator functions that you want to &quot;bind&quot; to the dispatch function as an object to the second parameter to the connect() function:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(<span class="hljs-literal">null</span>, {<span class="hljs-attr">fetchPosts</span>: fetchPosts})(PostsIndex);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="hooks"></a><a href="#hooks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HOOKS</h2>
+<p><a href="https://react-redux.js.org/next/api/hooks">Redux Hooks Docs</a></p>
+<p>Hooks for the most part (in my initial impression) replace the need for <code>connect()</code>, <code>mapStateToProps</code> and <code>mapDispatchToProps</code></p>
+<p>The two main hooks are <code>useSelector</code> and <code>useDispatch</code></p>
+<h3><a class="anchor" aria-hidden="true" id="usedispatch"></a><a href="#usedispatch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>useDispatch</h3>
+<p><strong>useDispatch</strong> will return the dispatch function for you to use when dispatching actions.  Nothing new here, it used to be injected with the <code>connect</code> function, but since we won't be using <code>connect</code>, we will need to use this hook to get the <code>dispatch</code> functino.</p>
+<h3><a class="anchor" aria-hidden="true" id="useselector"></a><a href="#useselector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>useSelector</h3>
+<p><strong>useSelector</strong> - takes a selector function which accepts a state parameter, which is the whole state in your redux store.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">let</span> pieceOfState = useSelector(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state.pieceOfState)
+</code></pre>
+<p>If you need props in your selector, simply use closure</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">let</span> { itemId } = props;
+<span class="hljs-keyword">let</span> pieceOfState = useSelector(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state.pieceOfState[itemId])
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="reselect-for-memoization-of-selectors"></a><a href="#reselect-for-memoization-of-selectors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reselect for memoization of Selectors</h3>
+<p>The redux docs are a good place to start as they describe how to use Reselect with the <code>useSelector</code> function. <a href="https://react-redux.js.org/next/api/hooks#using-memoizing-selectors">Redux Memoization Docs</a>.</p>
+<p>The main function that I have used from Reselect is the <code>createSelector</code> function.  It is a little confusing and there are some gotchas you need to watch for.</p>
+<p>But first, how does it work?</p>
+<p>The <code>createSelector</code> function takes in two parameters, an array of selectors and a function the will process the output from those selectors.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">"lodash"</span>;
+<span class="hljs-keyword">import</span> { createSelector } <span class="hljs-keyword">from</span> <span class="hljs-string">"reselect"</span>;
+
+<span class="hljs-comment">//------------- Standard Selectors ----------------------------//</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> selectAllShows = <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state.shows;
+
+<span class="hljs-comment">// ----------- ReSelect Selectors ---------------------------//</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> selectShowsFromGroup = createSelector(
+  [selectAllShows, (_, selectedGroup) =&gt; selectedGroup],
+  (shows, selectedGroup) =&gt; {
+    <span class="hljs-keyword">return</span> shows.filter(<span class="hljs-function"><span class="hljs-params">show</span> =&gt;</span> show.id === selectedGroup)
+    );
+  }
+);
+
+<span class="hljs-comment">// Calling Component</span>
+
+<span class="hljs-keyword">import</span> { useSelector } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-redux"</span>;
+<span class="hljs-keyword">import</span> { selectShowsFromGroup } <span class="hljs-keyword">from</span> <span class="hljs-string">'./selectors'</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Shows</span> = (<span class="hljs-params">props</span>) =&gt; </span>{
+  <span class="hljs-keyword">let</span> { group } = props;
+  <span class="hljs-keyword">let</span> showsFromGroup = useSelector(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> selectShowsFromGroup(state, group))
+  
+}
+</code></pre>
+<p>In the above example, the standard selector <strong>selectAllShows</strong> could be used directly in a <code>useSelector</code> call and would return  an array of the shows stored in the state.</p>
+<p>We will use ReSelect to return only shows from a passed group.</p>
+<p>This is where it gets a little tricky.  You need to understand that the <em>selectors</em> passed in the first argument (array) each will be called and passed the stores state and (if you need ask for it), any second parameter passed when calling the <strong>selectShowsFromGroup</strong> selector.</p>
+<p>Since we don't need that second parameter in the <strong>selectAllShows</strong> selector, we don't worry about it in that selectors signature.  However, we do need it in the selector that the <code>createSelector</code> function is going to return.  So, we pass a second selector, in the form of an inline function that just pulls off that second parameter and returns it.</p>
+<p>Now ReSelect passes to the second parameter of the <code>createSelector</code> all of the return values from the selectors in the first parameter.</p>
+<p>In this case, it will return <strong><em>shows</em></strong> and <strong><em>selectedGroup</em></strong>.</p>
+<blockquote>
+<p>If you want to do the above from a single selector, meaning not sending in the second selector function to extract the props, you would need to make a modification in the selector you pass to createSelector and have it return an object with all the stuff you need.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//------------- Standard Selectors ----------------------------//</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> selectAllShows = <span class="hljs-function">(<span class="hljs-params">state, props</span>) =&gt;</span> ({ 
+  <span class="hljs-attr">shows</span>: state.shows, <span class="hljs-attr">group</span>: props
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> selectShowsFromGroup = createSelector(
+  [selectAllShows],
+  ({shows, selectedGroup}) =&gt; {
+    <span class="hljs-keyword">return</span> shows.filter(<span class="hljs-function"><span class="hljs-params">show</span> =&gt;</span> show.id === selectedGroup)
+    );
+  }
+);
+</code></pre>
+<p>The calling of <code>selectShowsFromGroup</code> will stay the same, but the base selector <strong>selectAllShows</strong> must change.  You will also no longer need that second selector function to get the props.</p>
+<p>Lastly, the function you pass as the second parameter to <code>createSelector</code> will now be accepting a single value, which is our object we created and return from <strong>selectAllShows</strong>.  In the above example, I'm just destructuring it.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="redux-helper-modules---ie-redux-middleware"></a><a href="#redux-helper-modules---ie-redux-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redux Helper Modules - i.e. Redux Middleware</h2>
+<p>There are a couple of helper modules specifically for Redux that I have found useful.</p>
+<h3><a class="anchor" aria-hidden="true" id="redux-promise"></a><a href="#redux-promise" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redux-Promise</h3>
+<p>If it receives a promise, it will dispatch the resolved value of the promise. It will not dispatch anything if the promise rejects.</p>
+<p>This makes it so that we do not have to deal with the promise, it will only dispatch the action if and when the promise resolves.</p>
+<p><strong>redux thunk</strong> can also deal with promises as well as a number of other situations.</p>
+<p><strong>Setup Example:</strong></p>
+<pre><code class="hljs css language-javascript">    ...
+    import promise <span class="hljs-keyword">from</span> <span class="hljs-string">'redux-promise'</span>;
+    
+    <span class="hljs-keyword">const</span> createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+    
+    ReactDOM.render(
+     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{createStoreWithMiddleware(reducers)}</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">Router</span> <span class="hljs-attr">history</span>=<span class="hljs-string">{browserHistory}</span> <span class="hljs-attr">routes</span>=<span class="hljs-string">{routes}/</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>
+     , <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.container'</span>));
+
+Action Creator example:
+
+    <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPost</span>(<span class="hljs-params">props</span>) </span>{
+        <span class="hljs-keyword">const</span> request = axios.post(<span class="hljs-string">`<span class="hljs-subst">${ROOT_URL}</span>/posts<span class="hljs-subst">${API_KEY}</span>`</span>, props);
+    
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">type</span>: CREATE_POST,
+            <span class="hljs-attr">payload</span>:request
+        };
+    }
+</code></pre>
+<p>When the above action creator is called, it will only dispatch to the reducers if and when the promise resolves.</p>
+<p>However, wherever you call the action creator from will still return the promise if you need to use if in your code:</p>
+<pre><code class="hljs css language-javascript">        onSubmit(props) {
+            <span class="hljs-keyword">this</span>.props.createPost(props)
+                .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                    browserHistory.push(<span class="hljs-string">'/'</span>);
+                });
+        }
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="combinereducers-in-depth"></a><a href="#combinereducers-in-depth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>combineReducers in Depth</h2>
+<p>Here is a simple sample of what the combineReducers function is doing:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">var</span> todos = <span class="hljs-function">(<span class="hljs-params">state = <span class="hljs-string">''</span>, action</span>) =&gt;</span> {
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"todos"</span>);
+     <span class="hljs-keyword">return</span> <span class="hljs-string">"todo"</span>;
+    };
+    
+    <span class="hljs-keyword">var</span> visFilter = <span class="hljs-function">(<span class="hljs-params">state = <span class="hljs-string">''</span>, action</span>) =&gt;</span> {
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"visFilter"</span>);
+     <span class="hljs-keyword">return</span> <span class="hljs-string">"visFilter"</span>;
+    };
+    
+    <span class="hljs-keyword">var</span> reducers = {
+     todos,
+     visFilter
+    };
+    
+    <span class="hljs-keyword">const</span> combineReducers = <span class="hljs-function">(<span class="hljs-params">reducers</span>) =&gt;</span> {
+     <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">state = {}, action</span>) =&gt;</span> {
+     <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.keys(reducers).reduce(
+        <span class="hljs-function">(<span class="hljs-params">nextState, key</span>) =&gt;</span> {
+            nextState[key] = reducers[key] (
+            state[key], action);
+            <span class="hljs-keyword">return</span> nextState;
+        },{});
+     };
+    };
+    
+    <span class="hljs-built_in">console</span>.log(combineReducers(reducers)({}, <span class="hljs-string">'DONE'</span>));
+</code></pre>
+<p>Output will be:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-string">"todos"</span> <span class="hljs-comment">//Getting logged when the todos reducer is run</span>
+    <span class="hljs-string">"visFilter"</span> <span class="hljs-comment">//Getting logged when the visFilter reducer is run</span>
+    <span class="hljs-comment">//Final object created from line 27 above.</span>
+    [object <span class="hljs-built_in">Object</span>] {
+     <span class="hljs-attr">todos</span>: <span class="hljs-string">"todo"</span>,
+     <span class="hljs-attr">visFilter</span>: <span class="hljs-string">"visFilter"</span>
+    }
+</code></pre>
+<p>First thing to remember is that the const combineReducers is returning a function that accepts an object containing the state pieces with their assigned reducers:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//This is an example of what combineReducers function does. </span>
+<span class="hljs-comment">//Loops through the reducers and </span>
+<span class="hljs-keyword">const</span> combineReducers = <span class="hljs-function">(<span class="hljs-params">reducers</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">state = {}, action</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.keys(reducers)
+            .reduce(<span class="hljs-function">(<span class="hljs-params">nextState, key</span>) =&gt;</span> {
+              <span class="hljs-comment">//assigning the function calls</span>
+                nextState[key] = reducers[key] (state[key], action);
+                <span class="hljs-keyword">return</span> nextState;
+            },{});
+    };
+};
+</code></pre>
+<p>Next, when executing the combineReducers function, you will get back another function, which will accept the state and action parameters.
+Note, this is what our reducers need. But at this point, the state is the full state. The next part is where we dole out the pieces of state to the correct reducers.</p>
+<p><code>return Object.keys(reducers)</code></p>
+<p>Object.keys will return an array of the keys of the object passed. In this case it will return the pieces of our state object:</p>
+<p><code>[&quot;todos&quot;, &quot;visFilter&quot;]</code></p>
+<p>Next, we will take this array of keys and pass them to the reduce() function</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.keys(reducers).reduce(
+    <span class="hljs-function">(<span class="hljs-params">nextState, key</span>) =&gt;</span> {
+        nextState[key] = reducers[key] (
+        state[key], action);
+        <span class="hljs-keyword">return</span> nextState;
+        },{});
+</code></pre>
+<p>The reduce function takes a callback function with 4 parameters (prevValue, CurrValue, CurrentIndex, Array). T
+he reduce function takes two arguments, the callback function and an optional intial value. However, if the initial value is supplied, then it is used as the first parameter (not confusing at all!).</p>
+<p>So in our above example, we are passing the initial value ({}), so the <strong>nextState</strong> argument is actually the <strong>CurrValue</strong> parameter and the <strong>Key</strong> is the <strong>Index.</strong></p>
+<p>Here is an example of how the reduce function works on the array Object.keys(reducers) produces</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">var</span> reducers = {
+     todos,
+     visFilter
+    };
+    
+    <span class="hljs-built_in">Object</span>.keys(reducers).reduce(<span class="hljs-function">(<span class="hljs-params">nextState, key</span>) =&gt;</span> {
+     <span class="hljs-built_in">console</span>.log(key);
+     <span class="hljs-built_in">console</span>.log(nextState);
+     nextState[key] = <span class="hljs-number">1</span>;
+     <span class="hljs-built_in">console</span>.log(nextState);
+     <span class="hljs-keyword">return</span> nextState;
+     }, {});
+</code></pre>
+<p>I'm not returning any functions, but this allows you to see how reduce() works. It starts with the initial value (an empty object) and the first pass through reduce sends the Initial state as nextState (an empty object). The key will be the first &quot;reducer&quot; sent in the form of the object keys. In this example, the reducers object contains two key &quot;todos&quot; and &quot;visFilter&quot;, so &quot;todos&quot; will be passed as the first key.</p>
+<p>When we take what is currently an empty object and do this: nextState[key], JavaScript will add that key if it doesn't exist or overwrite with the value we are setting it equal to.</p>
+<p>Last (and very important) we MUST return the nextState. This is the whole idea of a reduce function, it builds something based on each iteration.</p>
+<p>Ok, back to the actual combineReducers function. When you invoke combineReducers and pass it an argument (an object defining the reducing functions), it returns to you a function. E.g. the first return statement. Note that this returned function takes to arguments, the state and action, just what our reducers need!</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">const</span> combineReducers = <span class="hljs-function">(<span class="hljs-params">reducers</span>) =&gt;</span> {
+     <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">state = {}, action</span>) =&gt;</span> {
+     <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.keys(reducers).reduce(
+     <span class="hljs-function">(<span class="hljs-params">nextState, key</span>) =&gt;</span> {
+     nextState[key] = reducers[key] (
+     state[key], action);
+     <span class="hljs-keyword">return</span> nextState;
+     },{});
+     };
+    };
+</code></pre>
+<p>So, when redux finally call the function that combineReducers creates, it passes the whole state tree and the action called. Then our Object.keys().reduce does the magic of actually calling the reducers with just their portion of the state tree and reducing it back into a single state tree.</p>
+<p>Note that in line 5 above, the reducers<a href="...">key</a>. We are invoking the function in the reducers[key].</p>
+<p>Example:</p>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">var</span> reducers = {
+     todos,
+     visFilter
+    };
+</code></pre>
+<p>If todos and visFilter both reference functions, then the following would invoke the function.</p>
+<p><code>reducers[&quot;todos&quot;]({}, &quot;New Todo&quot;);</code></p>
+<h2><a class="anchor" aria-hidden="true" id="reducer-composition"></a><a href="#reducer-composition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reducer Composition</h2>
+<p>Reducer composition sounds intimidating, but it's simpler than you might think. The idea is that you can create a reducer to manage not only each section of your Redux store, but also any nested data as well.</p>
+<p>Let's say we were dealing with a state tree like had this structure</p>
+<pre><code class="hljs">{
+  <span class="hljs-attribute">users</span>: {},
+  <span class="hljs-attribute">setting</span>: {},
+  <span class="hljs-attribute">tweets</span>: {
+    <span class="hljs-attribute">btyxlj</span>: {
+      <span class="hljs-attribute">id</span>: <span class="hljs-string">'btyxlj'</span>,
+      <span class="hljs-attribute">text</span>: <span class="hljs-string">'What is a jQuery?'</span>,
+      <span class="hljs-attribute">author</span>: {
+        <span class="hljs-attribute">name</span>: <span class="hljs-string">'Tyler McGinnis'</span>,
+        <span class="hljs-attribute">id</span>: <span class="hljs-string">'tylermcginnis'</span>,
+        <span class="hljs-attribute">avatar</span>: <span class="hljs-string">'twt.com/tm.png'</span>
+      }   
+    }
+  }  
+}
+</code></pre>
+<p>We have three main properties on our state tree: users, settings, and tweets. Naturally, we'd create an individual reducer for both of those and then create a single root reducer using Redux's &quot;combineReducers&quot; method.</p>
+<pre><code class="hljs">const reducer = combineReducers({
+<span class="hljs-built_in">  users,</span>
+<span class="hljs-built_in">  settings,</span>
+  tweets
+})
+</code></pre>
+<p>combineReducers, under the hood, is our first look at reducer composition. combineReducers is responsible for invoking all the other reducers, passing them the portion of their state that they care about. We're making one root reducer, by composing a bunch of other reducers together. With that in mind, let's take a closer look at our tweets reducer and how we can leverage reducer composition again to make it more compartmentalized. Specifically, let's look how a user might change their avatar with the way our store is currently structured. Here's the skeleton with what we'll start out with -</p>
+<pre><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span></span> tweets (state = {}, <span class="hljs-keyword">action</span>) {
+  switch(<span class="hljs-keyword">action</span>.<span class="hljs-keyword">type</span>){
+      <span class="hljs-keyword">case</span> ADD_TWEET :
+        ...
+      <span class="hljs-keyword">case</span> REMOVE_TWEET :
+        ...
+      <span class="hljs-keyword">case</span> UPDATE_AVATAR :
+        ???
+  }
+}
+</code></pre>
+<p>What we're interested in is that last one, UPDATE_AVATAR. This one is interesting because we have some nested data - and remember, reducers have to be pure and can't mutate any state. Here's one approach.</p>
+<pre><code class="hljs">function tweets (<span class="hljs-keyword">state</span> = {}, action) {
+  switch(action.type){
+      case ADD_TWEET :
+        ...
+      case REMOVE_TWEET :
+        ...
+      case UPDATE_AVATAR :
+        return {
+          ...<span class="hljs-keyword">state</span>,
+          [action.tweetId]: {
+            ...<span class="hljs-keyword">state</span>[action.tweetId],
+            author: {
+              ...<span class="hljs-keyword">state</span>[action.tweetId].author,
+              avatar: action.newAvatar 
+            }
+          }
+        }
+  }
+}
+</code></pre>
+<p>That's a lot of spread operators. The reason for that is because, for every layer, we're wanting to spread all the properties of that layer on the new objects we're creating (because, immutability). What if, just like we separated our tweets, users, and settings reducers by passing them the slice of the state tree they care about, what if we do the same thing for our tweets reducer and its nested data.</p>
+<p>Doing that, the code above would be transformed to look like this</p>
+<pre><code class="hljs">function author (<span class="hljs-keyword">state</span>, action) {
+  switch (action.type) {
+      case : UPDATE_AVATAR
+        return {
+          ...<span class="hljs-keyword">state</span>,
+          avatar: action.newAvatar
+        }
+      <span class="hljs-keyword">default</span> :
+        <span class="hljs-keyword">state</span>
+  }
+}
+ 
+function tweet (<span class="hljs-keyword">state</span>, action) {
+  switch (action.type) {
+      case ADD_TWEET :
+        ...
+      case REMOVE_TWEET :
+        ...
+      case : UPDATE_AVATAR
+        return {
+          ...<span class="hljs-keyword">state</span>,
+          author: author(<span class="hljs-keyword">state</span>.author, action)
+        }
+      <span class="hljs-keyword">default</span> :
+        <span class="hljs-keyword">state</span>
+  }
+}
+ 
+function tweets (<span class="hljs-keyword">state</span> = {}, action) {
+  switch(action.type){
+      case ADD_TWEET :
+        ...
+      case REMOVE_TWEET :
+        ...
+      case UPDATE_AVATAR :
+        return {
+          ...<span class="hljs-keyword">state</span>,
+          [action.tweetId]: tweet(<span class="hljs-keyword">state</span>[action.tweetId], action)
+        }
+      <span class="hljs-keyword">default</span> :
+        <span class="hljs-keyword">state</span>
+  }
+}
+</code></pre>
+<p>All we've done is separated out each layer of our nested tweets data into their own reducers. Then, just like we did with our root reducer, we're passing those reducers the slice of the state they care about.</p>
+<h2><a class="anchor" aria-hidden="true" id="observe-for-changes-in-store"></a><a href="#observe-for-changes-in-store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Observe for Changes in Store</h2>
+<p>This is a pattern I found that allows you to watch for changes in to the data in your store and run some function when a change is found.</p>
+<p><a href="https://github.com/reactjs/redux/issues/303#issuecomment-125184409">Observer Pattern</a></p>
+<p>Bottom line, this allows us to check the current state with the next state and determine if we should update.</p>
+<p><strong>The parameters:</strong></p>
+<p><strong>store -</strong> the redux store variable</p>
+<p><strong>select -</strong> a function that pulls the piece of state we want to check</p>
+<p><strong>onChange -</strong> a function that will be invoked if the current and next state are different</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">observeStore</span>(<span class="hljs-params">store, select, onChange</span>) </span>{
+    <span class="hljs-keyword">let</span> currentStatetvShows, currentStateShowData;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleChange</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">let</span> nextStateObj = select(store.getState());
+
+        <span class="hljs-keyword">let</span> nextStatetvShows = nextStateObj.tvShows;
+        <span class="hljs-keyword">let</span> nextStateShowData = nextStateObj.showData;
+        <span class="hljs-keyword">if</span> (nextStatetvShows !== currentStatetvShows || nextStateShowData !== currentStateShowData) {
+            currentStatetvShows = nextStatetvShows;
+            currentStateShowData = nextStateShowData;
+            onChange(currentStatetvShows, currentStateShowData);
+        }
+    }
+
+    <span class="hljs-keyword">let</span> unsubscribe = store.subscribe(handleChange);
+    handleChange();
+    <span class="hljs-keyword">return</span> unsubscribe;
+}
+
+<span class="hljs-keyword">var</span> unsubscribe = observeStore(store, (state) =&gt; {
+    <span class="hljs-keyword">return</span> {<span class="hljs-attr">tvShows</span>: state.tvShows, <span class="hljs-attr">showData</span>: state.showData}}, 
+    (tvShows, showData) =&gt; tvMaze.saveShowData(tvShows, showData)
+);
+</code></pre>
+<p>On lines 21-23, we call the observeStore() function, which, I believe, sets up a closure around the handleChange() function, which is what the store &quot;subscribes&quot; to.
+Which means that whenever a change in state occurs, the handleChange function will be called.</p>
+<p>Because this was initiated inside the original observeStore() call, it is a closure, so the handleChange() function has access to the store, select and onChange arguments as well as any variables created outside of it (within the observeStore() function).</p>
+<p>This closure is what allows us to retain the state the last time that handleChange was called. Closure is cool.</p>
+<p>Also note that the second and third parameters sent to the observeStore() function are FUNCTIONS. The <strong>select</strong> function determines what state gets returned from the state object.</p>
+<p>The <strong>onChange</strong> function does what we want done where there is a state change in the part of the state we are observing.</p>
+<h2><a class="anchor" aria-hidden="true" id="middleware"></a><a href="#middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Middleware</h2>
+<p>Middleware is</p>
+<p>Some useful pieces of middleware are:</p>
+<ol start="3">
+<li><a href="https://github.com/evgenyrodionov/redux-logger">redux-logger </a> - Which is a logger/debugger for redux</li>
+<li>redux-promise</li>
+<li>redux-thunk</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="selectors"></a><a href="#selectors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Selectors</h2>
+<p>Selectors are not a feature of redux or external library, but a concept.</p>
+<p>Selectors are just regular functions, but they can be used to modify state data.</p>
+<p>Here is a great video overview:
+<a href="https://www.youtube.com/watch?v=frT3to2ACCw">Redux Selectors</a></p>
+<h2><a class="anchor" aria-hidden="true" id="redux-devtools-extension"></a><a href="#redux-devtools-extension" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redux DevTools Extension</h2>
+<p><a href="https://github.com/zalmoxisus/redux-devtools-extension">Redux DevTools Extension</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/redux/my-redux-pattern"><span class="arrow-prev">← </span><span>My Redux Pattern</span></a><a class="docs-next button" href="/my-code-docs/docs/redux/baby-redux"><span>Simple Redux Package</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#intro">Intro</a></li><li><a href="#provider-component">Provider Component</a></li><li><a href="#the-store">The Store</a></li><li><a href="#connect-funtion">connect() funtion</a><ul class="toc-headings"><li><a href="#mapstatetopropsstate">mapStateToProps(state)</a></li><li><a href="#mapdispatchtopropsdispatch--see-how-to-get-rid-of-using-this-function">mapDispatchToProps(dispatch) — See how to get rid of using this function.</a></li></ul></li><li><a href="#export-component-using-the-connect-hoc">export component using the connect() HOC</a></li><li><a href="#redux-shorthands-for-map-functions">Redux Shorthands for map functions</a></li><li><a href="#hooks">HOOKS</a><ul class="toc-headings"><li><a href="#usedispatch">useDispatch</a></li><li><a href="#useselector">useSelector</a></li><li><a href="#reselect-for-memoization-of-selectors">Reselect for memoization of Selectors</a></li></ul></li><li><a href="#redux-helper-modules---ie-redux-middleware">Redux Helper Modules - i.e. Redux Middleware</a><ul class="toc-headings"><li><a href="#redux-promise">Redux-Promise</a></li></ul></li><li><a href="#combinereducers-in-depth">combineReducers in Depth</a></li><li><a href="#reducer-composition">Reducer Composition</a></li><li><a href="#observe-for-changes-in-store">Observe for Changes in Store</a></li><li><a href="#middleware">Middleware</a></li><li><a href="#selectors">Selectors</a></li><li><a href="#redux-devtools-extension">Redux DevTools Extension</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

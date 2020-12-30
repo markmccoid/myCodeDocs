@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Docker Basics · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Resources"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Docker Basics · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## Resources"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Docker Basics</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="resources"></a><a href="#resources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resources</h2>
+<p><a href="../assets/external/Docker-Images-Containers.pdf">Academind Cheat Sheet</a></p>
+<h2><a class="anchor" aria-hidden="true" id="installing-docker-on-windows"></a><a href="#installing-docker-on-windows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing Docker on Windows</h2>
+<p>You can do it on the Home version, but Windows Pro is preferrable.</p>
+<p><strong>Enable Hyper-V</strong>
+Open PowerShell as administrator (right-click on executable, &quot;Run as Administrator&quot;) and run the following command:</p>
+<pre><code class="hljs css language-powershell"><span class="hljs-built_in">Enable-WindowsOptionalFeature</span> <span class="hljs-literal">-Online</span> <span class="hljs-literal">-FeatureName</span> Microsoft<span class="hljs-literal">-Hyper</span><span class="hljs-literal">-V</span> <span class="hljs-literal">-All</span>
+</code></pre>
+<p>Dive into the official docs for more information: <a href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v">https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v</a>
+Alternatively, you could also enable and use the &quot;WSL 2&quot; feature Windows offers - see the &quot;Windows 10 Home&quot; section in this document.</p>
+<p><strong>Enable Containers Feature</strong>
+Open PowerShell as administrator (right-click on executable, &quot;Run as Administrator&quot;) and run the following command:</p>
+<pre><code class="hljs css language-powershell"><span class="hljs-built_in">Enable-WindowsOptionalFeature</span> <span class="hljs-literal">-Online</span> <span class="hljs-literal">-FeatureName</span> containers –All
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="docker-hub"></a><a href="#docker-hub" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker Hub</h2>
+<p><a href="hub.docker.com">hub.docker.com</a></p>
+<p>You can find pre built containers on Docker Hub.  You can use spin these up as stand alone containers or use them in your own containers.</p>
+<p>To run a container you find on docker hub:</p>
+<pre><code class="hljs css language-bash">$ docker run node // or whatever the container name is
+</code></pre>
+<p>If docker does not find the container locally, it will look on docker hub and if it find a container of that name, it will download and create it.</p>
+<p>If the container/image doesn't &quot;do&quot; anything, then it will be created, run and then exit.  Node will do this.</p>
+<p>If you run <code>docker ps -a</code>, you will see the container was created and exited.</p>
+<p>If you want to interact with this node container, then run the image with the <code>-it</code> flag.</p>
+<pre><code class="hljs css language-bash">$ docker run -it node
+</code></pre>
+<p>This will expose the node shell to us.  Not real useful yet.  You will typically build up on existing images, like node, to create your own custom image.</p>
+<h2><a class="anchor" aria-hidden="true" id="dockerfile"></a><a href="#dockerfile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dockerfile</h2>
+<p>To create your own image, you will need to create a file named <code>Dockerfile</code>.  This file should most likely be located in your applications directory.</p>
+<p>Here is an example of a simple node server application, that we can run with only Docker.  Meaning, you would not need to install Node or any other dependencies.</p>
+<p>Here is  our application directory structure:</p>
+<p><img src="..\assets\docker-basics_001.png" alt="image-20201216124509416"></p>
+<p>To start, our Dockerfile will need the node environment.  Since we know there is one on docker hub called &quot;node&quot;, we can use the <code>FROM</code> command to get access to it and add it to our image.</p>
+<p>Next, we need our application files in our image's file system.  To do this, we will use the <code>COPY</code> command.  They syntax is <code>COPY source target</code>.  So we are telling it what files to copy from our dev environment over to the Image's filesystem.  A period <code>.</code> in the source means copy everything recursively and  a period <code>.</code> in the target means copy it to the root of the Image's filesystem.</p>
+<p>Usually you will not copy to the root, but into a specific directory.</p>
+<pre><code class="hljs css language-dockerfile"><span class="hljs-keyword">FROM</span> node
+
+<span class="hljs-comment"># copy everything to the /app directory in our image</span>
+<span class="hljs-comment"># by using the /app we are setting the directory to be an absolute path (will not care what working dir is)</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app</span>
+</code></pre>
+<p><strong><code>WORKDIR</code></strong></p>
+<p>Since we have copied our application files to a new directory in our image, and will be running commands on those files, we can change the working directory for all commands after the WORKDIR runs.</p>
+<p><code>WORKDIR /app</code></p>
+<blockquote>
+<p>Once you do this, all commands, even COPY will run in the set workdir.  If you set workdir to /app, then <code>COPY . .</code>, would copy into the /app directory. Or you could be explicit and do <code>COPY . /app</code></p>
+</blockquote>
+<p><strong><code>RUN</code></strong></p>
+<p>You will need to run commands like <code>npm install</code>.  The <code>RUN</code> command will do this and execute in whatever is the directory set by the Working Directory or the root if no working directory is set.</p>
+<pre><code class="hljs css language-dockerfile"><span class="hljs-keyword">FROM</span> node
+
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app</span>
+
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install</span>
+</code></pre>
+<p><strong><code>CMD</code></strong></p>
+<p>You must understand the difference between and image and a container.  The Dockerfile contains the template for an image which can them be used to spawn a container.  So it is all the instructions to get the container environment set up so that it can be used.  Also, <strong>multiple</strong> containers can be spawned from a single image.</p>
+<p>So, the RUN command will execute when we are building our image.  That is what all the instructions in the Dockerfile are for, to build an image, that can then be &quot;run&quot; as a container with all dependencies ready taken care of.</p>
+<p>However, once  you spawn and image as a container, there will be things that you want to run, like your application, once the container is started.</p>
+<p>This is what the <strong><code>CMD</code></strong> command is for.  It will start/run the command like <code>node server.js</code> based on the container's image.</p>
+<pre><code class="hljs css language-dockerfile"><span class="hljs-keyword">FROM</span> node
+
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app</span>
+
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install</span>
+
+<span class="hljs-keyword">CMD</span><span class="bash"> node server.js</span>
+</code></pre>
+<p>We are almost there, but remember that Docker containers are isolated from everything, thus we will not be able to access the server that this container created.</p>
+<p>Even though this app is set to listen on port 80 <code>app.listen(80)</code>, this will be listening on the Docker containers internal environment.</p>
+<p>To get around this, we will use the <code>EXPOSE</code> command BEFORE we run the CMD command and expose port 80.</p>
+<blockquote>
+<p><strong>Important</strong> the EXPOSE command is simply documentation.  It doesn't really do anything.  To actually expose a port to your local environment, you will use the <code>-p 3000:80</code> followed by the external (local)port number to expose : internal port number that the app is using.</p>
+</blockquote>
+<pre><code class="hljs css language-dockerfile"><span class="hljs-keyword">FROM</span> node
+
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app</span>
+
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install</span>
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">CMD</span><span class="bash"> node server.js</span>
+</code></pre>
+<p><strong><code>docker build .</code></strong></p>
+<p>Now that we have our Dockerfile created, we need to actually build our image.  This is done with the <code>docker build .</code> command.  We run it where our docker file is located and put the <code>.</code> to indicate this.</p>
+<p>When you run the docker build command it will spit out long ass sha number that you will use to access your container.  Will learn to rename later.</p>
+<pre><code class="hljs css language-bash">$ docker build .
+[+] Building 3.6s (10/10) FINISHED
+ =&gt; [internal] load build definition from Dockerfile                                                                        0.1s  =&gt; =&gt; transferring dockerfile: 164B                                                                                        0.0s  =&gt; [internal] load .dockerignore                                                                                           0.1s  =&gt; =&gt; transferring context: 2B                                                                                             0.0s  =&gt; [internal] load metadata <span class="hljs-keyword">for</span> docker.io/library/node:latest                                                              0.0s  =&gt; [internal] load build context                                                                                           0.1s  =&gt; =&gt; transferring context: 10.51kB                                                                                        0.0s  =&gt; [1/5] FROM docker.io/library/node                                                                                       0.0s  =&gt; =&gt; resolve docker.io/library/node:latest                                                                                0.0s  =&gt; [2/5] WORKDIR /app                                                                                                      0.0s  =&gt; [3/5] COPY package.json /app                                                                                            0.0s  =&gt; [4/5] RUN npm install                                                                                                   3.1s  =&gt; [5/5] COPY . /app                                                                                                       0.0s  =&gt; exporting to image                                                                                                      0.2s  =&gt; =&gt; exporting layers                                                                                                     0.2s  =&gt; =&gt; writing image sha256:88507d6d6a6a63b2299300446fc37d245e9a21500202aa8edf432c67b13f905d
+ 
+ <span class="hljs-comment"># that sha256... is our image identifier.  To run on our local port 3000</span>
+ $ docker run -p 3000:80 sha256:88507d6d6a6a63b2299300446fc37d245e9a21500202aa8edf432c67b13f905d
+ 
+ <span class="hljs-comment"># you can now access in browser.</span>
+ <span class="hljs-comment"># to stop the container, you can use docker desktop or in a new command prompt run</span>
+ <span class="hljs-comment"># to find all running containers</span>
+ $ docker ps
+ 
+ <span class="hljs-comment"># find the one that you want to stop</span>
+ $ docker stop image_name
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="changes-to-your-code"></a><a href="#changes-to-your-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changes to your Code</h3>
+<p>Images are read only, so if you make a change to your code, it will not be reflected in the image.  You will need to rebuild it.</p>
+<p>Run <code>docker build .</code> again.  You will get a new image name!</p>
+<p>Note that docker caches results so when rebuilding an image, it only need to rerun stuff that has changed.  However, once it finds something that has changed, all instructions after that change will be FORCED to rerun.</p>
+<p>You will notice that <code>npm install</code> will run anytime you change your code.  That is really not needed, unless <code>package.json</code>changes.</p>
+<p>One easy optimization, would be to reorganize our Dockerfile so that the <code>npm install</code> only runs if <code>package.json</code> changes.</p>
+<p>This is our new Dockerfile:</p>
+<pre><code class="hljs css language-dockerfile"><span class="hljs-keyword">FROM</span> node
+
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app</span>
+
+<span class="hljs-keyword">COPY</span><span class="bash"> package.json /app</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install</span>
+
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app</span>
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">CMD</span><span class="bash"> node server.js</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="build-an-image"></a><a href="#build-an-image" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build an Image</h3>
+<p>The <code>Dockerfile</code>contains the instructions or the template for building an <strong>image</strong> that will then be used to instantiate a <strong>container</strong>.</p>
+<p>To build an image you will use the build command in the directory where the <code>Dockerfile</code>is located.</p>
+<p>The <code>-t name:tag</code> is optional, but it makes sense to at least give your image a name (the tag is option also)</p>
+<pre><code class="hljs css language-bash">$ docker build -t goals:latest .
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="images"></a><a href="#images" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Images</h2>
+<p>Every time you run a <code>docker build</code> command, you will create an image on your system.  You will also create a local image if you use <code>docker run image_name</code> that is an image on docker hub.</p>
+<p>To see the images that you have on your system use:</p>
+<p><code>docker images</code></p>
+<h3><a class="anchor" aria-hidden="true" id="remove-an-image"></a><a href="#remove-an-image" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remove an Image</h3>
+<p>To <strong>remove</strong> and image use:</p>
+<p><code>docker rmi imageID</code></p>
+<blockquote>
+<p>You can ONLY remove images if they are not being used by any container.  That includes stopped containers.</p>
+</blockquote>
+<p>To remove all images, you can use the following:</p>
+<p><code>docker image prune</code></p>
+<p>The above will only remove images that do not have names/tags.  If you want to also remove those images, use:</p>
+<p><code>docker image prune -a</code></p>
+<h3><a class="anchor" aria-hidden="true" id="sharing-images"></a><a href="#sharing-images" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sharing Images</h3>
+<p>To share an image, you will need to either use Docker Hub or a Private registery.</p>
+<p>Docker Hub will be the most likely place you will use.  Go to <a href="http://hub.docker.com">hub.docker.com</a> and login, then click on the <strong>Repositories</strong> link.</p>
+<p>You can now create a repository and give it the properties you need.  It will also give you the command needed to <code>push</code> the image to this new repository.</p>
+<blockquote>
+<p>Remember, if you make this public (free tier has only one Private repo available), make sure no &quot;secret&quot; info is exposed in image.</p>
+</blockquote>
+<p><strong>NOTE</strong></p>
+<p>When pushing an image to Docker Hub, it will need to be named the same as the repository that you created.  So, if you created a repository with the name <code>mynodeserver</code>, the full name would be <code>markmccoid/mynodeserver</code>, that is what you image would need to be named.</p>
+<p>You can do this by building the image with that name or if the image already exists you can use the <code>tag</code> option which is a rename command.</p>
+<p><code>docker tag oldimagename markmccoid/mynodeserver</code></p>
+<p>This is NOT actually renaming but create a &quot;clone&quot; with a new name/tag.</p>
+<blockquote>
+<p>If you get an <strong>auth</strong> error, make sure you are logged into docker in your CLI.  Use <strong><code>docker login</code></strong></p>
+</blockquote>
+<blockquote>
+<p>You can push multiple images to a single repository by having different tags pushed.  So, maybe <code>markmccoid/mynodeserver:v1</code> and <code>markmccoid/mynodeserver:v2</code></p>
+</blockquote>
+<p><strong>Use/Pull Stored Images</strong></p>
+<p>To get access or use your stored images use</p>
+<p><code>docker pull markmccoid/imagename</code></p>
+<h2><a class="anchor" aria-hidden="true" id="docker-commands"></a><a href="#docker-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker Commands</h2>
+<p>Quick list of some of the commands for images and containers:</p>
+<p><strong><img src="..\assets\docker-basics_002.png" alt="image-20201216141436549"></strong></p>
+<h3><a class="anchor" aria-hidden="true" id="see-all-containers-docker-ps--a"></a><a href="#see-all-containers-docker-ps--a" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See All Containers <strong><code>docker ps -a</code></strong></h3>
+<p>This will show you all running containers.  If you add the <code>-a</code> flag, you will see all containers that exist, even if they are not running.</p>
+<p>You can restart a stopped container by using the <strong><code>docker start containername</code></strong> command.</p>
+<h3><a class="anchor" aria-hidden="true" id="docker-run-vs-docker-start"></a><a href="#docker-run-vs-docker-start" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong><code>docker run vs docker start</code></strong></h3>
+<p>Main difference is <code>docker run</code> creates a new container.  The other thing you will notice is that <code>docker run</code>, runs a container as an <strong>attached</strong> container, meaning it won't let you do anything else on the command line.</p>
+<p><code>docker start</code> on the other hand runs, by default, in <strong>detached</strong> mode.</p>
+<p>These are simply the way each of these commands are configured by default.  You can change the behavior if needed.</p>
+<blockquote>
+<p>In <strong>attached mode</strong> you will be able to see console.log statements or anything written to standard out.</p>
+</blockquote>
+<p>To use <code>docker run</code> in detached mode simply add the <code>-d</code> flag.</p>
+<p><code>docker run -p 8000:80 -d sha256:dfad</code></p>
+<p>BUT, what if you want to attached to a detached container?  First, the container must be running, then use the following command:</p>
+<p><code>docker container attach container_name</code></p>
+<p>You can also see any of the logs (console output) from a running container by using the <code>logs</code>command.</p>
+<p><code>docker logs container_name</code></p>
+<p>Run <code>docker logs --help</code> and you will see the options for this command.  One of those options is <code>-f</code> to follow.  Which will in essence &quot;attach&quot; you to the container.</p>
+<p><strong>Remove container when it exits</strong> - use the <code>--rm</code> flag when starting the container.</p>
+<p><strong><code>docker run -p 3000:80 -d --rm image_sha</code></strong></p>
+<h3><a class="anchor" aria-hidden="true" id="-i--t-flags-interactive-mode"></a><a href="#-i--t-flags-interactive-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-i -t flags Interactive mode</h3>
+<p>I don't fully understand this, however, if you have an application that needs input from the outside via a terminal, you can use these flag on the <code>run</code> command.</p>
+<p><code>-i, --interactive Keep STDIN open even if not attached</code></p>
+<p><code>-t, --tty Allocate a pseudo-TTY</code></p>
+<p>If you are restarting a container and need this input, you could then use the following:</p>
+<p><code>docker start -a -i container_name</code></p>
+<p>This will start the container attached and allow for input.</p>
+<h3><a class="anchor" aria-hidden="true" id="remove-containers-rm--container-prune"></a><a href="#remove-containers-rm--container-prune" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remove Containers rm / container prune</h3>
+<p>There are two ways to remove stopped containers.  A quick, get rid of all stopped containers:</p>
+<p><code>docker container prune</code></p>
+<p>If you just have specific containers that you want to remove use the <code>rm</code> option</p>
+<p><code>docker rm container_name</code></p>
+<h3><a class="anchor" aria-hidden="true" id="copy-files-intoout-of-running-container"></a><a href="#copy-files-intoout-of-running-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copy Files into/out of Running Container</h3>
+<p>To copy a file into or out of a running container, you can use the <code>cp</code> command.</p>
+<p>This will copy from your local to the container.</p>
+<p>Reverse for copying from container.</p>
+<pre><code class="hljs css language-bash">$ docker cp <span class="hljs-built_in">test</span>/. container_name:/newDir
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="naming-a-container-or-image"></a><a href="#naming-a-container-or-image" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Naming a Container or Image</h3>
+<p>To name a container, when you run it, simply use the <code>--name</code>  option.</p>
+<pre><code class="hljs css language-bash">$ docker run -ps 3000:80 -rm --name nodeapp image_sha
+</code></pre>
+<p><strong>Image Naming</strong></p>
+<p>Images can also contain a tag.  For example, the node image would have a number of builds with different tags so that you could access a number of different node versions.</p>
+<p>To access them you would use the <code>imagename:tag</code>.  For example: <code>node:latest</code> or <code>node:14</code></p>
+<p>We can do the same when we build our images.</p>
+<pre><code class="hljs css language-bash">$ docker build -t goals:latest .
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#resources">Resources</a></li><li><a href="#installing-docker-on-windows">Installing Docker on Windows</a></li><li><a href="#docker-hub">Docker Hub</a></li><li><a href="#dockerfile">Dockerfile</a><ul class="toc-headings"><li><a href="#changes-to-your-code">Changes to your Code</a></li><li><a href="#build-an-image">Build an Image</a></li></ul></li><li><a href="#images">Images</a><ul class="toc-headings"><li><a href="#remove-an-image">Remove an Image</a></li><li><a href="#sharing-images">Sharing Images</a></li></ul></li><li><a href="#docker-commands">Docker Commands</a><ul class="toc-headings"><li><a href="#see-all-containers-docker-ps--a">See All Containers <strong><code>docker ps -a</code></strong></a></li><li><a href="#docker-run-vs-docker-start"><strong><code>docker run vs docker start</code></strong></a></li><li><a href="#-i--t-flags-interactive-mode">-i -t flags Interactive mode</a></li><li><a href="#remove-containers-rm--container-prune">Remove Containers rm / container prune</a></li><li><a href="#copy-files-intoout-of-running-container">Copy Files into/out of Running Container</a></li><li><a href="#naming-a-container-or-image">Naming a Container or Image</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

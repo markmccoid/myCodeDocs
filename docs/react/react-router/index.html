@@ -1,0 +1,615 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>React Router · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [React-Router v4](#react-router-v4)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="React Router · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="- [React-Router v4](#react-router-v4)"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>React</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">React Router</h1></header><article><div><span><ul>
+<li><a href="#react-router-v4">React-Router v4</a></li>
+<li><a href="#react-router-v2">React-Router v2</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="react-router-v4"></a><a href="#react-router-v4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React Router v4</h2>
+<div><a name="react-router-v4"></a></div>
+This new version of react router is totally different from previous versions.  
+Everything is “component” based.  A bit hard to get your head around, but here goes.
+<h2><a class="anchor" aria-hidden="true" id="imports-and-npm"></a><a href="#imports-and-npm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Imports and npm</h2>
+<p>React router is now broken up into either <em>react-router-dom</em> or <em>react-router-native</em>.  The former for browser based code and the latter for react native applications.</p>
+<p>We will review the main components, which are:</p>
+<ul>
+<li>BrowserRouter</li>
+<li>Route</li>
+<li>Switch</li>
+<li>Link</li>
+<li>Redirect</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="important-props---match-and-location"></a><a href="#important-props---match-and-location" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Important Props - match and location</h2>
+<p>You will get passed some props from react-router and they are what make it so powerful.</p>
+<p>Probably the most used will be <em>this.props.match</em></p>
+<h3><a class="anchor" aria-hidden="true" id="match"></a><a href="#match" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>match</h3>
+<p>First, some terminology</p>
+<ul>
+<li><strong>pathname</strong> is what you see in your browsers URL bar.</li>
+<li><strong>path</strong> is what you see in the Route components <em>path</em> prop and is returned in match.path.  These may have params listed in the format of <strong>:myParam</strong></li>
+<li><strong>url</strong> is what you see in your browsers URL bar</li>
+<li><strong>isExact</strong> will be true if <code>pathname===path</code> so:
+<ul>
+<li><code>/mypath/:id === /mypath/12</code> BUT</li>
+<li><code>/mypath/:id !== /mypath/12/other</code></li>
+</ul></li>
+</ul>
+<pre><code class="hljs css language-javascript">match: {
+    <span class="hljs-attr">isExact</span>: <span class="hljs-literal">true</span>, 
+    <span class="hljs-attr">params</span>: {
+        <span class="hljs-attr">param1</span>: <span class="hljs-string">''</span>,
+        <span class="hljs-attr">param2</span>: <span class="hljs-string">''</span>
+    },
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/myPath/:myId"</span>
+    <span class="hljs-attr">url</span>: <span class="hljs-string">"/myPath/12"</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="location"></a><a href="#location" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>location</h3>
+<p>this.props.location is where you will go for the Query string. <code>/mypath?userId=5</code></p>
+<pre><code class="hljs css language-javascript">location: {
+    <span class="hljs-attr">pathname</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">search</span>: <span class="hljs-string">"?userId=x"</span>,
+    <span class="hljs-attr">state</span>:
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="extract-query-string-from-location"></a><a href="#extract-query-string-from-location" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extract Query string from location</h3>
+<p>To get the data in the query string (the stuff after the ? in the url), use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams">URLSearchParams() JS constructor</a> .  This is a standard JavaScript function which returns an object with your query string data:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// example - /mypath?userId=5</span>
+{
+    <span class="hljs-attr">userId</span>: <span class="hljs-number">5</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="browserrouter"></a><a href="#browserrouter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>BrowserRouter</h3>
+<p>This is the top level component that you will wrap all of your other components in.   In <strong>Electron</strong> I found using MemoryRouter worked better and if you need to have access to your own history component, use just the <strong>Router</strong> component.</p>
+<p><a href="#Router">Router</a></p>
+<p><em>Sidenote</em></p>
+<blockquote>
+<p>If using redux, BrowserRouter will go inside of redux’s Provider component.  Also, there is a weird thing where components using connect won’t rerender.  To make them rerender, you must wrap the connect call with react-router’s withRouter higher order function</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyConnectedComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span></span>{
+        render() {
+        ....
+    }
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> withRouter(connect()(MyConnectedComponent));
+</code></pre>
+<p>One way of using BrowserRouter, would be to have an index.js file that will wrap you main app.js file.  app.js would have your top bar/navigation and then your initial routes.
+You can also embed Routes in your ReacDOM render call, just make sure only one Child component is under the BrowserRouter component.  This can easily be done by wrapping Routes in a &lt;div&gt;.</p>
+<p>As I start working more with this, I can see where you can use routes deeper within the application to conditionally show components.</p>
+<p>Here is an example of an the initial component with the BrowserRouter wrapping other Routes:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> {
+  BrowserRouter,
+  Route
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+...
+const App = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">BrowserRouter</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Header</span> /&gt;</span> //Will always show 
+      //Routes below will conditionally show.
+      <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">exact</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Home}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/about"</span> <span class="hljs-attr">render</span>=<span class="hljs-string">{</span> () =&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">About</span> <span class="hljs-attr">title</span>=<span class="hljs-string">'About'</span> /&gt;</span> } /&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/teachers"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Teachers}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/courses"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Courses}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">BrowserRouter</span>&gt;</span></span>
+);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="router"></a><a href="#router" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Router</h3>
+<p>Router is similar to BrowserRouter, except Router expects you to inject the history object to it.  To do this, we need to use another module.  <a href="https://www.npmjs.com/package/history"><strong>history</strong></a></p>
+<pre><code class="hljs">&gt; yarn <span class="hljs-keyword">add</span><span class="bash"> <span class="hljs-built_in">history</span></span>
+</code></pre>
+<p>Once installed you will need to load it into your project.  Since you will be injecting 'it' into the Router component, you will need to load it at that level:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { Router, Route, Switch } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+<span class="hljs-keyword">import</span> createHistory <span class="hljs-keyword">from</span> <span class="hljs-string">'history/createBrowserhistory'</span>;
+...
+<span class="hljs-comment">//Export so that it can be used elsewhere...that is why we are using</span>
+<span class="hljs-comment">//Router instead of BrowserRotuer!</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> history = createHistory();
+
+<span class="hljs-keyword">const</span> AppRouter = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Router</span> <span class="hljs-attr">history</span>=<span class="hljs-string">{history}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Header</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Switch</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">exact</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Login}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/dashboard"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{ExpenseDashboardPage}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/create"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{AddExpensePage}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/edit/:id"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{EditExpensePage}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/help"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{HelpPage}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{NotFound}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Switch</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Router</span>&gt;</span></span>
+);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> AppRouter;
+
+</code></pre>
+<p>To use your <em>history</em>  variable elsewhere, you could do the following:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> AppRouter, { history } <span class="hljs-keyword">from</span> <span class="hljs-string">'./routers/AppRouter'</span>;
+
+<span class="hljs-comment">//With history import, I can use it on pages that are </span>
+<span class="hljs-comment">//not descendants (i.e. wrapped in my Router component)</span>
+<span class="hljs-keyword">if</span>(!loggedin) {
+  history.push(<span class="hljs-string">'/'</span>);
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="route"></a><a href="#route" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Route</h3>
+<p>Route is the component that you will use to define your routes.  Here are the basic props:</p>
+<ul>
+<li><strong>path</strong> - This is the path to match to.  Begins with ‘/‘</li>
+<li><strong>exact</strong> - Boolean, just include if you want an exact match</li>
+<li><strong>component</strong> or <strong>render</strong> - either pass a component or you can pass a anonymous function.</li>
+</ul>
+<p>If you need to pass props to a component, then you would need to use the &quot;render&quot; option in Route:</p>
+<pre><code class="hljs css language-javascript">&lt;Route path=<span class="hljs-string">"/about"</span> render={() =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">About</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"my About"</span> /&gt;</span></span> } /&gt;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="dynamic-routes"></a><a href="#dynamic-routes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dynamic Routes</h3>
+<p>You can also make routes dynamic.  For example, if you wanted to have a path to an item include the item id or name as part of the path, you can use a colon in front of the dynamic part of the path:</p>
+<pre><code class="hljs css language-js">&lt;Route path=<span class="hljs-string">"/items/:itemId"</span> ... /&gt;
+</code></pre>
+<p>The above path would then match if the url was /item/12334 or anything after the /item/.
+When using dynamic routes, the component or render function gets passed a prop called match with a params object.  In this object you can access the defined dynamic route.  In the above case, it would be <em>match.params.itemId</em>
+The best way to access or go to these dynamic routes is to use the Link component.
+​   &lt;Link to=<code>/items/${itemId}</code> /&gt;</p>
+<p>You could map through an array to create multiple links that would match with multiple pages with each page getting an itemId that could then be rendered.
+Here is an example:</p>
+<pre><code class="hljs css language-js">    &lt;Route 
+       path=<span class="hljs-string">'/items/:itemId'</span>
+       render={ ({match}) =&gt; {
+           <span class="hljs-keyword">const</span> item = lookupAndGetItem(itemId); <span class="hljs-comment">// or use find on an array</span>
+           <span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Item</span> <span class="hljs-attr">item</span>=<span class="hljs-string">{item}</span> /&gt;</span></span>);
+          }}
+    /&gt;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="link-and-navlink"></a><a href="#link-and-navlink" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Link and NavLink</h3>
+<p>Link and NavLink components allow you to create links to specific routes.
+The main difference between the two is that NavLink will give an &quot;active&quot; class name to the last NavLink clicked.</p>
+<pre><code class="hljs css language-javascript">    &lt;ul className="main-nav"&gt;
+      &lt;li&gt;&lt;NavLink exact to="/"&gt;Home&lt;/NavLink&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;NavLink to="/about"&gt;About&lt;/NavLink&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;NavLink to="/teachers"&gt;Teachers&lt;/NavLink&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;NavLink to="/courses"&gt;Courses&lt;/NavLink&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+</code></pre>
+<p>If you want the active class name to be something other than &quot;active&quot;, you can pass the <strong>activeClassName</strong> prop and send your custom class name through.  May be useful when each link that is active looks different than the others.</p>
+<p>You can even pass the active style if you want to override some of the active class name's properties.  This is done with the <strong>activeStyle</strong> prop.  You will pass this prop a style object.  Note that the <strong>active</strong> class name is still applied and then this style object will override whatever you pass or simply add more style to the link when active.</p>
+<pre><code class="hljs css language-javascript">      &lt;li&gt;&lt;NavLink to="/teachers" activeStyle={{ background: "blue"}}&gt;Teachers&lt;/NavLink&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;NavLink to="/courses" activeClassName="myActiveClass"&gt;Courses&lt;/NavLink&gt;&lt;/li&gt;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="redirect"></a><a href="#redirect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redirect</h3>
+<p>The Redirect component allows you to programatically go to a route.  Keep in mind that, by default, the current location is replaced by the new one.</p>
+<p>If you want to push a new entry onto the history instead, pass a push prop as well.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//add to history</span>
+&lt;Redirect to=<span class="hljs-string">"/courses/html"</span> push/&gt;
+</code></pre>
+<p>When redirecting from nested routes, you may want to take a different approach with the Redirect component.  For example, if you go to a page with nested routes and want to have that page when first loaded &quot;/courses&quot; show one of the routes by default, you will want to put the Redirect <strong>inside</strong> a Route component of its own:</p>
+<pre><code class="hljs css language-javascript">    &lt;Route exact path=<span class="hljs-string">"/courses"</span> render={() =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Redirect</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/courses/html"</span> /&gt;</span></span>} /&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/courses/html"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{HTML}</span> /&gt;</span></span>
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/courses/css"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{CSS}</span> /&gt;</span></span>
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/courses/javascript"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Javascript}</span> /&gt;</span></span>
+</code></pre>
+<p>Note the use of <strong>exact</strong> and then using the <strong>render</strong> prop to render our Redirect component.</p>
+<h3><a class="anchor" aria-hidden="true" id="redirect-using-the-history-prop"></a><a href="#redirect-using-the-history-prop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redirect using the history prop</h3>
+<p>There will be times when you will not be able to render a Redirect component, but still need to navigate to a new path.</p>
+<p>In these cases you can use the history prop passed to all components rendered from a Route component.</p>
+<pre><code class="hljs css language-javascript">class Home extends React.Component {
+    handleSubmit = (e) =&gt; {
+        e.preventDefault();
+        let something = e....value;
+        this.props.history.push(newPath);
+    }
+    render() {
+        &lt;form onSubmit={this.handleSubmit}&gt;
+            ...
+        &lt;/form&gt;
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="match-prop"></a><a href="#match-prop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>match prop</h3>
+<p>Each route that we redirect or link to gets a set of props that we can use in various ways.</p>
+<p><img src="https://dl.dropboxusercontent.com/s/hj8hn1mb48lhqoq/reacrouter-props.png" alt=""></p>
+<p><a href="https://reacttraining.com/react-router/web/api/match">React Router match doc</a></p>
+<p>A match object contains information about how a &lt;Route path&gt; matched the URL. match objects contain the following properties:</p>
+<ul>
+<li>params - (object) Key/value pairs parsed from the URL corresponding to the dynamic segments of the path</li>
+<li>isExact - (boolean) true if the entire URL was matched (no trailing characters)</li>
+<li>path - (string) The path pattern used to match. Useful for building nested <Route>s</li>
+<li>url - (string) The matched portion of the URL. Useful for building nested <Link>s</li>
+</ul>
+<p>You’ll have access match objects in various places:</p>
+<ul>
+<li>Route component as this.props.match</li>
+<li>Route render as ({ match }) =&gt; ()</li>
+<li>Route children as ({ match }) =&gt; ()</li>
+<li>withRouter as this.props.match</li>
+<li>matchPath as the return value</li>
+</ul>
+<p>If a Route does not have a path, and therefore always matches, you’ll get the closest parent match. Same goes for withRouter.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Route, NavLink, Redirect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+<span class="hljs-keyword">import</span> HTML <span class="hljs-keyword">from</span> <span class="hljs-string">'./courses/HTML'</span>;
+<span class="hljs-keyword">import</span> CSS <span class="hljs-keyword">from</span> <span class="hljs-string">'./courses/CSS'</span>;
+<span class="hljs-keyword">import</span> Javascript <span class="hljs-keyword">from</span> <span class="hljs-string">'./courses/JavaScript'</span>;
+
+<span class="hljs-keyword">const</span> Courses = <span class="hljs-function">(<span class="hljs-params">{match, }</span>) =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"main-content courses"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"course-header group"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Courses<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"course-nav"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">NavLink</span> <span class="hljs-attr">to</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">match.url</span>}/<span class="hljs-attr">html</span>`}&gt;</span>HTML<span class="hljs-tag">&lt;/<span class="hljs-name">NavLink</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">NavLink</span> <span class="hljs-attr">to</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">match.url</span>}/<span class="hljs-attr">css</span>`}&gt;</span>CSS<span class="hljs-tag">&lt;/<span class="hljs-name">NavLink</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">NavLink</span> <span class="hljs-attr">to</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">match.url</span>}/<span class="hljs-attr">javascript</span>`}&gt;</span>JavaScript<span class="hljs-tag">&lt;/<span class="hljs-name">NavLink</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">exact</span> <span class="hljs-attr">path</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">match.path</span>}`} <span class="hljs-attr">render</span>=<span class="hljs-string">{()</span> =&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">Redirect</span> <span class="hljs-attr">to</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">match.path</span>}/<span class="hljs-attr">html</span>`} /&gt;</span>} /&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">match.path</span>}/<span class="hljs-attr">html</span>`} <span class="hljs-attr">component</span>=<span class="hljs-string">{HTML}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">match.path</span>}/<span class="hljs-attr">css</span>`} <span class="hljs-attr">component</span>=<span class="hljs-string">{CSS}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">{</span>`${<span class="hljs-attr">match.path</span>}/<span class="hljs-attr">javascript</span>`} <span class="hljs-attr">component</span>=<span class="hljs-string">{Javascript}</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Courses;
+</code></pre>
+<p>By doing the above, if you ever change the route that links to this component, you won't break your nested routes.</p>
+<h3><a class="anchor" aria-hidden="true" id="displaying-404-error-routes-using-switch"></a><a href="#displaying-404-error-routes-using-switch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Displaying 404 Error Routes using Switch</h3>
+<p><a href="https://reacttraining.com/react-router/web/api/Switch">Switch React Router V4 Docs</a></p>
+<p>If you have a list of Route components, without Switch it is very possible that multiple routes will match and multiple routes will be renedered.</p>
+<p>This is by design so advanced stuff could be done with Route components.</p>
+<p>If, however, you wrap a bunch of Route components in a Switch component, then the first Route that matches will render and that is it.</p>
+<pre><code class="hljs css language-javascript">import { Switch, Route } from 'react-router'
+
+&lt;Switch&gt;
+  &lt;Route exact path="/" component={Home}/&gt;
+  &lt;Route path="/about" component={About}/&gt;
+  &lt;Route path="/:user" component={User}/&gt;
+  &lt;Route component={NoMatch}/&gt;
+&lt;/Switch&gt;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="creating-dynamic-routes-paths"></a><a href="#creating-dynamic-routes-paths" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating Dynamic Routes Paths</h3>
+<p>You can create Route parameters by putting a colon in front of the parameter:</p>
+<pre><code class="hljs css language-javascript">&lt;Route path=<span class="hljs-string">"/teachers/:name"</span> component={Teachers} /&gt;
+</code></pre>
+<p>The <strong>:name</strong> is the parameter and it will be made available to the Teachers component via the passed route props.</p>
+<p>![]](<a href="https://dl.dropboxusercontent.com/s/gykblaxe43nw603/reacrouter-props-match.png">https://dl.dropboxusercontent.com/s/gykblaxe43nw603/reacrouter-props-match.png</a>)</p>
+<p>You can access this parameter via <strong>props.match.params.paramName</strong>.</p>
+<p>You can even add multiple parameters in a single path:</p>
+<pre><code class="hljs css language-javascript">&lt;Route path=<span class="hljs-string">"/teachers/:topic/:fname-:lname"</span> component={Teachers} /&gt;
+
+<span class="hljs-comment">//Teachers component</span>
+<span class="hljs-keyword">const</span> Teachers = <span class="hljs-function">(<span class="hljs-params">{ match }</span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> name = <span class="hljs-string">`<span class="hljs-subst">${match.params.fname}</span> <span class="hljs-subst">${match.params.lname}</span>`</span>;
+    <span class="hljs-keyword">let</span> topic = match.params.topic;
+}
+</code></pre>
+<p><a href="https://reacttraining.com/react-router/web/example/url-params">React Router v4 URL Params</a></p>
+<h3><a class="anchor" aria-hidden="true" id="prompt"></a><a href="#prompt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prompt</h3>
+<p>The Prompt component will allow you to display a message when trying to navigate to a different route if a boolean <strong>true</strong> is detected.</p>
+<pre><code class="hljs css language-jsx">&lt;form&gt;
+    &lt;Prompt
+        when={isBlockingState}
+        message="You will lose changes, continue?"
+    /&gt;
+    &lt;input onChange={e =&gt; isBlockState = true} /&gt;
+&lt;/form&gt;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="rendering-sidebar-and-main-on-one-route"></a><a href="#rendering-sidebar-and-main-on-one-route" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rendering Sidebar and Main on One Route</h2>
+<p>You can accomplish this in multiple ways.  One being to create an object with all the routes and their destinations:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> routes = [
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/'</span>,
+    <span class="hljs-attr">exact</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">sidebar</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>home!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>,
+    <span class="hljs-attr">main</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
+  },
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/posts'</span>,
+    <span class="hljs-attr">sidebar</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>posts sidebar<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>,
+    <span class="hljs-attr">main</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>posts main<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
+  },
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/orders'</span>,
+    <span class="hljs-attr">sidebar</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Orders Sidebar<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>,
+    <span class="hljs-attr">main</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Orders Main<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
+  },
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/customers'</span>,
+    <span class="hljs-attr">sidebar</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Customer Sidebar<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>,
+    <span class="hljs-attr">main</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Customer Main<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  },
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/students'</span>,
+    <span class="hljs-attr">sidebar</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Students Sidebar section<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>,
+    <span class="hljs-attr">main</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Students Main section<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  }
+];
+
+</code></pre>
+<p>Then in your components you will loop over the above object and pull what you need to create your routes.</p>
+<p>Here is the sidebar component</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Route, Link } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+<span class="hljs-keyword">import</span> { routes } <span class="hljs-keyword">from</span> <span class="hljs-string">'../routes'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Sidebar</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    &lt;div
+      style={{
+        padding: '10px',
+        width: '40%',
+        background: '#f0f0f0'
+      }}
+    &gt;
+      &lt;ul style={{ listStyleType: 'none', padding: 0 }}&gt;
+        &lt;li&gt;
+          &lt;Link to="/"&gt;Home&lt;/Link&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;Link to="/posts"&gt;Posts&lt;/Link&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;Link to="/orders"&gt;Orders&lt;/Link&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;Link to="/customers"&gt;Customers&lt;/Link&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;Link to="/students"&gt;Students&lt;/Link&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+
+      {routes.map((route, index) =&gt; (
+        // You can render a &lt;Route&gt; in as many places
+        // as you want in your app. It will render along
+        // with any other &lt;Route&gt;s that also match the URL.
+        // So, a sidebar or breadcrumbs or anything else
+        // that requires you to render multiple things
+        // in multiple places at the same URL is nothing
+        // more than multiple &lt;Route&gt;s.
+        &lt;Route
+          key={index}
+          path={route.path}
+          exact={route.exact}
+          component={route.sidebar}
+        /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}
+export default Sidebar;
+</code></pre>
+<p>And the Main component:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Route } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+<span class="hljs-keyword">import</span> { routes } <span class="hljs-keyword">from</span> <span class="hljs-string">'../routes'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">flex:</span> <span class="hljs-attr">1</span>, <span class="hljs-attr">padding:</span> '<span class="hljs-attr">10px</span>' }}&gt;</span>
+      {routes.map((route, index) =&gt; (
+        // Render more <span class="hljs-tag">&lt;<span class="hljs-name">Route</span>&gt;</span>s with the same paths as
+        // above, but different components this time.
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span>
+          <span class="hljs-attr">key</span>=<span class="hljs-string">{index}</span>
+          <span class="hljs-attr">path</span>=<span class="hljs-string">{route.path}</span>
+          <span class="hljs-attr">exact</span>=<span class="hljs-string">{route.exact}</span>
+          <span class="hljs-attr">component</span>=<span class="hljs-string">{route.main}</span>
+        /&gt;</span>
+      ))}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  );
+}
+export default Main;
+</span></code></pre>
+<p>Order of the paths in the object will be important if you are wrapping your routes in a Switch component.</p>
+<h1><a class="anchor" aria-hidden="true" id="react-router-v2"></a><a href="#react-router-v2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React-Router v2</h1>
+<div><a name="react-router-v2"></a></div>
+```
+npm install —save react-router
+```
+<p>Allows us to use the &quot;route&quot; in the URL to go to different sets of components.
+For example, <a href="#">http://myWebSite.com</a>(<a href="http://mywebsite.com">http://mywebsite.com</a>) is the root route &quot;/&quot; and <a href="#">http://myWebSite.com/firstRoute</a>(<a href="http://mywebsite.com/firstRoute">http://mywebsite.com/firstRoute</a>) would be another route.
+The main Route component will be set up in the base or index.js code.
+<img src="https://www.dropbox.com/s/ltu5jkqlkk8ymq6/react-router1.jpg?raw=1" alt="">
+In your base component (index.js) you will have something like this:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
+<span class="hljs-keyword">import</span> { Provider } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+<span class="hljs-keyword">import</span> { createStore, applyMiddleware } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>;
+<span class="hljs-keyword">import</span> { Router, browserHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router'</span>;
+
+<span class="hljs-keyword">import</span> reducers <span class="hljs-keyword">from</span> <span class="hljs-string">'./reducers'</span>;
+<span class="hljs-keyword">import</span> routes <span class="hljs-keyword">from</span> <span class="hljs-string">'./routes'</span>;
+
+<span class="hljs-keyword">const</span> createStoreWithMiddleware = applyMiddleware()(createStore);
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{createStoreWithMiddleware(reducers)}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Router</span> <span class="hljs-attr">history</span>=<span class="hljs-string">{browserHistory}</span> <span class="hljs-attr">routes</span>=<span class="hljs-string">{routes}/</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>
+    , <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.container'</span>));
+</code></pre>
+<p>The above example also has redux, but you can see that the Router component has history and routes props. The history prop can take either &quot;browserHistory&quot;, &quot;hashHistory&quot; and something else I can't remember.
+The browser history means that it will be looking for routes immediately after the /. The hash history will be looking for routes after a /#.
+You will also set up a routes.js files that will define all the routes.</p>
+<pre><code class="hljs css language-js">    <span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+    <span class="hljs-keyword">import</span> { Route, IndexRoute } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router'</span>;
+    
+    <span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/app'</span>;
+    
+    <span class="hljs-keyword">const</span> Greeting = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span> Hit there <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+    };
+    
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{App}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"greet"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Greeting}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"greet2"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Greeting}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"greet3"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Greeting}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Route</span>&gt;</span></span>
+    );
+</code></pre>
+<p>You will not ever have a component in your routes.js file, however it is here to show how you can have children under the main component.
+The &quot;/&quot; path means that the App component will show as the root. Since the App (&quot;/&quot;) route has children, the App will also show even when on the children routes.
+One other very important item you will need if you have a route with child components/routes, is a reference to the this.props.children prop in the parent component/route. This means that in the App component we need something like this:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+            Main App
+            {this.props.children}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}   
+</code></pre>
+<p>This means that when you are at the root, you will only see &quot;Main App&quot;, but when you go to &quot;/greet&quot;, you will see &quot;Main App&quot; and the child component.
+Most of the time you will want to show your Main app component and another component when the root route is selected. To do this you will use the IndexRoute react-router component.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Route, IndexRoute } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router'</span>;
+
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/app'</span>;
+<span class="hljs-keyword">import</span> PostsIndex <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/posts_index'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{App}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">IndexRoute</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{PostsIndex}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"greet"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Greeting}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"greet2"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Greeting}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"greet3"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Greeting}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Route</span>&gt;</span></span>
+);
+</code></pre>
+<p>Note that when &quot;/greet&quot; is chosen, you will no longer see the IndexRoute component.</p>
+<h2><a class="anchor" aria-hidden="true" id="navigating-to-new-pages"></a><a href="#navigating-to-new-pages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Navigating To New Pages</h2>
+<p>When you want a user to be able to navigate to a new page via a link, you can use react routers <strong>Link</strong> component.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+<span class="hljs-keyword">import</span> { Link } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostsIndex</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"text-xs-right"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"posts/new"</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span> Add Post <span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                list of blog posts
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>  
+        );
+    }
+}
+</code></pre>
+<p>Many time you will want to programmatically go to a new route. This may be handled differently depending on the type of history you are using, but here are a few that I know of:</p>
+<p><strong>hashHistory.push('/todo');</strong></p>
+<p>Also, note, that if you are in a middleware function, you most likely will have a replace function as a parameter. This can be used to move to a new route. <a href="#">See Middleware Page</a>(#RRM)</p>
+<h4><a class="anchor" aria-hidden="true" id="using-context-for-router-info"></a><a href="#using-context-for-router-info" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Context for Router Info</h4>
+<p>There are times when you will want to have Router information (like the push function) in a component that is far away from the Router component that encloses your app.  You can use React Context for this.  I'm not sure if it would be better to import something from react-router versus doing the following, but, whatever works.</p>
+<pre><code class="hljs css language-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">test</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+<span class="hljs-comment">//Must first declare that we want to receive context from React</span>
+    <span class="hljs-keyword">static</span> contextTypes = {
+        <span class="hljs-attr">router</span>: React.PropTypes.object
+    }
+
+    componentWillMount() {
+    <span class="hljs-comment">//using the router push method when component mounts</span>
+        <span class="hljs-keyword">if</span> (something) {
+            <span class="hljs-keyword">this</span>.context.router.push(<span class="hljs-string">'/'</span>);
+        }
+    }
+
+    componentWillUpdate(nextProps) {
+        <span class="hljs-comment">//Need to check after the initial mount, so that when</span>
+        <span class="hljs-comment">//component gets rerendered we know if we need to do something.</span>
+        <span class="hljs-keyword">if</span> (nextProps.something) {
+            <span class="hljs-keyword">this</span>.context.router.push(<span class="hljs-string">'/'</span>);
+        }
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="react-router-middleware"></a><a href="#react-router-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React-Router Middleware</h2>
+<p>Middleware allows you to do something before react-router does something.
+This example is for when you want to check if a user is logged in before taking them to a route:</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//React Router middleware below.</span>
+<span class="hljs-keyword">var</span> requireLogin = <span class="hljs-function">(<span class="hljs-params">nextState, replace, next</span>) =&gt;</span> {
+    <span class="hljs-comment">//firebase.auth().currentUser -&gt; null means not logged in, else returns current user</span>
+    <span class="hljs-keyword">if</span> (!firebase.auth().currentUser) {
+        replace(<span class="hljs-string">'/'</span>);
+    }
+        next();
+    };
+
+<span class="hljs-comment">// &lt;TodoApp /&gt;,</span>
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{store}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Router</span> <span class="hljs-attr">history</span>=<span class="hljs-string">{hashHistory}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Main}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">IndexRoute</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{AppLogin}</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"todo"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{TodoApp}</span> <span class="hljs-attr">onEnter</span>=<span class="hljs-string">{requireLogin}</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Route</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Router</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>,
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'app'</span>)
+);
+</code></pre>
+<p>The **requireLogin ** function is the middleware. We can inject this into any of react-router's routes. Here we are using it on the TodoApp components route.
+**onEnter=requireLogin ** is how we inject this middleware. Now anytime this route is called, first react-router will run the <strong>requireLogin()</strong> function.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/react/reach-router"><span class="arrow-prev">← </span><span>Reach Router</span></a><a class="docs-next button" href="/my-code-docs/docs/react/react-components"><span>React Components</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#react-router-v4">React Router v4</a></li><li><a href="#imports-and-npm">Imports and npm</a></li><li><a href="#important-props---match-and-location">Important Props - match and location</a><ul class="toc-headings"><li><a href="#match">match</a></li><li><a href="#location">location</a></li><li><a href="#extract-query-string-from-location">Extract Query string from location</a></li><li><a href="#browserrouter">BrowserRouter</a></li><li><a href="#router">Router</a></li><li><a href="#route">Route</a></li><li><a href="#dynamic-routes">Dynamic Routes</a></li><li><a href="#link-and-navlink">Link and NavLink</a></li><li><a href="#redirect">Redirect</a></li><li><a href="#redirect-using-the-history-prop">Redirect using the history prop</a></li><li><a href="#match-prop">match prop</a></li><li><a href="#displaying-404-error-routes-using-switch">Displaying 404 Error Routes using Switch</a></li><li><a href="#creating-dynamic-routes-paths">Creating Dynamic Routes Paths</a></li><li><a href="#prompt">Prompt</a></li></ul></li><li><a href="#rendering-sidebar-and-main-on-one-route">Rendering Sidebar and Main on One Route</a></li><li><a href="#navigating-to-new-pages">Navigating To New Pages</a></li><li><a href="#react-router-middleware">React-Router Middleware</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

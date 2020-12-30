@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Node JS Basics · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[Node.js](https://nodejs.org/en/) "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Node JS Basics · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="[Node.js](https://nodejs.org/en/) "/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Node</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Node JS Basics</h1></header><article><div><span><p><a href="https://nodejs.org/en/">Node.js</a></p>
+<p><a href="https://nodejs.org/api/path.html">Node.js - Path</a></p>
+<p><a href="https://nodejs.org/api/fs.html">Node.js File System</a></p>
+<h2><a class="anchor" aria-hidden="true" id="node-basics"></a><a href="#node-basics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Node Basics</h2>
+<h2><a class="anchor" aria-hidden="true" id="process"></a><a href="#process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>process</h2>
+<p>Node's <strong>process</strong> object is a <code>global</code> that provides information about, and control over, the current Node.js process. As a global, it is always available to Node.js applications without using <code>require()</code>.</p>
+<p>You can access some useful things.  Primarily the <code>process.argv</code> value.  These are the command line values that are made available.</p>
+<p>You can also get access to environment variables - <code>process.env</code>.</p>
+<p>If you want to get access to <strong>stdin, stdout and stderr</strong>, you will access them via <code>process.stdin</code>, etc.</p>
+<h2><a class="anchor" aria-hidden="true" id="useful-utility-libraries"></a><a href="#useful-utility-libraries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Useful Utility Libraries</h2>
+<h3><a class="anchor" aria-hidden="true" id="yargs"></a><a href="#yargs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Yargs</h3>
+<p>This is essential to any command line node program.  yargs helps you parse command line arguments and generate help documentation for your tool.</p>
+<p>Here is an example of using Yargs to create documentation for your tool:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-built_in">require</span>(<span class="hljs-string">"yargs"</span>)
+  .scriptName(<span class="hljs-string">"pirate-parser"</span>)
+  .usage(<span class="hljs-string">"$0  [args]"</span>)
+  .command(
+    <span class="hljs-string">"hello [name]"</span>,
+    <span class="hljs-string">"welcome to yargs!"</span>,
+    yargs =&gt; {
+      yargs.positional(<span class="hljs-string">"name"</span>,
+{
+        <span class="hljs-attr">type</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">default</span>: <span class="hljs-string">"Nate"</span>,
+        <span class="hljs-attr">describe</span>: <span class="hljs-string">"the name to say hello to"</span>
+      });
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">argv</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"hello"</span>,
+argv.name, <span class="hljs-string">"welcome to yargs!"</span>);
+    }
+  )
+  .help().argv;
+</code></pre>
+<p>Now, run this command <code>node example.js --help</code> and you will get this output:</p>
+<pre><code class="hljs css language-bash">pirate-parser &lt;cmd&gt; [args]
+
+  Commands:
+    pirate-parser hello [name]  welcome ter yargs!
+    
+  Options:
+    --<span class="hljs-built_in">help</span>  Show <span class="hljs-built_in">help</span>                                                  
+ [boolean]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="minimist"></a><a href="#minimist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>minimist</h3>
+<p>Yargs extends minimist, but both process command line arguments.</p>
+<h3><a class="anchor" aria-hidden="true" id="dotenvhttpsgithubcommotdotladotenv"></a><a href="#dotenvhttpsgithubcommotdotladotenv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/motdotla/dotenv">Dotenv</a></h3>
+<p><code>dotenv</code> allows us to set environment variables from a <code>.env</code> file, instead of setting them on the command line. For example, if we creating a file called <code>.env</code> in the root of our project with the following contents:</p>
+<pre><code class="hljs css language-bash">ADMIN_PASSWORD=password123
+JWT_SECRET=jwt123
+MONGO_URI=mongodb+srv:...
+</code></pre>
+<p>For example, <code>dotenv</code> will make the <code>ADMIN_PASSWORD</code> in our .env file accessible to our app as: <code>process.env.ADMIN_PASSWORD</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="included-libs"></a><a href="#included-libs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Included Libs</h2>
+<p>Node comes with a number of included packages that you can use to do many things.</p>
+<h3><a class="anchor" aria-hidden="true" id="file-processing"></a><a href="#file-processing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>File Processing</h3>
+<ul>
+<li>path = <code>const path = require('path')</code></li>
+<li>fs - <code>const fs = require('fs')</code></li>
+<li>zlib - <code>const zlib = require('zlib')</code> - Streaming GZip library</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="streams"></a><a href="#streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streams</h2>
+<p>Most likely you will be dealing with either a <strong>readable</strong> or <strong>writable</strong> stream.</p>
+<p>You <strong>pipe</strong> a readable stream INTO a writable stream.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> stream1; <span class="hljs-comment">//readable</span>
+<span class="hljs-keyword">var</span> stream2; <span class="hljs-comment">//writable</span>
+
+<span class="hljs-comment">// the return value from a pipe is a READABLE stream.</span>
+<span class="hljs-keyword">var</span> stream3 = stream1.pipe(stream2)
+
+<span class="hljs-comment">// you can chain them</span>
+stream1.pipe(stream2).pipe(anotherwritablestream);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="file-streams"></a><a href="#file-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>File Streams</h3>
+<p>The <code>fs</code> module allows us to create read streams, which would be reading data from a file and write streams, which would write that data out to a file.</p>
+<ul>
+<li><code>fs.createReadStream(PathAndFileToREAD)</code></li>
+<li><code>fs.createWriteStream(PathAndFileToWRITE)</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="transform-streams"></a><a href="#transform-streams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transform streams</h3>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'stream'</span>).Transform;
+
+<span class="hljs-keyword">var</span> inStream = fs.createReadableStream(<span class="hljs-string">'./files/hello.txt'</span>)
+<span class="hljs-keyword">var</span> upperStream = <span class="hljs-keyword">new</span> Transform({
+  transform(chunk, enc, next) {
+    <span class="hljs-keyword">this</span>.push(chunk.toString().toUpperCase());
+    next();
+  },
+});
+<span class="hljs-keyword">var</span> targeStream = process.stdout;
+
+inStream.pipe(upperStream).pipe(targeStream);
+</code></pre>
+<p>The <code>new Transform({})</code> function returns a new writeable stream.  This means that is can accept data from a readable stream.  The cool thing is that we get access to each <code>chunck</code> as it passes through the <code>transform(chunk, enc, next)</code> function that we create.</p>
+<p>We can do whatever is needed and then send what we want that chunk to look like via the <code>this.push()</code> method.</p>
+<p>In the example above we are uppercasing all text coming through, but you could look for bads words and remove/replace, etc.</p>
+<h2><a class="anchor" aria-hidden="true" id="using-zlib-streaming-gzip"></a><a href="#using-zlib-streaming-gzip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using zlib (Streaming GZip)</h2>
+<p>Below is code that shows how to use zlib, but also shows how to deal with the Asynchronous nature of streams.</p>
+<p>We created a <code>streamComplete()</code> function which returns a promise that is watching the stream events that are emitted for an 'end' event.  Once it gets that, it resolves.</p>
+<p>NOTE:  If you need to be able to cancel a stream, I belive you will need to use Generators.  Kyle Simpson has a package called <strong>CAF</strong> that helps in this regard.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> zlib = <span class="hljs-built_in">require</span>(<span class="hljs-string">'zlib'</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">streamComplete</span>(<span class="hljs-params">stream</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+    stream.on(<span class="hljs-string">'end'</span>, res);
+  });
+}
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">processFile</span>(<span class="hljs-params">inStream</span>) </span>{
+  <span class="hljs-keyword">var</span> outStream = inStream;
+  <span class="hljs-comment">// create a GUnzip stream if they want to unzip the file</span>
+  <span class="hljs-keyword">if</span> (args.uncompress) {
+    <span class="hljs-keyword">let</span> gunzipStream = zlib.createGunzip();
+    outStream = outStream.pipe(gunzipStream);
+  }
+  <span class="hljs-keyword">var</span> upperStream = <span class="hljs-keyword">new</span> Transform({
+    transform(chunk, enc, next) {
+      <span class="hljs-keyword">this</span>.push(chunk.toString().toUpperCase());
+      next();
+    },
+  });
+
+  <span class="hljs-comment">// uppercase inStream</span>
+  outStream = outStream.pipe(upperStream);
+
+  <span class="hljs-comment">// create a Gzip stream if they want to zip the file</span>
+  <span class="hljs-keyword">if</span> (args.compress) {
+    <span class="hljs-keyword">var</span> gzipStream = zlib.createGzip();
+    outStream = outStream.pipe(gzipStream);
+    OUTFILE = <span class="hljs-string">`<span class="hljs-subst">${OUTFILE}</span>.gz`</span>;
+  }
+
+  <span class="hljs-keyword">var</span> targetStream;
+
+  <span class="hljs-keyword">if</span> (args.out) {
+    targetStream = process.stdout;
+  } <span class="hljs-keyword">else</span> {
+    targetStream = fs.createWriteStream(OUTFILE);
+  }
+
+  outStream.pipe(targetStream);
+  <span class="hljs-keyword">await</span> streamComplete(outStream);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'stream complete'</span>);
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/javascript/npm-module-creation"><span class="arrow-prev">← </span><span>npm Module Creation</span></a><a class="docs-next button" href="/my-code-docs/docs/nodejs/server-config-ssh.md"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#node-basics">Node Basics</a></li><li><a href="#process">process</a></li><li><a href="#useful-utility-libraries">Useful Utility Libraries</a><ul class="toc-headings"><li><a href="#yargs">Yargs</a></li><li><a href="#minimist">minimist</a></li><li><a href="#dotenvhttpsgithubcommotdotladotenv"><a href="https://github.com/motdotla/dotenv">Dotenv</a></a></li></ul></li><li><a href="#included-libs">Included Libs</a><ul class="toc-headings"><li><a href="#file-processing">File Processing</a></li></ul></li><li><a href="#streams">Streams</a><ul class="toc-headings"><li><a href="#file-streams">File Streams</a></li><li><a href="#transform-streams">Transform streams</a></li></ul></li><li><a href="#using-zlib-streaming-gzip">Using zlib (Streaming GZip)</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

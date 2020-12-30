@@ -1,0 +1,858 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>React Navigation V4 · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Navigation - React Navigation v4"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="React Navigation V4 · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="## Navigation - React Navigation v4"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>ReactNative</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">React Navigation V4</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="navigation---react-navigation-v4"></a><a href="#navigation---react-navigation-v4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Navigation - React Navigation v4</h2>
+<p>There are options for navigation, however, <strong><a href="https://reactnavigation.org/docs/en/getting-started.html">react-navigation</a></strong> is what I use.</p>
+<p><img src="/Users/markmccoid/Documents/Programming/myCodeDocs/docs/reactnative/../assets/react-native-navigation001.png" alt=""></p>
+<p>You will need to install react-navigation using the following:</p>
+<pre><code class="hljs css language-bash">$ npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack react-navigation react-navigation-hooks
+</code></pre>
+<p>There a number of different types of navigators.</p>
+<ul>
+<li>Stack Navigator</li>
+<li>Tab Navigator</li>
+<li>Switch Navigator</li>
+<li>Drawer Navigator</li>
+</ul>
+<p>Most of the time you will nest the different navigators to get the route structure that you want.  For example, if your app requires a login/auth before getting to the main application route, you would set up a switch navigator that would you a login route and a main route.</p>
+<p>The main route may be a tab navigator with each of its associated screens actually being stack navigators.</p>
+<p>Some Videos:</p>
+<p><a href="https://www.youtube.com/watch?v=w24FE9PZpzk">Combining Navigators v3</a></p>
+<p><a href="https://www.youtube.com/watch?v=0VfzgFZt-AI">More Combining Navigators v4</a></p>
+<h3><a class="anchor" aria-hidden="true" id="switch-navigator"></a><a href="#switch-navigator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Switch Navigator</h3>
+<p>The purpose of SwitchNavigator is to only ever show one screen at a time. By default, it does not handle back actions and it resets routes to their default state when you switch away. This is the exact behavior that we want from the <a href="https://reactnavigation.org/docs/en/auth-flow.html">authentication flow</a>.</p>
+<p>The authentication flow docs from React Navigation are good.</p>
+<p>From their exampe:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { createAppContainer, createSwitchNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-navigation'</span>;
+<span class="hljs-keyword">import</span> { createStackNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-navigation-stack'</span>;
+
+<span class="hljs-comment">// Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen</span>
+<span class="hljs-comment">// goes here.</span>
+
+<span class="hljs-keyword">const</span> AppStack = createStackNavigator({ <span class="hljs-attr">Home</span>: HomeScreen, <span class="hljs-attr">Other</span>: OtherScreen });
+<span class="hljs-keyword">const</span> AuthStack = createStackNavigator({ <span class="hljs-attr">SignIn</span>: SignInScreen });
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> createAppContainer(
+  createSwitchNavigator(
+    {
+      <span class="hljs-attr">AuthLoading</span>: AuthLoadingScreen,
+      <span class="hljs-attr">App</span>: AppStack,
+      <span class="hljs-attr">Auth</span>: AuthStack,
+    },
+    {
+      <span class="hljs-attr">initialRouteName</span>: <span class="hljs-string">'AuthLoading'</span>,
+    }
+  )
+);
+</code></pre>
+<p>Notice the AuthLoading route.  The point of this screen is to check to see if the user is already logged in (either a token stored in AsyncStorage) and if so, then direct to the Main App route, if not, send the user to the Auth route where they can sign in or sign up.</p>
+<p>Here is an example AuthLoadingScreen component:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> {
+  ActivityIndicator,
+  AsyncStorage,
+  StatusBar,
+  StyleSheet,
+  View,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AuthLoadingScreen</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  componentDidMount() {
+    <span class="hljs-keyword">this</span>._bootstrapAsync();
+  }
+
+  <span class="hljs-comment">// Fetch the token from storage then navigate to our appropriate place</span>
+  _bootstrapAsync = <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> userToken = <span class="hljs-keyword">await</span> AsyncStorage.getItem(<span class="hljs-string">'userToken'</span>);
+
+    <span class="hljs-comment">// This will switch to the App screen or Auth screen and this loading</span>
+    <span class="hljs-comment">// screen will be unmounted and thrown away.</span>
+    <span class="hljs-keyword">this</span>.props.navigation.navigate(userToken ? <span class="hljs-string">'App'</span> : <span class="hljs-string">'Auth'</span>);
+  };
+
+  <span class="hljs-comment">// Render any loading content that you like here</span>
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ActivityIndicator</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">StatusBar</span> <span class="hljs-attr">barStyle</span>=<span class="hljs-string">"default"</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+    );
+  }
+}
+</code></pre>
+<p>Notice it really is just displaying and ActivityIndicator until it determines if the user is logged in.</p>
+<h3><a class="anchor" aria-hidden="true" id="stack-navigator"></a><a href="#stack-navigator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stack Navigator</h3>
+<p><a href="https://reactnavigation.org/docs/en/stack-navigator.html">Stack Navigator Docs</a></p>
+<p>You can change your App.js file that the expo-cli creates and replace it with your navigation.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { createAppContainer } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-navigation'</span>;
+<span class="hljs-keyword">import</span> { createStackNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-navigation-stack'</span>;
+
+<span class="hljs-keyword">import</span> SearchScreen <span class="hljs-keyword">from</span> <span class="hljs-string">'./screens/SearchScreen'</span>;
+
+<span class="hljs-keyword">const</span> navigator = createStackNavigator({
+    <span class="hljs-attr">Search</span>: SearchScreen
+}, {
+    <span class="hljs-attr">initialRouteName</span>: <span class="hljs-string">'Search'</span>,
+    <span class="hljs-attr">defaultNavigationObjects</span>: {
+        <span class="hljs-attr">title</span>: <span class="hljs-string">'My App Name'</span>
+    }
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> createAppContainer(navigator)
+
+</code></pre>
+<p>The <strong>createStackNavigator</strong> function takes two objects as arguments.  The first is a list of screens (<strong>RouteConfig Object</strong>) and the seconds is an object of options (<strong>StackNavigatorConfig Object</strong>).</p>
+<p><code>createStackNavigator(RouteConfigs, StackNavigatorConfig);</code></p>
+<p>If you want to have more options for each route name (Search in the case above), you can pass an object to each route key:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> navigator = createStackNavigator({
+  <span class="hljs-attr">Search</span>: {
+    <span class="hljs-attr">screen</span>: SearchScreen,
+    <span class="hljs-attr">navigationOptions</span>: {
+      <span class="hljs-attr">title</span>: <span class="hljs-string">'Search Screen'</span>
+    }
+  }
+},{
+  ...
+})
+</code></pre>
+<p>I like the above so that I can explicity name each screen in the stack navigator.  However, if you prefer, you can define the navigation object in the component itself by adding it to the component as follows:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { View, Text, StyleSheet } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+
+<span class="hljs-keyword">const</span> DetailScreen = <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Detail Screen<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+};
+<span class="hljs-comment">// Here we are overriding the navigationOptions property</span>
+DetailScreen.navigationOptions = {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">"Details"</span>
+};
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> DetailScreen;
+</code></pre>
+<blockquote>
+<p>NOTE: By doing this, you will override what is in the route config object.</p>
+</blockquote>
+<p>The last line <code>export default createAppContainer(navigator)</code> boots up our app.</p>
+<h3><a class="anchor" aria-hidden="true" id="adding-items-to-navigation-header"></a><a href="#adding-items-to-navigation-header" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding Items to Navigation Header</h3>
+<p>Many times you will want to add an icon, text or something that will cause an action in the header of your screen.  Like the <strong>+</strong> button in the header below.</p>
+<p><img src="/Users/markmccoid/Documents/Programming/myCodeDocs/docs/reactnative/../assets/react-native-navigation002.png" alt="react-native-navigation002"></p>
+<p>To do this we do the following on the screen where we want the button:</p>
+<pre><code class="hljs css language-jsx">IndexScreen.navigationOptions = <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">headerRight</span>: (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> navigation.navigate('Create')}&gt;
+                <span class="hljs-tag">&lt;<span class="hljs-name">Feather</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"plus"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">10</span> }} /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+        )
+    }
+}
+</code></pre>
+<p>Example of a dynamic header icon which changes based on if a modal screen is showing.</p>
+<p><a href="#headerright-dynamic-icon-example">example</a></p>
+<p>The headerRight, among other options in navigationOptions can be functions:</p>
+<pre><code class="hljs css language-jsx">IndexScreen.navigationOptions = <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> {
+          <span class="hljs-attr">title</span>: <span class="hljs-string">"View Movies"</span>,
+          <span class="hljs-attr">headerRight</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-keyword">if</span> (routeName === <span class="hljs-string">"ViewMoviesFilter"</span>) {
+              <span class="hljs-keyword">return</span> (
+                <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span>
+                  <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> navigation.navigate("ViewMoviesScreen")}
+                &gt;
+                  <span class="hljs-tag">&lt;<span class="hljs-name">AntDesign</span>
+                    <span class="hljs-attr">name</span>=<span class="hljs-string">"close"</span>
+                    <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">10</span> }}
+                  /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+              );
+            } <span class="hljs-keyword">else</span> ...
+    }
+}
+</code></pre>
+<p>But let's say you need to <strong>access your store via a hook</strong>.  You can't do that in the above function directly, but what you can do is create a functional component that does all that stuff and use it inside the headerRight function.</p>
+<pre><code class="hljs css language-jsx">navigationOptions: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+  <span class="hljs-keyword">let</span> movie = navigation.getParam(<span class="hljs-string">"movie"</span>);
+  <span class="hljs-comment">// Get number of tags for movieId</span>
+
+  <span class="hljs-comment">// console.log("DETAIL PARAMS", numberOfTags);</span>
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">title</span>: movie.title,
+    <span class="hljs-attr">headerTitleStyle</span>: { <span class="hljs-attr">fontSize</span>: <span class="hljs-number">22</span> },
+    <span class="hljs-attr">headerRight</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-keyword">let</span> routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+      <span class="hljs-keyword">if</span> (routeName === <span class="hljs-string">"MovieDetailTagEdit"</span>) {
+        <span class="hljs-keyword">return</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span>
+            <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> navigation.navigate("MovieDetailScreen")}
+            &gt;
+            <span class="hljs-tag">&lt;<span class="hljs-name">AntDesign</span>
+              <span class="hljs-attr">name</span>=<span class="hljs-string">"close"</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span>
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">10</span> }}
+              /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+        );
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MovieDetailHeaderRight</span>
+            <span class="hljs-attr">navigate</span>=<span class="hljs-string">{navigation.navigate}</span>
+            <span class="hljs-attr">movie</span>=<span class="hljs-string">{movie}</span>
+            /&gt;</span></span>
+        );
+      }
+    }
+  };
+}
+</code></pre>
+<p>Notice the <strong>MovieDetailHeaderRight</strong> functional component:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { TouchableOpacity } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+<span class="hljs-keyword">import</span> { Feather } <span class="hljs-keyword">from</span> <span class="hljs-string">"@expo/vector-icons"</span>;
+<span class="hljs-keyword">import</span> { Badge } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native-elements"</span>;
+<span class="hljs-keyword">import</span> { useOvermind } <span class="hljs-keyword">from</span> <span class="hljs-string">"../store/overmind"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> MovieDetailHeaderRight = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> {
+  <span class="hljs-keyword">let</span> { state } = useOvermind();
+  <span class="hljs-keyword">const</span> numberOfTags = state.oSaved.getMovieTags(props.movie.id).length;
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span>
+      <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span>
+        props.navigate("MovieDetailTagEdit", { movie: props.movie })
+      }
+    &gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Feather</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"tag"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">10</span> }} /&gt;</span>
+      {numberOfTags ? (
+        <span class="hljs-tag">&lt;<span class="hljs-name">Badge</span>
+          <span class="hljs-attr">status</span>=<span class="hljs-string">"success"</span>
+          <span class="hljs-attr">value</span>=<span class="hljs-string">{numberOfTags}</span>
+          <span class="hljs-attr">containerStyle</span>=<span class="hljs-string">{{</span>
+            <span class="hljs-attr">position:</span> "<span class="hljs-attr">absolute</span>",
+            <span class="hljs-attr">top:</span> <span class="hljs-attr">-5</span>,
+            <span class="hljs-attr">right:</span> <span class="hljs-attr">10</span>
+          }}
+        /&gt;</span>
+      ) : null}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+  );
+};
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tab-navigator"></a><a href="#tab-navigator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tab Navigator</h3>
+<p>There are a couple of Tab Navigators</p>
+<ul>
+<li><a href="https://reactnavigation.org/docs/en/bottom-tab-navigator.html">createBottomTabNavigator</a></li>
+<li><a href="https://reactnavigation.org/docs/en/material-bottom-tab-navigator.html">createMaterialBottomTabNavigator</a></li>
+<li><a href="https://reactnavigation.org/docs/en/material-top-tab-navigator.html">createMaterialTopTabNavigator</a></li>
+</ul>
+<p>I will go over creating the Bottom Tab Navigator.</p>
+<p><a href="https://reactnavigation.org/docs/en/tab-based-navigation.html">Tab Navigator Scenarios</a></p>
+<p>While each tab in the tab navigator is associated to a screen, it can also (and usually will be) associated with a Stack Navigator.  This does two things for you, first, it gives you a title and second it give you a safe area on top.  You can also integrate buttons into this top area.</p>
+<p>You will need to make sure you have imported the <code>react-navigation-tabs</code> module</p>
+<pre><code class="hljs css language-bash">$ yarn add react-navigation-tabs
+</code></pre>
+<p>You will also then import:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { createBottomTabNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-navigation-tabs'</span>;
+</code></pre>
+<p>It's function arguments are similar to the Stack Navigator, you will pass a Route Config and Options:</p>
+<p><code>createBottomTabNavigator(RouteConfigs, TabNavigatorConfig);</code></p>
+<p>Here is a sample Tab Navigator</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">const</span> TabNavigator = createBottomTabNavigator(
+  {
+    <span class="hljs-attr">ViewMovies</span>: {
+      <span class="hljs-attr">screen</span>: HomeStack,
+      <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(
+          <span class="hljs-string">"home tab nav"</span>,
+          navigation.state.routes[navigation.state.index]
+        );
+        <span class="hljs-keyword">return</span> {
+          <span class="hljs-attr">tabBarLabel</span>: <span class="hljs-string">"View Movies"</span>,
+          <span class="hljs-attr">tabBarIcon</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MaterialIcons</span>
+              <span class="hljs-attr">name</span>=<span class="hljs-string">"movie"</span>
+              <span class="hljs-attr">color</span>=<span class="hljs-string">{tintColor}</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">{24}</span>
+              <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span> }}
+            /&gt;</span></span>
+          )
+        };
+      }
+    },
+    <span class="hljs-attr">Search</span>: {
+      <span class="hljs-attr">screen</span>: SearchStack,
+      <span class="hljs-attr">navigationOptions</span>: {
+        <span class="hljs-attr">tabBarLabel</span>: <span class="hljs-string">"Search"</span>,
+        <span class="hljs-attr">tabBarIcon</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MaterialIcons</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>
+            <span class="hljs-attr">color</span>=<span class="hljs-string">{tintColor}</span>
+            <span class="hljs-attr">size</span>=<span class="hljs-string">{24}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span> }}
+          /&gt;</span></span>
+        )
+      }
+    },
+    <span class="hljs-attr">Tags</span>: {
+      <span class="hljs-attr">screen</span>: TagScreen,
+      <span class="hljs-attr">navigationOptions</span>: {
+        <span class="hljs-attr">tabBarLabel</span>: <span class="hljs-string">"Tags"</span>,
+        <span class="hljs-attr">tabBarIcon</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FontAwesome</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">"tags"</span>
+            <span class="hljs-attr">color</span>=<span class="hljs-string">{tintColor}</span>
+            <span class="hljs-attr">size</span>=<span class="hljs-string">{24}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span> }}
+          /&gt;</span></span>
+        )
+      }
+    }
+  },
+  {
+    <span class="hljs-attr">tabBarOptions</span>: {
+      <span class="hljs-attr">activeTintColor</span>: <span class="hljs-string">"red"</span>,
+      <span class="hljs-attr">inactiveTintColor</span>: <span class="hljs-string">"gray"</span>
+    }
+  }
+);
+<span class="hljs-comment">//</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> createAppContainer(TabNavigator);
+</code></pre>
+<p>Notice that each Screen in the tab navigator can/should have its own navigationOptions object.  You can the details of what these options are here:</p>
+<p><a href="https://reactnavigation.org/docs/en/bottom-tab-navigator.html#navigationoptions-for-screens-inside-of-the-navigator">Tab Navigator navigationOptions</a></p>
+<p>Setting navigationOptions is tricky in understanding what you are setting.  From what I can see, you set the navigationOptions on the child you want it set on.</p>
+<p><a href="https://reactnavigation.org/docs/en/navigation-options-resolution.html">Docs for Navigation Options</a></p>
+<p>Some of these options can be configured with a function that receive props that allow you to dynamically set stuff.</p>
+<p>For example, the <em>tabBarIcon</em> property in <em>navigationOptions</em> on each tab &quot;screen&quot; can be a function.  This function can accept the <strong>tintColor</strong> from the overall <em>tabBarOptions</em> (either <em>activeTintColor</em> or <em>inactiveTinColor</em>) or you could set it to whatever you want.</p>
+<pre><code class="hljs css language-jsx">tabBarIcon: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FontAwesome</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">"tags"</span>
+            <span class="hljs-attr">color</span>=<span class="hljs-string">{tintColor}</span>
+            <span class="hljs-attr">size</span>=<span class="hljs-string">{24}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span> }}
+          /&gt;</span></span>
+        )   
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="understanding-navigationoptions"></a><a href="#understanding-navigationoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Understanding navigationOptions</h3>
+<p>Still don't understand fully, but they are definitely powerful and confusing.  Read <a href="https://reactnavigation.org/docs/en/navigation-options-resolution.html">Docs for Navigation Options</a></p>
+<p>From what I can tell, all navigators (Stack, Tab, etc) take a navigationOptions property, as well as all screens within a navigator.  What gets confusing, is that just because all of these will take a navigationOptions property, doesn't mean it will always get called.</p>
+<p>I found that a base tabNavigator with a navigationOptions property doesn't get looked at, however, the screens within that tabNavigator can each have a navigationOptions property that does get &quot;run&quot;.</p>
+<p>Here is a scenario, I have a main tab navigator (TabNavigator) with three tabs, when the <strong>Tags</strong> tab is selected, we hide this main tab navigator and the new route will be another tab navigator (TagTabNavigator) with an icon in the headerRight that will &quot;close&quot; or navigate back to the main tab navigator.</p>
+<p><img src="/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-navoptions001.png" alt="image-20191229234439385"></p>
+<p><img src="/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/react-native-navoptions002.png" alt="image-20191229234538083"></p>
+<p>Here is the code for the TagTabNavigator</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">let</span> TagTabNavigator = createBottomTabNavigator(
+  {
+    <span class="hljs-attr">TagView</span>: {
+      <span class="hljs-attr">screen</span>: TagScreen,
+      <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"in TagView Tag Screen"</span>);
+      }
+    },
+    <span class="hljs-attr">TagEdit</span>: {
+      <span class="hljs-attr">screen</span>: TagEditScreen
+    }
+  },
+  {
+    <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"inMAINTagTab - HeaderRight"</span>);
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">headerRight</span>: (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> navigation.navigate("ViewMovies")}&gt;
+            <span class="hljs-tag">&lt;<span class="hljs-name">Feather</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"plus"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">10</span> }} /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+        )
+      };
+    }
+  }
+);
+</code></pre>
+<p>Here is the code for the TabNavigator.  Notice that we have the code to hide the TabNavigator on the screen that when focused we want to hide the main Tab Navigator.  We are using the <strong>navigation.isFocused()</strong> function to determine if this route is selected (the Tags route).</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">const</span> TabNavigator = createBottomTabNavigator({
+  <span class="hljs-attr">ViewMovies</span>: {
+    <span class="hljs-attr">screen</span>: HomeStack,
+    <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+      <span class="hljs-comment">// console.log(</span>
+      <span class="hljs-comment">//   "home tab nav",</span>
+      <span class="hljs-comment">//   navigation.state.routes[navigation.state.index]</span>
+      <span class="hljs-comment">// );</span>
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">tabBarLabel</span>: <span class="hljs-string">"View Movies"</span>,
+        <span class="hljs-attr">tabBarIcon</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MaterialIcons</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">"movie"</span>
+            <span class="hljs-attr">color</span>=<span class="hljs-string">{tintColor}</span>
+            <span class="hljs-attr">size</span>=<span class="hljs-string">{24}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span> }}
+          /&gt;</span></span>
+        )
+      };
+    }
+  },
+  <span class="hljs-attr">Search</span>: {
+    <span class="hljs-attr">screen</span>: SearchStack,
+    <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(
+        <span class="hljs-string">"in searchStack"</span>,
+        navigation
+        <span class="hljs-comment">// navigation.state.routes[navigation.state.index]</span>
+      );
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"isfocused"</span>, navigation.isFocused());
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">tabBarLabel</span>: <span class="hljs-string">"Search"</span>,
+        <span class="hljs-attr">tabBarIcon</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MaterialIcons</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>
+            <span class="hljs-attr">color</span>=<span class="hljs-string">{tintColor}</span>
+            <span class="hljs-attr">size</span>=<span class="hljs-string">{24}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span> }}
+          /&gt;</span></span>
+        )
+      };
+    }
+  },
+  <span class="hljs-attr">Tags</span>: {
+    <span class="hljs-attr">screen</span>: TagStack,
+    <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+      <span class="hljs-comment">// console.log(</span>
+      <span class="hljs-comment">//   "in TagStack",</span>
+      <span class="hljs-comment">//   navigation.state</span>
+      <span class="hljs-comment">//   // navigation.state.routes[navigation.state.index]</span>
+      <span class="hljs-comment">// );</span>
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">tabBarVisible</span>: !navigation.isFocused(),
+        <span class="hljs-attr">tabBarLabel</span>: <span class="hljs-string">"Tags"</span>,
+        <span class="hljs-attr">tabBarIcon</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">FontAwesome</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">"tags"</span>
+            <span class="hljs-attr">color</span>=<span class="hljs-string">{tintColor}</span>
+            <span class="hljs-attr">size</span>=<span class="hljs-string">{24}</span>
+            <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">5</span> }}
+          /&gt;</span></span>
+        )
+      };
+    }
+  }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="route-in-nav-options"></a><a href="#route-in-nav-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Route in Nav Options</h4>
+<p>Still a bit hazy on this, but if you have navigationOptions in a Navigator that doesn't directly show a screen, but instead references another Navigator (Stack, Tab, etc), then to get to Params, etc, you will need to use the following syntax:</p>
+<pre><code class="hljs css language-javascript">...
+navigationOptions: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+        <span class="hljs-keyword">let</span> params = navigation.state.routes[navigation.state.index].params;
+        <span class="hljs-keyword">let</span> routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+        <span class="hljs-comment">//console.log("PARAMS", params);</span>
+        <span class="hljs-keyword">let</span> isFiltered = params ? params.isFiltered : <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">let</span> numFilters = params ? params.numFilters : <span class="hljs-literal">undefined</span>;
+        <span class="hljs-built_in">console</span>.log(
+          <span class="hljs-string">"MOVIE TAB NAV"</span>,
+          navigation.state.routes[navigation.state.index]
+        );
+}
+...
+</code></pre>
+<p>Notice you will use the <code>navigation.state.index</code> to look inside the <code>navigation.state.routes</code> object to get at any params, etc.</p>
+<p>The <code>navigation.state.routes</code> array looks like this:</p>
+<pre><code class="hljs css language-javascript">[
+  <span class="hljs-built_in">Object</span> {
+    <span class="hljs-string">"key"</span>: <span class="hljs-string">"id-1579582094912-0"</span>,
+    <span class="hljs-string">"params"</span>: <span class="hljs-built_in">Object</span> {
+      <span class="hljs-string">"isFiltered"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">"numFilters"</span>: <span class="hljs-number">0</span>,
+    },
+    <span class="hljs-string">"routeName"</span>: <span class="hljs-string">"ViewMoviesScreen"</span>,
+  },
+]
+</code></pre>
+<p>Depending on how many screens/routes are in the associated navigator, you will have multiple rows in the array.</p>
+<p>If you are at the screen, that code will NOT work.  You must access it directly like this:</p>
+<pre><code class="hljs css language-javascript">navigation.state.params
+<span class="hljs-comment">// or to get the route object</span>
+navigation.state
+</code></pre>
+<p>The route object <code>navigation.state</code> looks like this:</p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"key"</span>: <span class="hljs-string">"id-1579582094912-0"</span>,
+  <span class="hljs-string">"params"</span>: <span class="hljs-built_in">Object</span> {
+    <span class="hljs-string">"isFiltered"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"numFilters"</span>: <span class="hljs-number">0</span>,
+  },
+  <span class="hljs-string">"routeName"</span>: <span class="hljs-string">"ViewMoviesScreen"</span>,
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="headerright-dynamic-icon-example"></a><a href="#headerright-dynamic-icon-example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>headerRight Dynamic icon example</h4>
+<p>This is an example where the ViewMovieStack referenced in the ViewMovies property has a main screen and a model.  If the modal is showing, a close icon shows in the header, if not, then a filter icon is shown.</p>
+<p>To make this work, the modal is set to not have a header.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">const</span> MainMovieStack = createStackNavigator(
+  {
+    <span class="hljs-attr">ViewMovies</span>: {
+      <span class="hljs-attr">screen</span>: ViewMovieStack,
+      <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+        <span class="hljs-keyword">let</span> params = navigation.state.routes[navigation.state.index].params;
+        <span class="hljs-keyword">let</span> routeName =
+          navigation.state.routes[navigation.state.index].routeName;
+        <span class="hljs-comment">//console.log("PARAMS", params);</span>
+        <span class="hljs-keyword">let</span> isFiltered = params ? params.isFiltered : <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">let</span> numFilters = params ? params.numFilters : <span class="hljs-literal">undefined</span>;
+        <span class="hljs-built_in">console</span>.log(
+          <span class="hljs-string">"MOVIE TAB NAV"</span>,
+          navigation.state.routes,
+          navigation.state.index
+        );
+        <span class="hljs-comment">// console.log(</span>
+        <span class="hljs-comment">//   "MOVIE TAB PARAMS",</span>
+        <span class="hljs-comment">//   navigation.state.routes[navigation.state.index].params</span>
+        <span class="hljs-comment">// );</span>
+        <span class="hljs-keyword">return</span> {
+          <span class="hljs-attr">title</span>: <span class="hljs-string">"View Movies"</span>,
+          <span class="hljs-attr">headerRight</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-keyword">if</span> (routeName === <span class="hljs-string">"ViewMoviesFilter"</span>) {
+              <span class="hljs-keyword">return</span> (
+                <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span>
+                  <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> navigation.navigate("ViewMoviesScreen")}
+                &gt;
+                  <span class="hljs-tag">&lt;<span class="hljs-name">AntDesign</span>
+                    <span class="hljs-attr">name</span>=<span class="hljs-string">"close"</span>
+                    <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">10</span> }}
+                  /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+              );
+            } <span class="hljs-keyword">else</span> {
+              <span class="hljs-keyword">return</span> (
+                <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span>
+                  <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> navigation.navigate("ViewMoviesFilter")}
+                &gt;
+                  <span class="hljs-tag">&lt;<span class="hljs-name">Feather</span>
+                    <span class="hljs-attr">name</span>=<span class="hljs-string">"filter"</span>
+                    <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+                      <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">15</span>,
+                      <span class="hljs-attr">color:</span> <span class="hljs-attr">isFiltered</span> ? "<span class="hljs-attr">green</span>" <span class="hljs-attr">:</span> "<span class="hljs-attr">black</span>"
+                    }}
+                  /&gt;</span>
+                  {numFilters ? (
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Badge</span>
+                      <span class="hljs-attr">status</span>=<span class="hljs-string">"success"</span>
+                      <span class="hljs-attr">value</span>=<span class="hljs-string">{numFilters}</span>
+                      <span class="hljs-attr">containerStyle</span>=<span class="hljs-string">{{</span>
+                        <span class="hljs-attr">position:</span> "<span class="hljs-attr">absolute</span>",
+                        <span class="hljs-attr">top:</span> <span class="hljs-attr">-5</span>,
+                        <span class="hljs-attr">right:</span> <span class="hljs-attr">10</span>
+                      }}
+                    /&gt;</span>
+                  ) : null}
+                <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+              );
+            }
+          }
+        };
+      }
+    },
+    ...
+</code></pre>
+<p>Here is the <strong>ViewMovieStack</strong></p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">const</span> ViewMovieStack = createStackNavigator(
+  {
+    <span class="hljs-attr">ViewMoviesScreen</span>: {
+      <span class="hljs-attr">screen</span>: ViewMovieScreen,
+      <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> {
+          <span class="hljs-attr">headerRight</span>: (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span>
+              <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> navigation.navigate("ViewMoviesFilter")}
+            &gt;
+              <span class="hljs-tag">&lt;<span class="hljs-name">AntDesign</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">{30}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginRight:</span> <span class="hljs-attr">10</span> }} /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+          )
+        };
+      }
+    },
+    <span class="hljs-attr">ViewMoviesFilter</span>: {
+      <span class="hljs-attr">screen</span>: ViewMoviesFilterScreen
+    }
+  },
+  {
+    <span class="hljs-attr">mode</span>: <span class="hljs-string">"modal"</span>,
+    <span class="hljs-attr">headerMode</span>: <span class="hljs-string">"none"</span>
+  }
+);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="drawer-navigator"></a><a href="#drawer-navigator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Drawer Navigator</h3>
+<p>A Drawer Navigator is one that can be pulled out from the side of the phone and has routes on it that can be selected.</p>
+<p>Usually when you have a Drawer, you will put a menu icon in the upper left hand corner so the user has something to touch to access the drawer.</p>
+<p>The big question is where do you place this icon, on the Drawer navigator, on the Screen or if you have a stack of screens on the stack??</p>
+<p>Probably depends on other stuff, but if you have a drawer with one of its routes being a Stack of screens, you can set the icon (headerLeft) in the <em>defaultNavigationOptions</em> on the stack.  BUT, usually in a stack, that means you will be accessing other screens within the stack.  By setting the drawer menu icon on the main stack, it will cover up the go back icon you get by default when navigating within a stack.</p>
+<p>You can conquer this by checking which screen/route within the stack is active and show/hide based on this OR  you could just put it in the navigation Options for the screen you want to view it on.</p>
+<p>Here is the code for the Drawer Navigator:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> { createDrawerNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-navigation-drawer"</span>;
+<span class="hljs-keyword">import</span> ViewMovieStack <span class="hljs-keyword">from</span> <span class="hljs-string">"./ViewMovieStack"</span>;
+
+<span class="hljs-comment">// Drawer Navigator</span>
+<span class="hljs-keyword">const</span> ViewMovieDrawerNavigator = createDrawerNavigator({
+  <span class="hljs-attr">ALL</span>: {
+    <span class="hljs-attr">screen</span>: ViewMovieStack,
+    <span class="hljs-attr">navigationOptions</span>: {
+      <span class="hljs-attr">drawerIcon</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Ionicons</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"md-home"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">color:</span> <span class="hljs-attr">tintColor</span> }} /&gt;</span></span>
+      ),
+      <span class="hljs-attr">drawerLabel</span>: <span class="hljs-string">"HomeAll"</span>
+    }
+  },
+  <span class="hljs-attr">Favorites</span>: {
+    <span class="hljs-attr">screen</span>: ViewMovieStack,
+    <span class="hljs-attr">params</span>: { <span class="hljs-attr">folder</span>: <span class="hljs-string">"favs"</span> },
+    <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">params</span>: { <span class="hljs-attr">folder</span>: <span class="hljs-string">"favs"</span> },
+        <span class="hljs-attr">drawerIcon</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Ionicons</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ios-heart"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">color:</span> <span class="hljs-attr">tintColor</span> }} /&gt;</span></span>
+        ),
+        <span class="hljs-attr">drawerLabel</span>: <span class="hljs-string">"Favorites"</span>
+      };
+    }
+  }
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> ViewMovieDrawerNavigator;
+</code></pre>
+<p>![image-20191231131153354](/Users/markmccoid/Library/Application Support/typora-user-images/image-20191231131153354.png)</p>
+<p>But now, how do we get the menu to show only on the first page of the MovieStack?</p>
+<p>This is done inside the MovieStack creation.  You can either do it in the <em>navigationOptions</em> for the screen you want to see the menu icon in or in the <em>defaultNavigationOptions</em> if you want to turn it off/on for screens.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { TouchableOpacity } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+<span class="hljs-keyword">import</span> { Ionicons } <span class="hljs-keyword">from</span> <span class="hljs-string">"@expo/vector-icons"</span>;
+<span class="hljs-keyword">import</span> { createStackNavigator } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-navigation-stack"</span>;
+<span class="hljs-keyword">import</span> ViewMovieScreen <span class="hljs-keyword">from</span> <span class="hljs-string">"../screens/ViewMovieScreen"</span>;
+<span class="hljs-keyword">import</span> MovieDetailScreen <span class="hljs-keyword">from</span> <span class="hljs-string">"../screens/MovieDetailScreen"</span>;
+
+<span class="hljs-keyword">const</span> ViewMovieStack = createStackNavigator(
+  {
+    <span class="hljs-attr">ViewMovies</span>: {
+      <span class="hljs-attr">screen</span>: ViewMovieScreen,
+      <span class="hljs-attr">params</span>: { <span class="hljs-attr">folder</span>: <span class="hljs-string">"all"</span> },
+      <span class="hljs-attr">navigationOptions</span>: <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> {
+          <span class="hljs-attr">title</span>: <span class="hljs-string">"View Movies"</span>,
+          <span class="hljs-attr">headerLeft</span>: <span class="hljs-function">(<span class="hljs-params">{ tintColor }</span>) =&gt;</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TouchableOpacity</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> navigation.openDrawer()}&gt;
+              <span class="hljs-tag">&lt;<span class="hljs-name">Ionicons</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"md-menu"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">color:</span> <span class="hljs-attr">tintColor</span> }} <span class="hljs-attr">size</span>=<span class="hljs-string">{24}</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">TouchableOpacity</span>&gt;</span></span>
+          )
+        };
+      }
+    },
+    <span class="hljs-attr">ViewMoviesFav</span>: {
+      <span class="hljs-attr">screen</span>: ViewMovieScreen,
+      <span class="hljs-attr">params</span>: { <span class="hljs-attr">folder</span>: <span class="hljs-string">"fav"</span> },
+      <span class="hljs-attr">navigationOptions</span>: {
+        <span class="hljs-attr">title</span>: <span class="hljs-string">"View Favorite Movies"</span>
+      }
+    },
+    <span class="hljs-attr">MovieDetail</span>: {
+      <span class="hljs-attr">screen</span>: MovieDetailScreen
+    }
+  },
+  {
+    <span class="hljs-attr">initialRouteName</span>: <span class="hljs-string">"ViewMovies"</span>
+    <span class="hljs-comment">// defaultNavigationOptions: ({ navigation }) =&gt; {</span>
+    <span class="hljs-comment">//   console.log("defaultNavnav", navigation);</span>
+    <span class="hljs-comment">//   let showDrawerMenu = true;</span>
+    <span class="hljs-comment">//   if (navigation.state.routeName === "MovieDetail") {</span>
+    <span class="hljs-comment">//     showDrawerMenu = false;</span>
+    <span class="hljs-comment">//   }</span>
+    <span class="hljs-comment">//   return {</span>
+    <span class="hljs-comment">//     headerLeft: showDrawerMenu</span>
+    <span class="hljs-comment">//       ? ({ tintColor }) =&gt; (</span>
+    <span class="hljs-comment">//           &lt;TouchableOpacity onPress={() =&gt; navigation.openDrawer()}&gt;</span>
+    <span class="hljs-comment">//             &lt;Ionicons</span>
+    <span class="hljs-comment">//               name="md-menu"</span>
+    <span class="hljs-comment">//               style={{ color: tintColor }}</span>
+    <span class="hljs-comment">//               size={24}</span>
+    <span class="hljs-comment">//             /&gt;</span>
+    <span class="hljs-comment">//           &lt;/TouchableOpacity&gt;</span>
+    <span class="hljs-comment">//         )</span>
+    <span class="hljs-comment">//       : "",</span>
+    <span class="hljs-comment">//     drawerLabel: "Home"</span>
+    <span class="hljs-comment">//   };</span>
+    <span class="hljs-comment">// }</span>
+  }
+);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> ViewMovieStack;
+</code></pre>
+<p>The commented out <em>defaultNavigationOptions</em> show how to do it by turning the menu icon on/off.</p>
+<h3><a class="anchor" aria-hidden="true" id="hooks"></a><a href="#hooks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hooks</h3>
+<p><a href="https://github.com/react-navigation/hooks">Hooks Docs</a></p>
+<h3><a class="anchor" aria-hidden="true" id="passing-extra-data-on-navigate"></a><a href="#passing-extra-data-on-navigate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Passing Extra Data on Navigate</h3>
+<p>To pass data when you navigate to a new screen, you can pass a second parameter when calling <strong>navigation.navigate</strong>. This parameter will be an object that contains the data you want passed:</p>
+<pre><code class="hljs css language-jsx">&lt;TouchableOpacity onPress={() =&gt; navigation.navigate('Show', { id: item.id })}&gt;
+// stuff to be pressed
+&lt;/TouchableOpacity&gt;
+</code></pre>
+<p>Now, you need to access that data in the <strong>Show</strong> screen.  This data is embedded in the navigation prop, however, there is a function on the navigation prop that makes getting this data easy - <strong>navigation.getParam()</strong></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> ShowScreen = <span class="hljs-function">(<span class="hljs-params">{ navigation }</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> id = navigation.getParam(<span class="hljs-string">"id"</span>);
+    ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="navigating-without-the-navigation-prop"></a><a href="#navigating-without-the-navigation-prop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Navigating Without the Navigation prop</h3>
+<p>Sometimes you need to navigate from a screen without the navigation prop.  One example is when setting up a listener for Firestore that determines if a user is logged in.  The <strong>onAuthStateChanged</strong> function.</p>
+<p>To do this I needed to implement in the main App function where I was initiating the main navigation loop.</p>
+<p>You end up setting up a NavigationService.js file that dispatches actions.</p>
+<p><a href="https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html">React Navigation Docs</a></p>
+<p><strong>NavigationService.js</strong></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { NavigationActions } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-navigation"</span>;
+
+<span class="hljs-keyword">let</span> _navigator;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setTopLevelNavigator</span>(<span class="hljs-params">navigatorRef</span>) </span>{
+  _navigator = navigatorRef;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">navigate</span>(<span class="hljs-params">routeName, params</span>) </span>{
+  _navigator.dispatch(
+    NavigationActions.navigate({
+      routeName,
+      params
+    })
+  );
+}
+
+<span class="hljs-comment">// add other navigation functions that you need and export them</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  navigate,
+  setTopLevelNavigator
+};
+</code></pre>
+<p>Here is where I implemented on the App component and used the functions.</p>
+<p><strong>App.js</strong></p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { createAppContainer } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-navigation"</span>;
+<span class="hljs-keyword">import</span> { YellowBox } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-native"</span>;
+<span class="hljs-keyword">import</span> { initTMDB } <span class="hljs-keyword">from</span> <span class="hljs-string">"tmdb_api"</span>;
+<span class="hljs-keyword">import</span> { config } <span class="hljs-keyword">from</span> <span class="hljs-string">"./src/store/overmind"</span>;
+<span class="hljs-keyword">import</span> { Provider } <span class="hljs-keyword">from</span> <span class="hljs-string">"overmind-react"</span>;
+<span class="hljs-keyword">import</span> { createOvermind } <span class="hljs-keyword">from</span> <span class="hljs-string">"overmind"</span>;
+<span class="hljs-keyword">import</span> NavigationService <span class="hljs-keyword">from</span> <span class="hljs-string">"./src/navigators/NavigationService"</span>;
+<span class="hljs-keyword">import</span> Firebase <span class="hljs-keyword">from</span> <span class="hljs-string">"./src/storage/firebase"</span>;
+<span class="hljs-comment">// import MainTabNavigator from "./src/navigators/MainTabNavigator";</span>
+<span class="hljs-keyword">import</span> AppSwitchNavigator <span class="hljs-keyword">from</span> <span class="hljs-string">"./src/navigators/AppSwitchNavigator"</span>;
+
+<span class="hljs-comment">//import "./src/storage/firebase";</span>
+
+<span class="hljs-keyword">const</span> App = createAppContainer(AppSwitchNavigator);
+<span class="hljs-comment">// suppress require cycle warning coming from tmdb_api package</span>
+YellowBox.ignoreWarnings([<span class="hljs-string">"Require cycle:"</span>]);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  initTMDB(<span class="hljs-string">"0e4935aa81b04539beb687d04ff414e3"</span>);
+  <span class="hljs-comment">// Sets up Listener for Auth state.  If logged</span>
+  <span class="hljs-keyword">const</span> overmind = createOvermind(config, { <span class="hljs-attr">devtools</span>: <span class="hljs-string">"192.168.1.22:3031"</span> });
+  React.useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">let</span> unsubscribe = Firebase.auth().onAuthStateChanged(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> {
+      <span class="hljs-keyword">if</span> (user) {
+        NavigationService.navigate(<span class="hljs-string">"App"</span>);
+      } <span class="hljs-keyword">else</span> {
+        NavigationService.navigate(<span class="hljs-string">"SignIn"</span>);
+      }
+    });
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> unsubscribe();
+  });
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{overmind}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">App</span>
+        <span class="hljs-attr">ref</span>=<span class="hljs-string">{navigatorRef</span> =&gt;</span> {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+      /&gt;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>
+  );
+};
+</code></pre>
+<p>Version 5 of React Navigation breaks out each navigation component into different packages that you will import.  For most navigation scenarios, I use the following:</p>
+<pre><code class="hljs css language-bash">$ yarn add @react-navigation/native @react-navigation/stack @react-navigation/bottom-tabs @react-navigation/drawer 
+</code></pre>
+<p>You will also need to install some other dependencies.  If you are using <strong>Expo</strong>, then run this:</p>
+<pre><code class="hljs css language-bash">$ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+</code></pre>
+<p>If you are not using <strong>Expo</strong>, then check out the docs on installing dependencies for a <a href="https://reactnavigation.org/docs/getting-started#installing-dependencies-into-a-bare-react-native-project">bare React Native Project</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="hooks-1"></a><a href="#hooks-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hooks</h2>
+<p><strong>useNavigation</strong></p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Button } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+<span class="hljs-keyword">import</span> { useNavigation } <span class="hljs-keyword">from</span> <span class="hljs-string">'@react-navigation/native'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyBackButton</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> navigation = useNavigation();
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+      <span class="hljs-attr">title</span>=<span class="hljs-string">"Back"</span>
+      <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> {
+        navigation.goBack();
+      }}
+    /&gt;</span>
+  );
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/reactnative/react-navigation-v5"><span class="arrow-prev">← </span><span>React Navigation V5</span></a><a class="docs-next button" href="/my-code-docs/docs/html-css/html-css-snippets"><span>HTML and CSS Snippets</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#navigation---react-navigation-v4">Navigation - React Navigation v4</a><ul class="toc-headings"><li><a href="#switch-navigator">Switch Navigator</a></li><li><a href="#stack-navigator">Stack Navigator</a></li><li><a href="#adding-items-to-navigation-header">Adding Items to Navigation Header</a></li><li><a href="#tab-navigator">Tab Navigator</a></li><li><a href="#understanding-navigationoptions">Understanding navigationOptions</a></li><li><a href="#drawer-navigator">Drawer Navigator</a></li><li><a href="#hooks">Hooks</a></li><li><a href="#passing-extra-data-on-navigate">Passing Extra Data on Navigate</a></li><li><a href="#navigating-without-the-navigation-prop">Navigating Without the Navigation prop</a></li></ul></li><li><a href="#hooks-1">Hooks</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

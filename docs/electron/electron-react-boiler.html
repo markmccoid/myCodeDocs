@@ -1,0 +1,615 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Electron React Boiler · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This is my React Electron Boilerplate doc."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Electron React Boiler · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="This is my React Electron Boilerplate doc."/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Electron</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Electron React Boiler</h1></header><article><div><span><p>This is my React Electron Boilerplate doc.</p>
+<p>Check out this <a href="https://medium.com/@kitze/%EF%B8%8F-from-react-to-an-electron-app-ready-for-production-a0468ecb1da3">Article link</a>, it details what we are doing here.</p>
+<h2><a class="anchor" aria-hidden="true" id="create-react-app-and-basic-npm-modules"></a><a href="#create-react-app-and-basic-npm-modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create-react-app and basic NPM modules</h2>
+<p>The basics are you first use create-react-app to create your application. Then you add some npm modules to get electron, electron builder and some helper modules.</p>
+<pre><code class="hljs">$ npx <span class="hljs-keyword">create</span>-react-app appname
+$ yarn <span class="hljs-keyword">add</span> electron electron-builder <span class="hljs-keyword">concurrently</span> wait-<span class="hljs-keyword">on</span> electron-devtools-installer <span class="hljs-comment">--dev</span>
+$ yarn <span class="hljs-keyword">add</span> electron-<span class="hljs-keyword">is</span>-dev
+</code></pre>
+<p><strong>Concurrently</strong> is used in <em>package.json</em> scripts to run multiple commands in one script.  <a href="https://www.npmjs.com/package/wait-on">wait-on</a> is used when running the <em>electron-dev</em> script in <em>package.json</em>.</p>
+<p><strong>electron-devtools-installer</strong> is used to get the React and Redux(if you are using redux) developer tools installed.  You will see reference to these in the <em>electron.js</em> script below.</p>
+<h2><a class="anchor" aria-hidden="true" id="electronjs-file"></a><a href="#electronjs-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>electron.js file</h2>
+<p>Now we have a react app, but we want it to run in Electron.  To do this we need to add <strong>electron.js</strong> to the <strong>public</strong> directory.  This is so that during build time, it will get moved to the build directory.</p>
+<pre><code class="hljs css language-javascript {20-22}"><span class="hljs-keyword">const</span> electron = <span class="hljs-built_in">require</span>(<span class="hljs-string">"electron"</span>);
+<span class="hljs-keyword">const</span> app = electron.app;
+<span class="hljs-keyword">const</span> BrowserWindow = electron.BrowserWindow;
+<span class="hljs-keyword">const</span> {
+  <span class="hljs-attr">default</span>: installExtension,
+  REACT_DEVELOPER_TOOLS,
+  REDUX_DEVTOOLS
+} = <span class="hljs-built_in">require</span>(<span class="hljs-string">"electron-devtools-installer"</span>);
+
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
+<span class="hljs-keyword">const</span> isDev = <span class="hljs-built_in">require</span>(<span class="hljs-string">"electron-is-dev"</span>);
+
+<span class="hljs-keyword">let</span> mainWindow;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createWindow</span>(<span class="hljs-params"></span>) </span>{
+  mainWindow = <span class="hljs-keyword">new</span> BrowserWindow({
+    <span class="hljs-attr">width</span>: <span class="hljs-number">900</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-number">680</span>,
+    <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">icon</span>: path.join(__dirname, <span class="hljs-string">"../assets/icons/png/64x64.png"</span>),
+    <span class="hljs-attr">webPreferences</span>: {
+      <span class="hljs-attr">nodeIntegration</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// needed if going to access file system</span>
+      <span class="hljs-attr">backgroundThrottling</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-attr">title</span>: <span class="hljs-string">"Title of your App"</span> <span class="hljs-comment">// Make sure to delete title tag in index.html if it exists</span>
+  });
+  mainWindow.loadURL(
+    isDev
+      ? <span class="hljs-string">"http://localhost:3000"</span>
+      : <span class="hljs-string">`file://<span class="hljs-subst">${path.join(__dirname, <span class="hljs-string">"../build/index.html"</span>)}</span>`</span>
+  );
+  mainWindow.on(<span class="hljs-string">"closed"</span>, () =&gt; (mainWindow = <span class="hljs-literal">null</span>));
+  <span class="hljs-comment">// If in development mode, then load the dev tools</span>
+  <span class="hljs-keyword">if</span> (isDev) {
+    installDevTools();
+  }
+  mainWindow.once(<span class="hljs-string">"ready-to-show"</span>, () =&gt; {
+    mainWindow.show();
+    isDev &amp;&amp; mainWindow.openDevTools();
+  });
+}
+
+app.on(<span class="hljs-string">"ready"</span>, createWindow);
+
+app.on(<span class="hljs-string">"window-all-closed"</span>, () =&gt; {
+  <span class="hljs-keyword">if</span> (process.platform !== <span class="hljs-string">"darwin"</span>) {
+    app.quit();
+  }
+});
+
+app.on(<span class="hljs-string">"activate"</span>, () =&gt; {
+  <span class="hljs-keyword">if</span> (mainWindow === <span class="hljs-literal">null</span>) {
+    createWindow();
+  }
+});
+
+<span class="hljs-comment">//---------- INSTALL DEV TOOLS ---------------------//</span>
+<span class="hljs-keyword">const</span> installDevTools = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  installExtension(REACT_DEVELOPER_TOOLS)
+    .then(<span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Added Extension: <span class="hljs-subst">${name}</span>`</span>);
+    })
+    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"An error occurred: "</span>, err);
+    });
+
+  installExtension(REDUX_DEVTOOLS)
+    .then(<span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Added Extension: <span class="hljs-subst">${name}</span>`</span>);
+    })
+    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"An error occurred: "</span>, err);
+    });
+};
+</code></pre>
+<p>You can see that we are using the <strong>electron-is-dev</strong> module to determine if we are in dev mode or build mode.</p>
+<p>We don't want a browser to open automatically, so we need to set the env variable BROWSER to none, however, I couldn't get this to work on Windows in a <em>Package.json</em> script.</p>
+<p>To make it work, I created the <strong>.env.development</strong> file.  create-react-app will read this file.</p>
+<pre><code class="hljs"><span class="hljs-attr">BROWSER</span>=<span class="hljs-string">"NONE"</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="packagejson-setup"></a><a href="#packagejson-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>package.json Setup</h2>
+<p>Now we need to fix up <em>package.json</em> file so electron knows where to find its entry point and to update the scripts.</p>
+<pre><code class="hljs css language-json">"homepage": "./",
+"main": "public/electron.js",
+"scripts": {
+    "start": "react-scripts start",
+    "electron-dev": "concurrently  \"yarn start\" \"wait-on http://localhost:3000 &amp;&amp; electron .",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron-pack": "build --em.main=build/electron.js",
+    "pack": "electron-builder --dir",
+    "preelectron-pack": "yarn build"
+},
+"build": {
+    "appId": "com.example.electron-cra",
+    "files": [
+        "build/**/*",
+        "node_modules/**/*"
+    ],
+    "directories":{
+        "buildResources": "assets"
+    }
+}
+</code></pre>
+<p><em>main</em> tells electron where the entry point is. <em>homepage</em> has something to do with the build for production.</p>
+<p>You should now be able to run the <em>electron-dev</em> script.</p>
+<pre><code class="hljs">$ yarn <span class="hljs-keyword">run</span><span class="bash"> electron-dev</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="icon-creation"></a><a href="#icon-creation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Icon Creation</h2>
+<p>Best way to get all the sizes of the icon you will need is to use the <a href="https://github.com/jaretburkett/electron-icon-maker">electron-icon-maker</a> npm module.</p>
+<pre><code class="hljs css language-bash">$ npm install -g electron-icon-maker
+</code></pre>
+<p>This can be a global install.  Don't need it on your project.</p>
+<p>Create a directory in the root of your folder called <strong><em>assets</em></strong> to hold the output.</p>
+<p>Check out docs, but basically get an PNG file, preferably at 1024x1024 resolution and run:</p>
+<pre><code class="hljs css language-bash">$ electron-icon-maker --input=youriconname.png --output=./assets
+</code></pre>
+<p>You will reference your icon files in the <em>electron.js</em> file when you create a new <strong>BrowserWindow</strong> instance.  It will be the <em>icon</em> property passed to this function.</p>
+<pre><code class="hljs css language-js {1-2}">mainWindow = <span class="hljs-keyword">new</span> BrowserWindow({
+ <span class="hljs-attr">width</span>: <span class="hljs-number">900</span>,
+ <span class="hljs-attr">height</span>: <span class="hljs-number">680</span>,
+ <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span>,
+ <span class="hljs-attr">icon</span>: path.join(__dirname, <span class="hljs-string">"../assets/icons/png/64x64.png"</span>),
+ <span class="hljs-attr">webPreferences</span>: {
+   <span class="hljs-attr">nodeIntegration</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// needed if going to access file system</span>
+   <span class="hljs-attr">backgroundThrottling</span>: <span class="hljs-literal">false</span>
+ },
+ <span class="hljs-attr">title</span>: <span class="hljs-string">"Title of your App"</span> <span class="hljs-comment">// Make sure to delete title tag in index.html if it exists</span>
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="basic-menu-setup"></a><a href="#basic-menu-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic Menu Setup</h2>
+<p>Electron will show a default menu if you don't do anything, but it is good to at least setup a simple File/Exit menu and a Developer menu that will show during development.</p>
+<p>You can set this up directly in <code>electron.js</code> or preferably create a separate <code>menu.js</code> file and import it into the <code>electron.js</code></p>
+<p>Here is a basic template with a File menu and Developer menu when in Dev mode.</p>
+<p><strong>menu.js</strong></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { app, Menu } = <span class="hljs-built_in">require</span>(<span class="hljs-string">"electron"</span>);
+<span class="hljs-keyword">const</span> isDev = <span class="hljs-built_in">require</span>(<span class="hljs-string">"electron-is-dev"</span>);
+<span class="hljs-keyword">const</span> isWindows = process.platform === <span class="hljs-string">"win32"</span>;
+
+<span class="hljs-built_in">module</span>.exports = {
+  setMainMenu
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setMainMenu</span>(<span class="hljs-params">mainWindow</span>) </span>{
+  <span class="hljs-keyword">const</span> template = [
+    {
+      <span class="hljs-attr">label</span>: <span class="hljs-string">"File"</span>,
+      <span class="hljs-attr">submenu</span>: [
+        {
+          <span class="hljs-attr">label</span>: isWindows ? <span class="hljs-string">"Exit"</span> : <span class="hljs-string">`Quit <span class="hljs-subst">${app.getName()}</span>`</span>,
+          <span class="hljs-attr">accelerator</span>: isWindows ? <span class="hljs-string">"Alt+F4"</span> : <span class="hljs-string">"CmdOrCtrl+Q"</span>,
+          click() {
+            app.quit();
+          }
+        }
+      ]
+    }
+  ];
+  <span class="hljs-comment">// - Push Developer menu on if in Dev Mode</span>
+  <span class="hljs-keyword">if</span> (isDev) {
+    template.push({
+      <span class="hljs-attr">label</span>: <span class="hljs-string">"Developer"</span>,
+      <span class="hljs-attr">submenu</span>: [
+        {
+          <span class="hljs-attr">label</span>: <span class="hljs-string">"Toggle Dev Tools"</span>,
+          <span class="hljs-attr">accelerator</span>: <span class="hljs-string">"CommandOrControl+Alt+I"</span>,
+          click(item, focusedWindow) {
+            focusedWindow.toggleDevTools();
+          }
+        }
+      ]
+    });
+  }
+
+  <span class="hljs-keyword">const</span> menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+}
+</code></pre>
+<p>To actually get this to show, you will need to add the following to your <code>electron.js</code> file.</p>
+<p><strong>electron.js</strong></p>
+<pre><code class="hljs css language-javascript">...
+const { setMainMenu } = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./menu"</span>);
+...
+function createWindow() {
+  mainWindow = ...
+  ...
+  setMainMenu()
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="opening-a-route-via-a-menu"></a><a href="#opening-a-route-via-a-menu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Opening a Route via a Menu</h3>
+<p>If you are using React Router and you want to navigate to a new route via a menu, you will need to use the <code>webContents</code> API from the Main process and the <code>ipcRenderer</code> from the Renderer process.</p>
+<p>This example will add a &quot;Settings&quot; menu under File.  Based on the example above, you just need to add the new menu item to the template:</p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-keyword">const</span> template = [
+    {
+      <span class="hljs-attr">label</span>: <span class="hljs-string">"File"</span>,
+      <span class="hljs-attr">submenu</span>: [
+        {
+          <span class="hljs-attr">label</span>: <span class="hljs-string">"Settings"</span>,
+          click() {
+            mainWindow.webContents.send(<span class="hljs-string">"route-settings"</span>);
+          }
+        },
+        {
+          <span class="hljs-attr">label</span>: isWindows ? <span class="hljs-string">"Exit"</span> : <span class="hljs-string">`Quit <span class="hljs-subst">${app.getName()}</span>`</span>,
+          <span class="hljs-attr">accelerator</span>: isWindows ? <span class="hljs-string">"Alt+F4"</span> : <span class="hljs-string">"CmdOrCtrl+Q"</span>,
+          click() {
+            app.quit();
+          }
+        }
+      ]
+    }
+  ];
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="send-a-message-to-webcontents-main-process"></a><a href="#send-a-message-to-webcontents-main-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Send a Message to webContents (Main Process)</h3>
+<p>Notice that the &quot;Settings&quot; menu option has a click function that simply sends a message to the mainWindow's webContents.</p>
+<p><code>mainWindow.webContents.send(&quot;route-settings&quot;);</code></p>
+<p>The other thing that would need to change is the <strong>setMainMenu</strong> function signature.  You will need to pass in the <em>mainWindow</em> variable so that we can access it's webContents.</p>
+<p>But this is just the first part.  This will send a message to our mainWindow and now in that mainWindow (most likely a React application :-)), you will need to set up a listener for this message and act on it when received.</p>
+<h3><a class="anchor" aria-hidden="true" id="listen-for-message-renderer-process"></a><a href="#listen-for-message-renderer-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Listen for Message (Renderer Process)</h3>
+<p>When figuring this out, I placed my listener in my <code>Main.js</code> file.  Could probably be elsewhere.</p>
+<p>Anyway, whichever file you end up using, you will need to import the <code>ipcRenderer</code> from <strong>electron</strong>.</p>
+<p>This can be tricky in the Renderer process, see <a href="#accessing-electron-remote-from-renderer-process">Accessing Electron Remote From Renderer Process</a></p>
+<p>In your Main.js you just do this:</p>
+<pre><code class="hljs css language-javascript">...
+import electron <span class="hljs-keyword">from</span> <span class="hljs-string">"../electronExports"</span>;
+
+...
+
+function Main(props) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"in Main"</span>, props);
+  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    electron.ipcRenderer.on(<span class="hljs-string">"route-settings"</span>, (event, message) =&gt; {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"route settings sent"</span>);
+      props.history.push(<span class="hljs-string">"/settings"</span>);
+    });
+  }, []);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">AppWrapper</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">exact</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{SelectApplicationQVW}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/:selectedQVW"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{EditorContainer}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">AppWrapper</span>&gt;</span></span>
+  );
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Main;
+</code></pre>
+<p>Notice we put the <code>electron.ipcRenderer...</code> stuff in a useEffect function.  We only need it to run once when the application starts to set up the listener.</p>
+<p>There is probably a cleanup function for the ipcRenderer.on listener, but haven't found it yet.</p>
+<h2><a class="anchor" aria-hidden="true" id="react-router-setup"></a><a href="#react-router-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React Router Setup</h2>
+<p>Now we need to add routing to our boilerplate application.</p>
+<p>I'm using React Router 5.</p>
+<pre><code class="hljs">$ yarn <span class="hljs-keyword">add</span><span class="bash"> react-router-dom</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="memory-router-vs-browser-router-vs-hash-router"></a><a href="#memory-router-vs-browser-router-vs-hash-router" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Memory Router vs Browser Router vs Hash Router</h3>
+<p>I choose to use the <strong>MemoryRouter</strong> as I believe there would be issues with <strong>BrowserRouter</strong> and read some things about <strong>HashRouter</strong> being deprecated.  Also read some stuff about issues with <strong>MemoryRouter</strong> when trying to route to a page outside of the react app, but will deal with if encountered.</p>
+<p>Here is a simple example implementation.</p>
+<p>Modify App.js to be:</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">'./logo.svg'</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">'./App.css'</span>;
+<span class="hljs-keyword">import</span> { MemoryRouter, Route, Link } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+<span class="hljs-keyword">import</span> { Home, About } <span class="hljs-keyword">from</span> <span class="hljs-string">'./MyRoutes'</span>;
+
+<span class="hljs-keyword">const</span> Header = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App-header"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">{logo}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App-logo"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"logo"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App-title"</span>&gt;</span>Welcome to Electron React<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/about"</span>&gt;</span>About<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></span>
+);
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MemoryRouter</span>
+        <span class="hljs-attr">initialEntries</span>=<span class="hljs-string">{[</span>'/', '/<span class="hljs-attr">about</span>']}
+        <span class="hljs-attr">initialIndex</span>=<span class="hljs-string">{0}</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Header</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">exact</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Home}</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/about"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{About}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">MemoryRouter</span>&gt;</span></span>
+    );
+  }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
+
+</code></pre>
+<p>You can load <strong>MemoryRouter</strong> with initial routes using the &quot;initialEntries&quot; array.  Think this is only useful to force you to your main path as all routes do not need to be in this initial array.</p>
+<p>Note that all components rendered via the Route component will get a bunch of route props.  One of particular use is the <strong>history</strong> prop.  It has functions like <strong>push</strong>, <strong>goBack</strong>, <strong>replace</strong>, etc.</p>
+<p>Next create a <strong>MyPages.js</strong> file to hold our example route destinations.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Redirect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Home = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span>(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>You Are Home<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App-intro"</span>&gt;</span>
+        To get started, edit <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>src/App.js<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span> and save to reload.
+      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> About = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>About<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Contact = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(props);
+  <span class="hljs-keyword">let</span> pos = props.history.entries.length - <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Contacts<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      {props.history.entries[pos].pathname === "/about" ? 
+      <span class="hljs-tag">&lt;<span class="hljs-name">Redirect</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/"</span> /&gt;</span> :
+      null
+      }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+</code></pre>
+<p>In the <strong>Contact</strong> component, I'm playing around with Redirect, just to get a feel for it.  Useless in this context, but good to know how it works.  Believe it can be used in Auth stuff.</p>
+<h3><a class="anchor" aria-hidden="true" id="navlink-styling"></a><a href="#navlink-styling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NavLink Styling</h3>
+<p>The NavLink component provided by React Router is described as:</p>
+<blockquote>
+<p>A special version of the <a href="https://reacttraining.com/react-router/Link.md"><code>Link</code></a> Component that will add styling attributes to the rendered element when it matches the current URL.</p>
+</blockquote>
+<p>It achieves this styling by allowing you to pass, as a prop, either <em>activeClassName</em> or <em>activeStyle</em>.  When one of the NavLink components is active, it will apply said class/style.</p>
+<p>However, if you are using Styled Components you will need to go about it differently.  What I did was pass the location property for each <strong>NavLink</strong>, which will be your applications current location and then compared it to the <strong>to</strong> prop that is passed.</p>
+<p><code>color: ${props =&gt; (props.loc === props.to ? &quot;red&quot; : &quot;blue&quot;)};</code></p>
+<p>OR if you want to have the link &quot;active&quot; when any endpoint on the path is active, then use:</p>
+<p><code>color: ${props =&gt; (props.loc.includes(props.to) ? &quot;red&quot; : &quot;blue&quot;)}</code></p>
+<p>OR you could use a regular expression if you needed something more complex, but the includes() function above is much more readable.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">let</span> locProp = <span class="hljs-string">"/vareditor/test"</span>
+<span class="hljs-keyword">let</span> toProp = <span class="hljs-string">"/vareditor"</span>
+
+<span class="hljs-keyword">let</span> pattern = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(toProp + <span class="hljs-string">'.'</span>)
+<span class="hljs-built_in">console</span>.log(pattern.test(locProp))
+</code></pre>
+<pre><code class="hljs css language-javascript">...
+const MyNavLink = styled(NavLink)<span class="hljs-string">`
+  color: <span class="hljs-subst">${props =&gt; (props.loc === props.to ? <span class="hljs-string">"red"</span> : <span class="hljs-string">"blue"</span>)}</span>;
+`</span>;
+
+<span class="hljs-keyword">const</span> Header = withRouter(<span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"HeaderProps"</span>, props);
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">MyNavLink</span> <span class="hljs-attr">loc</span>=<span class="hljs-string">{props.location.pathname}</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/vareditor"</span>&gt;</span>
+            Variable Editor
+          <span class="hljs-tag">&lt;/<span class="hljs-name">MyNavLink</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">MyNavLink</span> <span class="hljs-attr">loc</span>=<span class="hljs-string">{props.location.pathname}</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/groupeditor"</span>&gt;</span>
+            Group Editor
+          <span class="hljs-tag">&lt;/<span class="hljs-name">MyNavLink</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">MyNavLink</span> <span class="hljs-attr">loc</span>=<span class="hljs-string">{props.location.pathname}</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/settings"</span>&gt;</span>
+            Settings
+          <span class="hljs-tag">&lt;/<span class="hljs-name">MyNavLink</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+});
+</code></pre>
+<hr>
+<p>Here is an image of the file structure thus far.</p>
+<p><img src="https://dl.dropbox.com/s/3zofs1inlrorkvr/electron-file-structure.png" alt=""></p>
+<p>However, I want my main react components in a component directory.  I will refactor as follows.</p>
+<p><img src="https://dl.dropbox.com/s/kiiqotgtypqmjm3/electron-refactor-structure.png?dl=0" alt=""></p>
+<h2><a class="anchor" aria-hidden="true" id="redux-setup"></a><a href="#redux-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redux Setup</h2>
+<p>Get more in-depth information on <a href="../redux/my-redux-pattern"><strong>My Redux Pattern</strong></a></p>
+<p>To get Redux setup, you will need to install the following:</p>
+<pre><code class="hljs css language-bash">$ yarn add redux react-redux redux-thunk redux-immutable-state-invariant --dev
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="create-the-redux-store"></a><a href="#create-the-redux-store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create the Redux store</h3>
+<p>I like to keep the store creation function in a folder called store, under the src directory called <em>configureStore.js</em>:</p>
+<p><code>.\src\store\configureStore.js</code></p>
+<p>The configureStore.js file will have a default export of your store that you can then pass into the react-redux  Provider component.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { createStore, applyMiddleware, compose } <span class="hljs-keyword">from</span> <span class="hljs-string">"redux"</span>;
+<span class="hljs-keyword">import</span> thunk <span class="hljs-keyword">from</span> <span class="hljs-string">"redux-thunk"</span>;
+
+<span class="hljs-keyword">const</span> initialState = { <span class="hljs-attr">name</span>: <span class="hljs-string">"test"</span> };
+<span class="hljs-keyword">const</span> rootReducer = <span class="hljs-function">(<span class="hljs-params">state = initialState, action</span>) =&gt;</span> {
+  <span class="hljs-keyword">switch</span> (action.type) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"TEST"</span>:
+      <span class="hljs-keyword">return</span> { ...state, <span class="hljs-attr">name</span>: <span class="hljs-string">"Not Testing"</span> };
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">return</span> state;
+  }
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configureStore</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// Middleware to only be used in development</span>
+  <span class="hljs-keyword">const</span> devMiddleware =
+    process.env.NODE_ENV !== <span class="hljs-string">"production"</span>
+      ? [<span class="hljs-built_in">require</span>(<span class="hljs-string">"redux-immutable-state-invariant"</span>).default()]
+      : <span class="hljs-literal">null</span>;
+
+  <span class="hljs-comment">// If you don't need to use redux dev tools</span>
+  <span class="hljs-comment">//return createStore(rootReducer, applyMiddleware(thunk));</span>
+  <span class="hljs-keyword">let</span> composeEnhancers = <span class="hljs-built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  <span class="hljs-keyword">return</span> createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(...devMiddleware, thunk))
+  );
+}
+</code></pre>
+<blockquote>
+<p>The <a href="https://github.com/leoasis/redux-immutable-state-invariant">redux-immutable-state-invariant</a> package is just used for development to catch any mutations.</p>
+</blockquote>
+<p>The above is a very simple starting point for your redux store.  You will want to do a couple of things as your refine your store:</p>
+<ol>
+<li>Create separate files for your reducers and actions</li>
+<li>Since your state will most likely be more complex, you will want to have separate reducers for each piece of state, thus requiring you to use <em>combineReducers</em></li>
+</ol>
+<blockquote>
+<p>Note: when using the combineReduces function, make sure to declare an initial state in each of the reducers.  When redux starts off, it sends an action to each reducer with an <em>undefined</em> payload, thus each reducer must have an initial state and not return undefined.</p>
+</blockquote>
+<p>You can find more information on how we setup the Redux Devtools extension at <a href="https://github.com/zalmoxisus/redux-devtools-extension#usage">redux-devtools-extension</a>.</p>
+<p>If you don't want to muddle with the above, the <a href="https://github.com/reduxjs/redux-starter-kit">React Redux Starter Kit</a> has some great additions and even if you don't use it, it has great suggestions for moving forward with your redux project.  See the <a href="https://redux-starter-kit.js.org/introduction/quick-start">React Redux Start Kit Documentation Site</a>.</p>
+<p><a href="https://github.com/immerjs/immer">immer</a> looks very interesting for helping with reducer complexity when dealing with state changes and mutability.</p>
+<h2><a class="anchor" aria-hidden="true" id="emotion-js-or-styled-components-setup-with-create-react-app-v2"></a><a href="#emotion-js-or-styled-components-setup-with-create-react-app-v2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Emotion JS or Styled-Components Setup with create-react-app v2</h2>
+<p>To use <strong>EmotionJS</strong> or <strong>styled-components</strong> with create-react-app v2, you simply need to use the babel-macros.</p>
+<h3><a class="anchor" aria-hidden="true" id="styled-component-babel-macro-usage"></a><a href="#styled-component-babel-macro-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>styled-component Babel Macro usage</h3>
+<p>Here is what I have found.  Styled-Components just works with create-react-app v2.  Documentation said to import from <code>styled-components/macro</code> but I haven't need to do that.  Just <code>yarn add styled-components --dev</code> and you are good to go.</p>
+<blockquote>
+<p>Note: I haven't used much other than the standard <code>styled</code> function, so other functions may not work.</p>
+<p>See Styled Components docs for more details <a href="https://www.styled-components.com/docs/tooling#babel-macro">Styled-Component Docs</a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">'styled-components/macro'</span> <span class="hljs-comment">//I don't use the /macro</span>
+
+<span class="hljs-keyword">const</span> Thing = styled.div<span class="hljs-string">`
+  color: red;
+`</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="emotion-babel-macro-usage"></a><a href="#emotion-babel-macro-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Emotion Babel Macro usage</h3>
+<p><a href="https://github.com/emotion-js/emotion/tree/master/packages/babel-plugin-emotion">Emotion Docs</a></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">'react-emotion/macro'</span>
+<span class="hljs-keyword">import</span> { css, keyframes, injectGlobal, flush, hydrate } <span class="hljs-keyword">from</span> <span class="hljs-string">'emotion/macro'</span>
+<span class="hljs-keyword">import</span> css <span class="hljs-keyword">from</span> <span class="hljs-string">'@emotion/css.macro'</span>
+<span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">'@emotion/styled.macro'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="emotion-js-setup-and-decorator-support"></a><a href="#emotion-js-setup-and-decorator-support" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Emotion JS Setup and Decorator Support</h2>
+<blockquote>
+<p>With create-react-app v2, you can use babel-macros so you <strong>DON'T</strong> have to use react-app-rewired.</p>
+<p>This works for styled-components as well as emotion.</p>
+</blockquote>
+<p>To get some of the advanced features and syntactic sugar from emotion, you need a babel plugin.  Unfortunately, create-react-app doesn't let you add this plugin. To get it to work in CRA without ejecting you need to do the following.</p>
+<p>First you need to install some dependencies (included here are emotion and react-emotion)</p>
+<pre><code class="hljs">$ yarn <span class="hljs-keyword">add </span><span class="hljs-keyword">babel-loader </span><span class="hljs-keyword">babel-preset-env </span><span class="hljs-keyword">babel-plugin-emotion </span>emotion react-app-rewired <span class="hljs-keyword">babel-plugin-transform-decorators-legacy
+</span></code></pre>
+<p>The <strong>react-app-rewired</strong> is the module that makes this possible.  But you are not done yet.</p>
+<p>Next you need to update your scripts section in <strong>package.json</strong>.</p>
+<pre><code class="hljs css language-json">  "scripts": {
+    "start": "react-app-rewired start",
+    "electron-dev": "concurrently  \"yarn start\" \"wait-on http://localhost:3000 &amp;&amp; electron .",
+    "build": "react-app-rewired build",
+    "electron-pack": "build --em.main=build/electron.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject"
+  },
+</code></pre>
+<p>Still not done.</p>
+<p>You need to add a <strong>.babelrc</strong> file in the root.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"env"</span>: {
+    <span class="hljs-attr">"production"</span>: {
+      <span class="hljs-attr">"plugins"</span>: [[<span class="hljs-string">"emotion"</span>, { <span class="hljs-attr">"hoist"</span>: <span class="hljs-literal">true</span> }],
+                 <span class="hljs-string">"transform-decorators-legacy"</span>]
+    },
+    <span class="hljs-attr">"development"</span>: {
+      <span class="hljs-attr">"plugins"</span>: [[<span class="hljs-string">"emotion"</span>, { <span class="hljs-attr">"sourceMap"</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">"autoLabel"</span>: <span class="hljs-literal">true</span> }],
+      <span class="hljs-string">"transform-decorators-legacy"</span>]
+    }
+  }
+}
+</code></pre>
+<p>Still not done, but almost.</p>
+<p>Now you need to add a <strong>config-overrides.js</strong> file in the root.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">override</span>(<span class="hljs-params">config, env</span>) </span>{
+  <span class="hljs-comment">//console.log(JSON.stringify(config))</span>
+  config.module.rules[<span class="hljs-number">1</span>].oneOf[<span class="hljs-number">1</span>].options.babelrc = <span class="hljs-literal">true</span>;
+
+  <span class="hljs-keyword">return</span> config;
+};
+</code></pre>
+<p>The above is what overrides the CRA config via react-app-rewired.</p>
+<p>This could change in future versions of CRA.  Hence the console.log statement.  Use it to see the config exported and change so that it uses the babelrc file.</p>
+<h2><a class="anchor" aria-hidden="true" id="accessing-electron-remote-from-renderer-process"></a><a href="#accessing-electron-remote-from-renderer-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Accessing Electron Remote From Renderer Process</h2>
+<p>When you are in your main application code (Renderer Process), there are times when you need to use functions from the electron package.  You can't use <code>import from 'electron'</code> but instead must use</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { remote, ipcRenderer } = <span class="hljs-built_in">window</span>.require(<span class="hljs-string">"electron"</span>);
+</code></pre>
+<p>This will throw errors in a js file that is using imports.  Don't know why, but here is how I worked around it.</p>
+<p>Created an <code>electronExport.js</code> file in the root of the <strong>components</strong> directory.</p>
+<p><strong>electronExport.js</strong></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> electron = <span class="hljs-built_in">window</span>.require(<span class="hljs-string">"electron"</span>);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> electron;
+</code></pre>
+<p>That's it!</p>
+<p>Now, I can import it and pull whatever I need from it:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> electron <span class="hljs-keyword">from</span> <span class="hljs-string">"../electronExports"</span>;
+
+...
+
+electron.ipcRenderer.on(<span class="hljs-string">"route-settings"</span>, (event, message) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"route settings sent"</span>);
+  props.history.push(<span class="hljs-string">"/settings"</span>);
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="building-your-app"></a><a href="#building-your-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building Your App</h2>
+<blockquote>
+<p>Be sure that you have the <code>package.json</code> file set up correctly as described earlier.</p>
+</blockquote>
+<p>First build the react application:</p>
+<pre><code class="hljs">$ yarn <span class="hljs-keyword">run</span><span class="bash"> build</span>
+</code></pre>
+<p>Next, you can package it:</p>
+<pre><code class="hljs">$ yarn <span class="hljs-keyword">run</span><span class="bash"> pack</span>
+</code></pre>
+<p>The pack script won't create an installer, just the application files.  To create an installation package run:</p>
+<pre><code class="hljs">$ yarn <span class="hljs-keyword">run</span><span class="bash"> dist</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="killing-the-electron-process"></a><a href="#killing-the-electron-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Killing The Electron Process</h3>
+<p>Every once in a while the electron process gets stuck in memory and won't let you rebuild the app.  If you can't find your app name or the Electron process in the Task Manager, you can use the following command on Windows 10 to get the job done.</p>
+<pre><code class="hljs css language-bash">$ tasklist
+...
+$ taskkill /F /PID 12345
+</code></pre>
+<p>Use <code>tasklist</code> to list all running tasks with their Process Ids.  Find either you app name or Electron and note the PID and then run <code>taskkill</code></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/html-css/tailwindcss"><span class="arrow-prev">← </span><span>Tailwind CSS</span></a><a class="docs-next button" href="/my-code-docs/docs/electron/electron-basics"><span>Electron Basics</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#create-react-app-and-basic-npm-modules">Create-react-app and basic NPM modules</a></li><li><a href="#electronjs-file">electron.js file</a></li><li><a href="#packagejson-setup">package.json Setup</a></li><li><a href="#icon-creation">Icon Creation</a></li><li><a href="#basic-menu-setup">Basic Menu Setup</a><ul class="toc-headings"><li><a href="#opening-a-route-via-a-menu">Opening a Route via a Menu</a></li><li><a href="#send-a-message-to-webcontents-main-process">Send a Message to webContents (Main Process)</a></li><li><a href="#listen-for-message-renderer-process">Listen for Message (Renderer Process)</a></li></ul></li><li><a href="#react-router-setup">React Router Setup</a><ul class="toc-headings"><li><a href="#memory-router-vs-browser-router-vs-hash-router">Memory Router vs Browser Router vs Hash Router</a></li><li><a href="#navlink-styling">NavLink Styling</a></li></ul></li><li><a href="#redux-setup">Redux Setup</a><ul class="toc-headings"><li><a href="#create-the-redux-store">Create the Redux store</a></li></ul></li><li><a href="#emotion-js-or-styled-components-setup-with-create-react-app-v2">Emotion JS or Styled-Components Setup with create-react-app v2</a><ul class="toc-headings"><li><a href="#styled-component-babel-macro-usage">styled-component Babel Macro usage</a></li><li><a href="#emotion-babel-macro-usage">Emotion Babel Macro usage</a></li></ul></li><li><a href="#emotion-js-setup-and-decorator-support">Emotion JS Setup and Decorator Support</a></li><li><a href="#accessing-electron-remote-from-renderer-process">Accessing Electron Remote From Renderer Process</a></li><li><a href="#building-your-app">Building Your App</a><ul class="toc-headings"><li><a href="#killing-the-electron-process">Killing The Electron Process</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

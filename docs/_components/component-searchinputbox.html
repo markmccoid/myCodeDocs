@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Search Input Box · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="To see the hooks implementation go to [React Hooks](../react/react-hooks/#search-input-box-hook)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Search Input Box · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="To see the hooks implementation go to [React Hooks](../react/react-hooks/#search-input-box-hook)"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class="siteNavGroupActive"><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Utility</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Utility</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/_components/component-mypromptalert">MyPromptAlert Component</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/_components/component-searchinputbox">Search Input Box</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/_components/component-antd-tagcloud">antd Tag Cloud</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Search Input Box</h1></header><article><div><span><p>To see the hooks implementation go to <a href="../react/react-hooks/#search-input-box-hook">React Hooks</a></p>
+<p>I wanted to be able to have a standard input element autocomplete/search an array as a user typed.</p>
+<p>To accomplish this you need the following:</p>
+<ol>
+<li>Class based React component (with state.backspace set to false)</li>
+<li>Array of items to search (passed as props in example)</li>
+<li>Controlled Input element</li>
+<li>onKeyDown function</li>
+<li>onChange function</li>
+</ol>
+<p>In the example below, we are expecting an array of <em>descriptions</em> to be passed in as a prop.  We will then use a state property called <em>backspace</em> to indicate if the <strong>backspace</strong> or <strong>delete</strong> key was pressed.</p>
+<p>Here is the input element:</p>
+<pre><code class="hljs css language-javascript">&lt;input
+  className=<span class="hljs-string">"text-input"</span>
+  type=<span class="hljs-string">"text"</span>
+  placeholder=<span class="hljs-string">"Description"</span>
+  autoFocus
+  ref={(input) =&gt; <span class="hljs-keyword">this</span>.descInput = input}
+  value={<span class="hljs-keyword">this</span>.state.description}
+  onChange={<span class="hljs-keyword">this</span>.onDescriptionChange}
+  onKeyDown={<span class="hljs-keyword">this</span>.onKeyDown}
+/&gt;
+</code></pre>
+<p>Here are the <strong>onKeyDown</strong> and <strong>onChange</strong> functions, I have left a couple of console.log statements in that you should remove, but are good to see what is happening.</p>
+<pre><code class="hljs css language-javascript">   onKeyDown = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> keyPressed = e.key;
+    <span class="hljs-keyword">const</span> description = e.target.value;
+    <span class="hljs-comment">//Check if Backspace or Delete</span>
+    <span class="hljs-keyword">if</span> (keyPressed === <span class="hljs-string">'Backspace'</span> || keyPressed === <span class="hljs-string">'Delete'</span>) {
+      <span class="hljs-keyword">this</span>.setState(<span class="hljs-function">(<span class="hljs-params">prevState</span>) =&gt;</span> ({<span class="hljs-attr">backspace</span>: <span class="hljs-literal">true</span>}))
+    }
+  }
+  onDescriptionChange = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+    <span class="hljs-comment">//Get input value</span>
+    <span class="hljs-comment">//CHECK FOR this.state.backspace and if true, set state to target.value passed</span>
+    <span class="hljs-comment">// and set backspace to false</span>
+    <span class="hljs-keyword">const</span> description = e.target.value;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`description: <span class="hljs-subst">${description}</span>`</span>);
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state.backspace) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.setState(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> ({ 
+          description,
+          <span class="hljs-attr">backspace</span>: <span class="hljs-literal">false</span> 
+        })
+      );
+    }
+    <span class="hljs-comment">//Setup match expression</span>
+    <span class="hljs-keyword">const</span> matchExpr = description.length &gt; <span class="hljs-number">0</span> ? <span class="hljs-string">'^'</span> + description : <span class="hljs-regexp">/.^/</span>;
+    <span class="hljs-comment">//Create RegExp Object</span>
+    <span class="hljs-keyword">const</span> expr = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(matchExpr, <span class="hljs-string">'ig'</span>);
+    <span class="hljs-comment">//Try and Find a match in array of service descriptions</span>
+    <span class="hljs-keyword">const</span> foundItem = <span class="hljs-keyword">this</span>.props.descArray.find(<span class="hljs-function">(<span class="hljs-params">desc</span>) =&gt;</span> desc.match(expr));
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`foundItem <span class="hljs-subst">${foundItem}</span>`</span>);
+    <span class="hljs-comment">//If not found, return description, else return found item and set selection range</span>
+    <span class="hljs-keyword">const</span> finalValue = foundItem || description;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`finalValue: <span class="hljs-subst">${finalValue}</span> -- length: <span class="hljs-subst">${finalValue.length}</span>`</span>);
+
+    <span class="hljs-keyword">const</span> startPos = description.length;
+    <span class="hljs-keyword">const</span> endPos = finalValue.length;
+    <span class="hljs-comment">//this.test.setSelectionRange(1, 3);</span>
+    <span class="hljs-keyword">this</span>.setState(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-keyword">return</span> ({ 
+          <span class="hljs-attr">description</span>: finalValue
+        })
+      },
+      () =&gt; {
+        <span class="hljs-keyword">if</span> (foundItem) {
+          <span class="hljs-keyword">this</span>.descInput.setSelectionRange(startPos, endPos);
+        }
+      }
+    );
+  }
+</code></pre>
+<p>A few things I think might make this more robust</p>
+<ol>
+<li>When searching return the smallest string.  Since I'm using find, I get the first item found.  This may be a long description and I think it would be best to just return the shortest string first.</li>
+<li>I'm only looking for strings that start with the input values typed.  This is a bit limiting, but I think is best because we are only showing one result.</li>
+<li>In regards to item 2, we could pop up a list of all values matching so user could select.  Maybe use a select element.  But for the app I was working on, this would have been overkill.</li>
+<li>I'm doing a case insensitive search and as such, changing the case of the first letter if an item is found is difficult.  Not sure of an easy way around this that would make sense to the user.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="full-component-implementation--react-167"></a><a href="#full-component-implementation--react-167" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Full Component Implementation &gt;= React 16.7</h2>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React, { useState, useRef, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
+<span class="hljs-comment">/**
+ * props: searchArray: [], searchOn: bool
+ * if searchOn === false, then just a regular input/textarea 
+ * Uses the passed searchArray and display like google predictive search
+ * Escape key press turns off
+ * Renders the passed child function (input or textarea) and spreads the needed
+ * props to perform the search.
+ * Example implementation:
+ * &lt;SearchInput 
+      searchArray={authors.map(author =&gt; author.author)}
+      updateAuthor={(e) =&gt; this.setState({author: e})}
+    &gt;
+      {(props) =&gt; {
+          return (
+            &lt;input 
+              {...props} 
+              value={this.state.author}
+              className="ant-input"
+              placeholder="Enter an Author"  
+            /&gt;
+          )
+        }
+      }
+    &lt;/SearchInput&gt;
+ */</span>
+<span class="hljs-keyword">const</span> SearchInput = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> [inputValue, setInputValue] = useState(<span class="hljs-string">''</span>);
+  <span class="hljs-keyword">const</span> [backspace, setBackspace] = useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> [escKey, setEscKey] = useState(<span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">const</span> [startPos, setStartPos] = useState(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> [endPos, setEndPos] = useState(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> inputEl = useRef();
+
+  <span class="hljs-keyword">const</span> onKeyDown = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> keyPressed = e.key;
+    <span class="hljs-comment">//Check keyPressed and set selection</span>
+    <span class="hljs-keyword">switch</span> (keyPressed) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'ArrowRight'</span>:
+        setStartPos(inputEl.current.selectionStart+<span class="hljs-number">1</span>)
+        setEndPos(inputEl.current.selectionStart+<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'ArrowLeft'</span>: 
+        setStartPos(inputEl.current.selectionStart<span class="hljs-number">-1</span>)
+        setEndPos(inputEl.current.selectionStart<span class="hljs-number">-1</span>)
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'Backspace'</span>: 
+        <span class="hljs-keyword">if</span>(startPos !== endPos) {
+          setStartPos(inputEl.current.selectionStart)
+          setEndPos(inputEl.current.selectionStart)
+        } <span class="hljs-keyword">else</span> {
+          setStartPos(inputEl.current.selectionStart<span class="hljs-number">-1</span>)
+          setEndPos(inputEl.current.selectionStart<span class="hljs-number">-1</span>)
+        }
+        setBackspace(<span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'Delete'</span>: 
+        setStartPos(inputEl.current.selectionStart)
+        setEndPos(inputEl.current.selectionStart)
+        setBackspace(<span class="hljs-literal">true</span>);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'Escape'</span>:
+        setStartPos(inputEl.current.selectionStart)
+        setEndPos(inputEl.current.selectionStart)
+        setEscKey(!escKey)
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">break</span>;
+    }
+  }
+  <span class="hljs-keyword">const</span> onInputChange = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+      <span class="hljs-comment">//Get input value</span>
+      <span class="hljs-comment">//CHECK FOR this.state.backspace and if true, set state to target.value passed</span>
+      <span class="hljs-comment">// and set backspace to false</span>
+      <span class="hljs-keyword">const</span> inputValue = e.target.value;
+      <span class="hljs-keyword">if</span> (!props.searchOn) {
+        props.updateAuthor(inputValue);
+        <span class="hljs-keyword">return</span>
+      }
+      <span class="hljs-comment">// console.log(`inputValue: ${inputValue}`);</span>
+      <span class="hljs-keyword">if</span> (backspace || escKey) {
+        setInputValue(inputValue);
+        props.updateAuthor(inputValue)
+        setBackspace(<span class="hljs-literal">false</span>);
+        <span class="hljs-keyword">return</span>
+      }
+      <span class="hljs-comment">//Setup match expression</span>
+      <span class="hljs-keyword">const</span> matchExpr = inputValue.length &gt; <span class="hljs-number">0</span> ? <span class="hljs-string">'^'</span> + inputValue : <span class="hljs-regexp">/.^/</span>;
+      <span class="hljs-comment">//Create RegExp Object</span>
+      <span class="hljs-keyword">const</span> expr = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(matchExpr, <span class="hljs-string">'ig'</span>);
+      <span class="hljs-comment">//Try and Find a match in array of service inputValues</span>
+      <span class="hljs-keyword">const</span> foundItem = props.searchArray.find(<span class="hljs-function">(<span class="hljs-params">desc</span>) =&gt;</span> desc.match(expr));
+      <span class="hljs-comment">// console.log(`foundItem ${foundItem}`);</span>
+      <span class="hljs-comment">//If not found, return inputValue, else return found item and set selection range</span>
+      <span class="hljs-keyword">const</span> finalValue = foundItem || inputValue;
+  
+      setStartPos(inputValue.length);
+      setEndPos(finalValue.length);
+      <span class="hljs-comment">// console.log(`startpos: ${startPos} -- endpos: ${endPos} -- foundItem: ${foundItem}`)</span>
+      setInputValue(finalValue);
+      props.updateAuthor(finalValue)
+  }
+  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (startPos !== endPos) {
+      inputEl.current.setSelectionRange(startPos, endPos);
+    } 
+  })
+
+  <span class="hljs-keyword">return</span> (
+    props.children({<span class="hljs-attr">ref</span>: inputEl, <span class="hljs-attr">value</span>: inputValue,<span class="hljs-attr">onKeyDown</span>: onKeyDown, <span class="hljs-attr">onChange</span>: onInputChange})
+  )
+}
+SearchInput.defaultProps = {
+  <span class="hljs-attr">searchArray</span>: [],
+  <span class="hljs-attr">searchOn</span>: <span class="hljs-literal">true</span>
+}
+SearchInput.propTypes = {
+  <span class="hljs-attr">searchArray</span>: PropTypes.array,
+  <span class="hljs-attr">searchOn</span>: PropTypes.bool
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> SearchInput;
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/_components/component-mypromptalert"><span class="arrow-prev">← </span><span class="function-name-prevnext">MyPromptAlert Component</span></a><a class="docs-next button" href="/my-code-docs/docs/_components/component-antd-tagcloud"><span>antd Tag Cloud</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#full-component-implementation--react-167">Full Component Implementation &gt;= React 16.7</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

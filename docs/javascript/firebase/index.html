@@ -1,0 +1,568 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Firebase · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[Firebase Web Starting Docs](https://firebase.google.com/docs/database/web/start)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Firebase · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="[Firebase Web Starting Docs](https://firebase.google.com/docs/database/web/start)"/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Javascript</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/promises-and-async-await">Promises and Asnyc/Await</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/using-local-storage">Local Storage</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/my-code-docs/docs/javascript/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/language-basics">JS Language Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/js-array-functions">JS Array Functions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/keyboard-mouse-input">Keyboard and Mouse Input</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/es-6-cheatsheet">ES6 Cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/eslint-setup">ESLint Setup</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/data-structures">Data Structures</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/naming-conventions">Naming Conventions</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-resources">Javascript Resources</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/javascript-snippets">Javascript Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/npm-module-creation">npm Module Creation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Node</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nodejs/nodejs-basics">Node JS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">NextJS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/nextjs/nextjs_basics">NextJS Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS/React Libs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_lodash-library">Lodash Library</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_axios">Axios</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_ramda">Ramda</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_momentjs">Moment JS</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_overmind">Overmind</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/javascript/lib_redux-forms">Redux Forms npm Module</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_reactbeautifuldnd">React Beautiful DnD</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_antdesign">Ant Design</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/lib_zustand">Zustand State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-basics">React Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-hooks">React Hooks</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-with-classes">React With Classes</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/reach-router">Reach Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-router">React Router</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/react/react-components">React Components</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Redux</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux">Redux in React</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/my-redux-pattern">My Redux Pattern</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/react-redux-compliment">Redux with React (First Doc)</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/redux/baby-redux">Simple Redux Package</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">ReactNative</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-native">React Native</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v5">React Navigation V5</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/reactnative/react-navigation-v4">React Navigation V4</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">HTMLCSS</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/html-css-snippets">HTML and CSS Snippets</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/html-css/tailwindcss">Tailwind CSS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Electron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-react-boiler">Electron React Boiler</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-basics">Electron Basics</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-packaging">Electron Packaging</a></li><li class="navListItem"><a class="navItem" href="/my-code-docs/docs/electron/electron-tooling">Electron Tooling</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Firebase</h1></header><article><div><span><p><a href="https://firebase.google.com/docs/database/web/start">Firebase Web Starting Docs</a></p>
+<p><a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference" title="Firebase Docs">Firebase Database Ref Docs</a></p>
+<h2><a class="anchor" aria-hidden="true" id="basics"></a><a href="#basics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basics</h2>
+<p>To set up firebase in an application, you will first need to grab the configuration script from the firebase site. Note, this will be different for each Database you use.</p>
+<p>When you are in your new database application area, click on the <strong>Overview</strong> menu option on the left and choose to get the configuration for the web.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> config = {
+  <span class="hljs-attr">apiKey</span>: <span class="hljs-string">"AIzaSyBs7pnXGSlMYtin7tEtTijRYR_iBLRmz-A"</span>,
+  <span class="hljs-attr">authDomain</span>: <span class="hljs-string">"expensify-e6b86.firebaseapp.com"</span>,
+  <span class="hljs-attr">databaseURL</span>: <span class="hljs-string">"https://expensify-e6b86.firebaseio.com"</span>,
+  <span class="hljs-attr">projectId</span>: <span class="hljs-string">"expensify-e6b86"</span>,
+  <span class="hljs-attr">storageBucket</span>: <span class="hljs-string">"expensify-e6b86.appspot.com"</span>,
+  <span class="hljs-attr">messagingSenderId</span>: <span class="hljs-string">"730922088689"</span>
+};
+firebase.initializeApp(config);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="database-functions"></a><a href="#database-functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>.database() Functions</h2>
+<p>Once you have run the <em>initializeApp</em> function, passing it your &quot;config&quot; object, you will then have access to all of Firebase's capabilities.</p>
+<p>One of the main capabilities that you will be using is the database functions.  To access these database functions you will use:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> firebaseDB = firebase.database()
+</code></pre>
+<p><a href="https://firebase.google.com/docs/reference/js/firebase.database.Database">database() docs</a></p>
+<p>But most often you will want to get to the database reference.  Do this as follows:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> firebaseRef = firebase.database().ref();
+</code></pre>
+<p>The above assumes you have imported firebase into your application and called it &quot;firebase&quot;.</p>
+<p>Note that the above &quot;ref&quot; is giving you access to your DB root.  You can think of a ref() as a reference to a location in your database.  It could be a table or a row.</p>
+<p>You can now use firebaseRef to manipulate your database.</p>
+<p>Your database is made up of nodes and to move around these nodes, you can use the .child() function. Here is a simple DB:</p>
+<p><img src="../assets/DraggedImage.png" alt=""></p>
+<p>If I wanted to get a reference to the 0 entry above, I would do the following:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> fbRef = firebaseRef.child(<span class="hljs-string">'users/0'</span>);   
+</code></pre>
+<p>I can now run any command on the fbRef entry (set(), update(), remove(), etc.). I can also get the &quot;key&quot; for that array entry by:</p>
+<pre><code class="hljs css language-javascript">consolelog(fbRef.key);
+</code></pre>
+<p>Note, that if you create an array by passing an array object, you will get the standard type index (0,1,2,...), if you use the push() command, you will get a firebase style key.</p>
+<p>Last thing to remember is that you just about everything you do return a <strong>promise:</strong></p>
+<p><a href="https://firebase.googleblog.com/2016/01/keeping-our-promises-and-callbacks_76.html">Keeping our Promises (and Callbacks)</a></p>
+<h2><a class="anchor" aria-hidden="true" id="arrays-in-firebase"></a><a href="#arrays-in-firebase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Arrays in Firebase</h2>
+<p>Arrays in firebase are handled by creating unique keys for each item in an array. Each item being an object, i.e. you can have more than one item in this array object.</p>
+<p><img src="../assets/DraggedImage-1.png" alt=""></p>
+<p>The <strong>push()</strong> firebase function adds one of these unique keyed objects to the node that you have a reference to. In the code below, we first push on item into the 'notes' node. Note we are saving a reference to this new node and in the next link use the set() function to add data to the new item.</p>
+<p>In the next example, I am showing that you can chain the set to the push, however, you will not get a reference back to the new item.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> notesRef = firebaseRef.child(<span class="hljs-string">'notes'</span>);
+
+<span class="hljs-keyword">var</span> newNoteRef = notesRef.push();
+newNoteRef.set({
+        <span class="hljs-attr">noteText</span>: <span class="hljs-string">'Example Text 1'</span>
+});
+
+notesRef.push().set({
+        <span class="hljs-attr">noteText</span>: <span class="hljs-string">'Example Text 2'</span>
+});
+</code></pre>
+<p>Since push is used so much, you can simplify this by sending the items value as an object passed to push.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> newNoteRef = notesRef.push({
+        <span class="hljs-attr">noteText</span>: <span class="hljs-string">'Example Text 1'</span>
+});
+
+<span class="hljs-built_in">console</span>.log(newNoteRef.key);
+</code></pre>
+<p>Here the newNoteRef is a reference to this new item and one of the properties of this class is the key of the new item. Note that the key is generated by firebase.</p>
+<p><strong>Important Note</strong> - There are no real arrays in firebase.  If you send it an array, it will create an object with keys of 0...n.  This versus push which creates a unique key for the object.</p>
+<p>The BIG difference here, is that if you store ANYTHING in firebase with object key of integers, firebase will assume it is an array.  Meaning that when you retrieve the data, it will return an array, filling in the empty keys with null.  So, if you have keys of 1,3, 5, you will get back: [0, 1, 2, 3, 4, 5] with 0,2,4 having null values.</p>
+<h2><a class="anchor" aria-hidden="true" id="addingupdating-datadeleting"></a><a href="#addingupdating-datadeleting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding/Updating Data/Deleting</h2>
+<p><a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference" title="Firebase Docs">FirebaseDocs</a></p>
+<p>First thing to understand when using the following firebase functions is that they are all asynchronous and return promises.</p>
+<h3><a class="anchor" aria-hidden="true" id="sethttpsfirebasegooglecomdocsreferencejsfirebasedatabasereferenceset"></a><a href="#sethttpsfirebasegooglecomdocsreferencejsfirebasedatabasereferenceset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference#set">Set</a></h3>
+<p>Set will destroy and create. Meaning, if something exists at the node you are setting, it will be removed and then whatever set is creating will be created.</p>
+<p>So, you can pass in anything you want, even a structure that is different.  Just know that set is going to removed what was at the ref and replace it with the object you are sending in.</p>
+<p>Set's promise does not return a value when it completes.</p>
+<h3><a class="anchor" aria-hidden="true" id="updatehttpsfirebasegooglecomdocsreferencejsfirebasedatabasereferenceupdate"></a><a href="#updatehttpsfirebasegooglecomdocsreferencejsfirebasedatabasereferenceupdate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference#update">Update</a></h3>
+<p>Update will do exactly what it says, it will update whatever node you have a reference to. You do not have to pass all of the items in the node, just the ones that you want to update.</p>
+<p><img src="../assets/DraggedImage-2.png" alt=""></p>
+<p><img src="../assets/DraggedImage2.png" alt=""></p>
+<p>If I want to update the age of the above entry, there are a couple of ways:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//update all in one go:</span>
+firebaseRef.child(<span class="hljs-string">'users/0'</span>).update({<span class="hljs-attr">age</span>: <span class="hljs-number">46</span>});
+
+<span class="hljs-comment">//this way will get reference first:</span>
+<span class="hljs-keyword">var</span> updRef = firebaseRef.child(<span class="hljs-string">'users/0'</span>);
+updRef.update({<span class="hljs-attr">age</span>: <span class="hljs-number">46</span>});
+</code></pre>
+<p>If you run an update and no item exists to update, it will be created.</p>
+<p>If you want to remove a piece of data with an update, pass <strong>null</strong> as the updated value.  Want to add data that doesn't exist in ref, just include it in object.  Want to update an existing piece of data, just include it.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//A call to update, can Update, Remove (by passing null) and Add</span>
+firebase.database().ref(<span class="hljs-string">'attributes'</span>)
+  .update({
+    <span class="hljs-attr">height</span>: <span class="hljs-number">70</span>,
+    <span class="hljs-attr">IQ</span>: <span class="hljs-number">143</span>,
+    <span class="hljs-attr">weight</span>: <span class="hljs-literal">null</span>
+  });
+</code></pre>
+<p>Below are the before and after snapshots of the database after the above update.</p>
+<p><img src="../assets/firebase-01.png" alt=""></p>
+<p>What if I wanted to perform the same updates as above, but also change the <strong>age</strong> property using only one update.</p>
+<p>This can be done, but you first must understand that you cannot directory update nested objects.</p>
+<pre><code class="hljs css language-javascript">firebase.database().ref().update({
+    <span class="hljs-attr">age</span>: <span class="hljs-number">35</span>,
+    <span class="hljs-attr">attributes</span>: {
+        <span class="hljs-attr">IQ</span>:<span class="hljs-number">143</span>
+    }
+})
+</code></pre>
+<p>The above would make the attributes property equal to only the IQ property.  To do this, you need to use a bit of odd syntax:</p>
+<pre><code class="hljs css language-javascript">firebase.database().ref().update({
+  <span class="hljs-attr">age</span>: <span class="hljs-number">35</span>,
+  <span class="hljs-string">'attributes/IQ'</span>: <span class="hljs-number">143</span>,
+  <span class="hljs-string">'attributes/height'</span>: <span class="hljs-number">70</span>,
+  <span class="hljs-string">'attributes/weight'</span>: <span class="hljs-literal">null</span>,
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="delete-data-remove"></a><a href="#delete-data-remove" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete data (Remove)</h3>
+<p><strong>remove(onComplete)</strong> returns firebase.Promise containing void</p>
+<p>Removes the data at this Database location.</p>
+<p>Any data at child locations will also be deleted.</p>
+<p>The effect of the remove will be visible immediately and the corresponding event 'value' will be triggered. Synchronization of the remove to the Firebase servers will also be started, and the returned Promise will resolve when complete. If provided, the onComplete callback will be called asynchronously after synchronization has finished.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> fbRef = firebase.database().ref(<span class="hljs-string">'users/ada'</span>);
+fbRef.remove()
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Remove succeeded."</span>)
+    })
+    .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Remove failed: "</span> + error.message)
+    });
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="retrieving-data"></a><a href="#retrieving-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Retrieving Data</h2>
+<h3><a class="anchor" aria-hidden="true" id="once-call"></a><a href="#once-call" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>.once() call</h3>
+<p>You can get data from a reference one time using the once function:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> database = firebase.database();
+database.ref().once(<span class="hljs-string">'value'</span>)
+    .then(<span class="hljs-function">(<span class="hljs-params">snapshot</span>) =&gt;</span> {
+        <span class="hljs-comment">//Get the data from the snapshot</span>
+        <span class="hljs-keyword">const</span> data = snapshot.val();
+    })
+    .catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+        <span class="hljs-comment">//Error Code</span>
+    })
+</code></pre>
+<p>Get more information on the snapshot parameter: <a href="https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot">Snapshot Documentation</a></p>
+<p>You can use the <strong>forEach</strong> firebase snapshot method to take firebase's object like representation of data and transform to an array when reading it in:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> database = firebase.database();
+
+database.ref(<span class="hljs-string">'expenses'</span>).once(<span class="hljs-string">'value'</span>)
+  .then(<span class="hljs-function">(<span class="hljs-params">snapshot</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(snapshot.val());
+    <span class="hljs-comment">// Create Array to hold return from  DB</span>
+    <span class="hljs-keyword">const</span> expenses = [];
+    <span class="hljs-comment">// Use the firebase forEach method to push the children into our array</span>
+    snapshot.forEach(<span class="hljs-function">(<span class="hljs-params">childSnapshot</span>) =&gt;</span> {
+      expenses.push({
+        <span class="hljs-attr">id</span>: childSnapshot.key, <span class="hljs-comment">// .key will be the key for child</span>
+        ...childSnapshot.val()
+      });
+    });
+  });
+</code></pre>
+<p><img src="../assets/firebase-snapshot02.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="listening-for-changes---on"></a><a href="#listening-for-changes---on" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Listening for Changes - on</h3>
+<p>You can subscribe to changes in the database by using the on function as follows:</p>
+<pre><code class="hljs css language-javascript">firebase.initializeApp(config);
+<span class="hljs-keyword">const</span> database = firebase.database();
+<span class="hljs-comment">//When subscribing to changes, you will get the callback function returned.</span>
+<span class="hljs-comment">//Store this in a variable and you will be able to use it to turn off just </span>
+<span class="hljs-comment">//that single subscription.</span>
+<span class="hljs-keyword">const</span> onValueChange = database.ref()
+  .on(<span class="hljs-string">'value'</span>, (snapshot) =&gt; {
+    <span class="hljs-keyword">const</span> val = snapshot.val();
+    <span class="hljs-comment">//-- Do something with data</span>
+  }, (e) =&gt; {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'this is an error message'</span>, e);
+  });
+
+<span class="hljs-comment">//This will turn off listening for all listeners</span>
+database.ref().off();
+
+<span class="hljs-comment">//Turn off a single subscription</span>
+database.ref().off(onValueChange);
+</code></pre>
+<p>This callback will be executed whenever anything is changed in the database.</p>
+<p>You can also listen for changes on specific &quot;nodes&quot;/refs. Like <strong>database.ref('notes').on(...)</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="other-on-events"></a><a href="#other-on-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other &quot;on&quot; Events</h3>
+<p>There are other events that you can listen to with on.  Things like when a child is removed 'child_removed' or when a child is changed 'child_changed' or when a child is added 'child_added'.</p>
+<p>You listen for additions to the &quot;array&quot; using the on() function with 'child_added'</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> notesRef = firebaseRef.child(<span class="hljs-string">'notes'</span>);
+
+notesRef.on(<span class="hljs-string">'child_added'</span>, (snapshot) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'child added:'</span>, snapshot.key, snapshot.val());
+});
+</code></pre>
+<p>The on() listener can also look for <strong>child_removed</strong> and <strong>child_changed</strong></p>
+<h2><a class="anchor" aria-hidden="true" id="user-management-and-authorization"></a><a href="#user-management-and-authorization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Management and Authorization</h2>
+<p><a href="https://firebase.google.com/docs/auth/web/manage-users">Manage Users in Firebase | Firebase</a></p>
+<p><strong>NOTE:</strong> Once you deploy to a URL other than localhost, you will need to got into the <em>Authentication</em> section and add the url where the application lives.</p>
+<h3><a class="anchor" aria-hidden="true" id="authentication-rules"></a><a href="#authentication-rules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication Rules</h3>
+<p>These rules define who can see what parts of your data tree.</p>
+<p>Here is a basic usage with the assumption that we are authenticating through firebase:</p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"rules"</span>: {
+    <span class="hljs-string">".read"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">".write"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">"users"</span>: {
+        <span class="hljs-string">"$uid"</span>: {
+          <span class="hljs-string">".write"</span>: <span class="hljs-string">"$uid === auth.uid"</span>,
+          <span class="hljs-string">".read"</span>: <span class="hljs-string">"$uid === auth.uid"</span>
+        }
+      }  
+    }
+}
+</code></pre>
+<p>There is much more that we can do in our authentication section.  We can further limit what the users can write to the database.  Once we know our structure, we can add these items.</p>
+<p>For example, if we had a structure where our application wrote a single object (the expenses object) to the database, we could lock it down like this:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"rules"</span>: {
+    <span class="hljs-attr">".read"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">".write"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"users"</span>: {
+      <span class="hljs-attr">"$user_id"</span>: {
+        <span class="hljs-attr">".read"</span>: <span class="hljs-string">"$user_id === auth.uid"</span>,
+        <span class="hljs-attr">".write"</span>: <span class="hljs-string">"$user_id === auth.uid"</span>,
+      <span class="hljs-attr">"expenses"</span>: {
+          <span class="hljs-attr">".validate"</span>: <span class="hljs-literal">true</span>
+      },
+      <span class="hljs-attr">"$other"</span>: {
+          <span class="hljs-attr">".validate"</span>: <span class="hljs-literal">false</span>
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>In the above example, users would only be able to write to the expenses &quot;section&quot; of the database.  The <strong>&quot;$other&quot;</strong> variable would catch any other reads or writes and invalidate them.</p>
+<p>You can take it one step further and lock down the specific fields you are going to write:</p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-string">"rules"</span>: {
+    <span class="hljs-string">".read"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">".write"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"users"</span>: {
+      <span class="hljs-string">"$user_id"</span>: {
+        <span class="hljs-string">".read"</span>: <span class="hljs-string">"$user_id === auth.uid"</span>,
+        <span class="hljs-string">".write"</span>: <span class="hljs-string">"$user_id === auth.uid"</span>,
+      <span class="hljs-string">"expenses"</span>: {
+        <span class="hljs-string">"$expense_id"</span>: {
+                    <span class="hljs-string">".validate"</span>: <span class="hljs-string">"newData.hasChildren(['description', 'note', 'createdAt', 'amount'])"</span>, 
+          <span class="hljs-string">"description"</span>: {
+            <span class="hljs-string">".validate"</span>: <span class="hljs-string">"newData.isString() &amp;&amp; newData.val().length &gt; 0"</span>
+          },
+          <span class="hljs-string">"note"</span>: {
+            <span class="hljs-string">".validate"</span>: <span class="hljs-string">"newData.isString()"</span>
+          },
+          <span class="hljs-string">"createdAt"</span>: {
+            <span class="hljs-string">".validate"</span>: <span class="hljs-string">"newData.isNumber()"</span>
+          },
+          <span class="hljs-string">"amount"</span>: {
+            <span class="hljs-string">".validate"</span>: <span class="hljs-string">"newData.isNumber()"</span>
+          },
+          <span class="hljs-string">"$other"</span>: {
+            <span class="hljs-string">".validate"</span>: <span class="hljs-literal">false</span>
+          }
+        }
+      },
+      <span class="hljs-string">"$other"</span>: {
+          <span class="hljs-string">".validate"</span>: <span class="hljs-literal">false</span>
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p><a href="https://firebase.google.com/docs/reference/security/database/">Firebase Security Rules API</a></p>
+<h3><a class="anchor" aria-hidden="true" id="auth-provider"></a><a href="#auth-provider" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Auth Provider</h3>
+<p>To setup your app to use firebase as the authenticator, you will need to first log into your firebase console and go to the DB you are working with, <em>Authentication</em> section and then choose your sign in method.</p>
+<p>We will review the Google provider here.</p>
+<p>To start, simply enable the google provider and click save</p>
+<p><img src="../assets/firebase-auth01.png" alt=""></p>
+<p>Next, you will need to define your &quot;googleProvider&quot; variable, usually added to your firebase configuration file:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//firebase.js</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> firebase <span class="hljs-keyword">from</span> <span class="hljs-string">'firebase'</span>;
+
+<span class="hljs-keyword">const</span> config = {
+  ...
+}
+firebase.initializeApp(config);
+<span class="hljs-keyword">const</span> database = firebase.database();
+  
+<span class="hljs-comment">//!!Here we are defining our googleProvider</span>
+<span class="hljs-keyword">const</span> googleAuthProvider = <span class="hljs-keyword">new</span> firebase.auth.GoogleAuthProvider();
+
+<span class="hljs-keyword">export</span> { firebase, googleAuthProvider, database <span class="hljs-keyword">as</span> <span class="hljs-keyword">default</span> };
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="checking-state-of-login"></a><a href="#checking-state-of-login" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Checking State of Login</h3>
+<p><strong>i.e. Is the user logged in</strong></p>
+<p>You can use the following snippet to setup a function that will be called whenever the state of the firebase Auth has changed:</p>
+<pre><code class="hljs css language-javascript">firebase.auth().onAuthStateChanged(<span class="hljs-function">(<span class="hljs-params">user</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (user) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`logged in as <span class="hljs-subst">${user.uid}</span>`</span>);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`logged out`</span>);
+  }
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="more-user-auth"></a><a href="#more-user-auth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More User Auth</h2>
+<p>First and foremost, see the <a href="/javascript/firebase">Firebase Docs</a> to make sure you have the correct Authentication Rules set up and that you have set up a way for your user to &quot;Login&quot; to your application.</p>
+<h3><a class="anchor" aria-hidden="true" id="setup-appjs-onauthstatechanged"></a><a href="#setup-appjs-onauthstatechanged" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setup App.js onAuthStateChanged</h3>
+<p>Once you have this set up, you will probably have the root of your app &quot;/&quot; be your login in page.  After the user logs in you will need to redirect him.  This can be accomplished in the <strong>app.js</strong> or root js file for your application.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> React ...
+...
+import AppRouter, { history } <span class="hljs-keyword">from</span> <span class="hljs-string">'./routers/AppRouter'</span>;
+<span class="hljs-keyword">import</span> { firebase } <span class="hljs-keyword">from</span> <span class="hljs-string">'./firebase/firebase'</span>;
+...
+
+const jsx = (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{store}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">AppRouter</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>
+);
+<span class="hljs-keyword">let</span> hasRendered = <span class="hljs-literal">false</span>;
+<span class="hljs-keyword">const</span> renderApp = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">if</span> (!hasRendered) {
+    ReactDOM.render(jsx, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'app'</span>));
+    hasRendered = <span class="hljs-literal">true</span>;
+  }
+};
+
+firebase.auth().onAuthStateChanged(<span class="hljs-function">(<span class="hljs-params">user</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (user) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`logged in as <span class="hljs-subst">${user.uid}</span>`</span>);
+    store.dispatch(expenseActions.startSetExpenses()).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      renderApp();
+      <span class="hljs-keyword">if</span> (history.location.pathname === <span class="hljs-string">'/'</span>) {
+        history.push(<span class="hljs-string">'/dashboard'</span>);
+      }
+    });
+  } <span class="hljs-keyword">else</span> {
+    renderApp();
+    history.push(<span class="hljs-string">'/'</span>);
+  }
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="flow-of-user-authentication-in-app"></a><a href="#flow-of-user-authentication-in-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flow of User Authentication in App</h3>
+<p>The flow of this, will be a user comes to your site and is presented with the login page.  They go through the login process and once logged in the following happens:</p>
+<ol>
+<li>Redux action is dispatched to update user.uid in the redux store.</li>
+<li>Any initial data is fetched</li>
+<li>User is redirected to page</li>
+<li>Make Private pages. There will be pages that cannot be viewed unless logged in. Make sure these pages are locked down.</li>
+<li>Make Public pages.  There will be pages that are public but shouldn't be seen once logged in. Like the login page.</li>
+</ol>
+<p>Here is an example set of action creators for the login and logout actions.  Note, that we need to enhance this for error catching and use of multiple auth providers (at least email).</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { firebase, googleAuthProvider } <span class="hljs-keyword">from</span> <span class="hljs-string">'../firebase/firebase'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> login = <span class="hljs-function"><span class="hljs-params">uid</span> =&gt;</span> ({
+  <span class="hljs-attr">type</span>: <span class="hljs-string">'LOGIN'</span>,
+  uid
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startLogin = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">dispatch</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> firebase.auth().signInWithPopup(googleAuthProvider);
+  };
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> logout = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> ({
+  <span class="hljs-attr">type</span>: <span class="hljs-string">'LOGOUT'</span>
+});
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startLogout = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">dispatch</span>) =&gt;</span> {
+    firebase.auth().signOut();
+  };
+};
+
+</code></pre>
+<p>Here is the auth reducer:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (state = {}, action) =&gt; {
+  <span class="hljs-keyword">switch</span> (action.type) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'LOGIN'</span>:
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">uid</span>: action.uid
+      };
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'LOGOUT'</span>:
+      <span class="hljs-keyword">return</span> {};
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">return</span> state;
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="make-private-and-public-pages"></a><a href="#make-private-and-public-pages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make Private and Public Pages</h3>
+<p>Probably a couple of ways to do this.  One would be an HOC which would check to see if the user was logged in and would either return the passed in Component if logged in or redirect back to the Login page.</p>
+<p>The other way is to create a component that encapsulates React Routers Route component.</p>
+<p>Here is our <strong>AppRoute.js</strong> file:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Router, Route, Switch } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+<span class="hljs-keyword">import</span> createHistory <span class="hljs-keyword">from</span> <span class="hljs-string">'history/createBrowserHistory'</span>;
+
+<span class="hljs-keyword">import</span> Login <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/Login'</span>;
+<span class="hljs-keyword">import</span> ExpenseDashboardPage <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/ExpenseDashboardPage'</span>; 
+<span class="hljs-keyword">import</span> EditExpensePage <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/EditExpensePage'</span>; 
+<span class="hljs-keyword">import</span> AddExpensePage <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/AddExpensePage'</span>; 
+<span class="hljs-keyword">import</span> HelpPage <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/HelpPage'</span>;
+<span class="hljs-keyword">import</span> NotFound <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/NotFound'</span>;
+<span class="hljs-keyword">import</span> PrivateRoute <span class="hljs-keyword">from</span> <span class="hljs-string">'./PrivateRoute'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> history = createHistory();
+
+<span class="hljs-keyword">const</span> AppRouter = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Router</span> <span class="hljs-attr">history</span>=<span class="hljs-string">{history}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Switch</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">exact</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Login}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">PrivateRoute</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/dashboard"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{ExpenseDashboardPage}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">PrivateRoute</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/create"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{AddExpensePage}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">PrivateRoute</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/edit/:id"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{EditExpensePage}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/help"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{HelpPage}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{NotFound}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Switch</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Router</span>&gt;</span></span>
+);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> AppRouter;
+</code></pre>
+<p>Here is the PrivateRoute component that does the work.  It connects to the redux store and determines if the user is logged in.  If they are then it returns a Route component setup properly.  If not logged in, then it redirects to the login page, which is &quot;/&quot; in this example.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+<span class="hljs-keyword">import</span> { Route, Redirect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+<span class="hljs-keyword">import</span> Header <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/Header'</span>;
+
+<span class="hljs-comment">//Destructure the props, get isAuthenticated from redux connect</span>
+<span class="hljs-comment">//Grab the component renaming to Component so that React sees it as a component</span>
+<span class="hljs-comment">//then use the rest operator to grab the rest of the props</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> PrivateRoute = ({
+  isAuthenticated,
+  <span class="hljs-attr">component</span>: Component,
+  ...rest
+}) =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span>
+    {<span class="hljs-attr">...rest</span>}
+    <span class="hljs-attr">component</span>=<span class="hljs-string">{props</span> =&gt;</span> (
+      isAuthenticated ? (
+        [<span class="hljs-tag">&lt;<span class="hljs-name">Header</span> /&gt;</span>,
+          <span class="hljs-tag">&lt;<span class="hljs-name">Component</span> {<span class="hljs-attr">...props</span>} /&gt;</span>
+        ]
+      ) : (
+        <span class="hljs-tag">&lt;<span class="hljs-name">Redirect</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/"</span> /&gt;</span>
+      )
+    )
+  }
+  /&gt;</span>
+);
+
+<span class="hljs-keyword">const</span> mapStateToProps = <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> ({
+  <span class="hljs-attr">isAuthenticated</span>: !!state.auth.uid
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(mapStateToProps)(PrivateRoute);
+</code></pre>
+<p>You can do the same thing if you want to have some pages not able to be navigated to when logged in.  We could call this implementation the PublicRoute:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+<span class="hljs-keyword">import</span> { Route, Redirect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> PublicRoute = ({
+  isAuthenticated,
+  <span class="hljs-attr">component</span>: Component,
+  ...rest
+}) =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span>
+    {<span class="hljs-attr">...rest</span>}
+    <span class="hljs-attr">component</span>=<span class="hljs-string">{props</span> =&gt;</span> (
+      !isAuthenticated ? (
+        <span class="hljs-tag">&lt;<span class="hljs-name">Component</span> {<span class="hljs-attr">...props</span>} /&gt;</span>
+      ) : (
+        <span class="hljs-tag">&lt;<span class="hljs-name">Redirect</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/dashboard"</span> /&gt;</span>
+      )
+    )
+  }
+  /&gt;</span>
+);
+
+<span class="hljs-keyword">const</span> mapStateToProps = <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> ({
+  <span class="hljs-attr">isAuthenticated</span>: !!state.auth.uid
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(mapStateToProps)(PublicRoute);
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="accessing-only-logged-in-user-area-in-firebase"></a><a href="#accessing-only-logged-in-user-area-in-firebase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Accessing only Logged in User Area in Firebase</h3>
+<p>You can handle this in your Action Creators since you will be using a thunk.  The thunk's signature is <code>(dispatch, getState)</code>.  So you will have access to the state:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> startAddExpense = <span class="hljs-function">(<span class="hljs-params">expenseData = {}</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">dispatch, getState</span>) =&gt;</span> {
+    <span class="hljs-comment">//Get the uid from the store</span>
+    <span class="hljs-keyword">const</span> { uid } = getState().auth;
+    <span class="hljs-keyword">const</span> {
+      description,
+      note,
+      amount,
+      createdAt
+    } = expenseData;
+    <span class="hljs-keyword">const</span> expense = { description, note, amount, createdAt, };
+    <span class="hljs-comment">//Use the uid to access the correct users expenses</span>
+    <span class="hljs-keyword">return</span> database.ref(<span class="hljs-string">`users/<span class="hljs-subst">${uid}</span>/expenses`</span>).push(expense)
+      .then(<span class="hljs-function">(<span class="hljs-params">ref</span>) =&gt;</span> {
+        dispatch(addExpense({
+          <span class="hljs-attr">id</span>: ref.key,
+          ...expense
+        }));
+      });
+  };
+};
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/my-code-docs/docs/javascript/using-local-storage"><span class="arrow-prev">← </span><span>Local Storage</span></a><a class="docs-next button" href="/my-code-docs/docs/javascript/language-basics"><span>JS Language Basics</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#basics">Basics</a></li><li><a href="#database-functions">.database() Functions</a></li><li><a href="#arrays-in-firebase">Arrays in Firebase</a></li><li><a href="#addingupdating-datadeleting">Adding/Updating Data/Deleting</a><ul class="toc-headings"><li><a href="#sethttpsfirebasegooglecomdocsreferencejsfirebasedatabasereferenceset"><a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference#set">Set</a></a></li><li><a href="#updatehttpsfirebasegooglecomdocsreferencejsfirebasedatabasereferenceupdate"><a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference#update">Update</a></a></li><li><a href="#delete-data-remove">Delete data (Remove)</a></li></ul></li><li><a href="#retrieving-data">Retrieving Data</a><ul class="toc-headings"><li><a href="#once-call">.once() call</a></li><li><a href="#listening-for-changes---on">Listening for Changes - on</a></li><li><a href="#other-on-events">Other &quot;on&quot; Events</a></li></ul></li><li><a href="#user-management-and-authorization">User Management and Authorization</a><ul class="toc-headings"><li><a href="#authentication-rules">Authentication Rules</a></li><li><a href="#auth-provider">Auth Provider</a></li><li><a href="#checking-state-of-login">Checking State of Login</a></li></ul></li><li><a href="#more-user-auth">More User Auth</a><ul class="toc-headings"><li><a href="#setup-appjs-onauthstatechanged">Setup App.js onAuthStateChanged</a></li><li><a href="#flow-of-user-authentication-in-app">Flow of User Authentication in App</a></li><li><a href="#make-private-and-public-pages">Make Private and Public Pages</a></li><li><a href="#accessing-only-logged-in-user-area-in-firebase">Accessing only Logged in User Area in Firebase</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>

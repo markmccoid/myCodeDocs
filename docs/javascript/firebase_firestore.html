@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Firebase Firestore · My Code Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="I used to think of Firebase as a single thing, a cloud database, but **Firebase** is a group of products by Google."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Firebase Firestore · My Code Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://markmccoid.github.io/my-code-docs/"/><meta property="og:description" content="I used to think of Firebase as a single thing, a cloud database, but **Firebase** is a group of products by Google."/><meta property="og:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://markmccoid.github.io/my-code-docs/img/docusaurus.png"/><link rel="shortcut icon" href="/my-code-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/my-code-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/my-code-docs/css/main.css"/><script src="/my-code-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/my-code-docs/"><img class="logo" src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs"/><h2 class="headerTitleWithLogo">My Code Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/my-code-docs/docs/javascript/promises-and-async-await" target="_self">Docs</a></li><li class=""><a href="/my-code-docs/docs/projects/tmdb-api-reference" target="_self">Projects</a></li><li class=""><a href="/my-code-docs/docs/_components/component-mypromptalert" target="_self">Components</a></li><li class=""><a href="/my-code-docs/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Firebase Firestore</h1></header><article><div><span><p>I used to think of Firebase as a single thing, a cloud database, but <strong>Firebase</strong> is a group of products by Google.</p>
+<p>They have two specific database products.</p>
+<ul>
+<li>Firebase Realtime Database -  structured as a JSON tree</li>
+<li>Firebase Cloud Firestore - A document database storing data in collections and documents within those collections.</li>
+</ul>
+<p>This document is focused on Cloud Firestore.</p>
+<h2><a class="anchor" aria-hidden="true" id="initializing-firestore"></a><a href="#initializing-firestore" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initializing Firestore</h2>
+<p>This document will focus on the Web version of Firebase.</p>
+<p>After you have created your project, you will need to get the Firebase web configuration details and create your <code>firebase.js</code> file.  This will be the file that initializes Firebase.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> firebase <span class="hljs-keyword">from</span> <span class="hljs-string">"firebase"</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">"@firebase/firestore"</span>;
+<span class="hljs-keyword">import</span> env <span class="hljs-keyword">from</span> <span class="hljs-string">"../env.js"</span>;
+
+<span class="hljs-comment">// Your web app's Firebase configuration</span>
+<span class="hljs-keyword">var</span> firebaseConfig = {
+  <span class="hljs-attr">apiKey</span>: env.API_KEY,
+  <span class="hljs-attr">authDomain</span>: env.AUTH_DOMAIN,
+  <span class="hljs-attr">databaseURL</span>: env.DATABASE_URL,
+  <span class="hljs-attr">projectId</span>: env.PROJECT_ID,
+  <span class="hljs-attr">storageBucket</span>: env.STORAGE_BUCKET,
+  <span class="hljs-attr">messagingSenderId</span>: env.MESSAGE_SENDER_ID,
+  <span class="hljs-attr">appId</span>: env.APP_ID
+};
+<span class="hljs-comment">// Initialize Firebase</span>
+<span class="hljs-keyword">let</span> Firebase = firebase.initializeApp(firebaseConfig);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> db = firebase.firestore();
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Firebase;
+</code></pre>
+<p>The <strong>default export</strong> is <strong>Firebase</strong>, which is a reference to ALL of the firebase functions.  It will be used for Auth or any other functions above the firestore database.</p>
+<p>The other is a <strong>named export</strong>, which you can call anything, but is called <strong>db</strong> in the above example.</p>
+<p>This is the Firestore database reference.  It will be used to access the collections and documents in the database.</p>
+<h2><a class="anchor" aria-hidden="true" id="auth"></a><a href="#auth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Auth</h2>
+<p>The most difficult thing about Auth is how you implement the flow in you application.  From the Firebase side, it is relatively easy.</p>
+<h3><a class="anchor" aria-hidden="true" id="set-up-an-onauthstatechanged-listener"></a><a href="#set-up-an-onauthstatechanged-listener" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set up an onAuthStateChanged() listener</h3>
+<p>The first thing we need is a way to tell if a user is logged in or not.  This is usually done near the root of your application so that you can determine which routes the user will have access to.</p>
+<p>Here is a simple example in an applications root file App.js</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> Firebase <span class="hljs-keyword">from</span> <span class="hljs-string">"./storage/firebase"</span>;
+<span class="hljs-keyword">import</span> SignIn <span class="hljs-keyword">from</span> <span class="hljs-string">"./components/Auth/SignIn"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [user, setUser] = React.useState();
+  React.useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">let</span> unsubscribe = Firebase.auth().onAuthStateChanged(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> {
+      setUser(user);
+    });
+    <span class="hljs-keyword">return</span> unsubscribe;
+  }, []);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      {user ? (
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">SearchMovie</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">SavedMovies</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ViewMovies</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      ) : (
+        <span class="hljs-tag">&lt;<span class="hljs-name">SignIn</span> /&gt;</span>
+      )}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;
+</code></pre>
+<p>Notice in the <strong>useEffect</strong> function, we are setting this to only run once when the application mounts, since has set up a listener that will fire whenever the user's auth status changes.</p>
+<p>When the auth status changes, the function passed to <strong>onAuthStateChanged()</strong> will be executed.</p>
+<p>Don't forget to get the <strong>unsubscribe</strong> method and return it as the cleanup function (if you are using useEffect).</p>
+<h3><a class="anchor" aria-hidden="true" id="sign-insign-up"></a><a href="#sign-insign-up" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sign In/Sign Up</h3>
+<p>If our app requires a user to be logged in, then if their auth status is not logged in, we will redirect to a Sign In page.  This page should also have a link so that the user can Sign Up if they have not done so before.</p>
+<p>If you want to keep profile information on a user, you can request this at SignUp and create the users profile as they sign up.</p>
+<p>Here is a sign up function with the assumption that email and password are being set elsewhere in component.</p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-keyword">const</span> signUp = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-comment">// Firebase.auth()</span>
+    <span class="hljs-comment">//   .createUserWithEmailAndPassword(email, password)</span>
+    <span class="hljs-comment">//   .then(resp =&gt; console.log("SIGNED UP ", resp));</span>
+    <span class="hljs-comment">//-------</span>
+    <span class="hljs-comment">// If you wanted to create a initial user profile upon user creation </span>
+    <span class="hljs-comment">// you could do this:</span>
+    Firebase.auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(<span class="hljs-function"><span class="hljs-params">resp</span> =&gt;</span> {
+        <span class="hljs-keyword">return</span> fsDB
+          .collection(<span class="hljs-string">"users"</span>)
+          .doc(resp.user.uid)
+          .set({ email });
+      });
+  };
+</code></pre>
+<p>You don't have to do anything (create a user doc) upon creation, but it is an option.</p>
+<p>Here is a Sign In Method:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> signIn = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    Firebase.auth().signInWithEmailAndPassword(email, password);
+  };
+</code></pre>
+<p>These are just the base Firebase functions to get you logged in, however, you will most likely want to store the user's <strong>uid</strong> somewhere globally or where you database writes/reads/updates are going to happen, as you will want it when you perform DB operations.</p>
+<p>If you need the <strong>uid</strong>, you can also request it at any time using the following:</p>
+<pre><code class="hljs css language-javascript">firebase.auth().currentUser
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="inserting-and-updating"></a><a href="#inserting-and-updating" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inserting and Updating</h2>
+<p>When using Firestore, remember that it goes <strong>Collection</strong> -&gt; <strong>Document</strong> -&gt; <strong>Collection</strong> -&gt; <strong>Document</strong> and on and on.</p>
+<p>Meaning, you can have multiple documents in a Collection, but you cannot embed a Document in another Document.  BUT, you can have a Collection in a Document.</p>
+<p>Usually you will have a users <strong>Collection</strong> at the root of your project.  Each user will have their own <strong>Document</strong>.  Here is the important thing to remember, Documents are limited to 1 mb of data, so you can't just plop all your data in a single document (if it will exceed 1mb).</p>
+<p>I believe each read of a document counts as 1 read.  So, when you read the users document, that is one, then if you have a collection within that document and you read 1000 documents from that collection, that is 1000 reads.</p>
+<p>Since, I like to read all the data in at once, everytime the app starts, I will have a lot of reads.</p>
+<h3><a class="anchor" aria-hidden="true" id="insert-and-results"></a><a href="#insert-and-results" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insert and Results</h3>
+<p>Here are some examples of inserts and their results:</p>
+<pre><code class="hljs css language-javascript">    firestore
+      .collection(<span class="hljs-string">"users"</span>)
+      .doc(uid)
+      .set({ <span class="hljs-attr">tagData</span>: fbTagData });
+</code></pre>
+<p><strong>Result</strong></p>
+<p><img src="..\assets\firestore-query-001.png" alt="1579899491222"></p>
+<p>When you have an array of objects, as above, it looks as if you will need to send the whole array of objects.  There is not a way to update an individual object or append an object to the array that I have found.  However, if you simply have an array of types (string, number, etc) you can use ArrayUnion.</p>
+<p><a href="https://firebase.google.com/docs/firestore/manage-data/add-data#update_elements_in_an_array">Array Firebase Docs</a></p>
+<p>Another way to organize the schema for Arrays of Objects would be to simply take the key of each object in the array and make that a key:</p>
+<pre><code class="hljs css language-javascript">users.uid.tagData = {
+  <span class="hljs-string">'adfdadifdadf'</span>: <span class="hljs-string">'Favorite'</span>,
+  <span class="hljs-string">'23fjkadfda;3'</span>: <span class="hljs-string">'Watched'</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="updating"></a><a href="#updating" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updating</h3>
+<p>You need to be careful with updating.  If you just grab a ref and then use something like <code>ref.update({fieldToUpdate: 'new val'})</code> , it will overwrite anything else in that Map (Object).</p>
+<p>If you just want to update a single key you would something like:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">let</span> dbRef = <span class="hljs-keyword">await</span> firestore.collection(<span class="hljs-string">'users'</span>).doc(uid);
+<span class="hljs-keyword">let</span> tagID = <span class="hljs-number">30018</span>;
+<span class="hljs-keyword">return</span> userDocRef.update({
+  <span class="hljs-string">'userData.settings.defaultFilter'</span>: userDefaultFilterId,
+});
+</code></pre>
+<p>This will update an object that has the following shape while leaving the other keys intact:</p>
+<pre><code class="hljs css language-javascript">userData: {
+  <span class="hljs-attr">settings</span>: {
+    <span class="hljs-attr">defaultFilter</span>: <span class="hljs-string">''</span>,
+    <span class="hljs-attr">otherStuff</span>: <span class="hljs-string">''</span>
+  }
+}
+</code></pre>
+<p>If you have a dynamic key you want to update, just use this format:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">let</span> dbRef = <span class="hljs-keyword">await</span> firestore.collection(<span class="hljs-string">'users'</span>).doc(uid);
+<span class="hljs-keyword">let</span> tagID = <span class="hljs-number">30018</span>;
+<span class="hljs-keyword">return</span> userDocRef.update({
+  [<span class="hljs-string">`userData.tags.<span class="hljs-subst">${tagID}</span>`</span>]: userDataSettings,
+});
+</code></pre>
+<blockquote>
+<p>the Set function also has a merge flag</p>
+</blockquote>
+<p><strong>Summary</strong></p>
+<ul>
+<li><code>set</code> without <code>merge</code> will overwrite a document or create it if it doesn't exist yet</li>
+<li><code>set</code> with <code>merge</code> will update fields in the document or create it if it doesn't exists</li>
+<li><code>update</code> will update fields but will fail if the document doesn't exist</li>
+<li><code>create</code> will create the document but fail if the document already exists</li>
+</ul>
+<p>There's also a difference in the kind of data you provide to <code>set</code> and <code>update</code>.</p>
+<p>For <code>set</code> you always have to provide document-shaped data:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">set</span>(
+  {<span class="hljs-attribute">a</span>: {b: {c: true}}},
+  {<span class="hljs-attribute">merge</span>: true}
+)
+</code></pre>
+<p>With <code>update</code> you can also use field paths for updating nested values:</p>
+<pre><code class="hljs"><span class="hljs-function"><span class="hljs-title">update</span>({
+  <span class="hljs-string">'a.b.c'</span>: <span class="hljs-variable"><span class="hljs-literal">true</span></span>
+})</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="getting-data"></a><a href="#getting-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Data</h2>
+<h2><a class="anchor" aria-hidden="true" id="query-helpers"></a><a href="#query-helpers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query Helpers</h2>
+<h3><a class="anchor" aria-hidden="true" id="read-an-array-of-docs"></a><a href="#read-an-array-of-docs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Read an Array of Docs</h3>
+<p>If you had a schema with a parent collection with a number of docs underneath it and you had an array of those doc &quot;ids&quot;, here is how you could get at them all:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> readIds = <span class="hljs-keyword">async</span>(collection, ids) =&gt; {
+  <span class="hljs-keyword">const</span> reads = ids.map(<span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> collection.doc(id).get());
+  <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all(reads);
+  <span class="hljs-keyword">return</span> result.map(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.data());
+};
+
+<span class="hljs-comment">// call the above</span>
+readIds(db.collection(<span class="hljs-string">'products'</span>), [<span class="hljs-string">'ProdOne'</span>, <span class="hljs-string">'ProdTwo'</span>, <span class="hljs-string">'ProdThree'</span>])
+</code></pre>
+<p><a href="https://www.youtube.com/watch?v=35RlydUf6xo&amp;t=382s">Reference Video</a></p>
+<h2><a class="anchor" aria-hidden="true" id="design-decisions"></a><a href="#design-decisions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design Decisions</h2>
+<p>Good video on <a href="https://www.youtube.com/watch?v=lW7DWV2jST0">Design Decisions</a></p>
+<p>A few things to think about when designing the structure of your database.</p>
+<p>First, understand that you can embed Sub-Collections in your documents.  When you query, Firestore does so &quot;Shallowly&quot;, which means it will only return the topmost documents, not the sub collections contained in those returned documents.</p>
+<p><img src="..\assets\firestore_001.png" alt="img"></p>
+<p>In the above example, you could store the reviews inside the Restaurant collection documents.</p>
+<pre><code class="hljs css language-javascript">{
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'restaurant 1'</span>,
+  <span class="hljs-attr">address</span>: <span class="hljs-string">'the address'</span>,
+  <span class="hljs-attr">reviews</span>: [
+  {
+    <span class="hljs-attr">reviewId</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">rating</span>: <span class="hljs-number">4</span>  
+  },
+  {
+    <span class="hljs-attr">reviewId</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">rating</span>: <span class="hljs-number">1</span>  
+  }, 
+ ...
+  ]
+}
+</code></pre>
+<ul>
+<li>Firestore charges based on documents returned, so you can see that it would cost more to have a separate collection for the reviews.  However, that is not your only consideration.  If reviews are only shown when requested, having them separately could be best as then the user is not downloading a bunch of unused data.</li>
+<li></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="design-with-all-data-under-user"></a><a href="#design-with-all-data-under-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design with All Data Under User</h2>
+<p>If you are designing an app where the users will not interact with each other, or there will be data that is private to a user, you can think of have a Users collection and then each user will have sub collections that contain their pertinent data.</p>
+<pre><code class="hljs css language-javascript">/database/documents/users/savedMovies
+/database/documents/users/tagData
+/database/documents/users/userData
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="firebase-tools"></a><a href="#firebase-tools" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Firebase Tools</h2>
+<p>Firebase comes with an SDK and CLI that you can install globally on your machine.</p>
+<p>This gives you access to things like <code>firebase init</code> to initialize projects.</p>
+<pre><code class="hljs css language-bash">$ npm install --global firebase-tools
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="cloud-functions"></a><a href="#cloud-functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloud Functions</h2>
+<p>Functions that are run based on something that happens to your data.  For example, whenever a restaurant changes it name, you want to update all the orders that have the restaurant name in them updated also.</p>
+<p>In my MovieTracker appliction there was a need to create some default Tags.  I create a cloud function that ran whenever a user was created in Firestore.</p>
+<p>Here is a good <a href="https://www.youtube.com/watch?v=DYfP-UIKxH0&amp;t=330s">starter Video</a> on the setup.</p>
+<p><strong>Install Firebase Tools Globally</strong></p>
+<p>These tools will facilitate creating and deploying your projects.</p>
+<pre><code class="hljs css language-bash">$ npm install -g firebase-tools
+</code></pre>
+<p><strong>Create a Project Directory</strong></p>
+<p>While you most likely could create a project folder inside your main application folder, I think keeping it separate may be a good idea.  But who knows.</p>
+<p>Anyway, create a directory for your cloud functions project:</p>
+<p>cd into that new directory and <strong>Login Into Firebase</strong>.</p>
+<blockquote>
+<p>Very important to log into firebase via the CLI.</p>
+</blockquote>
+<pre><code class="hljs css language-bash">$ firebase login
+</code></pre>
+<p><strong>Initialize your project</strong></p>
+<p>Remember, you are in your project directory.  From here you will type</p>
+<pre><code class="hljs css language-bash">$ firebase init 
+</code></pre>
+<p>This will create your project scaffolding.  It will ask you what type of project you want to setup.  I just wanted Functions, so that is what I chose.  Lastly, it will ask you which Firebase project (database) you want to use for the project.</p>
+<p>You will find a <strong>functions</strong> which contains your <strong>index.js</strong> file.  This is where your functions will reside.</p>
+<p>Here is an example function.  Note that we gain access to our firestore instance by using the <strong>admin</strong> object.</p>
+<p><code>let db = admin.firestore()</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> functions = <span class="hljs-built_in">require</span>(<span class="hljs-string">"firebase-functions"</span>);
+<span class="hljs-keyword">const</span> admin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"firebase-admin"</span>);
+
+admin.initializeApp();
+
+exports.newUserSetup = functions.auth.user().onCreate(<span class="hljs-function">(<span class="hljs-params">user</span>) =&gt;</span> {
+  <span class="hljs-comment">// Create some default tags for new users</span>
+  <span class="hljs-keyword">const</span> uid = user.uid;
+  <span class="hljs-comment">// setup our default tags</span>
+  <span class="hljs-keyword">let</span> tags = [
+    { <span class="hljs-attr">tagId</span>: <span class="hljs-string">"001a"</span>, <span class="hljs-attr">tagName</span>: <span class="hljs-string">"Favorites"</span> },
+    { <span class="hljs-attr">tagId</span>: <span class="hljs-string">"002a"</span>, <span class="hljs-attr">tagName</span>: <span class="hljs-string">"Watched"</span> },
+    { <span class="hljs-attr">tagId</span>: <span class="hljs-string">"003a"</span>, <span class="hljs-attr">tagName</span>: <span class="hljs-string">"Next Up"</span> },
+  ];
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"NewUserSetup"</span>, admin);
+  <span class="hljs-keyword">return</span> admin
+    .firestore()
+    .collection(<span class="hljs-string">"users"</span>)
+    .doc(uid)
+    .update({ <span class="hljs-attr">tagData</span>: tags });
+  <span class="hljs-comment">//return userDocRef.update({ tagData: tags });</span>
+});
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#initializing-firestore">Initializing Firestore</a></li><li><a href="#auth">Auth</a><ul class="toc-headings"><li><a href="#set-up-an-onauthstatechanged-listener">Set up an onAuthStateChanged() listener</a></li><li><a href="#sign-insign-up">Sign In/Sign Up</a></li></ul></li><li><a href="#inserting-and-updating">Inserting and Updating</a><ul class="toc-headings"><li><a href="#insert-and-results">Insert and Results</a></li><li><a href="#updating">Updating</a></li></ul></li><li><a href="#getting-data">Getting Data</a></li><li><a href="#query-helpers">Query Helpers</a><ul class="toc-headings"><li><a href="#read-an-array-of-docs">Read an Array of Docs</a></li></ul></li><li><a href="#design-decisions">Design Decisions</a></li><li><a href="#design-with-all-data-under-user">Design with All Data Under User</a></li><li><a href="#firebase-tools">Firebase Tools</a></li><li><a href="#cloud-functions">Cloud Functions</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/my-code-docs/" class="nav-home"><img src="/my-code-docs/img/mycodedocs.png" alt="My Code Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/my-code-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/my-code-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/my-code-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/my-code-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/my-code-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/my-code-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 McCoidCo</section></footer></div></body></html>
