@@ -16,7 +16,11 @@
       "javascript/npm-module-creation"
     ],
     "Node": [
-      "nodejs/nodejs-basics"
+      "nodejs/nodejs-basics",
+      "nodejs/server-config-ssh.md"
+    ],
+    "NextJS": [
+      "nextjs/nextjs_basics"
     ],
     "JS/React Libs": [
       "javascript/lib_lodash-library",

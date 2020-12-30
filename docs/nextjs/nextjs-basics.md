@@ -1,7 +1,7 @@
 ---
 id: nextjs_basics
 title: NextJS Basics
-sidebar_title: NextJS Basics
+sidebar_label: NextJS Basics
 ---
 
 # Installing
@@ -34,9 +34,9 @@ So what do these commands do?
 
 `next start` Will start your built app, used in production.
 
-# Routing with Pages
+The following is from the [FrontEnd Masters Next JS Course Website](https://hendrixer.github.io/nextjs-course/)
 
-## 
+# Routing with Pages
 
 You don't need to interact with a router directly to create pages. Next.js has built on conventions to make creating routes as easy as creating a file 🤙🏾.
 

@@ -1,5 +1,5 @@
 ---
-**id**: react-native
+id: react-native
 title: React Native
 sidebar_label: React Native
 ---

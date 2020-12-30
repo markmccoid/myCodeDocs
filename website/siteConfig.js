@@ -11,37 +11,37 @@
 // List of projects/orgs using your project for the users page.
 const users = [
   {
-    caption: 'User1',
+    caption: "User1",
     // You will need to prepend the image path with your baseUrl
     // if it is not '/', like: '/test-site/img/docusaurus.svg'.
-    image: '/img/docusaurus.svg',
-    infoLink: 'https://www.facebook.com',
+    image: "/img/docusaurus.svg",
+    infoLink: "https://www.facebook.com",
     pinned: true,
   },
 ];
 
 const siteConfig = {
-  title: 'My Code Docs', // Title for your website.
-  tagline: 'Developer Notes for Myself',
-  url: 'https://mycodedocs.com', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  title: "My Code Docs", // Title for your website.
+  tagline: "Developer Notes for Myself",
+  url: "https://markmccoid.github.io", // Your website URL
+  baseUrl: "/myCodeDocs/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'my-code-docs',
-  organizationName: 'McCoidCo',
+  projectName: "myCodeDocs",
+  organizationName: "markmccoid",
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'javascript/promises-and-async-await', label: 'Docs'},
-    {doc: 'projects/tmdb-api-reference', label: 'Projects'},
-    {doc: '_components/component-mypromptalert', label: 'Components'},
-    {page: 'help', label: 'Help'},
+    { doc: "javascript/promises-and-async-await", label: "Docs" },
+    { doc: "projects/tmdb-api-reference", label: "Projects" },
+    { doc: "_components/component-mypromptalert", label: "Components" },
+    { page: "help", label: "Help" },
     // {blog: false, label: 'Blog'},
   ],
 
@@ -49,14 +49,14 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/mycodedocs.png',
-  footerIcon: 'img/mycodedocs.png',
-  favicon: 'img/favicon.png',
+  headerIcon: "img/mycodedocs.png",
+  footerIcon: "img/mycodedocs.png",
+  favicon: "img/favicon.png",
 
   /* Colors for website */
   colors: {
-    primaryColor: '#2b6b8e',
-    secondaryColor: '#b1d6ea',
+    primaryColor: "#2b6b8e",
+    secondaryColor: "#b1d6ea",
   },
 
   /* Custom fonts for website */
@@ -74,24 +74,24 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+  copyright: `Copyright © ${new Date().getFullYear()} McCoidCo`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: 'default',
+    theme: "default",
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: ["https://buttons.github.io/buttons.js"],
 
   // On page navigation for the current documentation page.
-  onPageNav: 'separate',
+  onPageNav: "separate",
   // No .html extensions for paths.
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: 'img/docusaurus.png',
-  twitterImage: 'img/docusaurus.png',
+  ogImage: "img/docusaurus.png",
+  twitterImage: "img/docusaurus.png",
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
