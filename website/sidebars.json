@@ -17,7 +17,7 @@
     ],
     "Node": [
       "nodejs/nodejs-basics",
-      "nodejs/server-config-ssh.md"
+      "nodejs/server-config-ssh"
     ],
     "NextJS": [
       "nextjs/nextjs_basics"

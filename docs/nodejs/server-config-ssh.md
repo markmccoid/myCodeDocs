@@ -1,7 +1,7 @@
 ---
 id: server-config-ssh
 title: Server Config and SSH
-sidebar_label: Server Config / SSH
+sidebar_label: Server Config and SSH
 ---
 
 ## Resources
