@@ -105,55 +105,25 @@ This component encapsulates the **TagCloudEnhanced** component and obfuscates th
 - ViewMoviesFitlerScreen
 - CreateSavedFilterScreen
 
+## Saved Filters
 
+The user is able to create any number of saved filters.
 
-
-
-
-
-
+They are located in Overmind at **oSaved.savedFilters** and is an Array of Objects:
 
 ```javascript
-// OLD FILTER TAG State Functions -- DELETE when new is working
- //*----------------------------
-  //* FILTER TAG State Functions
-  // Returns on the tags that are currently
-  // being used to filter data
-  // NOTE: filter tags only store the tag id, which is why we need to
-  //       call the buildTagObjFromIds and pass whether the tag isSelected or not
-  // tag object returned { tagId, tagName, isSelected }
-  getFilterTags: derived((state) => {
-    let filterTagIds = state.filterData.tags;
-    return helpers.buildTagObjFromIds(state, filterTagIds, true);
-  }),
-  //--------------
-  // Returns only the tags that are NOT being used to filter data currently
-  getUnusedFilterTags: derived((state) => {
-    // Tags being used to filter currently
-    let filterTagIds = state.filterData.tags;
-    // All tags defined in the system
-    let allTagIds = helpers.retrieveTagIds(state.getTags);
-    let unusedFilterTagIds = allTagIds.filter(
-      (tagId) => !filterTagIds.find((tag) => tag === tagId)
-    );
-    return helpers.buildTagObjFromIds(state, unusedFilterTagIds, false);
-  }),
-  //--------------
-  getAllFilterTags: derived((state) => {
-    // Take the array of filter tag objects (that have the isSelected property set and not yet set.)
-    // and convert to an object with the tagId as the key.
-    // This makes it easy to pull the isSelected flag when running the tagSorter function (which returns an array)
-    const unsortedTags = _.keyBy(
-      [...state.getUnusedFilterTags, ...state.getFilterTags],
-      "tagId"
-    );
-    // We want to return the tags sorted as they are in the original array
-    // Pull all the tags and return the array sorted tag with the isSelected
-    // property pulled from unsorted tags
-    return helpers.tagSorter(unsortedTags, {
-      sortType: "fromarray",
-      sortedTagArray: state.getTags,
-    });
-  }),
+{
+  excludeTagOperator: "OR"
+  excludeTags: [ ]
+  id:"0047fdc6-6592-436e-b3a9-9cad7327c871"
+  index: 0
+  name: "Mark’s"
+  showInDrawer: true
+  tagOperator: "AND"
+  tags: [ ]
+}
 ```
 
+The **index** property on each savedFilter object is needed for the drag and drop sort.  However, we make sure that whenever we store the savedFilters array to Overmind, disk and Firestore that **the array is sorted by the index**.
+
+By doing this, we do not need to sort everytime another component needs to access the saved filters in their sorted order.
