@@ -4,6 +4,78 @@ title: Movie Tracker
 sidebar_label: Movie Tracker
 ---
 
+## Data Structure
+
+Data is stored internally using the Overmind library.  To persist data, we store items in Firestore and also a copy in local storage.
+
+To keep from reading from Firestore every time app is opened, we instead read from local storage, then sync with Firestore once a day and also have a sync option in the side menu.
+
+### Overmind
+
+Data in Overmind is broken up into three distinct parts:
+
+- oAdmin - login data (username, email) and app state data ( datasource: "local | firestore")
+- oSaved - The main movie data.  The movies themselves as well as settings data, tag data, etc.
+- oSearch - When search for a movie, this state helps us know what is being searched for and what state the load of the search data is in.
+
+**oSaved**
+
+- **currentSort** - current options for sorting.  The **active** property lets us know if it is being used to sort.
+
+  > Order of the array is important.  It is the order the sort is applied
+
+  ```javascript
+  [
+    {
+      title: string,
+      type: num | alpha | date,
+      sortField: string
+      sortDirection: desc | asc
+      active: boolean
+    },
+    ...
+  ]
+  ```
+
+- **filterData**
+
+- **generated**
+
+- **savedFilters**
+
+- **savedMovies** - movies saved to database.
+
+  ```javascript
+  {
+    backdropURL: string, // URL of backdrop
+    budget: int,
+    genres: [], //array of string,
+    id: int,
+    imdbId: string,
+    imdbURL: string, // URL of imdb movie 
+    overview: string,
+    posterURL: string, // URL of poster
+    releaseDate: {
+      epoch: UNIX epoch (seconds from 1970),
+      formatted,
+    },
+    revenue: int,
+    runtime: int,
+    savedDate: JS Date,
+    status: string,
+    tagLine: string,
+    taggedWith: [],
+    title: "The Master of Disguise",
+    userRating: 1,
+  };
+  ```
+
+  
+
+- **settings**
+
+- **tagData**
+
 ## imdb App Links
 
 In the Movie Tracker app, there are a few places where you can open up the movie and cast members in IMDB.  I couldn't find any real documentation from IMDB on how to do this, but with some troubleshooting found out the following:
@@ -70,7 +142,7 @@ The Overmind **actions** to save and remove tags to movies are `addTagToMovie` a
 
 ### Filtering Tags
 
-Using tags to filter our list of Saved Movies is done by storing the user selected filter data in Overmind at **oSaved.filterData**
+Using tags to filter our list of Saved Movies is done by storing the user selected filter data in Overmind at **oSaved.filterData.**  This data is NOT stored in Firestore, but is only for the users current session.  See [Saved Filters](#saved_filters) for information on filters that get stored to Firestore.
 
 ```javascript
   filterData: {
