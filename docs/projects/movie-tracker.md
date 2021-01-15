@@ -179,6 +179,8 @@ This component encapsulates the **TagCloudEnhanced** component and obfuscates th
 
 ## Saved Filters
 
+> NOTE: **actions.js** - review **hydrateStore** function for "//!" Comments.  They are above code that is used to ensure old datastore worked with new code.  This should be removed at some point.
+
 The user is able to create any number of saved filters.
 
 They are located in Overmind at **oSaved.savedFilters** and is an Array of Objects:
@@ -199,3 +201,47 @@ They are located in Overmind at **oSaved.savedFilters** and is an Array of Objec
 The **index** property on each savedFilter object is needed for the drag and drop sort.  However, we make sure that whenever we store the savedFilters array to Overmind, disk and Firestore that **the array is sorted by the index**.
 
 By doing this, we do not need to sort everytime another component needs to access the saved filters in their sorted order.
+
+## Sorting Movies
+
+There are predefined options for a user to choose to sort their movies by.
+
+Currently these options consist of:
+
+- **User Rating** - **oState.savedMovies.userRating**
+- **Movie Title** - **oState.savedMovies.title**
+- **Movie Release Date** - **oState.savedMovies.releaseDate.epoch**
+- **Saved Date** - **oState.savedMovies.savedDate** // Date movie was added to users list
+
+The data structure for each sort object is:
+
+```javascript
+{
+  active: boolean, // Should it be used in sort
+	id: "saveddate",
+	index: 3,
+	sortDirection: "desc" | "asc",
+	sortField: "savedDate", //MUST be the same variable name as the field on the movie object state
+	title: "Saved Date"
+	type: "date" | "num" | "str"
+}
+```
+
+Currently in Overmind there are two places where this sort data is stored.
+
+- **oState.settings.defaultSort** - contains objects for each sort option
+- **oState.currentSort** - duplicate of defaultSort
+
+Why in two places?  My thought was that the default sort would be saved to the database and would be updated via settings.  Everytime you logged in, this would be the defaultSort.
+
+But what if a user wanted to do a quick sort change?  I thought that if **currentSort** was where the application always looked to when sorting, then you could have both options of a default sort and an on the fly sort.
+
+Currently in **getFilteredMovies**, it is using the **oState.currentSort** to sort the movies.  I haven't implemented an on the fly sort yet, but hopefully this will future proof this part.
+
+The flow when loading data from Firestore/AsyncStorage is to load to **settings.defaultSort** and then copy that to **currentSort**.
+
+### Where Sort Happens
+
+Currently the only time the sorting is used is in the main movies screen.  The function is found in **store/oSaved/state.js** and is called **getFilteredMovies**.  This getter not only sorts, but also filters based on any **tags**, **genres**, or **title** filters that the user has set.
+
+The sort itself is performed using the lodash **orderBy** function.  This is why it is so important that the **sortField** in each sort object matches the same name in the **savedMovies** object that is being search.
