@@ -14,11 +14,23 @@ To keep from reading from Firestore every time app is opened, we instead read fr
 
 Data in Overmind is broken up into three distinct parts:
 
-- oAdmin - login data (username, email) and app state data ( datasource: "local | firestore")
-- oSaved - The main movie data.  The movies themselves as well as settings data, tag data, etc.
-- oSearch - When search for a movie, this state helps us know what is being searched for and what state the load of the search data is in.
+- **oAdmin** - login data (username, email) and app state data ( datasource: "local | firestore")
+- **oSaved** - The main movie data.  The movies themselves as well as settings data, tag data, etc.
+- **oSearch** - When search for a movie, this state helps us know what is being searched for and what state the load of the search data is in.
 
-**oSaved**
+#### Debouncing
+
+Many of the functions that are used to store data to firebase are "debounced".  Which means we don't write to the database for a set amount of time.  Currently that time is 12 seconds.  This gives the user time to make changes to a movie without wasting writes to the DB.  Think of tags, a user most likely will add or remove multiple tags in one sitting, why write every single change.  
+
+With debounce, we get to wait until there is a 12 second pause before writing.
+
+However, since this really only works on a per movie basis, we need have a mechanism to flush any debounced writes if the user starts working on another movie.
+
+To this end, in the **effects.js** file, there is a function called **flushDebounced** that will flush any "waiting" debounced calls.  This will happen when a user starts working on a new movie.
+
+To facilitate this, there is a oSaved state field called **state.oSaved.currentMovieId**.  This state field gets populated anytime we do some update action on a movie.  It checks to see if the saved movieId is different from the one being worked on.  If it is different, then it flushes the debounced calls and saves the new movieId to the **state.oSaved.currentMovieId**.
+
+#### oSaved
 
 - **currentSort** - current options for sorting.  The **active** property lets us know if it is being used to sort.
 
@@ -120,7 +132,32 @@ Users are able to define as many tags as they need.  This data will be stored in
 
 These tags are applied to movies to help the user filter movies later.
 
+### Storing Tags on Movies
+
 When a movie is tagged, a new object property is added to the movie object in the **oSaved.savedMovies** array of objects.  This object property is called **taggedWith** and is an array of **tagIds**.
+
+This is how we store the tags in FIrestore and AsyncStorage, however for easier use within the program, there is a piece of state called **oSaved.taggedMovies** that is kept in sync with the data in the **taggeWith** property on each movie.
+
+The format is:
+
+```javascript
+{
+  [movieId]: [ 'tagid1', 'tagid2', ... ],
+  ...
+}
+// Here is an example with data
+taggedMovies: {
+  13908: ["4e9070c9-fcb1-4675-8182-dc92e0891e16", "89680f2f-91a7-452e-8e5c-9a3a3fe538c4"],
+  14560: ["abcegh-fcb1-4675-8182-dc92e0891e16", "25af15efd-91a7-452e-8e5c-9a3a3fe538c4"],
+}
+```
+
+This piece of state is created upon load (**hyrdateStore()**) and then kept in sync when tags are added to movies, tags are deleted or movies are deleted.  The maintenance of this state is done through two functions:
+
+- **createTaggedMoviesObj** - This builds the initial object from the savedMovies state
+- **maintainTaggedMoviesObj** - This function keeps the **oState.taggedMovies** state in sync.  It is called for these operations:
+  - Movie Delete ("deletemovie") - When a movie is deleted, the taggedMovies state will need to have the movie id property from the object.
+  - Tag Deleted ("deletetag") - 
 
 There are Overmind state functions (getters) that take these "applied" tags and convert them for use with the **TagCloud** component.
 
