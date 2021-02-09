@@ -282,3 +282,21 @@ The flow when loading data from Firestore/AsyncStorage is to load to **settings.
 Currently the only time the sorting is used is in the main movies screen.  The function is found in **store/oSaved/state.js** and is called **getFilteredMovies**.  This getter not only sorts, but also filters based on any **tags**, **genres**, or **title** filters that the user has set.
 
 The sort itself is performed using the lodash **orderBy** function.  This is why it is so important that the **sortField** in each sort object matches the same name in the **savedMovies** object that is being search.
+
+## Search / Discover Movies
+
+The "Add Movie" tab option lets you search for movies that you want to add to your Movie Library.
+
+The components are located in `components\search`.  Components starting with **Discover** are the ones letting you enter criteria that will be sent to the TMDB API to get back movies that meet your criteria.
+
+There are three types of "queries" that will be available from the DiscoverBottomSheet.  
+
+- **Title Search** - Simply a search for the entered text
+- **Predefined Search** - the API has some predefined searches.  
+  - Popular
+  - Now Playing
+  - Upcoming
+- **Complex Search** - allows the user to enter multiple search criteria.
+  - Title
+  - Genres
+  - Release Dates
