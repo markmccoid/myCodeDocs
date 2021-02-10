@@ -294,9 +294,8 @@ There are three types of "queries" that will be available from the DiscoverBotto
 - **Title Search** - Simply a search for the entered text
 - **Predefined Search** - the API has some predefined searches.  
   - Popular
-  - Now Playing
+  - Now Playing - Too similar to Popular, need to maybe create a few predefined queries or just get rid of this and **upcoming**
   - Upcoming
 - **Complex Search** - allows the user to enter multiple search criteria.
-  - Title
   - Genres
   - Release Dates
