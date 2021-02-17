@@ -71,7 +71,9 @@
     "TMDB API": [
       "projects/tmdb-wrapper-api"
     ],
-    "CarTracker": [],
+    "MovieTracker": [
+      "projects/movie-tracker"
+    ],
     "Quotable": []
   },
   "components": {
