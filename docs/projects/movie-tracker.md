@@ -293,9 +293,24 @@ There are three types of "queries" that will be available from the DiscoverBotto
 
 - **Title Search** - Simply a search for the entered text
 - **Predefined Search** - the API has some predefined searches.  
-  - Popular
+  - **Popular** - Initial search done
   - Now Playing - Too similar to Popular, need to maybe create a few predefined queries or just get rid of this and **upcoming**
   - Upcoming
-- **Complex Search** - allows the user to enter multiple search criteria.
-  - Genres
-  - Release Dates
+- **Advanced Search** - allows the user to enter multiple search criteria.
+  - **Genres** - Movie Genres.  Multiple can be selected.  ANDed together for search
+  - **Release Year** - The year the movie was released
+  - **Watch Providers** - Netflix, Amazon Prime, Hulu, etc. Multiple can be selected.  ORed together for search
+
+To manage the search flow, the MovieMachines.js file contains an XState machine:
+
+![2021-02-20_21-57-03](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/movietracker-discover-001.png)
+
+It is made up of two primary states, **Simple** and **Advanced**.  The Simple state has two sub states, either **predefined** or **title**.  
+
+When the machine is initially invoked, the search will be in the predefined state initially, if the user types anything in the input box, the machine will move into the **title** state and start searching on the typed input.
+
+When the **advanced** state is invoked, no search will happen until some criteria are chosen.
+
+The PERFORM_SEARCH event will invoke the async search action within Overmind.  
+
+`overmind.actions.oSearch.queryMovieAPIWithConfig()` function will debounce any input for 500 milliseconds before performing any search. 
