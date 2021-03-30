@@ -301,7 +301,7 @@ There are three types of "queries" that will be available from the DiscoverBotto
   - **Release Year** - The year the movie was released
   - **Watch Providers** - Netflix, Amazon Prime, Hulu, etc. Multiple can be selected.  ORed together for search
 
-To manage the search flow, the MovieMachines.js file contains an XState machine:
+To manage the search flow, the MovieMachines.js file contains an XState machine
 
 ![2021-02-20_21-57-03](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/movietracker-discover-001.png)
 
@@ -314,3 +314,9 @@ When the **advanced** state is invoked, no search will happen until some criteri
 The PERFORM_SEARCH event will invoke the async search action within Overmind.  
 
 `overmind.actions.oSearch.queryMovieAPIWithConfig()` function will debounce any input for 500 milliseconds before performing any search. 
+
+### Component Used in Searching for Movies
+
+The **SearchStack.js** contains the main **SearchScreen.js** component as well as the **DetailsFromSearch.js** and **DetailsFromPerson.js** screen components.
+
+**SearchScreen.js** will show the result list of movies returned from the search and the **DiscoverBottomSheet.js** component.  This is the component that incorporates the above state machine to coordinate the searches.
