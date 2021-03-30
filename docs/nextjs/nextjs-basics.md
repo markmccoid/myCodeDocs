@@ -6,14 +6,14 @@ sidebar_label: NextJS Basics
 
 # Installing
 
-You can use `creat-next-app` to get started very quickly.
+You can use `creat-next-app` to get started very quickly.  Also be aware that there are a number of started templates that you can use in conjunction with create-next-app.
 
 **npm** or **yarn**
 
 ```shell
 $ npx create-next-app
 # OR
-$ yarn create next-app
+$ yarn create-next-app
 ```
 
 The scripts in `package.json` are
@@ -33,6 +33,14 @@ So what do these commands do?
 `next build` Will build your project and ready it for production.
 
 `next start` Will start your built app, used in production.
+
+# Implementing Tailwind CSS
+
+[Tailwind Docs for Nextjs](https://tailwindcss.com/docs/guides/nextjs)
+
+
+
+# Frontend Masters Course
 
 The following is from the [FrontEnd Masters Next JS Course Website](https://hendrixer.github.io/nextjs-course/)
 
