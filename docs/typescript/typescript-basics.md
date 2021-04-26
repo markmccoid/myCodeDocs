@@ -8,6 +8,20 @@ TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 
 ## Install Typescript
 
+### Using Create React App
+
+The one thing that I have found is that create-react-app installs TypeScript 4.x, but doesn't get the updated react types installed.
+
+So after create-react-app finishes, you will need to run the following:
+
+```bash
+$ npm i --save-dev @types/react
+```
+
+[Article about TypeScript and React 17](https://medium.com/projectwt/create-react-app-17-with-typescript-4-1-3a2169be71ce)
+
+### Manually
+
 To get started we need to install Typescript.
 
 ```bash
@@ -128,12 +142,105 @@ You will use the `instanceOf` for any value that is created with a constructor f
 ```javascript
 // for number, string, boolean and symbols
 if (typeof myVariable === 'number'){
-  
+  ...
 }
 
 // for classes, either JavaScript created or you created
 if (someClass instanceOf Array) {
-  
+  ...
 }
 ```
+
+## React and Typescript
+
+### Generating a TypeScript React Project 
+
+````bash
+$ npx create-react-app tstest --template typescript
+````
+
+### Typing React Components and Props
+
+If a component has Props, you should create an **Interface** for it.
+
+```typescript
+interface ComponentProps {  
+    color: string 
+}
+```
+
+You now need to apply that Interface and it can be done in a couple of ways.
+
+**Apply it to the Props**
+
+```typescript
+const SomeComponent = ({ color }: ComponentProps) => {
+    return (<div>Hi</div>)
+}
+```
+
+If you do it the above way, you are only typing YOUR props.  But since it is a React component, react has some static variables that can exist and also if you try to pass children into the above, it will break.   **Use the below method for React components**
+
+**Define it as a Generic** on the Component. This will also be typing the component as a React component.
+
+```typescript
+const SomeComponent: React.FC  = ({ color }) => { 
+    return (<div>Hi</div>)
+}
+```
+
+**React.FC** means that this is a **Functional Component**.  So you could instead type it as **React.FunctionComponent**
+
+### Function Typing
+
+How to type a function in an object:
+
+```typescript
+interface myInterface {
+    color: string;
+    onClick: () => void
+}
+```
+
+### State
+
+Usually when using **useState**, TypeScript will infer the type, however with Object and Arrays, it can't do this.
+
+Use the following syntax:
+
+```typescript
+import { useState } from 'react';
+
+...
+const [list, setList] = useState<string[]>([]);
+```
+
+What about state that can be undefined or an object?
+
+```typescript
+const UserSearch: React.FC = () => {
+  const [name, setName] = useState('');
+  const [user, setUser] = useState<{ name: string; age: number } | undefined>();
+  ...
+  // OR you could use an interface or type
+  interface UserInterface {
+  name: string,
+  age: number
+}
+const [user, setUser] = useState< UserInterface | undefined>();
+```
+
+### Events
+
+To find out what type to use for an event, hover over the HTML element event
+
+![img](C:\Users\Markm\Documents\GitHub\myCodeDocs\docs\typescript\typescript-basics-001.gif)
+
+In the Image above, you can see that when you hover over the HTML Elements **onChange** event it tells you what you should type your **function** with.
+
+If you hover over the inline function, you can find out how to type the function parameters.
+
+[React Event Types](https://www.carlrippon.com/React-event-handlers-with-typescript)
+
+
 
