@@ -11,9 +11,9 @@ You can use `creat-next-app` to get started very quickly.  Also be aware that th
 **npm** or **yarn**
 
 ```shell
-$ npx create-next-app
+$ npx create-next-app app-name
 # OR
-$ yarn create-next-app
+$ yarn create-next-app app-name
 ```
 
 The scripts in `package.json` are
@@ -34,9 +34,229 @@ So what do these commands do?
 
 `next start` Will start your built app, used in production.
 
+# Implement TypeScript in Next JS
+
+==[Next TypeScript Learn Docs](https://nextjs.org/learn/excel/typescript/create-tsconfig)==
+
+[NextJS TypeScript Docs](https://nextjs.org/docs/basic-features/typescript)
+
+Looks like NextJS is setup to handle typescript, you will just need to install dependencies and create a `tsconfig.js` file
+
+**Install Dependencies and Create tsconfig.json**
+
+```bash
+$ yarn add --dev typescript @types/react @types/node
+
+--- IN Root of Project
+$ touch tsconfig.json
+```
+
+Now start the development server again. After starting the server, Next.js will:
+
+- Populate the `tsconfig.json` file for you. You may customize this file.
+- Create the `next-env.d.ts` file, which ensures Next.js types are picked up by the TypeScript compiler. You should **not** touch this file.
+
+```bash
+$ yarn dev
+```
+
+## Some Next JS Types
+
+**Static and Server-Side Rendering**
+
+For `getStaticProps`, `getStaticPaths`, and `getServerSideProps`, you can use the `GetStaticProps`, `GetStaticPaths`, and `GetServerSideProps` types respectively:
+
+```ts
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  // ...
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // ...
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // ...
+}
+```
+
+**API Routes**
+
+The following is an example of how to use the built-in types for API routes:
+
+```ts
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  res.status(200).json({ name: 'John Doe' })
+}
+```
+
+You can also type the response data:
+
+```tsx
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+type Data = {
+  name: string
+}
+
+export default (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  res.status(200).json({ name: 'John Doe' })
+}
+```
+
 # Implementing Tailwind CSS
 
 [Tailwind Docs for Nextjs](https://tailwindcss.com/docs/guides/nextjs)
+
+# Using Chakra UI
+
+Chakra UI comes with a built in Theme Provider that you should use.  To use it, you will want to wrap the components in your `_app.js` file with the `ChakraProvider` component.  
+
+~~The `GlobalStyle` component will let you do the CSSReset from emotion AND use the `Global` component from emotion to set any global CSS  you might want applied and available.~~
+
+**OLD Way**
+
+```jsx
+import Head from 'next/head';
+import { ChakraProvider, CSSReset } from '@chakra-ui/react';
+import { Global, css } from '@emotion/react';
+
+import theme from '../styles/theme';
+import { AuthProvider } from '../lib/auth';
+
+const GlobalStyle = ({ children }) => {
+  return (
+    <>
+      <Head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+      </Head>
+      <CSSReset />
+      <Global
+        styles={css`
+          html {
+            scroll-behavior: smooth;
+          }
+          #__next {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+          }
+        `}
+      />
+      {children}
+    </>
+  );
+};
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <ChakraProvider theme={theme}>
+      <AuthProvider>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </AuthProvider>
+    </ChakraProvider>
+  );
+}	
+
+export default MyApp;
+```
+
+As of Chakra v1, the `ChakraProvider` automatically includes the `CSSReset` and `GlobalStyle`.  However, with `GlobalStyle`, you still need to  define the global styles.
+
+## Defining Global Styles
+
+This is done in when you setup the Chakra theme.  You import the default theme from Chakra and then modify it to meet your needs.  The global styles are found in the `styles: { global: { } }` key.  Here is an example that also show s updates to the fonts and font weights.
+
+```javascript
+import React from 'react';
+import { theme as chakraTheme } from '@chakra-ui/react';
+
+const theme = {
+  ...chakraTheme,
+  fonts: {
+    ...chakraTheme.fonts,
+    heading: `Lato,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
+    body: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
+  },
+  fontWeights: {
+    normal: 400,
+    medium: 600,
+    bold: 700,
+  },
+  styles: {
+    global: {
+      html: {
+        scrollBehavior: 'smooth',
+      },
+      h2: {
+        color: 'red',
+      },
+      '#__next': {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      },
+    },
+  },
+};
+
+export default theme;
+```
+
+# _document.js - Customize Header, etc
+
+Not sure of everything this can do, but this component will allow you add anything that you would add to the Header in an HTML document.  Things like scripts to load fonts, etc.
+
+[Custom Document NextJS Docs](https://nextjs.org/docs/advanced-features/custom-document)
+
+## Loading Custom Fonts
+
+If your custom font is coming from Google fonts, or you have CDN link for it, then you can add this to the `_document.js` file.
+
+You can add the `<link ... />` element in the `Head` component.
+
+Make sure to keep the rest of the `body` as it is identified in the documentation.
+
+Here is an example loading a Google font:
+
+```jsx
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lato:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+
+export default MyDocument;
+```
+
+## Using Font in Chakra UI
+
+To update the fonts for use in Chakra, you will need to update your theme file.
+
+# -------------------------------
+
+
 
 
 
