@@ -11,7 +11,7 @@ You have two options for creating new application one is the **expo-cli**, the o
 To initialize a new project use:
 
 ```bash
-$ npx expo-cli inti projectname
+$ npx expo-cli init projectname
 ```
 
 Choose a blank project or TypeScript and then enter the name of your project.
