@@ -191,17 +191,6 @@ const SomeComponent: React.FC  = ({ color }) => {
 
 **React.FC** means that this is a **Functional Component**.  So you could instead type it as **React.FunctionComponent**
 
-### Function Typing
-
-How to type a function in an object:
-
-```typescript
-interface myInterface {
-    color: string;
-    onClick: () => void
-}
-```
-
 ### State
 
 Usually when using **useState**, TypeScript will infer the type, however with Object and Arrays, it can't do this.
@@ -241,6 +230,49 @@ In the Image above, you can see that when you hover over the HTML Elements **onC
 If you hover over the inline function, you can find out how to type the function parameters.
 
 [React Event Types](https://www.carlrippon.com/React-event-handlers-with-typescript)
+
+
+
+## Function Typing
+
+How to type a function in an object:
+
+```typescript
+interface myInterface {
+    color: string;
+    onClick: () => void
+}
+```
+
+### Force Object to have certain Keys
+
+**Scenario** - You have a function that accepts some parameters and one of the parameters is an object that must have a certain key, and that is all you care about.  Meaning that object could have other keys and that would be fine.
+
+This example is a function that accepts an array of objects and an Object of Positions for the objects in the first array.  It then returns the array sorted by the positions object.
+
+Bottom line, the **baseArray** parameter MUST have an **id** key in it.
+
+To accomplish this I create an interface with the requirement for the ID:
+
+```typescript
+interface BaseArray {
+  id: string | number;
+}
+```
+
+Then the function uses a Generic that extends the BaseArray interface.  Not sure if this is how to do this, but it does enforce the id field.
+
+```typescript
+export function sortArray<T extends BaseArray>(
+  positions: Positions,
+  baseArray: T[],
+  positionField?: string
+) {
+  ...
+}
+```
+
+
 
 
 
