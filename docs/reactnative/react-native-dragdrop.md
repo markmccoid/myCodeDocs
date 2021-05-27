@@ -50,9 +50,13 @@ Here is a visual of these heights:
 
 **DragDropEntry**
 
-- **items/data** - Hopefully won't need, but probably will.  this is the array of data that will be displayed.  Will need to have and **id** and most likely a **position** key.  However, I would like to allow this component to simply get an array and rearrange it.
+- **itemHeight** - The height of the items that are returned as children of this component.  Needed so that we can calculate where each item should be positions.
 
-- **type** - Only needed if we are going to allow both object and array reordering methods.  If type is "array", then I don't think anything special will be needed.  But if "object", then will need the above mentioned id and position keys in **items/data** prop.
+- **scrollStyles** - styles that will be spread on ScrollView styles prop.
+
+- **handle** - (optional) React component to be used for handle.  A default is provided.
+
+- **handlePosition** -  (default is 'left') - either 'left' or 'right'
 
 - **updatePositions** - function that will run after drop that will reorder/update positions.  It will be passed the positions array of objects:
 
@@ -65,7 +69,7 @@ Here is a visual of these heights:
   }
   ```
 
-- **getScrollFunctions** - function the passes scroll function so calling component can scroll list to start or end.
+- **getScrollFunctions** - function that passes scroll function so calling component can scroll list to start or end.
 
   - Implementation:
 
@@ -82,7 +86,7 @@ Here is a visual of these heights:
 
   - Now, the **scrollFunctions** variable can call the following:
 
-  - **scrollFunctions.scrollToEnd** or **scrollFunctions.scrollToStart**
+  - **scrollFunctions.scrollToEnd()** or **scrollFunctions.scrollToStart()**
 
   
 
@@ -120,6 +124,30 @@ Here is a visual of these heights:
 ## What the Components Do
 
 ### DragDropEntry
+
+To implement you will wrap your List items in the DragDropEntry component.
+
+```jsx
+<DragDropEntry
+  scrollStyles={{ width: 300, borderWidth: 1, borderColor: "red" }}
+  updatePositions={(positions) => updateItemList(sortArray<ItemType>(positions, items))}
+  getScrollFunctions={(functionObj) => {
+    setScrollFunctions(functionObj);
+  }}
+  // updatePositions={updatePositions2}
+  itemHeight={50}
+>
+  {items.map((item) => {
+    return <Item key={item.id} name={item.name} id={item.id} />;
+  })}
+</DragDropEntry>
+```
+
+In above example, you are passing the an array of **Item** components as children to the **DragDropEntry** component.  
+
+> Each of the **children** MUST have an **id** prop with an unique id for each item.
+
+
 
 ### MoveableItem
 
