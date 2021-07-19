@@ -129,12 +129,9 @@ To implement you will wrap your List items in the DragDropEntry component.
 
 ```jsx
 <DragDropEntry
-  scrollStyles={{ width: 300, borderWidth: 1, borderColor: "red" }}
+  scrollStyles={{ width: 300, borderWidth: 1, borderColor: "#aaa" }}
   updatePositions={(positions) => updateItemList(sortArray<ItemType>(positions, items))}
-  getScrollFunctions={(functionObj) => {
-    setScrollFunctions(functionObj);
-  }}
-  // updatePositions={updatePositions2}
+  getScrollFunctions={(functionObj) => setScrollFunctions(functionObj)}
   itemHeight={50}
 >
   {items.map((item) => {
@@ -146,8 +143,6 @@ To implement you will wrap your List items in the DragDropEntry component.
 In above example, you are passing the an array of **Item** components as children to the **DragDropEntry** component.  
 
 > Each of the **children** MUST have an **id** prop with an unique id for each item.
-
-
 
 ### MoveableItem
 

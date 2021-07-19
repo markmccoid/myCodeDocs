@@ -739,7 +739,29 @@ React.useEffect(() => {
 
 
 
-## Tab Navigator Icons
+## Tab Navigator
+
+### Tab Navigator tabBarOptions
+
+You can use the tabBarOptions prop at the **Tabs.Navigator** level to set a bunch of options like the background color of the tab bar itself and icons active/inactive forground/background colors.
+
+If you see that setting the `activeBackgroundColor` doesn't color to the bottom of the device, then you will need to use the style property to change the color: [React Nav Docs - tabBarOptions](https://reactnavigation.org/docs/bottom-tab-navigator#style)
+
+```jsx
+<Tabs.Navigator
+	....
+  tabBarOptions={{
+    style: { backgroundColor: 'green'},
+    activeBackgroundColor: 'darkgreen',
+    activeTintColor: colors.primary,
+    inactiveTintColor: 'gray'
+  }}
+/>
+```
+
+
+
+### Tab Navigator Icons
 
 When you create a tab navigator, you most likely will want to have icons for each "tab".
 

@@ -59,6 +59,13 @@ After running `expo start`, press:
 
 To build an app for iOS and get it to app store or TestFlight, you need to make a stand alone app.  It will be an IPA file.
 
+> Before you can build the IPA file, you will need to create the app, you will need to first create an App Identifier for it.  This is under the Certificates, Identifers & Profiles section on the Apple Developer account.
+> ![2021-07-05_23-08-29](../assets/react-native_create-an-app-001.png)
+>
+> This will allow you to **build** your IPA file.  
+>
+> To be able to upload it via the Transporter application, you will also need to the **App Store Connect** section in the Apple Developer account, go to **My Apps** and click the + sign to create a new app.
+
 Follow these steps:
 
 1. **App.json** - Update version.  Not sure how important this is.
