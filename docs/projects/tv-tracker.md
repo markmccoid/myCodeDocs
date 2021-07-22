@@ -74,6 +74,35 @@ Data in Overmind is broken up into three distinct parts:
 
 - **tagData**
 
+## Date Formats Stored
+
+When getting a date field from TMDB_API wrapper, you get a date object with a JavaScript date object, Unix Epoch time and a Formatted date field.
+
+I am saving the Epoch and Formatted date object for every date field.  The downside is storing both date types takes up storage but not sure if it is too much, so will just leave both.
+
+**Solution**
+
+Since data from tmdbs_api comes in with epoch and formatted, should leave both in savedTVShows.
+
+If it needs to be converted with `date-fns` this is the process
+
+[date-fns format docs](https://date-fns.org/v2.22.1/docs/format)
+
+```javascript
+import { fromUnixTime, differenceInDays, format } from "date-fns";
+
+// Convert epoch to JavaScript Date
+jsDate = fromUnixTime(tvShow.nextAirDate.epoch);
+// Format date ## Sunday Jul 18
+format(jsDate, 'EEEE MMM dd');
+// Find difference between today and another date
+// Put the future date as the first parameter if first parameter
+// date is a earlier date the second parameter, you will get a negative number.
+differenceInDays(new Date(), jsDate)
+```
+
+
+
 ## imdb App Links
 
 In the Movie Tracker app, there are a few places where you can open up the tv show and cast members in IMDB.  I couldn't find any real documentation from IMDB on how to do this, but with some troubleshooting found out the following:
@@ -321,4 +350,34 @@ The **ViewTVShowDetails.tsx** component contains other components that show the 
 The **Hide Tags** button exists in the **DetailMainInfo.tsx** component, however, it controls whether the **DetailSelectTags.tsx** component is visible.
 
 The **Where To Watch**, **Recommendations** and other items are in **HiddenContainer** components so that the user can show and hide them.
+
+## Calculated Metadata - Auto Updating
+
+Status field options, returned from TV Details call:
+
+```javascript
+status = ['Returning Series', 
+          'Planned', // first, last and next air dates will be undefined
+          'In Production', 
+          'Ended', 
+          'Canceled', 
+          'Pilot']
+```
+
+I want to calculate metadata upon loading the saved TV Shows from storage (as well as when we save a TV show to storage) that will do a couple of things:
+
+1. Determine if this TV Show needs to be updated from the API
+   Naturally, this will only happen during the **hydration** or loading phase of TV Shows from storage.
+2. Add some metadata that will help inform how to build the interface.  Examples:
+   - If First and Last air date are equal AND next air date is null and more than 1 episode in the current season, then this is a show that released all episodes at once.  Does anyone care?  Maybe an indicator that all episodes have been released.
+   - If Next air date is null AND status is not "Ended", "Cancelled", (maybe also In Produciton and Planned) then do we show or calculate a **Days from Last Episode** field?  This may let people run a query to show all shows NOT OVER and with Days from Last Episode > x days.  So if I'm looking for shows on my list that might be starting up again, show me stuff that hasn't had anything new in the last 180 days.
+
+### Determine When and What ShowsTo Update
+
+```javascript
+if tvShow.status !== 'Ended' OR 'Canceled' then
+	if Next Air Date >= Today then
+		add show to update list
+
+```
 
