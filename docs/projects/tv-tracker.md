@@ -381,3 +381,60 @@ if tvShow.status !== 'Ended' OR 'Canceled' then
 
 ```
 
+## Episode State
+
+Episode state is persisted via Async Storage in **oSaved.savedTVShows** .
+
+**tempEpisodeState** will be used to *inform* the UI of the Episode State.  This is created during Hydration, based on what was stored in **oSaved.savedTVShows.episodeState**.
+
+We do this because **savedTVShows** is an Array, but **tempEpisodeState** is on object the tvShowId as the key.  Not sure if this style of lookup is more performant than just looking up tvshow, but this is the way I'm doing it.
+
+**tempEpisodeState** is accessed in 
+
+-  state.oSaved.**getTVShowEpisodeState** - getter that returns boolean based on tvShowId, seasonNumber and episodeNumber.
+
+- actions.oSaved.**toggleTVShowEpisodeState** - toggles the episode state.  
+
+  This function updates the **tempEpisodeState** and then calls the oSaved.internal.**updateEpisodeStateOnTVShow** function that uses the tempEpisodeState[tvShowId] to update savedTVShows.
+  It also "merges" the episode state into savedTVShows.episodeState.
+
+  This function also checks to see if we need to ask user if previous episodes should be marked as watched.  
+  It does this by returning a boolean so UI can react to the information.
+
+  > Wonder if something like a Portal could be triggered via a state flag??
+
+- actions.oSaved.**markAllPreviousEpisodes** - Called from UI if user wants to mark all previous episodes as watched.  Takes in tvShowId, seasonNumber, episodeNumber.
+  Similar to the toggle function, this one first updates tempEpisodeState and then savedTVShows.episodeState and then saves to async Storage.
+  This function calls ***buildEpisodesToMarkObj*** function, which will recurse through tempSeasonsData based on a season and episode and return an object that can be merged into tempSeasonsData.
+
+**Flow**
+
+- **App Startup** - **hydrateStore** will run and populate tempEpisodeState from savedTVShows.episodeState. Create a structure similar to the taggedTVShows object in oSaved.  It will be:
+
+  ```javascript
+   { 
+     [tvShowId: number]: {
+       [season-ep: string]: boolean
+     },
+     ...
+   }  
+  ```
+
+  
+
+- **Toggle State** - Whenever an episode state is toggled, the ***toggleTVShowEpisodeState*** action will need to update the appropriate state and then store to Async Storage
+
+- **Mark Prev Episodes** - When a user opts to mark all previous episodes, the ***markAllPreviousEpisodes*** action will run.  This action also updates appropriate state and Async Storage
+
+### UI for Seasons/Episode data
+
+There will be a **View Seasons** button (or some UI object) in `ViewTVShowDetails.tsx` that will navigate to `DetailSeasonsScreen.tsx`.
+
+- `ViewTVShowDetails.tsx` - The button on this screen will navigate to another screen passing the following parameters:
+  - **tvShowId** 
+  - **seasonNumbers** - an array of season numbers
+  - **logo** - { showName: string, logURL: string } - Right now a show name, but maybe in the future an image URL
+- `DetailSeasonsScreen` - 
+- `DetailSeasons.tsx` - 
+- `DetailSeasonEpisode.tsx` - 
+
