@@ -1,5 +1,5 @@
 ---
-id: tv-tracker
+**id**: tv-tracker
 title: TV Tracker
 sidebar_label: TV Tracker
 ---
@@ -381,11 +381,27 @@ if tvShow.status !== 'Ended' OR 'Canceled' then
 
 ```
 
+## Showing Seasons and Episodes
+
+The Seasons screen route is name, `DetailSeasons` and it points to `DetailSeasonsScreen.tsx` file.
+
+It is accessed from `ViewTVShowDetials.tsx` passing the following parms:
+
+```jsx
+navigation.navigate("DetailSeasons", {
+  tvShowId: tvShow.id,
+  seasonNumbers: tvShow?.seasons.map((show) => show.seasonNumber),
+  logo: { showName: tvShow.name },
+});
+```
+
+![image-20210808001714593](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/tvtracker_seasons_episodes-001.png)
+
 ## Episode State
 
 Episode state is persisted via Async Storage in **oSaved.savedTVShows** .
 
-**tempEpisodeState** will be used to *inform* the UI of the Episode State.  This is created during Hydration, based on what was stored in **oSaved.savedTVShows.episodeState**.
+**oSaved.tempEpisodeState** will be used to *inform* the UI of the Episode State.  This is created during Hydration, based on what was stored in **oSaved.savedTVShows.episodeState**.
 
 We do this because **savedTVShows** is an Array, but **tempEpisodeState** is on object the tvShowId as the key.  Not sure if this style of lookup is more performant than just looking up tvshow, but this is the way I'm doing it.
 
@@ -410,11 +426,13 @@ We do this because **savedTVShows** is an Array, but **tempEpisodeState** is on 
 **Flow**
 
 - **App Startup** - **hydrateStore** will run and populate tempEpisodeState from savedTVShows.episodeState. Create a structure similar to the taggedTVShows object in oSaved.  It will be:
+  **tempEpisodeState**
+  ![2021-08-06_23-06-33](../assets/tvtracker_episodewatched-001.png)
 
   ```javascript
    { 
      [tvShowId: number]: {
-       [season-ep: string]: boolean
+       [season-episode: string]: boolean
      },
      ...
    }  
@@ -428,13 +446,20 @@ We do this because **savedTVShows** is an Array, but **tempEpisodeState** is on 
 
 ### UI for Seasons/Episode data
 
-There will be a **View Seasons** button (or some UI object) in `ViewTVShowDetails.tsx` that will navigate to `DetailSeasonsScreen.tsx`.
+There will be a **View Seasons** button (or some UI object) in `ViewTVShowDetails.tsx` that will navigate to **`DetailSeasonsScreen.tsx`**.
 
-- `ViewTVShowDetails.tsx` - The button on this screen will navigate to another screen passing the following parameters:
+- **`ViewTVShowDetails.tsx`** - The button on this screen will navigate to another screen passing the following parameters:
+  
   - **tvShowId** 
   - **seasonNumbers** - an array of season numbers
   - **logo** - { showName: string, logURL: string } - Right now a show name, but maybe in the future an image URL
-- `DetailSeasonsScreen` - 
-- `DetailSeasons.tsx` - 
-- `DetailSeasonEpisode.tsx` - 
+  
+- **`DetailSeasonsScreen`** - Will query the data from tmdb_api (**actions.oSaved.getTVShowSeasonData**) and store in tempSeasonsData unless that data already exists, then it will just use what is in tempSeasonsData already.
+
+- **`DetailSeasons.tsx`** - Called from DeatilSeasonsScreen with the **tvShowId** and the seasons object.  This is the component that loads the episodes. 
+
+  It calls **state.oSaved.getTVShowEpisodes**, which return an episodes array.
+
+- **`DetailSeasonEpisode.tsx`** - Is called from **DetailSeasons** with the tvShowId and the episode object for each season/episode combo.
+  To determine the "state" (watched or not), it calls **state.oSaved.getTVShowEpisodeState**
 
