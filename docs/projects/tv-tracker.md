@@ -388,14 +388,16 @@ The Seasons screen route is name, `DetailSeasons` and it points to `DetailSeason
 It is accessed from `ViewTVShowDetials.tsx` passing the following parms:
 
 ```jsx
-navigation.navigate("DetailSeasons", {
+// The route name to navigate to will be dynamic an resolve to
+// either "DetailSeasons" or "DetailsFromSearchSeasons"
+navigation.navigate(`${route.name}Seasons`, {
   tvShowId: tvShow.id,
   seasonNumbers: tvShow?.seasons.map((show) => show.seasonNumber),
   logo: { showName: tvShow.name },
 });
 ```
 
-![image-20210808001714593](/Users/markmccoid/Documents/Programming/myCodeDocs/docs/assets/tvtracker_seasons_episodes-001.png)
+![image-20210812233011351](../assets/seasons_route_flow_001.png)
 
 ## Episode State
 
