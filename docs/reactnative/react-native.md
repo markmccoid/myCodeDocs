@@ -132,6 +132,80 @@ const styles = StyleSheet.create({
 })
 ```
 
+# SectionList component
+
+The SectionList component is similar to a FlatList or ScrollView, but has the effect of keeping the Section Headers visible while scrolling through each Sections data.
+
+One of the Props that it needs is **sections**, this is the main data structure.
+
+It is in the format of: 
+
+```javascript
+[
+  {
+    title: { whatever you need }
+    data: ArrayofData[]
+  },
+ ...
+]
+```
+
+The **keyExtractor** prop is the same as the FlatList and requires a string to be returned.
+
+There are two props that render the data.  The **renderSectionHeader** renders the headers and teh  **renderItem** renders the items from the data array associated with each "title".
+
+These two props take functions that return the JSX to render.
+
+**Example data**
+
+```javascript
+sectionData = [
+  {
+    title: { seasonName: 'season 1', seasonNumber: 1 },
+    data: [{ episodeNumber: 1, episodeName: 'num 1'}, { episodeNumber: 2, episodeName: 'ep 2'}]
+  }, 
+  {
+    title: { seasonName: 'season 2', seasonNumber: 2 },
+    data: [{ episodeNumber: 1, episodeName: 'num 1'}, { episodeNumber: 2, episodeName: 'ep 2'}]
+  },
+]
+```
+
+
+
+**renderSectionHeader**  - `({section}) => {}` The destructered section contains ONE object out of the list of *sections*.  So *section* will destructure to `ttle and data` for ONE object in the sectionData array.
+
+**renderItem** - `({item, index, section, separators}) => {}` This function is rendering each item under a specific section.
+*section* contains the title object for ONE of the objects in the list of sections.
+*item* contains  ONE of the data objects in the *data* key for the given section.
+
+
+**TypeScript definitions**
+
+```typescript
+/**
+  * Default renderer for every item in every section. Can be over-ridden on a per-section basis.
+*/
+renderItem?: SectionListRenderItem<ItemT, SectionT>;
+
+/**
+  * Rendered at the top of each section. Sticky headers are not yet supported.
+*/
+renderSectionHeader?: (info: { section: SectionListData<ItemT, SectionT> }) => React.ReactElement | null;
+
+/**
+  * Rendered at the bottom of each section.
+*/
+renderSectionFooter?: (info: { section: SectionListData<ItemT, SectionT> }) => React.ReactElement | null;
+
+/**
+  * An array of objects with data for each section.
+*/
+sections: ReadonlyArray<SectionListData<ItemT, SectionT>>;
+```
+
+
+
 # Text Input
 
 You can use the React Native *TextInput* control. [TextInput Docs](https://facebook.github.io/react-native/docs/textinput)
