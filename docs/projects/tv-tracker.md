@@ -255,35 +255,62 @@ The **index** property on each savedFilter object is needed for the drag and dro
 
 By doing this, we do not need to sort everytime another component needs to access the saved filters in their sorted order.
 
-## Sorting Movies
+## Sorting TV Shows
 
 There are predefined options for a user to choose to sort their tv shows by.
 
-Currently these options consist of:
+Currently these options consist of the following fields from **`oSaved.savedTVShows`**:
 
-- **User Rating** - **oState.savedMovies.userRating**
-- **Movie Title** - **oState.savedMovies.title**
-- **Movie Release Date** - **oState.savedMovies.releaseDate.epoch**
-- **Saved Date** - **oState.savedMovies.savedDate** // Date tv show was added to users list
+- **userRating**
+- **name**
+- **lastAirDate**
+- **nextAirDate**
+- **episodeRunTimeGroup**
+- **dateSaved**
 
-The data structure for each sort object is:
+The data for the sort objects are stored in the `defaultConstants.ts` file.
 
-```javascript
-{
-  active: boolean, // Should it be used in sort
-	id: "saveddate",
-	index: 3,
-	sortDirection: "desc" | "asc",
-	sortField: "savedDate", //MUST be the same variable name as the field on the tv show object state
-	title: "Saved Date"
-	type: "date" | "num" | "str"
-}
-```
+The data is broken up into two objects
+
+- ***sortDefinitions*** -	
+
+  ```javascript
+  [
+    {
+      sortField: "userRating",
+      subSortField?: "optional"
+      title: "User Rating",
+      type: "num" | "date" | "alpha",
+    },
+    ...
+  ]
+  ```
+
+- ***defaultSort*** - 
+
+  ```javascript
+  [
+    {
+      id: 0,
+      sortDirection: "desc",
+      active: true,
+      index: 0,
+    },
+  ]
+  ```
+
+The defaultSort object is what is saved and updated.  It's **id** property is used to link it to the **sortDefinitions**.
+
+In the code, `SectionSort.js`, which displays the sort settings, it will read the "defaultSort" from state.oSaved and then get the other information like title, type, etc from the sortDefinitions from the `defaultConstants` file.
+
+The **subSortField** is optional and only used if a sort field lies inside of an object.  Currently, it is used for Date object like nextAirDate, where the "sort" information is in `nextAirDate.epoch`.
 
 Currently in Overmind there are two places where this sort data is stored.
 
 - **oState.settings.defaultSort** - contains objects for each sort option
 - **oState.currentSort** - duplicate of defaultSort
+
+> FROM HERE
 
 Why in two places?  My thought was that the default sort would be saved to the database and would be updated via settings.  Everytime you logged in, this would be the defaultSort.
 
@@ -298,6 +325,51 @@ The flow when loading data from Firestore/AsyncStorage is to load to **settings.
 Currently the only time the sorting is used is in the main tv shows screen.  The function is found in **store/oSaved/state.js** and is called **getFilteredMovies**.  This getter not only sorts, but also filters based on any **tags**, **genres**, or **title** filters that the user has set.
 
 The sort itself is performed using the lodash **orderBy** function.  This is why it is so important that the **sortField** in each sort object matches the same name in the **savedMovies** object that is being search.
+
+There is also some special magic that we are using to deal with the Date type sorts that have a sub field (Epoch) that needs to be sorted by.
+
+```javascript
+const { sortFields, sortDirections } = fullCurrentSort
+      .filter((sort) => sort.active)
+      .reduce(
+        (finalObj, sort) => {
+          let sortIteratee;
+          if (sort?.subSortField) {
+            sortIteratee = (item) => {
+              const sortThing = item?.[sort.sortField]?.[sort.subSortField];
+              return sortThing ? sortThing : "";
+            };
+          } else {
+            sortIteratee = (item) => {
+              return item[sort.sortField];
+            };
+          }
+          if (sort.active) {
+            finalObj.sortFields = [...finalObj.sortFields, sortIteratee];
+            // finalObj.sortFields = [...finalObj.sortFields, sort.sortField];
+            finalObj.sortDirections = [...finalObj.sortDirections, sort.sortDirection];
+          }
+          return finalObj;
+        },
+        { sortFields: [], sortDirections: [] }
+      );
+    //Determine if any filter criteria is set, if not do not call filterMovies helper.
+    if (
+      state.filterData?.tags.length > 0 ||
+      state.filterData?.excludeTags.length > 0 ||
+      state.filterData?.genres.length > 0 ||
+      state.filterData?.searchFilter
+    ) {
+      tvShowList = helpers.filterTVShows(state.savedTVShows, state.filterData);
+    }
+    // console.log("sortFields", sortFields);
+    tvShowList = _.orderBy(tvShowList, sortFields, sortDirections);
+
+    // return direction === "asc" ? tvShowList : tvShowList.reverse();
+    return tvShowList;
+```
+
+
 
 ## Search / Discover Movies
 
