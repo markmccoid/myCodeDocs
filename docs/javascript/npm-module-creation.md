@@ -1,5 +1,5 @@
 ---
-id: npm-module-creation
+npmid: npm-module-creation
 title: npm Module Creation
 sidebar_label: npm Module Creation
 ---

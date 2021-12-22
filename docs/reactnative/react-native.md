@@ -4,7 +4,7 @@ title: React Native
 sidebar_label: React Native
 ---
 
-# Creating Initial Application
+## Creating Initial Application
 
 You have two options for creating new application one is the **expo-cli**, the other is the **react-native-cli**.  We will be using the **expo-cli** as it includes a lot of stuff that you are going to need like icons, access to phone assets like the camera, etc.
 
@@ -35,11 +35,11 @@ $ expo client:install:android
 
 If you built a standalone app previously, [remember](https://docs.expo.io/versions/latest/workflow/publishing/#limitations) that you'll need to create a new build in order to update the SDK version. Run `expo build:ios` and/or `expo build:android` when you are ready to do a new build for submission to stores.
 
-# Expo
+## Expo
 
 [sdk 39 Changes](https://dev.to/expo/expo-sdk-39-is-now-available-1lm8)
 
-## Selecting devices
+### Selecting devices
 
 You can now pick which device or simulator to run your app on.
 
@@ -49,7 +49,7 @@ After running `expo start`, press:
 
 - **shift+a** to select a connected Android device or emulator. You can also run your project on multiple Android devices at the same time.
 
-## Publishing an iOS app
+### Publishing an iOS app
 
 [Building Standalone Apps](https://docs.expo.io/distribution/building-standalone-apps/)
 
@@ -86,9 +86,11 @@ Follow these steps:
 
 7. **Upload** - you will then upload this file to Apple using the Transporter app.
 
+### Adding App To the App Store
 
 
-# Using and Displaying Icons
+
+## Using and Displaying Icons
 
 The expo-cli sets up a huge set of icons for us to use.  You will find the details here: [github.com/expo/vector-icons](github.com/expo/vector-icons).
 
@@ -132,7 +134,7 @@ const styles = StyleSheet.create({
 })
 ```
 
-# SectionList component
+## SectionList component
 
 The SectionList component is similar to a FlatList or ScrollView, but has the effect of keeping the Section Headers visible while scrolling through each Sections data.
 
@@ -179,7 +181,6 @@ sectionData = [
 *section* contains the title object for ONE of the objects in the list of sections.
 *item* contains  ONE of the data objects in the *data* key for the given section.
 
-
 **TypeScript definitions**
 
 ```typescript
@@ -206,7 +207,7 @@ sections: ReadonlyArray<SectionListData<ItemT, SectionT>>;
 
 
 
-# Text Input
+## Text Input
 
 You can use the React Native *TextInput* control. [TextInput Docs](https://facebook.github.io/react-native/docs/textinput)
 
@@ -240,7 +241,7 @@ Some other useful settings on TextInput:
 
 
 
-## TextInput returnKeyType Changes Focus
+### TextInput returnKeyType Changes Focus
 
 This is not automatic.  It seems like if. you set the **returnKeyType** to the *next* option, React Native will automatically know what you want it to do.  Not the case!  It can't read your mind yet!
 
@@ -278,7 +279,7 @@ const MyFormComponent = () => {
 }
 ```
 
-## Keyboard Avoiding View + Keyboard.dismiss()
+### Keyboard Avoiding View + Keyboard.dismiss()
 
 Even though the keyboard is needed, it's also a pain in the ass when it covers up your inputs.  Also, it would be nice to be able to dismiss the keyboard as it could be hiding an important button!
 
@@ -313,7 +314,7 @@ const SomeComponent = (props) => {
 
 
 
-# Text Component
+## Text Component
 
 Prety straight forward, but did find that to limit the number of lines, you pass the prop *numberOfLines*.
 
@@ -329,7 +330,7 @@ This will give you ellipes if the text is longer than 1 line.  Also note there i
 
 
 
-# FlatList Component
+## FlatList Component
 
 Used to render a list of items.  There are three main props:
 
@@ -358,7 +359,7 @@ Some useful props for the FlatList
 - **onContentSizeChange** - prop accepts a function that will be called when the content size changes.  Not really sure when it is called, but will be called whenever you change the data being sent to the FlatList that causes a rerender.
 - **onScroll** - This prop accepts a function that will be called whenever an onScroll Event occurs.  You can throttle this using the **scrollEventThrottle** property.  Since scrolling will produce a lot of events, be aware of this.
 
-## Styling a FlatList
+### Styling a FlatList
 
 Usually a FlatList will show one render item per column.  This leaves all the styling to the component used in the **renderItem** prop.  However, if you want to have multiple items on a column, you would set the **numColumns** prop to something greater than one.  
 
@@ -381,7 +382,7 @@ For example, you could center each render item using:
 
 
 
-## Scroll To Top
+### Scroll To Top
 
 When reloading a flatlist with data, such as when repopulating after a search, it will stay in the same position unless you tell it to go back to the top.  
 
@@ -411,7 +412,7 @@ function MyComponent() {
 }
 ```
 
-## What is getItemLayout
+### What is getItemLayout
 
 Since the FlatList is rendered parts at a time, you can't use functions like **scrollToIndex** by themselves.  You will need to create a **getItemLayout** function and pass it as a prop of the same name to your FlatList.
 
@@ -431,7 +432,7 @@ I believe the getItemLayout function is called when scrolling and you are using 
 
 This gets tought if the height of the items in the flatlist are variable heights.
 
-## scrollToIndex - scrollToTop - etc.
+### scrollToIndex - scrollToTop - etc.
 
 To effectively use these functions you will need to assign a ref to use in a function (useEffect or otherwise).
 
@@ -522,7 +523,7 @@ const ViewMoviesScreen = ({ navigation, route }) => {
 
 ```
 
-## Changing numColumns on the Fly
+### Changing numColumns on the Fly
 
 If you have a 2 column FlatList, defined by using the **numColumns** prop and you want to dynamically change it to 1 column, you will get an error saying you need to change the key prop. 
 
@@ -564,11 +565,11 @@ Here is an example:
 
  
 
-# Common Modules
+## Common Modules
 
 [React Native Hooks](https://github.com/react-native-community/hooks) - Great module for accessing common things like dimensions, photo roll, etc.
 
-## Getting Dimensions
+### Getting Dimensions
 
 ```javascript
 ...
@@ -601,7 +602,7 @@ const dimensions = useDimensions();
 }
 ```
 
-## Measuring the Layout
+### Measuring the Layout
 
 I don't have a good handle on how this works and there is very little onilne about it.
 
@@ -622,7 +623,7 @@ itemToMeasureRef.measureLayout(parentRef, (x,y,width,height) => {
 
 
 
-# Images
+## Images
 
 **Display an image from a URL**
 
@@ -648,9 +649,9 @@ itemToMeasureRef.measureLayout(parentRef, (x,y,width,height) => {
 
 
 
-# Styling
+## Styling
 
-## iOS Dark Mode Issues
+### iOS Dark Mode Issues
 
 Dark mode can cause issues.
 
@@ -665,13 +666,13 @@ One way around is to modify the `info.plist` file to include the following:
 
 
 
-## Styled Components
+### Styled Components
 
 You can use **styled-components** with React Native.
 
 
 
-## StyleSheet
+### StyleSheet
 
 This is the traditional way to style your app.
 
@@ -696,7 +697,7 @@ const styles = StyleSheet.create({
 })
 ```
 
-# Animation
+## Animation
 
 React Native has the `Animated` library that is specifically designed to help you animate stuff.
 
@@ -710,7 +711,7 @@ See more detail in the [react-native-animation doc](./react-native-animation)
 
 ## Deep Linking
 
-I believe deep linking refers to being able to access specific pages / locations within your app via a *deep link* usually in the format of **appname:///**
+Deep linking refers to being able to access specific pages / locations / routes within your app via a *deep link* usually in the format of **appname:///**
 
 However, the other use is opening up a third party app from within your app.  For example, opening up the IMDB application to a specific movie or tv show page.  This is done with the **Linking** module from react native.
 
@@ -727,6 +728,121 @@ Linking.openURL(`imdb:///title/${movie.imdbId}`)
   }
 )
 ```
+
+### Open up Local Route with Deep Link
+
+A common scenario would be to schedule a notification that when clicked would link to a page/route within your application.
+
+To be able to open a local route with deep linking is handled very well by React Navigation.  This is the only way that I have used deep linking within my app.
+
+Wherever you are definining your root **NavigationContainer**, you will pass a linking object to the linking parameter.  This object will contain the routes. 
+
+> If you are testing in Expo, you can create an additional prefix, along with the one for your app, so that when testing, expo will accept the link.  
+> `const prefix = Linking.createURL("/");`
+
+I have found that if I am linking from a notification or anywhere else, it is best to customize how your app handles the incoming links.
+
+[Handling links into your app](https://docs.expo.dev/guides/linking/#handling-links-into-your-app)
+There are two ways to handle URLs that open your app.
+
+1. If the app is already open, the app is foregrounded and a Linking event is fired
+You can handle these events with Linking.addEventListener('url', callback).
+2. If the app is not already open, it is opened and the url is passed in as the initialURL
+You can handle these events with Linking.getInitialURL -- it returns a Promise that resolves to the url, if there is one.
+
+One big "gotcha" that I have found is that if you have an authorization layer, your deep link will get "swallowed" and all that will happen is that the application will start.
+
+To deal with this, you can see in the custom `getINitialURL()`, I am storing the link in my global store.  I will always check this when navigating to the route in question.  I got this idea from [Deep Linking with Authentication](https://cur.at/OmmSOS?m=email&sid=NkshjkX).  It has a much better approach.
+
+Here is a sample linking object:
+
+```javascript
+const prefix = Linking.createURL("/");
+
+const App = () => {
+  const linking = {
+    prefixes: [prefix, "tvtracker://"],
+    config: {
+      screens: {
+        AppNav: {
+          screens: {
+            Home: {
+              screens: {
+                // Search: "search/:title",
+                SearchStack: {
+                  screens: {
+                    Search: {
+                      path: "search/:name",
+                      parse: {
+                        //right now just dealing with spaces in names
+                        name: (name) => name.replace(/%20/g, " "),
+                      },
+                    },
+                  },
+                },
+                Tags: "tags",
+                ViewTVShowsTab: {
+                  screens: {
+                    DetailsModal: {
+                      screens: {
+                        Details: {
+                          path: "details/:tvShowId",
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    async getInitialURL() {
+      // First, you may want to do the default deep link handling
+      // Check if app was opened from a deep link
+      let url = await Linking.getInitialURL();
+      if (url != null) {
+        return url;
+      }
+
+      // Handle URL from expo push notifications
+      const response = await Notifications.getLastNotificationResponseAsync();
+      url = response?.notification.request.content.data.url;
+      // Store the url in overmind.  Will check it in AppNav
+      overmind.actions.oAdmin.setDeepLink(url);
+      return url;
+    },
+    subscribe(listener) {
+      const onReceiveURL = ({ url }) => listener(url);
+
+      // Listen to incoming links from deep linking
+      Linking.addEventListener("url", onReceiveURL);
+
+      // Listen to expo push notifications
+      const subscription = Notifications.addNotificationResponseReceivedListener(
+        (response) => {
+          const url = response.notification.request.content.data.url;
+          // Any custom logic to see whether the URL needs to be handled
+          //...
+
+          overmind.actions.oAdmin.setDeepLink(url);
+          Linking.openURL(url);
+          // Let React Navigation handle the URL
+          listener(url);
+        }
+      );
+
+      return () => {
+        // Clean up the event listeners
+        Linking.removeEventListener("url", onReceiveURL);
+        subscription.remove();
+      };
+    },
+  };
+```
+
+
 
 ## Finite State Machines
 

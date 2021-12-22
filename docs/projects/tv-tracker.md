@@ -316,9 +316,55 @@ Why in two places?  My thought was that the default sort would be saved to the d
 
 But what if a user wanted to do a quick sort change?  I thought that if **currentSort** was where the application always looked to when sorting, then you could have both options of a default sort and an on the fly sort.
 
-Currently in **getFilteredMovies**, it is using the **oState.currentSort** to sort the tv shows.  I haven't implemented an on the fly sort yet, but hopefully this will future proof this part.
+Currently in **getFilteredTVShows**, it is using the **oState.currentSort** to sort the tv shows.  I haven't implemented an on the fly sort yet, but hopefully this will future proof this part.
 
-The flow when loading data from Firestore/AsyncStorage is to load to **settings.defaultSort** and then copy that to **currentSort**.
+The flow when loading data from AsyncStorage *actions.oSaved.hydrateStore* is to load to **settings.defaultSort** and then copy that to **currentSort**.
+
+The **currentSort/defaultSort** have the following type:
+
+```typescript
+type SortObjectItem = {
+  id: number;
+  active: boolean;
+  index: number;
+  sortDirection: "asc" | "desc";
+};
+
+// Saved filter type where this will be appended
+export type SavedFilters = {
+  id: string;
+  name: string;
+  // Position of filter in scrollview
+  index: number;
+  excludeTagOperator: Operators;
+  excludeTags: string[];
+  genreOperator: Operators;
+  genres: string[];
+  showInDrawer: boolean;
+  tagOperator: Operators;
+  tags: string[];
+  sort?: defaultConstants.SortObjectItem[];
+};
+```
+
+### Sorts in Saved Filters
+
+> NEXT STEPS
+>
+> - DONE - Sorts are being saved with every NEW or EDITED filter.  Not ideal.  Want to be able to turn on/off the filter sort.  But will fully implement first saving, reloading and applying.  Then will work on button/switch.  When switch is off, then NO sort will be stored with saved filter.
+> - DONE- Needs testing --- Need to implement copying saved filter sort (if it exists, make sure to take into account undefined sort property) to currentSort. This is done in **actionsSavedFilters.js** the function is `applySavedFilter`
+> - FIXED - BUG - Favoriting on the Main SavedFilter screen is NOT getting saved to storage???
+
+I want to be able to store a user defined sort with each saved filter.  If the user doesn't add a sort object, then the default sort will be used. 
+
+Given the the default sort will already be in the currentSort object, however, if there no sort object with the saved filter, we will still have to copy over the default sort info, since the current sort may actually be from a Saved Filter.
+
+The only thing that needs to be updated in the applying of the saved filter is that we will need to update the currentSort with either the 
+
+- Saved Sort on the Filter - copy the sort object on the savedFilter to the currentSort
+- Default Sort - if no filter is found on the saved filter then revert to the default sort
+
+> Probably would be nice to have a menu option that reset the sort to the default sort.
 
 ### Where Sort Happens
 
@@ -371,9 +417,9 @@ const { sortFields, sortDirections } = fullCurrentSort
 
 
 
-## Search / Discover Movies
+## Search / Discover TV Shows
 
-The "Add Movie" tab option lets you search for tv shows that you want to add to your Movie Library.
+The "Add TV Show" tab option lets you search for tv shows that you want to add to your Movie Library.
 
 The components are located in `components\search`.  Components starting with **Discover** are the ones letting you enter criteria that will be sent to the TMDB API to get back tv shows that meet your criteria.
 
@@ -382,8 +428,6 @@ There are three types of "queries" that will be available from the DiscoverBotto
 - **Title Search** - Simply a search for the entered text
 - **Predefined Search** - the API has some predefined searches.  
   - **Popular** - Initial search done
-  - Now Playing - Too similar to Popular, need to maybe create a few predefined queries or just get rid of this and **upcoming**
-  - Upcoming
 - **Advanced Search** - allows the user to enter multiple search criteria.
   - **Genres** - Movie Genres.  Multiple can be selected.  ANDed together for search
   - **Release Year** - The year the movie was released
@@ -477,7 +521,7 @@ Episode state is persisted via Async Storage in **oSaved.savedTVShows** .
 
 **oSaved.tempEpisodeState** will be used to *inform* the UI of the Episode State.  This is created during Hydration, based on what was stored in **oSaved.savedTVShows.episodeState**.
 
-We do this because **savedTVShows** is an Array, but **tempEpisodeState** is on object the tvShowId as the key.  Not sure if this style of lookup is more performant than just looking up tvshow, but this is the way I'm doing it.
+We do this because **savedTVShows** is an Array, but **tempEpisodeState** is an object with the tvShowId as the key.  Not sure if this style of lookup is more performant than just looking up tvshow, but this is the way I'm doing it.
 
 **tempEpisodeState** is accessed in 
 
@@ -536,4 +580,90 @@ There will be a **View Seasons** button (or some UI object) in `ViewTVShowDetail
 
 - **`DetailSeasonEpisode.tsx`** - Is called from **DetailSeasons** with the tvShowId and the episode object for each season/episode combo.
   To determine the "state" (watched or not), it calls **state.oSaved.getTVShowEpisodeState**
+
+### Episode Download State 
+
+The ability to set the download state will be an **OPTIONAL** setting in settings.
+
+In `SeasonScreen.tsx` in the **formatForSectionList** function, we will pass it the `isDownloadStateEnabled` flag.
+
+This field will be passed on the **title** object in the *sectionArray*.
+
+Then in `SeasonSectionListItems.tsx` in **sectionData** we will pass teh `isDownloadStateEnabled` flag as a prop to the **EpisodeRow** component.
+
+We will use this data to enable the ability to mark an episode as being downloaded.
+
+**New State on savedTVShows and tempDownloadState**
+
+`savedTVShows.downloadState` will mirror `episodeState`.  
+
+Either will duplicate functions/getters or add second param to tell it to operate on DL state.  May make more sense to keep separate functions.
+
+**Files DownloadState is Accessed from**
+
+- **SeasonScreen.tsx** - Used in the scrolling season buttons that appear at the top of the screen.
+- **SeasonSectionListItems.tsx** - Just like for episodeState, we get the downloadState in the `EpisodeRow` component.  We then pass this data on to the **DetailSeasonEpisode.tsx** component
+- **DetailSeasonEpisode.tsx** - This is the component for each episode row in the seasons list.  Here we are using the Episode Number and changing it to a Pressable when show is a saved show.  When user presses it toggles the download state for that episode and does some interface styling to indicate if show has been marked as downloaded.
+
+**State and Actions**
+
+- **isDownloadStateEnabledFlag** - state.oSaved.settings.isDownloadStateEnabled
+- **toggleIsDownloadStateEnabled** - actions.oSaved.toggleIsDownloadStateEnabled - This will toggle this flag on/off.
+
+
+
+**TURN ON/OFF in Settings!**
+
+
+
+## Notifications
+
+Notifications are simple local notifications that are scheduled when a new episode is released.
+
+### Permissions
+
+I found that you can only ask for permissions ONCE in iOS.  If the user declines, you cannot ask again.  They must go into settings to change the notifications permissions.
+
+I created a function called `askNotificationPermissions` in `getPermissions.js`.  This function is called in the `onInitialize` function when Overmind is initialized.
+
+The function returns a boolean letting us know if we have permissions or not.  The only thing I think this is useful for is if you want to prompt them to change permissions if they ever disallow permissions.
+
+I don't ever check this flag when sending permissions as I believe iOS will block any of my scheduled items.  Need to test this somemore.
+
+### TO DO Maybe
+
+Ideally I should store this permission status in the oAdmin store and only ever call the permission function if this store value is undefined.
+
+### Scheduling Notifications
+
+The notification is setup in the `oSaved.actions.refreshTVShow` function.
+
+It is only scheduled when a new episode is detected.  Only shows that are being refreshed (see [Updating shows](#updating)) will have the next air date checked.  If it does look like a new episode, then a notification is scheduled.
+
+Currently it is scheduled for 9am on the day of the new episode.
+
+```javascript
+//* -- Refresh being called automatically because something in createUpdateList() function
+if (isAutoUpdate) {
+  const currNextAirDate = state.oSaved.getTVShowDetails(tvShowId).nextAirDate?.epoch;
+  const newNextAirDate = latesTVShowDetails.nextEpisodeToAir?.airDate?.epoch;
+  // We should only see this condition once when the next air date changes.
+  if (newNextAirDate > currNextAirDate) {
+    const showName = state.oSaved.getTVShowDetails(tvShowId).name;
+    const nextAirDateFormatted = latesTVShowDetails.nextEpisodeToAir?.airDate?.formatted;
+    const notificationData = {
+      title: `${showName} New Episode`,
+      body: `New Episode of ${showName} on ${nextAirDateFormatted}`,
+      triggerDate: new Date(newNextAirDate * 1000),
+  };
+    scheduleLocalNotification(
+      notificationData.title,
+      notificationData.body,
+      tvShowId,
+      notificationData.triggerDate,
+      9
+    );
+  }
+}
+```
 
