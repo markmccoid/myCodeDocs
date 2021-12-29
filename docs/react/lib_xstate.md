@@ -31,6 +31,55 @@ export const Timer = () => {
 }
 ```
 
+## Guards
+
+Guards allow you to set conditions for when an **event's** body should be enacted.
+
+
+
+### [Custom Guards](https://xstate.js.org/docs/guides/guards.html#custom-guards)
+
+Custom guards are interesting, in that you can send data to the via object keys on the condition:
+
+```javascript
+const searchMachine = createMachine(
+  {
+    // ...
+    states: {
+      idle: {
+        on: {
+          SEARCH: {
+            target: 'searching',
+            // Custom guard object
+            cond: {
+              type: 'searchValid',
+              minQueryLength: 3 //** Here is the extra data
+            }
+          }
+        }
+      }
+      // ...
+    }
+  },
+  {
+    guards: {
+      //** The extra data is coming in because the cond object is passed via the "guardMeta" object.
+      // guardMeta: { cond: original cond object, state: current machine state BEFORE transition }
+      searchValid: (context, event, { cond }) => {
+        // cond === { type: 'searchValid', minQueryLength: 3 }
+        return (
+          context.canSearch &&
+          event.query &&
+          event.query.length > cond.minQueryLength 
+        );
+      }
+    }
+  }
+);
+```
+
+
+
 ## Targetless Events/ Action only states
 
 If you have a state in a machine where you don't want to leave the state, but you want an action to happen when an event is sent, just leave the target as null.
