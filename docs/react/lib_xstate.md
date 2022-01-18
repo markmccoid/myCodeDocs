@@ -31,6 +31,111 @@ export const Timer = () => {
 }
 ```
 
+## Context To Share Machine
+
+[Global State with Context](https://stately.ai/blog/how-to-manage-global-state-with-xstate-and-react)
+
+First we need to create the Context.  Usually best done from a separate file:
+
+```jsx
+import React, { createContext } from 'react';
+import { useInterpret, useMachine } from '@xstate/react';
+import globalStateMachine from './machines/globalstatemachine';
+import { ActorRefFrom, State } from 'xstate';
+
+// interface GlobalStateContextType {
+//   stateService: ActorRefFrom<typeof globalStateMachine>;
+// }
+
+export const GlobalStateContext = createContext();
+
+export const GlobalStateProvider = (props) => {
+  // const [stateService, send] = useMachine(globalStateMachine);
+  const stateService = useInterpret(globalStateMachine);
+  console.log('usemachine', stateService);
+  // console.log("STATE SERVICE", stateService, globalStateMachine);
+  return (
+    <GlobalStateContext.Provider value={{ stateService }}>
+      {props.children}
+    </GlobalStateContext.Provider>
+  );
+};
+
+export const useGlobalState = () => {
+  return React.useContext(GlobalStateContext);
+};
+
+```
+
+To use the context and get access to the global state machine, you can use the following:
+
+> Note: to get access to the `send` function, you can use: `globalServices.authService.send`
+
+```javascript
+import React, { useContext } from "react";
+import { GlobalStateContext } from "./globalState";
+import { useActor } from "@xstate/react";
+
+export const SomeComponent = (props) => {
+  const globalServices = useContext(GlobalStateContext);
+  const [state] = useActor(globalServices.authService);
+
+  return state.matches("loggedIn") ? "Logged In" : "Logged Out";
+};
+```
+
+### [useSelector](https://xstate.js.org/docs/packages/xstate-react/#useselector-actor-selector-compare-getsnapshot)
+
+If you only need a single piece of the state, you can use the `useSelector` hook from XState for this:
+
+```jsx
+import React, { useContext } from "react";
+import { GlobalStateContext } from "./globalState";
+import { useSelector } from "@xstate/react";
+
+const selector = (state) => {
+  return state.matches("loggedIn");
+};
+
+export const SomeComponent = (props) => {
+  const globalServices = useContext(GlobalStateContext);
+  const isLoggedIn = useSelector(globalServices.authService, selector);
+
+  return isLoggedIn ? "Logged In" : "Logged Out";
+};
+```
+
+> NOTE: If you return an **Object** or **Array**, you will get rerenders on every event, even if the context that you are returning didn't change.  This is because objects are always "new"
+
+**Solution** is to pass the `compare` parameter and do a deep compare on it.  Easiest way is to use *lodash's* `.isEqual` function.
+
+```javascript
+import { useSelector } from '@xstate/react';
+import { isEqual } from 'lodash';
+
+const getConfigData = (state) => {
+  return {
+    breathReps: state.context.breathReps,
+    holdTime: state.context.holdTime,
+    breathRounds: state.context.breathRounds,
+  };
+};
+
+const objCompare = (prevObj, nextObj) => isEqual(prevObj, nextObj);
+
+const Component = () => {  
+...
+const { breathReps, holdTime, breathRounds } = useSelector(
+    breathStateServices.breathStateService,
+    getConfigData,
+    objCompare
+  );
+...
+}
+```
+
+
+
 ## Guards
 
 Guards allow you to set conditions for when an **event's** body should be enacted.
@@ -239,3 +344,4 @@ export const Timer = () => {
 }
 ```
 
+ 
