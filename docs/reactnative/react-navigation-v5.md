@@ -1,10 +1,10 @@
 ---
 id: react-navigation-v5
-title: React Navigation V5
-sidebar_label: React Navigation V5
+title: React Navigation V5-V6
+sidebar_label: React Navigation V5-V6
 ---
 
-Version 5 of React Navigation breaks out each navigation component into different packages that you will import.  For most navigation scenarios, I use the following:
+Version 5/6 of React Navigation breaks out each navigation component into different packages that you will import.  For most navigation scenarios, I use the following:
 
 ```bash
 $ yarn add @react-navigation/native @react-navigation/stack @react-navigation/bottom-tabs @react-navigation/drawer 
@@ -945,5 +945,59 @@ import { useIsDrawerOpen } from '@react-navigation/drawer';
 // ...
 
 const isDrawerOpen = useIsDrawerOpen();
+```
+
+## TypeScript
+
+[Official Docs](https://reactnavigation.org/docs/typescript/#type-checking-the-navigator)
+
+The pattern to typing React Navigation is to create a type for a Stack ending with "...ParamList".  This will type will define the Screen names in the stack and any params if they exist.
+
+```typescript
+export type RootStackParamList = {
+  root: undefined;
+  Test: undefined;
+  loadingIndicator: undefined;
+};
+...
+// The above will be used when creating the stack navigator:
+const Stack = createStackNavigator<RootStackParamList>();
+```
+
+That is step 1.  For every "...ParamList" there needs to be a "...NavProps" type.  This type will be used to type the Screens Props.
+
+In EXAMPLE 1, we are creating our own props list for the navigation and route props, using the `stackNavigationProp` and `RouteProp` helpers from React Navigation.
+
+in EXAMPLE 2, we are using the `StackScreenProps` helper to build our props type.
+
+Note how both use the ...ParamsList to inform the props of the available routes and the params on each route.
+
+```typescript
+import { RouteProp } from "@react-navigation/native";
+import { StackScreenProps, StackNavigationProp } from "@react-navigation/stack";
+import { DrawerScreenProps, DrawerNavigationProp } from "@react-navigation/drawer";
+
+// Screen is the Generic that RootNavProps expects to be passed.
+// It expects it to be one of the items in the associated ParamList for
+// the stack.
+// EXAMPLE 1
+export type RootNavProps<Screen extends keyof RootStackParamList> = {
+  navigation: StackNavigationProp<RootStackParamList, Screen>;
+  route: RouteProp<RootStackParamList, Screen>;
+};
+// The line below does the SAME thing as above, but uses the "StackScreenProps" helper 
+// from react navigation.
+// EXAMPLE 2
+export type MainStackProps<Screen extends keyof MainStackParamList> = StackScreenProps<
+  MainStackParamList,
+  Screen
+>;
+...
+// The Screen Component
+// The RootNavProps will type the navigation and route props based
+// on the generic "root", i.e. the screen that this component is based on.
+const RootScreen = ({ navigation, route }: RootNavProps<"root">) => {
+  ...
+}
 ```
 
