@@ -64,7 +64,7 @@ Usualy when setting the sessions settings, you will want to do this, so if not p
 >
 > { inhaleTime: 1700, **breathRoundsDetail: { 1: { holdTime: 10000 }, ...}** }
 
-### Alerts
+## Alerts
 
 Alerts are configurable items that allow the user to tell the session to "alert" the user of an event.  In the  case of this application we have a predetermined set of **Alert Events** that are configurable.
 
@@ -140,7 +140,7 @@ type AlertSettings = {
 };
 ```
 
-#### Alert Object and Hooks
+### Alert Object and Hooks
 
 The object that holds the alert information is as follows. 
 
@@ -201,7 +201,7 @@ const recoveryAlert = useRecoveryAlert();
 
 
 
-#### TO DO
+### TO DO
 
 Need to determine what good defaults should be, maybe NONE!  If not set up, then most get no defaults.  Maybe just the following:
 
@@ -222,7 +222,7 @@ How to structure text alerts to UI.  Probably need typed return values for every
 
 
 
-#### Alert Sounds
+### Alert Sounds
 
 Sound script files are located in `\utils\sounds\`. There is a `soundTypes.ts`file which has an `AlertSoundNames` , `AlertPlayableSounds` and  `AlertSounds` type.  The `AlertSoundName` type will contain all the possible alert sound names that are loaded into an object with the type of `AlertSounds`, which will be an Expo Asset type.  
 
@@ -338,3 +338,10 @@ export default function App() {
 }
 ```
 
+## Global Storage
+
+Using **Zustand** as a global store.  Currently using a package called *persist* to store data to Async storage.  
+
+I probably need to write my own, or see if persiste allows a loader to run when pulling data from storage to make sure if it is valid.
+
+OR, just make sure my CreateNewSession function doesn't let bad data through.
