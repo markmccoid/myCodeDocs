@@ -86,7 +86,7 @@ Also with the looping animation, you can't change the styles dynamically or weir
     opacity: 1,
     translateY: 0
   }}
-  translate={{
+  transition={{
     type: 'timing',
     loop: true
   }}

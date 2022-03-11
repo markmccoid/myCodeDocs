@@ -345,3 +345,7 @@ Using **Zustand** as a global store.  Currently using a package called *persist*
 I probably need to write my own, or see if persiste allows a loader to run when pulling data from storage to make sure if it is valid.
 
 OR, just make sure my CreateNewSession function doesn't let bad data through.
+
+## Create / Edit Session
+
+![image-20220307212421171](../assets/healingbreath_createeditsession_01.png)
