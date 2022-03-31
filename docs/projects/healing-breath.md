@@ -349,3 +349,66 @@ OR, just make sure my CreateNewSession function doesn't let bad data through.
 ## Create / Edit Session
 
 ![image-20220307212421171](../assets/healingbreath_createeditsession_01.png)
+
+
+
+## Theme
+
+The theming is controlled using the `themeContext.tsx` Provider and `useTheme()` exports.
+
+The `ThemeProvider` is used in the `App.tsx` file and wraps around the `RootNav` component.
+
+The context provider makes a `theme` object and `changeTheme(scheme)` function  available.
+
+Currently the only time the changeTheme function is used is in the `RootNav` component.  it has a `useEffect` hook that runs whenever React Native's `useColorScheme()` hooks changes, i.e. when the users changes their phone from light to dark mode.
+
+The Theme data also has some fields specific to React Navigation as it also has some built in support for light/dark mode.
+
+### Accessing Theme Vars
+
+To get access to the theme object in a component you can simply use
+
+```javascript
+const { theme } = useTheme()
+```
+
+But I like to define my styles at the bottom of my component.  To make this happen, outside of your component (but in same file), create a function that accepts the theme object and returns a React Native `styles` object using `StyleSheet.create({})`.
+
+Since you do not want to recreate this style object everytime the component rerenders, you can wrap the calling of the function in a useMemo.
+
+```javascript
+const MyComponent = () => {
+	...
+  const styles = React.useMemo(() => createStyles(theme), [theme]);
+}
+
+const createStyles = (theme: Theme) => {
+  const styles = StyleSheet.create({
+    addButton: {
+      position: "absolute",
+      backgroundColor: theme.colors.primaryBG,
+      bottom: 30,
+      right: 20,
+      borderWidth: 1,
+      borderColor: theme.colors.border,
+      borderRadius: 30,
+      width: 60,
+      height: 60,
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 100,
+    },
+  });
+  return styles;
+};
+```
+
+
+
+Here are how the colors map to the app items.
+
+![image-20220330222740558](../assets/healingbreath_theme_002.png)
+
+
+
+![image-20220330222843979](../assets/image-20220330222843979.png)

@@ -653,16 +653,35 @@ itemToMeasureRef.measureLayout(parentRef, (x,y,width,height) => {
 
 ### iOS Dark Mode Issues
 
-Dark mode can cause issues.
+When using `useColorScheme` hook with Expo, you will NEED to also update your app.json file to include the following:
 
-One way around is to modify the `info.plist` file to include the following:
+```json
+"userInterfaceStyle": "automatic", 
+    "ios": {
+      "userInterfaceStyle": "automatic",
+      ...
+    },
+    "android": {
+      "userInterfaceStyle": "automatic",
+      ...
+    },
 
-```xml
-<key>UIUserInterfaceStyle</key>
-<string>Light</string>
 ```
 
-[Article on Styling Dark Mode](https://medium.com/javascript-in-plain-english/react-native-dark-mode-and-theming-dc299bec206d)
+Here is an example usage:
+
+```javascript
+import { useColorScheme } from "react-native";
+
+const RootNav = () => {
+  ...
+  // scheme == 'dark' or 'light' or null
+  const scheme = useColorScheme();
+  
+}
+```
+
+
 
 
 
