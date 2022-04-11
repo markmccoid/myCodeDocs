@@ -254,11 +254,27 @@ This means, that whenever you add a new sound that is loaded.  You will need to 
 
 The `AlertSounds` type defines the object that holds all of the sounds that are loaded via a `require` statement.
 
-The `AlertPlayableSounds` type is defining the object that hold the actual playable alert sound.
+The `AlertPlayableSounds` type is defining the object that holds the actual playable alert sound.
 
-The load of the assets looks like this:
+The load of the assets happen in the `utils\sounds\soundLibrary.ts` file.  
 
-**SoundLibrary.ts**
+This file loads the resources via a require statement.  This object is exported/imported into the `useAlertSounds.ts` hook file and is used to load the sounds into a playable format.
+
+This file also defines a `soundLibrary` variable, which holds details for each sound.  The `id` key MUST be the same as the corresponding sound / key in the `alertSounds` object that has *required* all the sound files.
+
+I tried to store all this sound information in a JSON file and then read it in and do the require statements, etc, but the packager doesn't like dynamic "require" statements.  Opted for this route.
+
+### Adding a New Sound
+
+To add a new sound and make it available in the application, there are a few required steps and they happen in the `soundLibrary.ts` file.
+
+- Add the sound to the `assets/sounds/` directory.
+- Add the key/id of the sounds to the `AlertSoundNames` type in the `soundTypes.ts` file.
+- Add the sounds require statement to the `alertSounds` object in `soundLibrary.ts`
+- Add the meta data to the `soundLibrary` array, also in the `soundLibrary.ts`
+  This will be the metadata for the sound.  Make sure that the **id** matches the **key** of the sound in the alertSounds object.
+
+**soundLibrary.ts**
 
 ```typescript
 // Global variable holding the Audio.Sound object (playable sounds)
@@ -266,77 +282,43 @@ let alertPlayableSounds: AlertPlayableSounds;
 
 // Global variable holding the sounds
 export const alertSounds: AlertSounds = {
-  gong: require("../../../assets/sounds/gong01.wav"),
-  churchBell: require("../../../assets/sounds/ChurchBell001.mp3"),
-  breathInMark: require("../../../assets/sounds/BreathInMark.mp3"),
-  breathOutMark: require("../../../assets/sounds/BreathOutMark.mp3"),
-  airplaneDing: require("../../../assets/sounds/AirplaneDing.mp3"),
-  elevatorDing: require("../../../assets/sounds/ElevatorDing.mp3"),
+  bellding_001: require("../../assets/sounds/bellding_001.mp3"),
+  bellding_002: require("../../assets/sounds/bellding_002.mp3"),
+  bellding_003: require("../../assets/sounds/bellding_003.mp3"),
+  bellding_004: require("../../assets/sounds/bellding_004.mp3"),
+  ...
 };
 
-//We also need to load the above into an object for playback:
-// This is called when app is started.
-export const loadSounds = async () => {
-  // Loads all alertSounds to the global object:
-  //-- alertPlayableSounds
-  await Promise.all(
-    Object.keys(alertSounds).map((key) => {
-      const assetName = key as AssetNames;
-      alertPlayableSounds = { ...alertPlayableSounds, [assetName]: new Audio.Sound() };
-      // alertPlayableSounds[assetName] = new Audio.Sound();
-      return alertPlayableSounds[assetName].loadAsync(alertSounds[assetName]);
-    })
-  );
-};
-
-// Could call loadSounds from App.tsx, but using a hook is similar to how
-// expo loads fonts
-export const useLoadSounds = () => {
-  const [soundsLoaded, setSoundsLoaded] = React.useState(false);
-  React.useEffect(() => {
-    const effectLoadSounds = async () => {
-      await loadSounds();
-      setSoundsLoaded(true);
-    };
-    effectLoadSounds();
-  }, []);
-  return [soundsLoaded];
-};
-
-//Lastly we need a global function that can be called with an asset name
-//that will play that sound:
-// Will play the passed asset names sound
-export const playSound = async (name: AssetNames) => {
-  console.log(`plaing sound --> ${name}`);
-  try {
-    if (alertPlayableSounds[name]) {
-      await alertPlayableSounds[name].replayAsync();
-    }
-  } catch (error) {
-    console.warn(error);
-  }
-};
+// Sound library object.  
+// You pass the "id" to the play sounds function
+export const soundLibrary: SoundLibrary[] = [
+  {
+    id: "bellding_001",
+    type: "alert",
+    category: "bell",
+    displayName: "Bell 1",
+    fileName: "bellding_001.mp3",
+    length: 2,
+    volume: 1,
+  },
+  {
+    id: "bellding_002",
+    type: "alert",
+    category: "bell",
+    displayName: "Bell 2",
+    fileName: "bellding_002.mp3",
+    length: 1,
+    volume: 1,
+  },
+  ...
+ ];
 ```
 
-The above code will be accessed in the `App.tsx` component.
+**useAlertSounds Hook**
 
-```jsx
-export default function App() {
-  let [soundsLoaded] = useLoadSounds();
-  let [fontsLoaded] = useFonts({
-    FiraSans_500Medium,
-  });
-  if (!fontsLoaded || !soundsLoaded) {
-    return (
-      <AppLoading />
-    );
-  }
-  return (
-  ...
-  )
-  ...
-}
-```
+The useAlertSounds hook will "load" the sounds that the current session requires.  The hook has an internal state object that holds the alert sound in the expo AV module format.
+
+It also exposes a `playSound(name)` function, which is used to play a sound during a session.
 
 ## Global Storage
 
