@@ -49,7 +49,98 @@ After running `expo start`, press:
 
 - **shift+a** to select a connected Android device or emulator. You can also run your project on multiple Android devices at the same time.
 
-### Publishing an iOS app
+### Publishing an iOS App with EAS Build
+
+**Production build after everything setup**
+
+```javascript
+$ eas build -p ios
+```
+
+---
+
+[EAS Docs](https://docs.expo.dev/build/setup/)
+
+[EAS Docs on Secrets](https://docs.expo.dev/build-reference/variables/)
+
+#### Dealing with Secrets (Stuff in .env files)
+
+The main thing that caused me issues was my "secret" key for the TMDB API.  I was loading it via an JSON file that wasn't being tracked by git.  However, EAS couldn't see this file and was failing.
+
+I started by looking at `process.env.NODE_ENV`, which is available and when it === 'development', I take a different path, but that was only useful in turning on/off the overmind dev tools.  In the case of secrets, eas/expo has different paths.  I chose to use a `.env` file for the **dev environment** and the `eas secret:create` command for eas builds.
+
+**YOUR SECRECT IS IN TWO LOCATIONS**
+
+For **dev** it is in the `.env` file and for your **eas builds** it is pulled from the `eas sercret:create` command.  You can see your secrets for a project by running `eas secret:list` -- [Expo eas Secret command docs](https://docs.expo.dev/build-reference/variables/#adding-secrets-with-eas-cli)
+
+You then use the **app.config.js** file to pull the secret into a field that can be accessed in your code (whether it be in dev or a production build).  I believe the __eas secret__ is merged with the process.env file automatically, but to get the .env file info into you **app.config.js** you need to use the **dotenv** package.
+
+That is another thing, you do NOT want an app.json AT ALL.  You will do all your config in **app.config.js**.
+
+ [Docs on app.config.js settings](https://docs.expo.dev/versions/latest/config/app/#app-config)
+
+```javascript
+import "dotenv/config";
+// import appjson from "./app.json";
+// should be populated whether building
+// for DEV or Prod
+const tmdbId = process.env.TMDB_ID;
+export default {
+  name: "TV Tracker",
+  slug: "tv-tracker",
+  scheme: "tvtracker",
+  privacy: "unlisted",
+  platforms: ["ios"],
+  version: "0.1.81",
+  orientation: "portrait",
+  icon: "./assets/TVTrackerIcon.png",
+  splash: {
+    image: "./assets/TVTrackerSplash.png",
+    resizeMode: "contain",
+    backgroundColor: "#84ee4b",
+  },
+  updates: {
+    fallbackToCacheTimeout: 0,
+  },
+  assetBundlePatterns: ["*/"],
+  ios: {
+    supportsTablet: false,
+    bundleIdentifier: "com.mccoidco.tvtracker",
+    buildNumber: "0.1.81",
+    infoPlist: {
+      RCTAsyncStorageExcludeFromBackup: false,
+    },
+  },
+  // THIS IS WHAT WE READ IN THE CODE
+  // uses the expo contstancs package
+  extra: {
+    tmdbAPI: tmdbId,
+  },
+};
+```
+
+**HOW TO ACCESS IN CODE**
+
+You can now access anything under the "extra" key in your code using the __expo-constants__ package
+
+```javascript
+import Constants from "expo-constants";
+...
+let tmdbId = Constants.manifest.extra.tmdbAPI;
+
+import { initTMDB } from "@markmccoid/tmdb_api";
+
+export const onInitialize = async ({ state, effects, actions }) => {
+  // Sets up Listener for Auth state.  If logged
+  await initTMDB(tmdbId);
+...
+
+};
+```
+
+
+
+### Publishing an iOS app OLD
 
 [Building Standalone Apps](https://docs.expo.io/distribution/building-standalone-apps/)
 

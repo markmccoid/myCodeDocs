@@ -69,7 +69,7 @@ Using the standard Circle svg component from react-native-svg is very useful for
 
 You can animate the Stroke and get a nice effect.
 
-Getting here is a bit involved.
+Getting there is a bit involved.
 
 All svgs have a set of **Stroke** properties that allow you to give color and width to the circle's stroke.
 
@@ -92,8 +92,8 @@ Usually with a circle, you want to rotate it around its center.
 
 To calculate the origin use the following formula:
 
-- Width (From Svg Component) + StrokeWidth / 2
-- Height (From Svg Component) + StrokeWidth / 2
+- Width (From Svg Component) / 2 + StrokeWidth / 2
+- Height (From Svg Component) / 2 + StrokeWidth / 2
 
 The above two numbers make up the origin -> `{xvalue, yvalue}`
 
@@ -121,13 +121,17 @@ The above two numbers make up the origin -> `{xvalue, yvalue}`
 
 ### Animating the Stroke
 
-This is a mind fuck, so it is easier to just follow some rules instead of trying to envision what is happening with the offset and dash array.
+This is a mind fuck, so it is easier to just follow some rules instead of trying to envision what is happening with the offset and dash array, but I will also try to explain how to wrap your head around what is happening.
 
 - **strokeDasharray** - This is the length of the dash and optionally the length of the space between dashes.  if you pass a single number, the dash and space will be the same length.  That is what we want to animate the stroke.
 
 - **strokeDashoffset**- The offset of the dash/spaces.  When this is zero, the dash takes up all of the circle.  When it is equal to the Circumference, the space takes "shows".  Meaning you don't see anything.
 
   > IMPORTANT: The offset works COUNTER CLOCKWISE.  So a positive offset moves the dash COUNTER CLOCKWISE!!
+  >
+  > This means that as we move from 0 to the Circumference of the circle, it looks like the dash is being removed counter clockwise.  
+  >
+  > And that is why, if we want to to look like it is empty and filling Clockwise, we go from the Circumference to Zero.
 
 **strokeDashoffset = 0**
 
@@ -137,7 +141,7 @@ This is a mind fuck, so it is easier to just follow some rules instead of trying
 
 ![2022-04-13_23-48-01](../assets/react-native-svg-circle-005.png)
 
-If we want to start with an empty stroke and animate it until the stroke is complete, we need to animate the offset to start the Circumference of the circle (NO Stroke) and decrease te value down to zero.
+If we want to start with an empty stroke and animate it until the stroke is complete, we need to animate the offset to start the Circumference of the circle (NO Stroke) and **decrease te value down to zero.**
 
 You can do this with real numbers or percentages:
 
@@ -179,9 +183,103 @@ More
 
 ![image-20220414201814388](../assets/react-native-svg-circle-008.png)
 
+
+
+### Example SVG Component to Play With
+
+```javascript
+import React from "react";
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import Svg, { Circle, G } from "react-native-svg";
+
+const { width, height } = Dimensions.get("window");
+
+const MARGIN = 20;
+const BACKGROUND_COLOR = "#444B6F";
+const BACKGROUND_STROKE_COLOR = "#303858";
+const STROKE_COLOR = "#A6E1FA";
+const STROKE_WIDTH = 30;
+
+// Main Circle
+const MAIN_RADIUS = width / 2 - MARGIN;
+const MAIN_DIAMETER = MAIN_RADIUS * 2;
+const MAIN_CIRCUMFERENCE = 2 * Math.PI * MAIN_RADIUS;
+//const CIRCLE_LENGTH = 1000; // 2PI * R
+//const R = CIRCLE_LENGTH / (2 * Math.PI);
+
+const INNER_RADIUS = MAIN_RADIUS / 1.15;
+const INNER_DIAMETER = INNER_RADIUS * 2;
+const INNER_CIRCUMFERENCE = 2 * Math.PI * INNER_RADIUS; // 2PI * R
+
+function SVGTest() {
+  const [step, setStep] = React.useState(0);
+
+  const moveForward = () => {
+    setStep((prev) => +(prev + 0.2).toFixed(2));
+  };
+
+  const CIRCUMFERENCE = 400;
+  const R = CIRCUMFERENCE / (Math.PI * 2);
+  return (
+    <View
+      style={{ flexGrow: 1, justifyContent: "center", alignItems: "center", borderWidth: 2 }}
+    >
+      <View style={{ position: "absolute" }}>
+        <Text>15</Text>
+      </View>
+      <Svg
+        width={200}
+        height={200}
+        viewBox={`0 0 ${230} ${230}`}
+        style={{ borderWidth: 1 }}
+        // viewBox={`-50 -50 ${200} ${200}`}
+        // style={{ borderWidth: 1 }}
+        // width={MAIN_DIAMETER}
+        // height={MAIN_DIAMETER}
+        // viewBox={`0 0 ${MAIN_DIAMETER + STROKE_WIDTH * 2} ${MAIN_DIAMETER + STROKE_WIDTH * 2}`}
+        // style={{ borderWidth: 1 }}
+      >
+        {/* <G rotation="-90" origin={`${100 + 10}, ${100 + 10}`}> */}
+        <Circle
+          cx={"50%"}
+          cy={"50%"}
+          fill={"red"}
+          r={R}
+          stroke={"blue"}
+          strokeWidth={15}
+          strokeDasharray={CIRCUMFERENCE}
+          strokeDashoffset={CIRCUMFERENCE * (1 - step)}
+          rotation="-90"
+          origin={`${100 + 15}, ${100 + 15}`}
+        />
+        {/* </G> */}
+      </Svg>
+      <TouchableOpacity
+        style={{ borderWidth: 1, borderRadius: 5, padding: 5 }}
+        onPress={moveForward}
+      >
+        <Text>Increase</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{ borderWidth: 1, borderRadius: 5, padding: 5 }}
+        onPress={() => setStep(0)}
+      >
+        <Text>clear</Text>
+      </TouchableOpacity>
+      <Text style={{ fontSize: 20 }}>{`StepValue=${step}  \nOne minus StepValue=${(
+        1 - step
+      ).toFixed(2)}`}</Text>
+    </View>
+  );
+}
+
+export default SVGTest;
+
+```
+
+
+
 ## Helper Articles
-
-
 
 [Wrap Text around Image](https://github.com/react-native-svg/react-native-svg/issues/972)
 

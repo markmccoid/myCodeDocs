@@ -328,6 +328,38 @@ I probably need to write my own, or see if persiste allows a loader to run when 
 
 OR, just make sure my CreateNewSession function doesn't let bad data through.
 
+### Saving Results to Storage
+
+When a session completes `SessionFinishedStats.tsx` screen is shown.  There is a Save button that will allow the user to store the session results.  At some point, I can allow export of and/or graphing/viewing of data in the app.
+
+**StoredSessionStats type** in **useStore.ts**
+
+```typescript
+export type StoredSessionStats = {
+  statsId: string;
+  sessionName: string;
+  sessionDate: Date;
+  sessionLengthDisplay: string;
+  sessionLengthSeconds: number;
+  numberOfRounds: number;
+  SessionStats: SessionStats;
+};
+
+export type SessionStats = { [round: number]: SessionRoundInfo };
+
+export type SessionRoundInfo =
+  | {
+      breaths: number;
+      holdTimeSeconds: number;
+      recoveryHoldTimeSeconds: number;
+    }
+  | {};
+```
+
+
+
+
+
 ## Create / Edit Session
 
 ![image-20220307212421171](../assets/healingbreath_createeditsession_01.png)
